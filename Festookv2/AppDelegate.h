@@ -1,8 +1,8 @@
 //
 //  AppDelegate.h
-//  Festookv2
+//  Festook
 //
-//  Created by Eduard Bonada Cruells on 28/04/15.
+//  Created by Eduard Bonada Cruells on 12/03/15.
 //  Copyright (c) 2015 ebc. All rights reserved.
 //
 

@@ -8,12 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		23EA65861AEF94CA00D3DD3C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EA65851AEF94CA00D3DD3C /* main.m */; };
-		23EA65891AEF94CA00D3DD3C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EA65881AEF94CA00D3DD3C /* AppDelegate.m */; };
-		23EA658C1AEF94CA00D3DD3C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EA658B1AEF94CA00D3DD3C /* ViewController.m */; };
-		23EA658F1AEF94CA00D3DD3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23EA658D1AEF94CA00D3DD3C /* Main.storyboard */; };
-		23EA65911AEF94CA00D3DD3C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23EA65901AEF94CA00D3DD3C /* Images.xcassets */; };
 		23EA65941AEF94CA00D3DD3C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23EA65921AEF94CA00D3DD3C /* LaunchScreen.xib */; };
 		23EA65A01AEF94CA00D3DD3C /* Festookv2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EA659F1AEF94CA00D3DD3C /* Festookv2Tests.m */; };
+		23EA65AB1AEF95E100D3DD3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23EA65A91AEF95E100D3DD3C /* Main.storyboard */; };
+		23EA65AE1AEF95FD00D3DD3C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EA65AD1AEF95FD00D3DD3C /* AppDelegate.m */; };
+		23EA65B81AEF961600D3DD3C /* Band.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EA65B11AEF961600D3DD3C /* Band.m */; };
+		23EA65B91AEF961600D3DD3C /* BandSimilarityCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EA65B31AEF961600D3DD3C /* BandSimilarityCalculator.m */; };
+		23EA65BA1AEF961600D3DD3C /* Festival.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EA65B51AEF961600D3DD3C /* Festival.m */; };
+		23EA65BB1AEF961600D3DD3C /* FestivalSchedule.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EA65B71AEF961600D3DD3C /* FestivalSchedule.m */; };
+		23EA65E21AEF961E00D3DD3C /* Connectability.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EA65BE1AEF961E00D3DD3C /* Connectability.m */; };
+		23EA65E31AEF961E00D3DD3C /* UIApplication+NetworkActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EA65C01AEF961E00D3DD3C /* UIApplication+NetworkActivity.m */; };
+		23EA65E41AEF961E00D3DD3C /* BandCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EA65C31AEF961E00D3DD3C /* BandCollectionViewCell.m */; };
+		23EA65E51AEF961E00D3DD3C /* BandsInSectionsCollectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EA65C51AEF961E00D3DD3C /* BandsInSectionsCollectionHeaderView.m */; };
+		23EA65E61AEF961E00D3DD3C /* FestivalCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EA65C71AEF961E00D3DD3C /* FestivalCollectionViewCell.m */; };
+		23EA65E71AEF961E00D3DD3C /* FestivalIconsMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EA65C91AEF961E00D3DD3C /* FestivalIconsMenuTableViewCell.m */; };
+		23EA65E81AEF961E00D3DD3C /* FestivalLogoMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EA65CB1AEF961E00D3DD3C /* FestivalLogoMenuTableViewCell.m */; };
+		23EA65E91AEF961E00D3DD3C /* BandInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EA65CE1AEF961E00D3DD3C /* BandInfoVC.m */; };
+		23EA65EA1AEF961E00D3DD3C /* FestivalInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EA65D01AEF961E00D3DD3C /* FestivalInfoVC.m */; };
+		23EA65EB1AEF961E00D3DD3C /* FestivalLineupVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EA65D21AEF961E00D3DD3C /* FestivalLineupVC.m */; };
+		23EA65EC1AEF961E00D3DD3C /* FestivalMenuTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EA65D41AEF961E00D3DD3C /* FestivalMenuTVC.m */; };
+		23EA65ED1AEF961E00D3DD3C /* FestivalRevealVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EA65D61AEF961E00D3DD3C /* FestivalRevealVC.m */; };
+		23EA65EE1AEF961E00D3DD3C /* FestivalsBrowserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EA65D81AEF961E00D3DD3C /* FestivalsBrowserVC.m */; };
+		23EA65EF1AEF961E00D3DD3C /* FestivalScheduleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EA65DA1AEF961E00D3DD3C /* FestivalScheduleVC.m */; };
+		23EA65F01AEF961E00D3DD3C /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EA65DC1AEF961E00D3DD3C /* SWRevealViewController.m */; };
+		23EA65F11AEF961E00D3DD3C /* EbcEnhancedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EA65DF1AEF961E00D3DD3C /* EbcEnhancedView.m */; };
+		23EA65F21AEF961E00D3DD3C /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EA65E11AEF961E00D3DD3C /* UIImage+ImageEffects.m */; };
+		23EA65F41AEF96D800D3DD3C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23EA65F31AEF96D800D3DD3C /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,16 +50,56 @@
 		23EA65801AEF94CA00D3DD3C /* Festookv2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Festookv2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23EA65841AEF94CA00D3DD3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		23EA65851AEF94CA00D3DD3C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		23EA65871AEF94CA00D3DD3C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		23EA65881AEF94CA00D3DD3C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		23EA658A1AEF94CA00D3DD3C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		23EA658B1AEF94CA00D3DD3C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		23EA658E1AEF94CA00D3DD3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		23EA65901AEF94CA00D3DD3C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		23EA65931AEF94CA00D3DD3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		23EA65991AEF94CA00D3DD3C /* Festookv2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Festookv2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		23EA659E1AEF94CA00D3DD3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		23EA659F1AEF94CA00D3DD3C /* Festookv2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Festookv2Tests.m; sourceTree = "<group>"; };
+		23EA65AA1AEF95E100D3DD3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		23EA65AC1AEF95FD00D3DD3C /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		23EA65AD1AEF95FD00D3DD3C /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		23EA65B01AEF961600D3DD3C /* Band.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Band.h; sourceTree = "<group>"; };
+		23EA65B11AEF961600D3DD3C /* Band.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Band.m; sourceTree = "<group>"; };
+		23EA65B21AEF961600D3DD3C /* BandSimilarityCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BandSimilarityCalculator.h; sourceTree = "<group>"; };
+		23EA65B31AEF961600D3DD3C /* BandSimilarityCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BandSimilarityCalculator.m; sourceTree = "<group>"; };
+		23EA65B41AEF961600D3DD3C /* Festival.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Festival.h; sourceTree = "<group>"; };
+		23EA65B51AEF961600D3DD3C /* Festival.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Festival.m; sourceTree = "<group>"; };
+		23EA65B61AEF961600D3DD3C /* FestivalSchedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FestivalSchedule.h; sourceTree = "<group>"; };
+		23EA65B71AEF961600D3DD3C /* FestivalSchedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FestivalSchedule.m; sourceTree = "<group>"; };
+		23EA65BD1AEF961E00D3DD3C /* Connectability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Connectability.h; sourceTree = "<group>"; };
+		23EA65BE1AEF961E00D3DD3C /* Connectability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Connectability.m; sourceTree = "<group>"; };
+		23EA65BF1AEF961E00D3DD3C /* UIApplication+NetworkActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+NetworkActivity.h"; sourceTree = "<group>"; };
+		23EA65C01AEF961E00D3DD3C /* UIApplication+NetworkActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+NetworkActivity.m"; sourceTree = "<group>"; };
+		23EA65C21AEF961E00D3DD3C /* BandCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BandCollectionViewCell.h; sourceTree = "<group>"; };
+		23EA65C31AEF961E00D3DD3C /* BandCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BandCollectionViewCell.m; sourceTree = "<group>"; };
+		23EA65C41AEF961E00D3DD3C /* BandsInSectionsCollectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BandsInSectionsCollectionHeaderView.h; sourceTree = "<group>"; };
+		23EA65C51AEF961E00D3DD3C /* BandsInSectionsCollectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BandsInSectionsCollectionHeaderView.m; sourceTree = "<group>"; };
+		23EA65C61AEF961E00D3DD3C /* FestivalCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FestivalCollectionViewCell.h; sourceTree = "<group>"; };
+		23EA65C71AEF961E00D3DD3C /* FestivalCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FestivalCollectionViewCell.m; sourceTree = "<group>"; };
+		23EA65C81AEF961E00D3DD3C /* FestivalIconsMenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FestivalIconsMenuTableViewCell.h; sourceTree = "<group>"; };
+		23EA65C91AEF961E00D3DD3C /* FestivalIconsMenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FestivalIconsMenuTableViewCell.m; sourceTree = "<group>"; };
+		23EA65CA1AEF961E00D3DD3C /* FestivalLogoMenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FestivalLogoMenuTableViewCell.h; sourceTree = "<group>"; };
+		23EA65CB1AEF961E00D3DD3C /* FestivalLogoMenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FestivalLogoMenuTableViewCell.m; sourceTree = "<group>"; };
+		23EA65CD1AEF961E00D3DD3C /* BandInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BandInfoVC.h; sourceTree = "<group>"; };
+		23EA65CE1AEF961E00D3DD3C /* BandInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BandInfoVC.m; sourceTree = "<group>"; };
+		23EA65CF1AEF961E00D3DD3C /* FestivalInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FestivalInfoVC.h; sourceTree = "<group>"; };
+		23EA65D01AEF961E00D3DD3C /* FestivalInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FestivalInfoVC.m; sourceTree = "<group>"; };
+		23EA65D11AEF961E00D3DD3C /* FestivalLineupVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FestivalLineupVC.h; sourceTree = "<group>"; };
+		23EA65D21AEF961E00D3DD3C /* FestivalLineupVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FestivalLineupVC.m; sourceTree = "<group>"; };
+		23EA65D31AEF961E00D3DD3C /* FestivalMenuTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FestivalMenuTVC.h; sourceTree = "<group>"; };
+		23EA65D41AEF961E00D3DD3C /* FestivalMenuTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FestivalMenuTVC.m; sourceTree = "<group>"; };
+		23EA65D51AEF961E00D3DD3C /* FestivalRevealVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FestivalRevealVC.h; sourceTree = "<group>"; };
+		23EA65D61AEF961E00D3DD3C /* FestivalRevealVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FestivalRevealVC.m; sourceTree = "<group>"; };
+		23EA65D71AEF961E00D3DD3C /* FestivalsBrowserVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FestivalsBrowserVC.h; sourceTree = "<group>"; };
+		23EA65D81AEF961E00D3DD3C /* FestivalsBrowserVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FestivalsBrowserVC.m; sourceTree = "<group>"; };
+		23EA65D91AEF961E00D3DD3C /* FestivalScheduleVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FestivalScheduleVC.h; sourceTree = "<group>"; };
+		23EA65DA1AEF961E00D3DD3C /* FestivalScheduleVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FestivalScheduleVC.m; sourceTree = "<group>"; };
+		23EA65DB1AEF961E00D3DD3C /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		23EA65DC1AEF961E00D3DD3C /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		23EA65DE1AEF961E00D3DD3C /* EbcEnhancedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EbcEnhancedView.h; sourceTree = "<group>"; };
+		23EA65DF1AEF961E00D3DD3C /* EbcEnhancedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EbcEnhancedView.m; sourceTree = "<group>"; };
+		23EA65E01AEF961E00D3DD3C /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		23EA65E11AEF961E00D3DD3C /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		23EA65F31AEF96D800D3DD3C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,13 +141,14 @@
 		23EA65821AEF94CA00D3DD3C /* Festookv2 */ = {
 			isa = PBXGroup;
 			children = (
-				23EA65871AEF94CA00D3DD3C /* AppDelegate.h */,
-				23EA65881AEF94CA00D3DD3C /* AppDelegate.m */,
-				23EA658A1AEF94CA00D3DD3C /* ViewController.h */,
-				23EA658B1AEF94CA00D3DD3C /* ViewController.m */,
-				23EA658D1AEF94CA00D3DD3C /* Main.storyboard */,
-				23EA65901AEF94CA00D3DD3C /* Images.xcassets */,
+				23EA65A91AEF95E100D3DD3C /* Main.storyboard */,
+				23EA65F31AEF96D800D3DD3C /* Images.xcassets */,
 				23EA65921AEF94CA00D3DD3C /* LaunchScreen.xib */,
+				23EA65CC1AEF961E00D3DD3C /* ViewControllers */,
+				23EA65DD1AEF961E00D3DD3C /* Views */,
+				23EA65AF1AEF961600D3DD3C /* Model */,
+				23EA65C11AEF961E00D3DD3C /* ViewCells */,
+				23EA65BC1AEF961E00D3DD3C /* Networking */,
 				23EA65831AEF94CA00D3DD3C /* Supporting Files */,
 			);
 			path = Festookv2;
@@ -96,6 +157,8 @@
 		23EA65831AEF94CA00D3DD3C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				23EA65AC1AEF95FD00D3DD3C /* AppDelegate.h */,
+				23EA65AD1AEF95FD00D3DD3C /* AppDelegate.m */,
 				23EA65841AEF94CA00D3DD3C /* Info.plist */,
 				23EA65851AEF94CA00D3DD3C /* main.m */,
 			);
@@ -117,6 +180,91 @@
 				23EA659E1AEF94CA00D3DD3C /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		23EA65AF1AEF961600D3DD3C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				23EA65B01AEF961600D3DD3C /* Band.h */,
+				23EA65B11AEF961600D3DD3C /* Band.m */,
+				23EA65B21AEF961600D3DD3C /* BandSimilarityCalculator.h */,
+				23EA65B31AEF961600D3DD3C /* BandSimilarityCalculator.m */,
+				23EA65B41AEF961600D3DD3C /* Festival.h */,
+				23EA65B51AEF961600D3DD3C /* Festival.m */,
+				23EA65B61AEF961600D3DD3C /* FestivalSchedule.h */,
+				23EA65B71AEF961600D3DD3C /* FestivalSchedule.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		23EA65BC1AEF961E00D3DD3C /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				23EA65BD1AEF961E00D3DD3C /* Connectability.h */,
+				23EA65BE1AEF961E00D3DD3C /* Connectability.m */,
+				23EA65BF1AEF961E00D3DD3C /* UIApplication+NetworkActivity.h */,
+				23EA65C01AEF961E00D3DD3C /* UIApplication+NetworkActivity.m */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		23EA65C11AEF961E00D3DD3C /* ViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				23EA65C21AEF961E00D3DD3C /* BandCollectionViewCell.h */,
+				23EA65C31AEF961E00D3DD3C /* BandCollectionViewCell.m */,
+				23EA65C41AEF961E00D3DD3C /* BandsInSectionsCollectionHeaderView.h */,
+				23EA65C51AEF961E00D3DD3C /* BandsInSectionsCollectionHeaderView.m */,
+				23EA65C61AEF961E00D3DD3C /* FestivalCollectionViewCell.h */,
+				23EA65C71AEF961E00D3DD3C /* FestivalCollectionViewCell.m */,
+				23EA65C81AEF961E00D3DD3C /* FestivalIconsMenuTableViewCell.h */,
+				23EA65C91AEF961E00D3DD3C /* FestivalIconsMenuTableViewCell.m */,
+				23EA65CA1AEF961E00D3DD3C /* FestivalLogoMenuTableViewCell.h */,
+				23EA65CB1AEF961E00D3DD3C /* FestivalLogoMenuTableViewCell.m */,
+			);
+			path = ViewCells;
+			sourceTree = "<group>";
+		};
+		23EA65CC1AEF961E00D3DD3C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				23EA65D71AEF961E00D3DD3C /* FestivalsBrowserVC.h */,
+				23EA65D81AEF961E00D3DD3C /* FestivalsBrowserVC.m */,
+				23EA65D11AEF961E00D3DD3C /* FestivalLineupVC.h */,
+				23EA65D21AEF961E00D3DD3C /* FestivalLineupVC.m */,
+				23EA65D91AEF961E00D3DD3C /* FestivalScheduleVC.h */,
+				23EA65DA1AEF961E00D3DD3C /* FestivalScheduleVC.m */,
+				23EA65CD1AEF961E00D3DD3C /* BandInfoVC.h */,
+				23EA65CE1AEF961E00D3DD3C /* BandInfoVC.m */,
+				23EA65CF1AEF961E00D3DD3C /* FestivalInfoVC.h */,
+				23EA65D01AEF961E00D3DD3C /* FestivalInfoVC.m */,
+				23EA65F51AEF984400D3DD3C /* Side Menu */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		23EA65DD1AEF961E00D3DD3C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				23EA65DE1AEF961E00D3DD3C /* EbcEnhancedView.h */,
+				23EA65DF1AEF961E00D3DD3C /* EbcEnhancedView.m */,
+				23EA65E01AEF961E00D3DD3C /* UIImage+ImageEffects.h */,
+				23EA65E11AEF961E00D3DD3C /* UIImage+ImageEffects.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		23EA65F51AEF984400D3DD3C /* Side Menu */ = {
+			isa = PBXGroup;
+			children = (
+				23EA65D31AEF961E00D3DD3C /* FestivalMenuTVC.h */,
+				23EA65D41AEF961E00D3DD3C /* FestivalMenuTVC.m */,
+				23EA65D51AEF961E00D3DD3C /* FestivalRevealVC.h */,
+				23EA65D61AEF961E00D3DD3C /* FestivalRevealVC.m */,
+				23EA65DB1AEF961E00D3DD3C /* SWRevealViewController.h */,
+				23EA65DC1AEF961E00D3DD3C /* SWRevealViewController.m */,
+			);
+			name = "Side Menu";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,9 +347,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23EA658F1AEF94CA00D3DD3C /* Main.storyboard in Resources */,
+				23EA65F41AEF96D800D3DD3C /* Images.xcassets in Resources */,
 				23EA65941AEF94CA00D3DD3C /* LaunchScreen.xib in Resources */,
-				23EA65911AEF94CA00D3DD3C /* Images.xcassets in Resources */,
+				23EA65AB1AEF95E100D3DD3C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,9 +367,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23EA658C1AEF94CA00D3DD3C /* ViewController.m in Sources */,
-				23EA65891AEF94CA00D3DD3C /* AppDelegate.m in Sources */,
+				23EA65E21AEF961E00D3DD3C /* Connectability.m in Sources */,
+				23EA65ED1AEF961E00D3DD3C /* FestivalRevealVC.m in Sources */,
+				23EA65EB1AEF961E00D3DD3C /* FestivalLineupVC.m in Sources */,
+				23EA65E51AEF961E00D3DD3C /* BandsInSectionsCollectionHeaderView.m in Sources */,
+				23EA65BA1AEF961600D3DD3C /* Festival.m in Sources */,
+				23EA65EE1AEF961E00D3DD3C /* FestivalsBrowserVC.m in Sources */,
+				23EA65E91AEF961E00D3DD3C /* BandInfoVC.m in Sources */,
+				23EA65B81AEF961600D3DD3C /* Band.m in Sources */,
+				23EA65BB1AEF961600D3DD3C /* FestivalSchedule.m in Sources */,
+				23EA65EA1AEF961E00D3DD3C /* FestivalInfoVC.m in Sources */,
+				23EA65AE1AEF95FD00D3DD3C /* AppDelegate.m in Sources */,
+				23EA65E61AEF961E00D3DD3C /* FestivalCollectionViewCell.m in Sources */,
+				23EA65EC1AEF961E00D3DD3C /* FestivalMenuTVC.m in Sources */,
+				23EA65F11AEF961E00D3DD3C /* EbcEnhancedView.m in Sources */,
+				23EA65E41AEF961E00D3DD3C /* BandCollectionViewCell.m in Sources */,
+				23EA65F21AEF961E00D3DD3C /* UIImage+ImageEffects.m in Sources */,
+				23EA65F01AEF961E00D3DD3C /* SWRevealViewController.m in Sources */,
 				23EA65861AEF94CA00D3DD3C /* main.m in Sources */,
+				23EA65EF1AEF961E00D3DD3C /* FestivalScheduleVC.m in Sources */,
+				23EA65E31AEF961E00D3DD3C /* UIApplication+NetworkActivity.m in Sources */,
+				23EA65E71AEF961E00D3DD3C /* FestivalIconsMenuTableViewCell.m in Sources */,
+				23EA65B91AEF961600D3DD3C /* BandSimilarityCalculator.m in Sources */,
+				23EA65E81AEF961E00D3DD3C /* FestivalLogoMenuTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,20 +412,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		23EA658D1AEF94CA00D3DD3C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				23EA658E1AEF94CA00D3DD3C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		23EA65921AEF94CA00D3DD3C /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				23EA65931AEF94CA00D3DD3C /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		23EA65A91AEF95E100D3DD3C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				23EA65AA1AEF95E100D3DD3C /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -344,6 +512,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Festookv2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -354,6 +523,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Festookv2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
