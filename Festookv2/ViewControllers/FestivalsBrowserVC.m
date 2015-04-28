@@ -201,14 +201,16 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    // if 'Try Again' tapped
-    if(buttonIndex == 0){
-        [self setup];
-    }
-    else if(buttonIndex == 1){
-        // Continue with the current local list of festivals
-        if([self.festivals count] == 0){
-            self.emptyListText.hidden = NO;
+    if([alertView.message isEqualToString:@"Festook is trying to update the list of festivals."]){
+        // if 'Try Again' tapped
+        if(buttonIndex == 0){
+            [self setup];
+        }
+        else if(buttonIndex == 1){
+            // Continue with the current local list of festivals
+            if([self.festivals count] == 0){
+                self.emptyListText.hidden = NO;
+            }
         }
     }
 }
@@ -318,24 +320,26 @@
     // NSLog(@"Local Date: %@", [localDate description]);
     // NSLog(@"Server Date: %@", [serverDate description]);
     
-    // update file file from server, if the serverDate is newer
+    // update file from server, if the serverDate is newer
     if([serverDate compare:localDate] == NSOrderedDescending){
 
-        [[UIApplication sharedApplication] showNetworkActivityIndicator];
+        if( [[Connectability reachabilityForInternetConnection] currentReachabilityStatus] != NotReachable){
+            [[UIApplication sharedApplication] showNetworkActivityIndicator];
 
-        NSString* serverFileString = [[NSString alloc] initWithFormat:@"http://ec2-54-93-107-53.eu-central-1.compute.amazonaws.com/FestookAppFiles/%@",[file objectForKey:@"filename"]];
-        NSData *urlData = [NSData dataWithContentsOfURL:[NSURL URLWithString:serverFileString]];
-        if(urlData){
-            NSArray  *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
-            NSString *appSupportDirectory = [paths objectAtIndex:0];
-            NSString *filePath = [NSString stringWithFormat:@"%@/%@", appSupportDirectory,[file objectForKey:@"filename"]];
-            [urlData writeToFile:filePath atomically:YES];
+            NSString* serverFileString = [[NSString alloc] initWithFormat:@"http://ec2-54-93-107-53.eu-central-1.compute.amazonaws.com/FestookAppFiles/%@",[file objectForKey:@"filename"]];
+            NSData *urlData = [NSData dataWithContentsOfURL:[NSURL URLWithString:serverFileString]];
+            if(urlData){
+                NSArray  *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
+                NSString *appSupportDirectory = [paths objectAtIndex:0];
+                NSString *filePath = [NSString stringWithFormat:@"%@/%@", appSupportDirectory,[file objectForKey:@"filename"]];
+                [urlData writeToFile:filePath atomically:YES];
+            }
+            else{
+                NSLog(@"ERROR FestivalsBrowserVC::updateFileFromServer => Could not download file");
+            }
+
+            [[UIApplication sharedApplication] hideNetworkActivityIndicator];
         }
-        else{
-            NSLog(@"ERROR FestivalsBrowserVC::updateFileFromServer => Could not download file");
-        }
-        
-        [[UIApplication sharedApplication] hideNetworkActivityIndicator];
     }
 }
 
