@@ -113,12 +113,12 @@
                                     <outletCollection property="gestureRecognizers" destination="7u7-K9-ekw" appends="YES" id="GRw-r6-CEC"/>
                                 </connections>
                             </collectionView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" text="You have not yet selected any MUST artist. Do it and you will see the list sorted from more to less recommended." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vsq-ft-hTg">
-                                <rect key="frame" x="198" y="255" width="203" height="90"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" text="You have not yet selected any favourite band. Do it and you will see the list sorted from more to less recommended." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vsq-ft-hTg">
+                                <rect key="frame" x="198" y="200" width="203" height="110"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="203" id="aKC-0R-Bet"/>
-                                    <constraint firstAttribute="height" constant="90" id="uSw-oT-5yz"/>
+                                    <constraint firstAttribute="height" constant="110" id="uSw-oT-5yz"/>
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
@@ -155,7 +155,7 @@
                             <constraint firstItem="dxS-Ni-mgf" firstAttribute="top" secondItem="WBT-n4-gh3" secondAttribute="bottom" constant="8" id="VoI-yE-ysm"/>
                             <constraint firstItem="2DZ-eg-dUr" firstAttribute="top" secondItem="b4e-c1-Zvk" secondAttribute="top" id="Ydv-f9-VW1"/>
                             <constraint firstAttribute="centerX" secondItem="Vsq-ft-hTg" secondAttribute="centerX" id="bU9-Lq-kdY"/>
-                            <constraint firstAttribute="centerY" secondItem="Vsq-ft-hTg" secondAttribute="centerY" id="bfL-GV-fxu"/>
+                            <constraint firstAttribute="centerY" secondItem="Vsq-ft-hTg" secondAttribute="centerY" constant="45" id="bfL-GV-fxu"/>
                             <constraint firstItem="2DZ-eg-dUr" firstAttribute="leading" secondItem="b4e-c1-Zvk" secondAttribute="leading" id="e4m-uj-PGK"/>
                             <constraint firstAttribute="trailing" secondItem="2DZ-eg-dUr" secondAttribute="trailing" id="ei8-vm-LyB"/>
                             <constraint firstItem="eYh-dt-Qlc" firstAttribute="top" secondItem="2DZ-eg-dUr" secondAttribute="bottom" id="fEo-Ax-due"/>
@@ -255,7 +255,7 @@
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ddp-5n-Zxt">
                                 <rect key="frame" x="191" y="108" width="219" height="126"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" text="You have not yet selected any MUST artist. Do it in the Line-up tab and Festook will recommend you a schedule." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SUx-lK-UdU">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" text="You have not yet selected any favourite band. Do it in the Line-up tab and Festook will recommend you a schedule." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SUx-lK-UdU">
                                         <rect key="frame" x="8" y="8" width="203" height="110"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -524,35 +524,54 @@
                                     <outlet property="dataSource" destination="vXZ-lx-hvc" id="Mz8-Hh-Btd"/>
                                 </connections>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The list of festivals is empty. Check your internet connection and restart the app." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OTu-Nk-luF" userLabel="Empty List Text">
-                                <rect key="frame" x="200" y="150" width="200" height="100"/>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P93-hu-iod" userLabel="Empty List Container View">
+                                <rect key="frame" x="232" y="60" width="136" height="136"/>
+                                <subviews>
+                                    <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MVu-W3-D3v" customClass="EbcEnhancedView">
+                                        <rect key="frame" x="0.0" y="0.0" width="136" height="136"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The list of festivals is empty. Check your internet connection and restart the app." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OTu-Nk-luF" userLabel="Empty List Text">
+                                        <rect key="frame" x="8" y="8" width="120" height="120"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="Yp5-hg-BiP"/>
-                                    <constraint firstAttribute="width" constant="200" id="hPn-fN-sGK"/>
+                                    <constraint firstItem="OTu-Nk-luF" firstAttribute="top" secondItem="P93-hu-iod" secondAttribute="top" constant="8" id="01u-hT-nqR"/>
+                                    <constraint firstAttribute="width" constant="136" id="85E-YX-dyy"/>
+                                    <constraint firstItem="MVu-W3-D3v" firstAttribute="top" secondItem="P93-hu-iod" secondAttribute="top" id="I9w-hK-hbZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="MVu-W3-D3v" secondAttribute="trailing" id="KP7-gd-RkR"/>
+                                    <constraint firstItem="MVu-W3-D3v" firstAttribute="leading" secondItem="P93-hu-iod" secondAttribute="leading" id="LDN-nE-fx2"/>
+                                    <constraint firstAttribute="height" constant="136" id="YSI-8t-sNW"/>
+                                    <constraint firstAttribute="trailing" secondItem="OTu-Nk-luF" secondAttribute="trailing" constant="8" id="YsW-bJ-Vyw"/>
+                                    <constraint firstAttribute="bottom" secondItem="OTu-Nk-luF" secondAttribute="bottom" constant="8" id="dB1-QY-g2z"/>
+                                    <constraint firstItem="OTu-Nk-luF" firstAttribute="leading" secondItem="P93-hu-iod" secondAttribute="leading" constant="8" id="dIn-Kp-bK7"/>
+                                    <constraint firstAttribute="bottom" secondItem="MVu-W3-D3v" secondAttribute="bottom" id="uLv-LC-rhb"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wON-Nl-Hr1" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="5Ro-CM-Fb3"/>
-                            <constraint firstAttribute="centerX" secondItem="OTu-Nk-luF" secondAttribute="centerX" id="6f5-Lh-oR0"/>
                             <constraint firstItem="cfM-9N-z1T" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="8gY-Hc-7LZ"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="wON-Nl-Hr1" secondAttribute="bottom" constant="8" id="GS3-Eo-EDW"/>
                             <constraint firstItem="cfM-9N-z1T" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="Yj1-Ka-rDA"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="cfM-9N-z1T" secondAttribute="bottom" id="YwE-ql-J7e"/>
                             <constraint firstAttribute="trailing" secondItem="wON-Nl-Hr1" secondAttribute="trailing" constant="16" id="ZKz-0b-gjq"/>
-                            <constraint firstItem="OTu-Nk-luF" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="86" id="jFM-rx-YSb"/>
+                            <constraint firstAttribute="centerX" secondItem="P93-hu-iod" secondAttribute="centerX" id="oDI-WA-vag"/>
                             <constraint firstAttribute="trailing" secondItem="cfM-9N-z1T" secondAttribute="trailing" id="uKs-Je-RDC"/>
                             <constraint firstItem="wON-Nl-Hr1" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="xaJ-bO-O9b"/>
+                            <constraint firstItem="P93-hu-iod" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="-4" id="zw9-fk-qir"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="04s-vd-iD6"/>
                     <connections>
                         <outlet property="backgroundView" destination="cfM-9N-z1T" id="iWG-GJ-o12"/>
                         <outlet property="emptyListText" destination="OTu-Nk-luF" id="Ic7-ST-Sxx"/>
+                        <outlet property="emptyListTextBackground" destination="MVu-W3-D3v" id="bV2-e7-OOa"/>
                         <outlet property="festivalsCollectionView" destination="wON-Nl-Hr1" id="r1t-nf-HJe"/>
                     </connections>
                 </viewController>

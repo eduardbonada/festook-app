@@ -22,16 +22,15 @@
 
 @property (nonatomic,strong) NSMutableDictionary *festivals; // of @"lowercaseName":Festival
 
+@property (weak, nonatomic) IBOutlet EbcEnhancedView *backgroundView;
+
 @property (nonatomic,weak) IBOutlet UICollectionView *festivalsCollectionView;
 @property (nonatomic,strong) NSArray *festivalsAsInCollectionView; // of @"lowercaseName"
 
+
+@property (weak, nonatomic) IBOutlet EbcEnhancedView *emptyListTextBackground;
 @property (weak, nonatomic) IBOutlet UILabel *emptyListText;
 
-@property (weak, nonatomic) IBOutlet EbcEnhancedView *backgroundView;
-
-//@property (strong, nonatomic) UIBarButtonItem* helpButtonNavigationBar;
-
-//@property (strong, nonatomic) HelpRootVC* helpRootVC;
 
 @end
 
@@ -50,9 +49,18 @@
 
 -(void) setup
 {
-    self.emptyListText.hidden = YES;
     
     [self loadFestivalsData];
+    
+    //self.emptyListTextBackground.roundedRects = YES;
+    //self.emptyListTextBackground.cornerRadius = @(12.0);
+    //[self.emptyListTextBackground setBackgroundGradientFromColor:[UIColor colorWithRed:160.0/255 green:200.0/255 blue:160.0/255 alpha:1.0] toColor:[UIColor colorWithRed:200.0/255 green:240.0/255 blue:200.0/255 alpha:1.0]];
+
+    if([self.festivals count] == 0){
+        self.emptyListText.hidden = NO;
+        self.emptyListTextBackground.hidden = NO;
+        self.emptyListText.text = @"Downloading festivals information...";
+    }
 
     /*
      
@@ -67,9 +75,8 @@
     
     // set background image
     self.backgroundView.roundedRects = NO;
-    [self.backgroundView setBackgroundGradientFromColor:[UIColor colorWithWhite:0.8 alpha:1.0]
-                                                toColor:[UIColor colorWithWhite:1.0 alpha:1.0]];
-    //[self.backgroundView setBackgroundGradientFromColor:[UIColor colorWithRed:160.0/255 green:200.0/255 blue:160.0/255 alpha:1.0] toColor:[UIColor colorWithRed:200.0/255 green:240.0/255 blue:200.0/255 alpha:1.0]]; // festuc gradient
+    //[self.backgroundView setBackgroundGradientFromColor:[UIColor colorWithWhite:0.8 alpha:1.0] toColor:[UIColor colorWithWhite:1.0 alpha:1.0]];
+    [self.backgroundView setBackgroundGradientFromColor:[UIColor colorWithRed:168.0/255 green:223.0/255 blue:184.0/255 alpha:1.0] toColor:[UIColor colorWithRed:208.0/255 green:248.0/255 blue:219.0/255 alpha:1.0]]; // festuc gradient
     //[self.backgroundView setBackgroundPlain:[UIColor colorWithRed:230.0/255 green:230.0/255 blue:230.0/255 alpha:1.0] withAlpha:@(1.0)]; // grey from Festook 1.0
     
     // set color of navigation bar items
@@ -111,28 +118,25 @@
             FestivalCollectionViewCell *cell = (FestivalCollectionViewCell *)sender;
             NSIndexPath *indexPath = [self.festivalsCollectionView indexPathForCell:cell];
             
-            // set title of 'back' button
-            self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
-            
-            // set font of navigation bar title
-            [self.navigationController.navigationBar
-             setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue-Light" size:16],
-                                      NSForegroundColorAttributeName:[UIColor lightGrayColor]
-                                      }
-             ];
-
             // configure destination VC
             FestivalRevealVC *frvc = segue.destinationViewController;
             if ([frvc isKindOfClass:[FestivalRevealVC class]]) {
+                
+                // set title of 'back' button
+                self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+                
+                // set font of navigation bar title
+                [self.navigationController.navigationBar
+                 setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue-Light" size:16],
+                                          NSForegroundColorAttributeName:[UIColor lightGrayColor]
+                                          }
+                 ];
                 
                 // set title
                 [frvc setTitle:((Festival*)[self.festivals objectForKey:self.festivalsAsInCollectionView[indexPath.item]]).uppercaseName];
                 
                 // set festival object
                 frvc.festival = [self.festivals objectForKey:self.festivalsAsInCollectionView[indexPath.item]];
-                
-                // update festival files (listBands, bandDistance) form server, if needed
-                [self updateFilesFromFestival:frvc.festival];
                 
                 // load the bands of the festival
                 [frvc.festival loadBandsFromJsonList];
@@ -146,6 +150,38 @@
             }
         }
     }
+    
+}
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    
+    if([identifier isEqualToString:@"ShowFestival"]){
+        FestivalCollectionViewCell *cell = (FestivalCollectionViewCell *)sender;
+        NSIndexPath *indexPath = [self.festivalsCollectionView indexPathForCell:cell];
+
+        Festival* festival = [self.festivals objectForKey:self.festivalsAsInCollectionView[indexPath.item]];
+        
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
+        NSString *pathListBands = [[paths objectAtIndex:0] stringByAppendingPathComponent:[festival.listBandsFile objectForKey:@"filename"]];
+        NSString *pathDistanceMx = [[paths objectAtIndex:0] stringByAppendingPathComponent:[festival.bandDistanceFile objectForKey:@"filename"]];
+        
+        if ( [[NSFileManager defaultManager] fileExistsAtPath:pathListBands] && [[NSFileManager defaultManager] fileExistsAtPath:pathDistanceMx]){
+            return YES;
+        }
+        else{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Missing Data"
+                                                            message:@"The festival data could not be downloaded."
+                                                           delegate:self
+                                                  cancelButtonTitle:@"Cancel"
+                                                  otherButtonTitles:nil];
+            
+            [alert show];
+            return NO;
+        }
+    }
+    
+    return NO;
 }
 
 #pragma mark - Management of model data (festivals, bands, etc...)
@@ -184,12 +220,14 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 [[UIApplication sharedApplication] hideNetworkActivityIndicator];
                 [self loadFestivalsData];
+                self.emptyListText.hidden = YES;
+                self.emptyListTextBackground.hidden = YES;
             });
         });
     }
     else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Internet Connection"
-                                                        message:@"Festook is trying to update the list of festivals."
+                                                        message:@"Festook is trying to update festivals data."
                                                        delegate:self
                                               cancelButtonTitle:@"Try again"
                                               otherButtonTitles:@"Cancel",nil];
@@ -201,7 +239,7 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if([alertView.message isEqualToString:@"Festook is trying to update the list of festivals."]){
+    if([alertView.message isEqualToString:@"Festook is trying to update festivals data."]){
         // if 'Try Again' tapped
         if(buttonIndex == 0){
             [self setup];
@@ -210,6 +248,8 @@
             // Continue with the current local list of festivals
             if([self.festivals count] == 0){
                 self.emptyListText.hidden = NO;
+                self.emptyListTextBackground.hidden = NO;
+                self.emptyListText.text = @"The list of festivals is empty. Check your internet connection and restart the app.";
             }
         }
     }
@@ -261,6 +301,11 @@
         self.festivalsAsInCollectionView = festivalsSortedById;
         
         [self.festivalsCollectionView reloadData];
+        
+        // update festival files (listBands, bandDistance) form server, if needed
+        for(NSString* festivalName in [self.festivals allKeys]){
+            [self updateFilesFromFestival:[self.festivals objectForKey:festivalName]];
+        }
 
     }
     else{
@@ -322,24 +367,21 @@
     
     // update file from server, if the serverDate is newer
     if([serverDate compare:localDate] == NSOrderedDescending){
-
-        if( [[Connectability reachabilityForInternetConnection] currentReachabilityStatus] != NotReachable){
-            [[UIApplication sharedApplication] showNetworkActivityIndicator];
-
-            NSString* serverFileString = [[NSString alloc] initWithFormat:@"http://ec2-54-93-107-53.eu-central-1.compute.amazonaws.com/FestookAppFiles/%@",[file objectForKey:@"filename"]];
-            NSData *urlData = [NSData dataWithContentsOfURL:[NSURL URLWithString:serverFileString]];
-            if(urlData){
-                NSArray  *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
-                NSString *appSupportDirectory = [paths objectAtIndex:0];
-                NSString *filePath = [NSString stringWithFormat:@"%@/%@", appSupportDirectory,[file objectForKey:@"filename"]];
-                [urlData writeToFile:filePath atomically:YES];
-            }
-            else{
-                NSLog(@"ERROR FestivalsBrowserVC::updateFileFromServer => Could not download file");
-            }
-
-            [[UIApplication sharedApplication] hideNetworkActivityIndicator];
+        [[UIApplication sharedApplication] showNetworkActivityIndicator];
+        
+        NSString* serverFileString = [[NSString alloc] initWithFormat:@"http://ec2-54-93-107-53.eu-central-1.compute.amazonaws.com/FestookAppFiles/%@",[file objectForKey:@"filename"]];
+        NSData *urlData = [NSData dataWithContentsOfURL:[NSURL URLWithString:serverFileString]];
+        if(urlData){
+            NSArray  *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
+            NSString *appSupportDirectory = [paths objectAtIndex:0];
+            NSString *filePath = [NSString stringWithFormat:@"%@/%@", appSupportDirectory,[file objectForKey:@"filename"]];
+            [urlData writeToFile:filePath atomically:YES];
         }
+        else{
+            //NSLog(@"ERROR FestivalsBrowserVC::updateFileFromServer => Could not download file");
+        }
+        
+        [[UIApplication sharedApplication] hideNetworkActivityIndicator];
     }
 }
 
