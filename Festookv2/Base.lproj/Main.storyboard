@@ -524,15 +524,27 @@
                                     <outlet property="dataSource" destination="vXZ-lx-hvc" id="Mz8-Hh-Btd"/>
                                 </connections>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The list of festivals is empty. Check your internet connection and restart the app." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OTu-Nk-luF" userLabel="Empty List Text">
+                                <rect key="frame" x="200" y="150" width="200" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Yp5-hg-BiP"/>
+                                    <constraint firstAttribute="width" constant="200" id="hPn-fN-sGK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wON-Nl-Hr1" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="5Ro-CM-Fb3"/>
+                            <constraint firstAttribute="centerX" secondItem="OTu-Nk-luF" secondAttribute="centerX" id="6f5-Lh-oR0"/>
                             <constraint firstItem="cfM-9N-z1T" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="8gY-Hc-7LZ"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="wON-Nl-Hr1" secondAttribute="bottom" constant="8" id="GS3-Eo-EDW"/>
                             <constraint firstItem="cfM-9N-z1T" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="Yj1-Ka-rDA"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="cfM-9N-z1T" secondAttribute="bottom" id="YwE-ql-J7e"/>
                             <constraint firstAttribute="trailing" secondItem="wON-Nl-Hr1" secondAttribute="trailing" constant="16" id="ZKz-0b-gjq"/>
+                            <constraint firstItem="OTu-Nk-luF" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="86" id="jFM-rx-YSb"/>
                             <constraint firstAttribute="trailing" secondItem="cfM-9N-z1T" secondAttribute="trailing" id="uKs-Je-RDC"/>
                             <constraint firstItem="wON-Nl-Hr1" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="xaJ-bO-O9b"/>
                         </constraints>
@@ -540,6 +552,7 @@
                     <navigationItem key="navigationItem" id="04s-vd-iD6"/>
                     <connections>
                         <outlet property="backgroundView" destination="cfM-9N-z1T" id="iWG-GJ-o12"/>
+                        <outlet property="emptyListText" destination="OTu-Nk-luF" id="Ic7-ST-Sxx"/>
                         <outlet property="festivalsCollectionView" destination="wON-Nl-Hr1" id="r1t-nf-HJe"/>
                     </connections>
                 </viewController>
@@ -970,10 +983,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view alpha="0.49999999999999961" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SpF-TL-61A" userLabel="Overlay View">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8H7-te-xEd" userLabel="Background View" customClass="EbcEnhancedView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1296,6 +1305,10 @@
                                     <constraint firstItem="dGb-p5-npe" firstAttribute="top" secondItem="l3m-Gd-Iip" secondAttribute="bottom" constant="8" id="xT0-sx-RJG"/>
                                 </constraints>
                             </view>
+                            <view alpha="0.49999999999999961" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SpF-TL-61A" userLabel="Overlay View">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1388,6 +1401,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="PQ4-ku-Ycg"/>
-        <segue reference="G8I-Yk-9Mf"/>
+        <segue reference="eWK-BZ-QWP"/>
     </inferredMetricsTieBreakers>
 </document>

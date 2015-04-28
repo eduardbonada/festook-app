@@ -25,6 +25,8 @@
 @property (nonatomic,weak) IBOutlet UICollectionView *festivalsCollectionView;
 @property (nonatomic,strong) NSArray *festivalsAsInCollectionView; // of @"lowercaseName"
 
+@property (weak, nonatomic) IBOutlet UILabel *emptyListText;
+
 @property (weak, nonatomic) IBOutlet EbcEnhancedView *backgroundView;
 
 //@property (strong, nonatomic) UIBarButtonItem* helpButtonNavigationBar;
@@ -48,6 +50,8 @@
 
 -(void) setup
 {
+    self.emptyListText.hidden = YES;
+    
     [self loadFestivalsData];
 
     /*
@@ -117,7 +121,7 @@
                                       }
              ];
 
-            // configure detination VC
+            // configure destination VC
             FestivalRevealVC *frvc = segue.destinationViewController;
             if ([frvc isKindOfClass:[FestivalRevealVC class]]) {
                 
@@ -159,7 +163,7 @@
     }
     
     // update 'listFestivals.txt' file from server
-    if( [[Connectability reachabilityForInternetConnection] currentReachabilityStatus] == NotReachable){
+    if( [[Connectability reachabilityForInternetConnection] currentReachabilityStatus] != NotReachable){
         dispatch_queue_t gettingListFestivalsQ = dispatch_queue_create("gettingListFestivalsQ", NULL);
         dispatch_async(gettingListFestivalsQ, ^{
             dispatch_async(dispatch_get_main_queue(), ^{ [[UIApplication sharedApplication] showNetworkActivityIndicator]; });
@@ -174,7 +178,7 @@
                 [urlData writeToFile:filePath atomically:YES];
             }
             else{
-                NSLog(@"ERROR FestivalsBrowserVC::updateListFestivalsFromServer => Could not download file 'listFestivals.txt'");
+                //NSLog(@"ERROR FestivalsBrowserVC::updateListFestivalsFromServer => Could not download file 'listFestivals.txt'");
             }
             
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -203,6 +207,9 @@
     }
     else if(buttonIndex == 1){
         // Continue with the current local list of festivals
+        if([self.festivals count] == 0){
+            self.emptyListText.hidden = NO;
+        }
     }
 }
 
@@ -255,8 +262,7 @@
 
     }
     else{
-        NSLog(@"ERROR FestivalsBrowserVC::loadFestivalsData => File 'listFestivals.txt' does not exist");
-        
+        //NSLog(@"ERROR FestivalsBrowserVC::loadFestivalsData => File 'listFestivals.txt' does not exist");
     }
     
 }
@@ -274,7 +280,6 @@
      */
     [self updateFileFromServer:festival.listBandsFile];
     [self updateFileFromServer:festival.bandDistanceFile];
-    
     
 
 }
