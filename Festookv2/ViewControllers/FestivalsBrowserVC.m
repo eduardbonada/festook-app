@@ -17,6 +17,8 @@
 #import "FestivalCollectionViewCell.h"
 #import "FestivalRevealVC.h"
 
+#define SERVER @"ec2-52-28-77-0.eu-central-1.compute.amazonaws.com"
+#define FOLDER @"FestookAppFiles"
 
 @interface FestivalsBrowserVC () <UICollectionViewDataSource, UIAlertViewDelegate>
 
@@ -204,25 +206,27 @@
         dispatch_async(gettingListFestivalsQ, ^{
             dispatch_async(dispatch_get_main_queue(), ^{ [[UIApplication sharedApplication] showNetworkActivityIndicator]; });
             
-            //[NSThread sleepForTimeInterval:1.0];
+            NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
+            sessionConfig.timeoutIntervalForRequest = 10.0;
+            sessionConfig.timeoutIntervalForResource = 10.0;
+            NSURLSessionDataTask *downloadTask = [[NSURLSession sharedSession]
+                                                  dataTaskWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@/%@/listFestivals.txt",SERVER,FOLDER]]
+                                                  completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                      if(!error){
+                                                          NSArray  *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
+                                                          NSString *appSupportDirectory = [paths objectAtIndex:0];
+                                                          NSString *filePath = [NSString stringWithFormat:@"%@/%@", appSupportDirectory,@"listFestivals.txt"];
+                                                          [data writeToFile:filePath atomically:YES];
+                                                      }
+                                                      dispatch_async(dispatch_get_main_queue(), ^{
+                                                          [[UIApplication sharedApplication] hideNetworkActivityIndicator];
+                                                          [self loadFestivalsData];
+                                                          self.emptyListText.hidden = YES;
+                                                          self.emptyListTextBackground.hidden = YES;
+                                                      });
+                                                  }];
+            [downloadTask resume];
             
-            NSData *urlData = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://ec2-54-93-107-53.eu-central-1.compute.amazonaws.com/FestookAppFiles/listFestivals.txt"]];
-            if(urlData){
-                NSArray  *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
-                NSString *appSupportDirectory = [paths objectAtIndex:0];
-                NSString *filePath = [NSString stringWithFormat:@"%@/%@", appSupportDirectory,@"listFestivals.txt"];
-                [urlData writeToFile:filePath atomically:YES];
-            }
-            else{
-                //NSLog(@"ERROR FestivalsBrowserVC::updateListFestivalsFromServer => Could not download file 'listFestivals.txt'");
-            }
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [[UIApplication sharedApplication] hideNetworkActivityIndicator];
-                [self loadFestivalsData];
-                self.emptyListText.hidden = YES;
-                self.emptyListTextBackground.hidden = YES;
-            });
         });
     }
     else{
@@ -249,7 +253,7 @@
             if([self.festivals count] == 0){
                 self.emptyListText.hidden = NO;
                 self.emptyListTextBackground.hidden = NO;
-                self.emptyListText.text = @"The list of festivals is empty. Check your internet connection and restart the app.";
+                self.emptyListText.text = @"No festivals found. Check your internet connection and restart.";
             }
         }
     }
@@ -367,21 +371,26 @@
     
     // update file from server, if the serverDate is newer
     if([serverDate compare:localDate] == NSOrderedDescending){
+        
         [[UIApplication sharedApplication] showNetworkActivityIndicator];
-        
-        NSString* serverFileString = [[NSString alloc] initWithFormat:@"http://ec2-54-93-107-53.eu-central-1.compute.amazonaws.com/FestookAppFiles/%@",[file objectForKey:@"filename"]];
-        NSData *urlData = [NSData dataWithContentsOfURL:[NSURL URLWithString:serverFileString]];
-        if(urlData){
-            NSArray  *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
-            NSString *appSupportDirectory = [paths objectAtIndex:0];
-            NSString *filePath = [NSString stringWithFormat:@"%@/%@", appSupportDirectory,[file objectForKey:@"filename"]];
-            [urlData writeToFile:filePath atomically:YES];
-        }
-        else{
-            //NSLog(@"ERROR FestivalsBrowserVC::updateFileFromServer => Could not download file");
-        }
-        
-        [[UIApplication sharedApplication] hideNetworkActivityIndicator];
+
+        NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
+        sessionConfig.timeoutIntervalForRequest = 10.0;
+        sessionConfig.timeoutIntervalForResource = 10.0;
+        NSURLSessionDataTask *downloadTask = [[NSURLSession sharedSession]
+                                              dataTaskWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@/%@/%@",SERVER,FOLDER,[file objectForKey:@"filename"]]]
+                                              completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                  if(!error){
+                                                      
+                                                      NSArray  *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
+                                                      NSString *appSupportDirectory = [paths objectAtIndex:0];
+                                                      NSString *filePath = [NSString stringWithFormat:@"%@/%@", appSupportDirectory,[file objectForKey:@"filename"]];
+                                                      [data writeToFile:filePath atomically:YES];
+                                                  }
+                                                  [[UIApplication sharedApplication] hideNetworkActivityIndicator];
+                                              }];
+        [downloadTask resume];
+
     }
 }
 
