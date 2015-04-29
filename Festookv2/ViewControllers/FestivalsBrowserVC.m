@@ -17,7 +17,7 @@
 #import "FestivalCollectionViewCell.h"
 #import "FestivalRevealVC.h"
 
-#define SERVER @"ec2-52-28-77-0.eu-central-1.compute.amazonaws.com"
+#define SERVER @"52.28.21.228"
 #define FOLDER @"FestookAppFiles"
 
 @interface FestivalsBrowserVC () <UICollectionViewDataSource, UIAlertViewDelegate>
