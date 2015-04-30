@@ -15,6 +15,8 @@
 #import "FestivalIconsMenuTableViewCell.h"
 #import "Festival.h"
 
+#import "Flurry.h"
+
 @interface FestivalMenuTVC ()
 
 @property (nonatomic, strong) NSArray *menuItems;
@@ -24,6 +26,9 @@
 
 // SWRevealViewController: Declare the menuItems variable to store the cell identifier of the menu items
 NSArray *menuItems;
+
+
+#pragma mark - Initialization
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -43,6 +48,8 @@ NSArray *menuItems;
     
     // remove separators in last cells
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    [self logPresenceEventInFlurry];
         
 }
 
@@ -86,6 +93,15 @@ NSArray *menuItems;
     [self.tableView setContentInset:UIEdgeInsetsMake(0,0,0,0)];
     
 }
+
+
+#pragma mark - Interaction with backend
+
+-(void)logPresenceEventInFlurry
+{
+    [Flurry logEvent:@"Menu_Shown" withParameters:@{@"userID":((FestivalRevealVC*)self.revealViewController).userID,@"festival":[((FestivalRevealVC*)self.revealViewController).festival lowercaseName]}];
+}
+
 
 #pragma mark - gesture recognizers actions
 
@@ -175,25 +191,6 @@ NSArray *menuItems;
     }
 }
 
-/*
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // set selected cell colour
-    UITableViewCell *cell = (UITableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
-    [self setCellColor:[UIColor redColor] ForCell:cell];
-}
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // set normal cell colour
-    UITableViewCell *cell = (UITableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
-    [self setCellColor:[UIColor clearColor] ForCell:cell];
-}
-- (void)setCellColor:(UIColor *)color ForCell:(UITableViewCell *)cell
-{
-    cell.contentView.backgroundColor = color;
-    cell.backgroundColor = color;
-}
- */
 
 
 

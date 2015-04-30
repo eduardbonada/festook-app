@@ -15,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 
 @property (nonatomic, strong) Festival *festival;
+@property (strong, nonatomic) NSString* userID;
 
 @end

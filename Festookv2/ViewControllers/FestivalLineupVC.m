@@ -11,6 +11,8 @@
 #import "SWRevealViewController.h"
 #import "FestivalRevealVC.h"
 
+#import "Flurry.h"
+
 #import "EbcEnhancedView.h"
 #import "Band.h"
 #import "FestivalSchedule.h"
@@ -114,16 +116,9 @@
     }
     
     self.festival = ((FestivalRevealVC*)self.revealViewController).festival;
-
-    /*
-     // configure help right button
-     UIButton* infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
-     [infoButton addTarget:self
-     action:@selector(showHelpViewController)
-     forControlEvents:UIControlEventTouchUpInside];
-     self.helpButtonNavigationBar = [[UIBarButtonItem alloc] initWithCustomView:infoButton];
-     */
     
+    self.userID = ((FestivalRevealVC*)self.revealViewController).userID;
+        
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -167,9 +162,19 @@
                                                                  forState:UIControlStateNormal
              ];
             
+            bivc.userID = self.userID;
+            
         }
     }
 
+}
+
+
+#pragma mark - Interaction with backend
+
+-(void)logPresenceEventInFlurry
+{
+    [Flurry logEvent:@"Lineup_Shown" withParameters:@{@"userID":self.userID,@"festival":[self.festival lowercaseName],@"sortingOption":@(self.sortCollectionControl.selectedSegmentIndex)}];
 }
 
 
@@ -522,6 +527,11 @@ referenceSizeForFooterInSection:(NSInteger)section
     
     if(scrollToTop){
         [self.bandsCollectionView setContentOffset:CGPointZero animated:YES]; // scroll to the top
+    }
+    
+    // log change of sorting only if shown as front view
+    if(self.revealViewController.frontViewPosition == FrontViewPositionLeft){
+        [self logPresenceEventInFlurry];
     }
     
 }

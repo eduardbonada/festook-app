@@ -20,8 +20,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    [Flurry setLogLevel:FlurryLogLevelCriticalOnly];
-    [Flurry startSession:@"PVBDRP4HVJGR8VKMKZBN"];
+    //[Flurry setLogLevel:FlurryLogLevelCriticalOnly];
+    //[Flurry startSession:@"PVBDRP4HVJGR8VKMKZBN"];
     
     return YES;
 }

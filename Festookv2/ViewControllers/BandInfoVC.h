@@ -13,5 +13,6 @@
 @interface BandInfoVC : UIViewController
 
 @property (strong, nonatomic) Band* band;
+@property (strong, nonatomic) NSString* userID;
 
 @end

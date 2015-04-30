@@ -11,6 +11,8 @@
 #import "SWRevealViewController.h"
 #import "FestivalRevealVC.h"
 
+#import "Flurry.h"
+
 #import "EbcEnhancedView.h"
 #import "Festival.h"
 #import "Band.h"
@@ -42,7 +44,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *similarBandsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *differentBandsLabel;
 
-
 @end
 
 
@@ -73,8 +74,11 @@
     }
     
     self.festival = ((FestivalRevealVC*)self.revealViewController).festival;
+    self.userID = ((FestivalRevealVC*)self.revealViewController).userID;
 
     [self setup];
+    
+    [self logPresenceEventInFlurry];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -199,6 +203,18 @@
     
 }
 
+#pragma mark - Interaction with backend
+
+-(void)logPresenceEventInFlurry
+{
+    [Flurry logEvent:@"Festival_Info_Shown" withParameters:@{@"userID":self.userID,@"festival":self.festival.lowercaseName}];
+}
+-(void)logSocialClickEventInFlurry:(NSString*) socialLink
+{
+    [Flurry logEvent:@"Festival_Info_Social_Click" withParameters:@{@"userID":self.userID,@"festival":self.festival.lowercaseName,@"socialLink":socialLink}];
+}
+
+
 #pragma mark - SWRevealViewController delegate
 
 - (void)revealController:(SWRevealViewController *)revealController willMoveToPosition:(FrontViewPosition)position
@@ -236,6 +252,8 @@
 - (IBAction)webButtonPressed:(UIButton *)sender
 {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.festival.web]];
+
+    [self logSocialClickEventInFlurry:@"web"];
 }
 - (IBAction)twitterButtonPressed:(UIButton *)sender
 {
@@ -247,6 +265,8 @@
         twitterUrl = [[NSString alloc] initWithFormat:@"http://www.twitter.com/%@",@"primavera_sound"];
     }
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:twitterUrl]];
+
+    [self logSocialClickEventInFlurry:@"twitter"];
 }
 - (IBAction)facebookButtonPressed:(UIButton *)sender
 {
@@ -258,12 +278,17 @@
         facebookUrl = [[NSString alloc] initWithFormat:@"https://www.facebook.com/profile.php?id=%@",@"156656398155"];
     }
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:facebookUrl]];
+    
+    [self logSocialClickEventInFlurry:@"facebook"];
+
 }
 - (IBAction)youtubeButtonPressed:(UIButton *)sender
 {
     NSString* youtubeUrl = @"";
     youtubeUrl = [[NSString alloc] initWithFormat:@"http://www.youtube.com/%@",@"primavera_sound"];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:youtubeUrl]];
+    
+    [self logSocialClickEventInFlurry:@"youtube"];
 }
 
 

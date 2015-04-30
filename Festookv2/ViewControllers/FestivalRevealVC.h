@@ -15,5 +15,6 @@
 @interface FestivalRevealVC : SWRevealViewController
 
 @property (strong, nonatomic) Festival* festival;
+@property (strong, nonatomic) NSString* userID;
 
 @end

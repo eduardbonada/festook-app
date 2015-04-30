@@ -145,15 +145,18 @@
                 
                 // set festival object
                 frvc.festival = [self.festivals objectForKey:self.festivalsAsInCollectionView[indexPath.item]];
-                
+
+                // set userID
+                frvc.userID = self.userID;
+
                 // load the bands of the festival
                 [frvc.festival loadBandsFromJsonList];
                 
                 // set mustBands stored in NSUserDefaults, if any
-                frvc.festival.mustBands = [frvc.festival getMustBandsFromUserDefaults];
+                frvc.festival.mustBands = [frvc.festival getMustBandsFromNSUserDefaults];
                 
                 // set discardedBands stored in NSUserDefaults, if any
-                frvc.festival.discardedBands = [frvc.festival getDiscardedBandsFromUserDefaults];
+                frvc.festival.discardedBands = [frvc.festival getDiscardedBandsFromNSUserDefaults];
                 
             }
         }
@@ -204,7 +207,7 @@
     }
     else{
         self.userID = userID;
-        [self logEventInFlurry];
+        [self logPresenceEventInFlurry];
     }
 }
 
@@ -231,7 +234,7 @@
                                                       [defaults setObject:[dict objectForKey:@"userID"] forKey:@"userID"];
                                                       [defaults synchronize];
                                                       self.userID = [dict objectForKey:@"userID"];
-                                                      [self logEventInFlurry];
+                                                      [self logPresenceEventInFlurry];
                                                   }
                                               }
                                               [[UIApplication sharedApplication] hideNetworkActivityIndicator];
@@ -240,7 +243,7 @@
     
 }
 
--(void)logEventInFlurry
+-(void)logPresenceEventInFlurry
 {
     [Flurry logEvent:@"List_Festivals_Shown" withParameters:@{@"userID":self.userID}];
 }

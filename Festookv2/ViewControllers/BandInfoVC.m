@@ -8,6 +8,8 @@
 
 #import "BandInfoVC.h"
 
+#import "Flurry.h"
+
 #import "EbcEnhancedView.h"
 
 @interface BandInfoVC ()
@@ -50,6 +52,8 @@
     [super viewDidLoad];
     
     [self setup];
+    
+    [self logPresenceEventInFlurry];
 }
 
 -(void) setup
@@ -102,6 +106,28 @@
 
     }
     
+}
+
+
+#pragma mark - Interaction with backend
+
+-(void)logPresenceEventInFlurry
+{
+    [Flurry logEvent:@"Band_Info_Shown" withParameters:@{@"userID":self.userID,@"festival":self.band.festival.lowercaseName,@"band":self.band.lowercaseName}]; 
+}
+
+-(void)logMustDiscardedBandsInFlurry
+{
+    NSString* allMustBands = @"";
+    for(NSString* band in self.band.festival.mustBands.allKeys){
+        allMustBands = [allMustBands stringByAppendingString:[NSString stringWithFormat:@"%@,",band]];
+    }
+    NSString* allDiscardedBands = @"";
+    for(NSString* band in self.band.festival.discardedBands.allKeys){
+        allDiscardedBands = [allDiscardedBands stringByAppendingString:[NSString stringWithFormat:@"%@,",band]];
+    }
+    
+    [Flurry logEvent:@"Must_Discarded_Bands" withParameters:@{@"userID":self.userID,@"festival":self.band.festival.lowercaseName,@"mustBands":allMustBands,@"discardedBands":allDiscardedBands}];
 }
 
 
@@ -256,8 +282,11 @@
     [self highlightMustDiscardedControlAtSegment:self.mustDiscardedSegmentedControl.selectedSegmentIndex];
 
     // update persisted mustBands and discardedBands
-    [self.band.festival storeMustBandsIntoUserDefaults];
-    [self.band.festival storeDiscardedBandsIntoUserDefaults];
+    [self.band.festival storeMustBandsInNSUserDefaults];
+    [self.band.festival storeDiscardedBandsInNSUserDefaults];
+    
+    // log
+    [self logMustDiscardedBandsInFlurry];
     
     // back to last VC
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.25 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{

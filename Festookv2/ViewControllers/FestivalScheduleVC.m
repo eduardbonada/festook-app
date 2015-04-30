@@ -11,6 +11,8 @@
 #import "FestivalRevealVC.h"
 #import "SWRevealViewController.h"
 
+#import "Flurry.h"
+
 #import "EbcEnhancedView.h"
 #import "FestivalSchedule.h"
 #import "Band.h"
@@ -63,7 +65,11 @@
     }
     
     self.festival = ((FestivalRevealVC*)self.revealViewController).festival;
+    self.userID = ((FestivalRevealVC*)self.revealViewController).userID;
+
     self.festival.changeInMustOrDiscarded = YES; // mark to perform schedule computations
+    
+    [self logPresenceEventInFlurry];
 
 }
 
@@ -180,6 +186,15 @@
 }
 
 
+#pragma mark - Interaction with backend
+
+-(void)logPresenceEventInFlurry
+{
+    [Flurry logEvent:@"Schedule_Shown" withParameters:@{@"userID":self.userID,@"festival":[self.festival lowercaseName]}];
+}
+
+
+
 #pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -217,6 +232,7 @@
                 //[bivc setTitle:self.festival.uppercaseName];
                 NSIndexPath* indexPath = [self.scheduleTableView indexPathForSelectedRow];
                 bivc.band = [self.festival.bands objectForKey:[self.bandsToAttend objectAtIndex:indexPath.row]];
+                bivc.userID = self.userID;
             }
         }
     }

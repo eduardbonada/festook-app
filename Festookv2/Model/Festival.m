@@ -8,6 +8,8 @@
 
 #import "Festival.h"
 
+#import "Flurry.h"
+
 #import "Band.h"
 #import "FestivalSchedule.h"
 #import "BandSimilarityCalculator.h"
@@ -181,10 +183,9 @@
 }
 
 
-
 #pragma mark - Update from NSUserDefaults
 
--(void) storeMustBandsIntoUserDefaults
+-(void) storeMustBandsInNSUserDefaults
 {
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -207,7 +208,7 @@
     self.changeInMustOrDiscarded = YES;
     
 }
--(NSMutableDictionary*) getMustBandsFromUserDefaults
+-(NSMutableDictionary*) getMustBandsFromNSUserDefaults
 {
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -227,7 +228,7 @@
     return self.mustBands;
     
 }
--(void) storeDiscardedBandsIntoUserDefaults
+-(void) storeDiscardedBandsInNSUserDefaults
 {
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -248,9 +249,9 @@
     [defaults synchronize];
     
     self.changeInMustOrDiscarded = YES;
-    
+        
 }
--(NSMutableDictionary*) getDiscardedBandsFromUserDefaults
+-(NSMutableDictionary*) getDiscardedBandsFromNSUserDefaults
 {
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

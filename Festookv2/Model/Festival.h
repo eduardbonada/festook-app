@@ -55,10 +55,10 @@
 -(NSNumber*) distanceBetweenBands:(NSString*) bandNameA and:(NSString*) bandNameB;
 
 /* Interface with NSUserDefaults */
--(void) storeMustBandsIntoUserDefaults;
--(NSMutableDictionary*) getMustBandsFromUserDefaults;
--(void) storeDiscardedBandsIntoUserDefaults;
--(NSMutableDictionary*) getDiscardedBandsFromUserDefaults;
+-(void) storeMustBandsInNSUserDefaults;
+-(NSMutableDictionary*) getMustBandsFromNSUserDefaults;
+-(void) storeDiscardedBandsInNSUserDefaults;
+-(NSMutableDictionary*) getDiscardedBandsFromNSUserDefaults;
 
 
 @end
