@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23D1525F1AF0E91C00A00AC9 /* libFlurry_6.3.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 23D1525E1AF0E91C00A00AC9 /* libFlurry_6.3.0.a */; };
 		23EA65861AEF94CA00D3DD3C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EA65851AEF94CA00D3DD3C /* main.m */; };
 		23EA65941AEF94CA00D3DD3C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23EA65921AEF94CA00D3DD3C /* LaunchScreen.xib */; };
 		23EA65A01AEF94CA00D3DD3C /* Festookv2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EA659F1AEF94CA00D3DD3C /* Festookv2Tests.m */; };
@@ -47,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		23D1525D1AF0E91C00A00AC9 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
+		23D1525E1AF0E91C00A00AC9 /* libFlurry_6.3.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_6.3.0.a; sourceTree = "<group>"; };
 		23EA65801AEF94CA00D3DD3C /* Festookv2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Festookv2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23EA65841AEF94CA00D3DD3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		23EA65851AEF94CA00D3DD3C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -107,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23D1525F1AF0E91C00A00AC9 /* libFlurry_6.3.0.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,6 +124,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		23D1525C1AF0E91C00A00AC9 /* Flurry */ = {
+			isa = PBXGroup;
+			children = (
+				23D1525D1AF0E91C00A00AC9 /* Flurry.h */,
+				23D1525E1AF0E91C00A00AC9 /* libFlurry_6.3.0.a */,
+			);
+			path = Flurry;
+			sourceTree = "<group>";
+		};
 		23EA65771AEF94C900D3DD3C = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +162,7 @@
 				23EA65AF1AEF961600D3DD3C /* Model */,
 				23EA65C11AEF961E00D3DD3C /* ViewCells */,
 				23EA65BC1AEF961E00D3DD3C /* Networking */,
+				23D1525C1AF0E91C00A00AC9 /* Flurry */,
 				23EA65831AEF94CA00D3DD3C /* Supporting Files */,
 			);
 			path = Festookv2;
@@ -514,6 +528,10 @@
 				INFOPLIST_FILE = Festookv2/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Festookv2/Flurry",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -525,6 +543,10 @@
 				INFOPLIST_FILE = Festookv2/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Festookv2/Flurry",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -582,6 +604,7 @@
 				23EA65A51AEF94CA00D3DD3C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		23EA65A61AEF94CA00D3DD3C /* Build configuration list for PBXNativeTarget "Festookv2Tests" */ = {
 			isa = XCConfigurationList;
@@ -590,6 +613,7 @@
 				23EA65A81AEF94CA00D3DD3C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

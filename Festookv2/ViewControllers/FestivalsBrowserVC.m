@@ -17,6 +17,8 @@
 #import "FestivalCollectionViewCell.h"
 #import "FestivalRevealVC.h"
 
+#import "Flurry.h"
+
 #define SERVER @"52.28.21.228"
 #define FOLDER @"FestookAppFiles"
 
@@ -33,6 +35,7 @@
 @property (weak, nonatomic) IBOutlet EbcEnhancedView *emptyListTextBackground;
 @property (weak, nonatomic) IBOutlet UILabel *emptyListText;
 
+@property (strong, nonatomic) NSString* userID;
 
 @end
 
@@ -101,7 +104,10 @@
 {
     [super viewDidLoad];
     
+    [self getUserID];
+    
     [self setup];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -186,6 +192,60 @@
     return NO;
 }
 
+
+#pragma mark - Interaction with Backend
+
+-(void) getUserID
+{
+    // get userID stored in NSUserDefaults, or ask for one to the server
+    NSString *userID = [[NSUserDefaults standardUserDefaults] objectForKey:@"userID"];
+    if(!userID){
+        [self getUserIDfromServer]; // run asynchronously
+    }
+    else{
+        self.userID = userID;
+        [self logEventInFlurry];
+    }
+}
+
+-(void) getUserIDfromServer
+{
+    
+    [[UIApplication sharedApplication] showNetworkActivityIndicator];
+    
+    NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
+    sessionConfig.timeoutIntervalForRequest = 10.0;
+    sessionConfig.timeoutIntervalForResource = 10.0;
+    NSURLSessionDataTask *downloadTask = [[NSURLSession sharedSession]
+                                          dataTaskWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@/%@/%@",SERVER,FOLDER,@"getUserID.php"]]
+                                          completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                              if(!error){
+                                                  NSDictionary* dict = (NSDictionary*)[NSJSONSerialization JSONObjectWithData:data
+                                                                                                                      options:NSJSONReadingMutableContainers
+                                                                                                                        error:&error];
+                                                  if(error){
+                                                      NSLog(@"ERROR FestivalsBrowserVC::getUserIDFromServer => %@",error);
+                                                  }
+                                                  else{
+                                                      NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                                                      [defaults setObject:[dict objectForKey:@"userID"] forKey:@"userID"];
+                                                      [defaults synchronize];
+                                                      self.userID = [dict objectForKey:@"userID"];
+                                                      [self logEventInFlurry];
+                                                  }
+                                              }
+                                              [[UIApplication sharedApplication] hideNetworkActivityIndicator];
+                                          }];
+    [downloadTask resume];
+    
+}
+
+-(void)logEventInFlurry
+{
+    [Flurry logEvent:@"List_Festivals_Shown" withParameters:@{@"userID":self.userID}];
+}
+
+
 #pragma mark - Management of model data (festivals, bands, etc...)
 
 -(void) updateListFestivalsFromServer
@@ -253,7 +313,7 @@
             if([self.festivals count] == 0){
                 self.emptyListText.hidden = NO;
                 self.emptyListTextBackground.hidden = NO;
-                self.emptyListText.text = @"No festivals found. Check your internet connection and restart.";
+                self.emptyListText.text = @"No festivals found. Check your internet connection and restart the app.";
             }
         }
     }

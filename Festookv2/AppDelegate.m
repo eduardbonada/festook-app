@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 
+#import "Flurry.h"
+
 @interface AppDelegate ()
 
 @end
@@ -17,6 +19,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [Flurry setLogLevel:FlurryLogLevelCriticalOnly];
+    [Flurry startSession:@"PVBDRP4HVJGR8VKMKZBN"];
+    
     return YES;
 }
 
