@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		236C5AAF1AF276E600D885E4 /* AboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 236C5AAE1AF276E600D885E4 /* AboutVC.m */; };
+		238070621AF4BE39009DE4B8 /* LegalTextVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 238070611AF4BE39009DE4B8 /* LegalTextVC.m */; };
 		23D1525F1AF0E91C00A00AC9 /* libFlurry_6.3.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 23D1525E1AF0E91C00A00AC9 /* libFlurry_6.3.0.a */; };
 		23EA65861AEF94CA00D3DD3C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EA65851AEF94CA00D3DD3C /* main.m */; };
 		23EA65941AEF94CA00D3DD3C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23EA65921AEF94CA00D3DD3C /* LaunchScreen.xib */; };
@@ -48,6 +50,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		236C5AAD1AF276E600D885E4 /* AboutVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutVC.h; sourceTree = "<group>"; };
+		236C5AAE1AF276E600D885E4 /* AboutVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutVC.m; sourceTree = "<group>"; };
+		238070601AF4BE39009DE4B8 /* LegalTextVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LegalTextVC.h; sourceTree = "<group>"; };
+		238070611AF4BE39009DE4B8 /* LegalTextVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegalTextVC.m; sourceTree = "<group>"; };
 		23D1525D1AF0E91C00A00AC9 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
 		23D1525E1AF0E91C00A00AC9 /* libFlurry_6.3.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_6.3.0.a; sourceTree = "<group>"; };
 		23EA65801AEF94CA00D3DD3C /* Festookv2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Festookv2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -252,6 +258,10 @@
 				23EA65CE1AEF961E00D3DD3C /* BandInfoVC.m */,
 				23EA65CF1AEF961E00D3DD3C /* FestivalInfoVC.h */,
 				23EA65D01AEF961E00D3DD3C /* FestivalInfoVC.m */,
+				236C5AAD1AF276E600D885E4 /* AboutVC.h */,
+				236C5AAE1AF276E600D885E4 /* AboutVC.m */,
+				238070601AF4BE39009DE4B8 /* LegalTextVC.h */,
+				238070611AF4BE39009DE4B8 /* LegalTextVC.m */,
 				23EA65F51AEF984400D3DD3C /* Side Menu */,
 			);
 			path = ViewControllers;
@@ -381,6 +391,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				236C5AAF1AF276E600D885E4 /* AboutVC.m in Sources */,
 				23EA65E21AEF961E00D3DD3C /* Connectability.m in Sources */,
 				23EA65ED1AEF961E00D3DD3C /* FestivalRevealVC.m in Sources */,
 				23EA65EB1AEF961E00D3DD3C /* FestivalLineupVC.m in Sources */,
@@ -393,6 +404,7 @@
 				23EA65EA1AEF961E00D3DD3C /* FestivalInfoVC.m in Sources */,
 				23EA65AE1AEF95FD00D3DD3C /* AppDelegate.m in Sources */,
 				23EA65E61AEF961E00D3DD3C /* FestivalCollectionViewCell.m in Sources */,
+				238070621AF4BE39009DE4B8 /* LegalTextVC.m in Sources */,
 				23EA65EC1AEF961E00D3DD3C /* FestivalMenuTVC.m in Sources */,
 				23EA65F11AEF961E00D3DD3C /* EbcEnhancedView.m in Sources */,
 				23EA65E41AEF961E00D3DD3C /* BandCollectionViewCell.m in Sources */,

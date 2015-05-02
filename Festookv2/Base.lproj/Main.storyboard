@@ -27,10 +27,10 @@
             </objects>
             <point key="canvasLocation" x="-851" y="-513"/>
         </scene>
-        <!--View Controller-->
+        <!--AboutVC-->
         <scene sceneID="K0i-AW-AAw">
             <objects>
-                <viewController id="Nt5-wO-8nY" sceneMemberID="viewController">
+                <viewController id="Nt5-wO-8nY" customClass="AboutVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0qZ-E6-HOY"/>
                         <viewControllerLayoutGuide type="bottom" id="msA-aB-zwN"/>
@@ -38,10 +38,424 @@
                     <view key="view" contentMode="scaleToFill" id="Olh-Za-nwu">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Df-au-O7r" customClass="EbcEnhancedView">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3FB-Qq-6qE">
+                                <rect key="frame" x="546" y="562" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="4tS-5A-OX7"/>
+                                    <constraint firstAttribute="height" constant="30" id="NdC-Sf-6BG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissAbout:" destination="Nt5-wO-8nY" eventType="touchUpInside" id="3rp-4s-n50"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CgT-lF-Ju9" userLabel="Logo Container View">
+                                <rect key="frame" x="16" y="28" width="568" height="260"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iMF-96-Unz" customClass="EbcEnhancedView">
+                                        <rect key="frame" x="0.0" y="0.0" width="568" height="260"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="festookLogo" translatesAutoresizingMaskIntoConstraints="NO" id="K8V-AC-ik3">
+                                        <rect key="frame" x="209" y="18" width="150" height="75"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="75" id="53v-PN-6KN"/>
+                                            <constraint firstAttribute="width" constant="150" id="Z4v-vl-Mvx"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="festook" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2e-BO-U8r">
+                                        <rect key="frame" x="209" y="93" width="150" height="30"/>
+                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="EON-RD-Pi6"/>
+                                            <constraint firstAttribute="height" constant="30" id="cK7-9t-cvQ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Music festivals will never be the same!" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBM-Sp-BvE">
+                                        <rect key="frame" x="8" y="128" width="552" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Dah-FN-wxj"/>
+                                        </constraints>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9py-Sc-mjQ">
+                                        <rect key="frame" x="8" y="158" width="552" height="94"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <string key="text">Festook is your personal expert and will help you plan your schedule. Tell him what bands you like most and it will recommend you the list of concerts that better fits your tastes.</string>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="K8V-AC-ik3" firstAttribute="top" secondItem="CgT-lF-Ju9" secondAttribute="top" constant="18" id="1Ye-0d-xnx"/>
+                                    <constraint firstItem="9py-Sc-mjQ" firstAttribute="top" secondItem="bBM-Sp-BvE" secondAttribute="bottom" id="4CX-Wb-Aex"/>
+                                    <constraint firstAttribute="height" constant="260" id="CM9-vg-u25"/>
+                                    <constraint firstItem="iMF-96-Unz" firstAttribute="leading" secondItem="CgT-lF-Ju9" secondAttribute="leading" id="H5u-jJ-a8O"/>
+                                    <constraint firstAttribute="centerX" secondItem="K8V-AC-ik3" secondAttribute="centerX" id="RLF-oV-kcr"/>
+                                    <constraint firstAttribute="trailing" secondItem="bBM-Sp-BvE" secondAttribute="trailing" constant="8" id="Uff-fK-sLp"/>
+                                    <constraint firstAttribute="trailing" secondItem="9py-Sc-mjQ" secondAttribute="trailing" constant="8" id="XMF-0K-Piw"/>
+                                    <constraint firstItem="9py-Sc-mjQ" firstAttribute="leading" secondItem="CgT-lF-Ju9" secondAttribute="leading" constant="8" id="ZQj-3V-Umm"/>
+                                    <constraint firstItem="bBM-Sp-BvE" firstAttribute="leading" secondItem="CgT-lF-Ju9" secondAttribute="leading" constant="8" id="fxh-30-bc6"/>
+                                    <constraint firstAttribute="trailing" secondItem="iMF-96-Unz" secondAttribute="trailing" id="kjP-rd-9YK"/>
+                                    <constraint firstItem="iMF-96-Unz" firstAttribute="top" secondItem="CgT-lF-Ju9" secondAttribute="top" id="l7g-U0-uOZ"/>
+                                    <constraint firstItem="bBM-Sp-BvE" firstAttribute="top" secondItem="B2e-BO-U8r" secondAttribute="bottom" constant="5" id="lUb-yH-kng"/>
+                                    <constraint firstAttribute="centerX" secondItem="B2e-BO-U8r" secondAttribute="centerX" id="uDv-2y-A9M"/>
+                                    <constraint firstAttribute="bottom" secondItem="iMF-96-Unz" secondAttribute="bottom" id="ugM-eF-0ny"/>
+                                    <constraint firstItem="B2e-BO-U8r" firstAttribute="top" secondItem="K8V-AC-ik3" secondAttribute="bottom" id="xtR-yw-OHP"/>
+                                    <constraint firstAttribute="bottom" secondItem="9py-Sc-mjQ" secondAttribute="bottom" constant="8" id="yGA-B9-AcJ"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5h0-0z-2P2" userLabel="Email Container View">
+                                <rect key="frame" x="16" y="295" width="568" height="70"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W0b-CY-761" customClass="EbcEnhancedView">
+                                        <rect key="frame" x="0.0" y="0.0" width="568" height="70"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fCq-Pc-Zci">
+                                        <rect key="frame" x="48" y="8" width="504" height="54"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Do you find Festook useful?">
+                                                <attributes>
+                                                    <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <font key="NSFont" size="15" name="HelveticaNeue-Light"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content"> 
+Leave your email so we can contact you to discuss further updates. </string>
+                                                <attributes>
+                                                    <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <font key="NSFont" size="13" name="HelveticaNeue-Light"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" alpha="0.39999999999999963" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="subscribeIcon" translatesAutoresizingMaskIntoConstraints="NO" id="d97-0c-DkO">
+                                        <rect key="frame" x="20" y="23" width="24" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="24" id="9T5-p2-h6C"/>
+                                            <constraint firstAttribute="height" constant="24" id="q7y-9s-VNz"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="W0b-CY-761" secondAttribute="bottom" id="OWm-hh-3v8"/>
+                                    <constraint firstItem="d97-0c-DkO" firstAttribute="leading" secondItem="5h0-0z-2P2" secondAttribute="leading" constant="20" id="R9C-Ff-c5T"/>
+                                    <constraint firstItem="fCq-Pc-Zci" firstAttribute="top" secondItem="5h0-0z-2P2" secondAttribute="top" constant="8" id="Sw3-ai-zUj"/>
+                                    <constraint firstItem="W0b-CY-761" firstAttribute="top" secondItem="5h0-0z-2P2" secondAttribute="top" id="Yk6-ng-DNr"/>
+                                    <constraint firstAttribute="trailing" secondItem="fCq-Pc-Zci" secondAttribute="trailing" constant="16" id="aGm-tl-KH7"/>
+                                    <constraint firstItem="fCq-Pc-Zci" firstAttribute="leading" secondItem="d97-0c-DkO" secondAttribute="trailing" constant="4" id="hKo-S9-hoH"/>
+                                    <constraint firstAttribute="height" constant="70" id="ky9-LV-J5n"/>
+                                    <constraint firstItem="W0b-CY-761" firstAttribute="leading" secondItem="5h0-0z-2P2" secondAttribute="leading" id="ofY-fx-2BQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="fCq-Pc-Zci" secondAttribute="bottom" constant="8" id="sSE-4M-Him"/>
+                                    <constraint firstAttribute="centerY" secondItem="d97-0c-DkO" secondAttribute="centerY" id="txb-Yr-L7S"/>
+                                    <constraint firstAttribute="trailing" secondItem="W0b-CY-761" secondAttribute="trailing" id="zbg-39-jmh"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Omi-xN-GBv" appends="YES" id="JhQ-ly-CDN"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XMC-1Z-3Ah" userLabel="Rate-Support Container View">
+                                <rect key="frame" x="16" y="373" width="568" height="70"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jCQ-QY-B6T" userLabel="Rate View">
+                                        <rect key="frame" x="0.0" y="0.0" width="279" height="70"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lON-wL-tZb" customClass="EbcEnhancedView">
+                                                <rect key="frame" x="0.0" y="0.0" width="279" height="70"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate the app!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Boh-sg-oNx">
+                                                <rect key="frame" x="193" y="16" width="78" height="38"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="78" id="p3C-Cy-q8Z"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" alpha="0.39999999999999963" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starIcon" translatesAutoresizingMaskIntoConstraints="NO" id="KQg-HL-nLb">
+                                                <rect key="frame" x="163" y="20" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="30" id="3DN-ch-csb"/>
+                                                    <constraint firstAttribute="height" constant="30" id="Qat-BJ-gY7"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstItem="Boh-sg-oNx" firstAttribute="leading" secondItem="KQg-HL-nLb" secondAttribute="trailing" id="BGJ-e8-yfM"/>
+                                            <constraint firstAttribute="bottom" secondItem="lON-wL-tZb" secondAttribute="bottom" id="Bhj-9a-2WT"/>
+                                            <constraint firstAttribute="trailing" secondItem="Boh-sg-oNx" secondAttribute="trailing" constant="8" id="CgN-Lx-rh1"/>
+                                            <constraint firstItem="lON-wL-tZb" firstAttribute="leading" secondItem="jCQ-QY-B6T" secondAttribute="leading" id="KQv-8W-D1r"/>
+                                            <constraint firstItem="Boh-sg-oNx" firstAttribute="top" secondItem="jCQ-QY-B6T" secondAttribute="top" constant="16" id="SSe-xi-d0h"/>
+                                            <constraint firstAttribute="bottom" secondItem="Boh-sg-oNx" secondAttribute="bottom" constant="16" id="cKF-pI-VRI"/>
+                                            <constraint firstItem="lON-wL-tZb" firstAttribute="top" secondItem="jCQ-QY-B6T" secondAttribute="top" id="cMq-h0-ODS"/>
+                                            <constraint firstAttribute="centerY" secondItem="KQg-HL-nLb" secondAttribute="centerY" id="to3-fZ-YcW"/>
+                                            <constraint firstAttribute="trailing" secondItem="lON-wL-tZb" secondAttribute="trailing" id="xuq-bi-rL3"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="zUk-oA-Dof" appends="YES" id="bUX-VA-NGm"/>
+                                        </connections>
+                                    </view>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xwx-Rq-89d" userLabel="Middle Space View">
+                                        <rect key="frame" x="279" y="0.0" width="10" height="70"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="10" id="R9l-X2-fgY"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a2A-B1-MS8" userLabel="Support View">
+                                        <rect key="frame" x="287" y="0.0" width="281" height="70"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BbF-oo-88w" customClass="EbcEnhancedView">
+                                                <rect key="frame" x="0.0" y="0.0" width="281" height="70"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <imageView userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="questionIcon" translatesAutoresizingMaskIntoConstraints="NO" id="MTM-Ga-EB7">
+                                                <rect key="frame" x="16" y="20" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="QaT-Lr-Ct1"/>
+                                                    <constraint firstAttribute="width" constant="30" id="Zbs-HW-wuK"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Support" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K3W-NE-Yyn">
+                                                <rect key="frame" x="46" y="16" width="78" height="38"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="78" id="Qr4-27-vO7"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="BbF-oo-88w" secondAttribute="trailing" id="0pP-7V-35a"/>
+                                            <constraint firstAttribute="bottom" secondItem="K3W-NE-Yyn" secondAttribute="bottom" constant="16" id="5IA-L1-6hH"/>
+                                            <constraint firstItem="K3W-NE-Yyn" firstAttribute="leading" secondItem="MTM-Ga-EB7" secondAttribute="trailing" id="GKS-Eg-nO9"/>
+                                            <constraint firstItem="MTM-Ga-EB7" firstAttribute="leading" secondItem="a2A-B1-MS8" secondAttribute="leading" constant="16" id="GQg-05-x9W"/>
+                                            <constraint firstItem="BbF-oo-88w" firstAttribute="leading" secondItem="a2A-B1-MS8" secondAttribute="leading" id="XXi-XE-Pr3"/>
+                                            <constraint firstItem="BbF-oo-88w" firstAttribute="top" secondItem="a2A-B1-MS8" secondAttribute="top" id="g0n-Ad-7Og"/>
+                                            <constraint firstAttribute="bottom" secondItem="BbF-oo-88w" secondAttribute="bottom" id="gcQ-Fw-e2p"/>
+                                            <constraint firstAttribute="centerY" secondItem="MTM-Ga-EB7" secondAttribute="centerY" id="m60-JF-yCa"/>
+                                            <constraint firstItem="K3W-NE-Yyn" firstAttribute="top" secondItem="a2A-B1-MS8" secondAttribute="top" constant="16" id="mj0-i2-NU9"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="nRP-zn-hjz" appends="YES" id="tb7-xs-QbT"/>
+                                        </connections>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="a2A-B1-MS8" firstAttribute="leading" secondItem="jCQ-QY-B6T" secondAttribute="trailing" constant="8" id="1NB-tU-pyZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="Xwx-Rq-89d" secondAttribute="bottom" id="7se-Ch-ftl"/>
+                                    <constraint firstAttribute="bottom" secondItem="a2A-B1-MS8" secondAttribute="bottom" id="SRV-y9-zpV"/>
+                                    <constraint firstItem="Xwx-Rq-89d" firstAttribute="leading" secondItem="jCQ-QY-B6T" secondAttribute="trailing" id="UBA-ok-xkX"/>
+                                    <constraint firstItem="jCQ-QY-B6T" firstAttribute="top" secondItem="XMC-1Z-3Ah" secondAttribute="top" id="ZeH-Yi-nau"/>
+                                    <constraint firstAttribute="trailing" secondItem="a2A-B1-MS8" secondAttribute="trailing" id="d5P-0o-iZM"/>
+                                    <constraint firstItem="jCQ-QY-B6T" firstAttribute="leading" secondItem="XMC-1Z-3Ah" secondAttribute="leading" id="gtD-NY-S1H"/>
+                                    <constraint firstItem="a2A-B1-MS8" firstAttribute="top" secondItem="XMC-1Z-3Ah" secondAttribute="top" id="keT-zO-SIc"/>
+                                    <constraint firstAttribute="height" constant="70" id="lOS-TQ-ufo"/>
+                                    <constraint firstAttribute="centerX" secondItem="Xwx-Rq-89d" secondAttribute="centerX" id="osV-il-hle"/>
+                                    <constraint firstAttribute="bottom" secondItem="jCQ-QY-B6T" secondAttribute="bottom" id="uLo-aJ-TjF"/>
+                                    <constraint firstItem="Xwx-Rq-89d" firstAttribute="top" secondItem="XMC-1Z-3Ah" secondAttribute="top" id="vSJ-5f-eyj"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wSh-4N-EUM" userLabel="Dev-Legal Container View">
+                                <rect key="frame" x="16" y="451" width="568" height="70"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kNm-XQ-wrz" userLabel="Legal View">
+                                        <rect key="frame" x="0.0" y="0.0" width="279" height="70"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZJU-xK-GtU" customClass="EbcEnhancedView">
+                                                <rect key="frame" x="0.0" y="0.0" width="279" height="70"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QCh-OU-Tbx">
+                                                <rect key="frame" x="193" y="16" width="78" height="38"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="78" id="6WA-D3-rXi"/>
+                                                </constraints>
+                                                <string key="text">License &amp;
+Privacy</string>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" alpha="0.40000000596046448" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textIcon" translatesAutoresizingMaskIntoConstraints="NO" id="cmT-dB-Xn9">
+                                                <rect key="frame" x="163" y="20" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="Bzg-Ch-aas"/>
+                                                    <constraint firstAttribute="width" constant="30" id="Ncm-56-0mz"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstItem="ZJU-xK-GtU" firstAttribute="leading" secondItem="kNm-XQ-wrz" secondAttribute="leading" id="04E-iP-SVv"/>
+                                            <constraint firstAttribute="trailing" secondItem="QCh-OU-Tbx" secondAttribute="trailing" constant="8" id="BAv-LP-swb"/>
+                                            <constraint firstAttribute="centerY" secondItem="cmT-dB-Xn9" secondAttribute="centerY" id="Qco-TB-QPs"/>
+                                            <constraint firstItem="QCh-OU-Tbx" firstAttribute="top" secondItem="kNm-XQ-wrz" secondAttribute="top" constant="16" id="XxH-cd-mME"/>
+                                            <constraint firstAttribute="trailing" secondItem="ZJU-xK-GtU" secondAttribute="trailing" id="YFT-ne-xJi"/>
+                                            <constraint firstAttribute="bottom" secondItem="ZJU-xK-GtU" secondAttribute="bottom" id="czF-5N-AWZ"/>
+                                            <constraint firstItem="ZJU-xK-GtU" firstAttribute="top" secondItem="kNm-XQ-wrz" secondAttribute="top" id="d8U-QT-Rsv"/>
+                                            <constraint firstAttribute="bottom" secondItem="QCh-OU-Tbx" secondAttribute="bottom" constant="16" id="fp7-F4-TCg"/>
+                                            <constraint firstItem="QCh-OU-Tbx" firstAttribute="leading" secondItem="cmT-dB-Xn9" secondAttribute="trailing" id="trB-YJ-YwF"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="l6L-md-Ydo" appends="YES" id="eVR-sw-u8A"/>
+                                        </connections>
+                                    </view>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J1F-gX-fEn" userLabel="Middle Space View">
+                                        <rect key="frame" x="279" y="0.0" width="10" height="70"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="10" id="Rmg-Q7-9yl"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TkG-kn-f73" userLabel="Dev View">
+                                        <rect key="frame" x="289" y="0.0" width="279" height="70"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s3O-Jj-hn7" customClass="EbcEnhancedView">
+                                                <rect key="frame" x="0.0" y="0.0" width="279" height="70"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <imageView userInteractionEnabled="NO" alpha="0.40000000596046448" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="toolsIcon" translatesAutoresizingMaskIntoConstraints="NO" id="0Ai-yq-hRl">
+                                                <rect key="frame" x="16" y="20" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="Awk-vC-giO"/>
+                                                    <constraint firstAttribute="width" constant="30" id="ghr-iI-vyA"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8B9-G7-42C">
+                                                <rect key="frame" x="46" y="16" width="78" height="38"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="78" id="Ly7-H5-OdY"/>
+                                                    <constraint firstAttribute="height" constant="38" id="YU9-c7-Zvo"/>
+                                                </constraints>
+                                                <string key="text">Developed
+by ebc</string>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="centerY" secondItem="0Ai-yq-hRl" secondAttribute="centerY" id="CRJ-UA-NXI"/>
+                                            <constraint firstItem="s3O-Jj-hn7" firstAttribute="leading" secondItem="TkG-kn-f73" secondAttribute="leading" id="EEL-aX-qgc"/>
+                                            <constraint firstItem="s3O-Jj-hn7" firstAttribute="top" secondItem="TkG-kn-f73" secondAttribute="top" id="WIf-R2-A7x"/>
+                                            <constraint firstItem="0Ai-yq-hRl" firstAttribute="leading" secondItem="TkG-kn-f73" secondAttribute="leading" constant="16" id="ZDP-Ca-um1"/>
+                                            <constraint firstAttribute="centerY" secondItem="8B9-G7-42C" secondAttribute="centerY" id="bbG-Th-KMi"/>
+                                            <constraint firstAttribute="trailing" secondItem="s3O-Jj-hn7" secondAttribute="trailing" id="fSA-oV-YHp"/>
+                                            <constraint firstAttribute="bottom" secondItem="s3O-Jj-hn7" secondAttribute="bottom" id="gp8-ns-fiL"/>
+                                            <constraint firstItem="8B9-G7-42C" firstAttribute="leading" secondItem="0Ai-yq-hRl" secondAttribute="trailing" id="h2h-8r-6sn"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="8Eo-oM-6eR" appends="YES" id="fXE-jO-b2H"/>
+                                        </connections>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="kNm-XQ-wrz" firstAttribute="leading" secondItem="wSh-4N-EUM" secondAttribute="leading" id="402-1P-rJ9"/>
+                                    <constraint firstAttribute="bottom" secondItem="J1F-gX-fEn" secondAttribute="bottom" id="AdF-Bv-XDq"/>
+                                    <constraint firstAttribute="bottom" secondItem="TkG-kn-f73" secondAttribute="bottom" id="Dbp-FK-n41"/>
+                                    <constraint firstItem="kNm-XQ-wrz" firstAttribute="top" secondItem="wSh-4N-EUM" secondAttribute="top" id="EI9-OB-YJk"/>
+                                    <constraint firstAttribute="trailing" secondItem="TkG-kn-f73" secondAttribute="trailing" id="ZRs-oa-hDx"/>
+                                    <constraint firstItem="J1F-gX-fEn" firstAttribute="leading" secondItem="kNm-XQ-wrz" secondAttribute="trailing" id="dA5-Uy-Uwo"/>
+                                    <constraint firstAttribute="height" constant="70" id="evh-HF-nfw"/>
+                                    <constraint firstItem="TkG-kn-f73" firstAttribute="leading" secondItem="J1F-gX-fEn" secondAttribute="trailing" id="iBz-2Z-7nr"/>
+                                    <constraint firstAttribute="bottom" secondItem="kNm-XQ-wrz" secondAttribute="bottom" id="jZI-4s-mMW"/>
+                                    <constraint firstItem="TkG-kn-f73" firstAttribute="top" secondItem="wSh-4N-EUM" secondAttribute="top" id="mo5-aw-TKS"/>
+                                    <constraint firstAttribute="centerX" secondItem="J1F-gX-fEn" secondAttribute="centerX" id="vSW-Vr-dor"/>
+                                    <constraint firstItem="J1F-gX-fEn" firstAttribute="top" secondItem="wSh-4N-EUM" secondAttribute="top" id="xkL-5c-9eZ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XMC-1Z-3Ah" firstAttribute="top" secondItem="5h0-0z-2P2" secondAttribute="bottom" constant="8" id="32y-Et-on5"/>
+                            <constraint firstAttribute="trailing" secondItem="3FB-Qq-6qE" secondAttribute="trailing" constant="8" id="4ls-pc-P1J"/>
+                            <constraint firstItem="XMC-1Z-3Ah" firstAttribute="leading" secondItem="Olh-Za-nwu" secondAttribute="leading" constant="16" id="AuW-77-6wH"/>
+                            <constraint firstItem="5h0-0z-2P2" firstAttribute="top" secondItem="CgT-lF-Ju9" secondAttribute="bottom" constant="7" id="Azu-CJ-Fah"/>
+                            <constraint firstItem="wSh-4N-EUM" firstAttribute="trailing" secondItem="Olh-Za-nwu" secondAttribute="trailingMargin" id="BLv-LB-QMK"/>
+                            <constraint firstItem="5h0-0z-2P2" firstAttribute="leading" secondItem="Olh-Za-nwu" secondAttribute="leading" constant="16" id="FFx-av-jaa"/>
+                            <constraint firstItem="wSh-4N-EUM" firstAttribute="top" secondItem="XMC-1Z-3Ah" secondAttribute="bottom" constant="8" id="VMG-7z-5oZ"/>
+                            <constraint firstAttribute="trailing" secondItem="CgT-lF-Ju9" secondAttribute="trailing" constant="16" id="abc-pX-bQN"/>
+                            <constraint firstItem="CgT-lF-Ju9" firstAttribute="top" secondItem="0qZ-E6-HOY" secondAttribute="bottom" constant="8" id="gpC-mc-KDs"/>
+                            <constraint firstAttribute="trailing" secondItem="5h0-0z-2P2" secondAttribute="trailing" constant="16" id="hrk-vc-BfL"/>
+                            <constraint firstItem="CgT-lF-Ju9" firstAttribute="leading" secondItem="Olh-Za-nwu" secondAttribute="leading" constant="16" id="jXf-dS-eGS"/>
+                            <constraint firstItem="msA-aB-zwN" firstAttribute="top" secondItem="3FB-Qq-6qE" secondAttribute="bottom" constant="8" id="m7v-FQ-qhb"/>
+                            <constraint firstAttribute="trailing" secondItem="XMC-1Z-3Ah" secondAttribute="trailing" constant="16" id="mJk-9b-ssF"/>
+                            <constraint firstItem="wSh-4N-EUM" firstAttribute="leading" secondItem="Olh-Za-nwu" secondAttribute="leadingMargin" id="rYS-fj-1CW"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="askMailContainerBackgroundView" destination="W0b-CY-761" id="cq5-ty-kAi"/>
+                        <outlet property="backgroundView" destination="1Df-au-O7r" id="src-Zl-pjI"/>
+                        <outlet property="devBackgroundView" destination="s3O-Jj-hn7" id="kHW-Wx-z24"/>
+                        <outlet property="legalBackgroundView" destination="ZJU-xK-GtU" id="Ymf-iO-2sJ"/>
+                        <outlet property="logoContainerBackgroundView" destination="iMF-96-Unz" id="Yrz-7N-6kk"/>
+                        <outlet property="rateBackgroundView" destination="lON-wL-tZb" id="agS-Bf-nuN"/>
+                        <outlet property="supportBackgroundView" destination="BbF-oo-88w" id="3pc-RG-O1P"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fm6-3r-5QG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Omi-xN-GBv">
+                    <connections>
+                        <action selector="showEmailPrompt:" destination="Nt5-wO-8nY" id="Sgp-9o-Wck"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="zUk-oA-Dof">
+                    <connections>
+                        <action selector="rateInAppStore:" destination="Nt5-wO-8nY" id="sse-s0-20n"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="8Eo-oM-6eR">
+                    <connections>
+                        <action selector="showDeveloperWeb:" destination="Nt5-wO-8nY" id="bB9-vT-ZTw"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="nRP-zn-hjz">
+                    <connections>
+                        <action selector="showContactSupport:" destination="Nt5-wO-8nY" id="3TN-xY-1y2"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="l6L-md-Ydo">
+                    <connections>
+                        <action selector="ShowLegalText:" destination="Nt5-wO-8nY" id="afK-wc-JFD"/>
+                        <segue destination="3l3-R5-jyi" kind="presentation" identifier="ShowLegalText" id="1rC-WV-VFy"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1558" y="288"/>
         </scene>
@@ -570,15 +984,31 @@
                                     <constraint firstAttribute="bottom" secondItem="MVu-W3-D3v" secondAttribute="bottom" id="uLv-LC-rhb"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qrx-PN-NvP">
+                                <rect key="frame" x="570" y="570" width="22" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="Ie8-Rw-iAF"/>
+                                    <constraint firstAttribute="width" constant="22" id="Ntn-ER-WfP"/>
+                                </constraints>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Nt5-wO-8nY" kind="presentation" identifier="ShowAbout" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="eHD-EZ-NFB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wON-Nl-Hr1" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="5Ro-CM-Fb3"/>
+                            <constraint firstAttribute="trailing" secondItem="qrx-PN-NvP" secondAttribute="trailing" constant="8" id="6MW-HU-UFc"/>
                             <constraint firstItem="cfM-9N-z1T" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="8gY-Hc-7LZ"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="wON-Nl-Hr1" secondAttribute="bottom" constant="8" id="GS3-Eo-EDW"/>
                             <constraint firstItem="cfM-9N-z1T" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="Yj1-Ka-rDA"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="cfM-9N-z1T" secondAttribute="bottom" id="YwE-ql-J7e"/>
                             <constraint firstAttribute="trailing" secondItem="wON-Nl-Hr1" secondAttribute="trailing" constant="16" id="ZKz-0b-gjq"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="qrx-PN-NvP" secondAttribute="bottom" constant="8" id="a1D-l3-TjS"/>
                             <constraint firstAttribute="centerX" secondItem="P93-hu-iod" secondAttribute="centerX" id="oDI-WA-vag"/>
                             <constraint firstAttribute="trailing" secondItem="cfM-9N-z1T" secondAttribute="trailing" id="uKs-Je-RDC"/>
                             <constraint firstItem="wON-Nl-Hr1" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="xaJ-bO-O9b"/>
@@ -1243,7 +1673,7 @@
                                                 <rect key="frame" x="0.0" y="15" width="30" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Similar bands:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mrc-sA-laQ" userLabel="Text">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Example of similar bands:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mrc-sA-laQ" userLabel="Text">
                                                 <rect key="frame" x="29" y="8" width="209" height="20"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
@@ -1271,7 +1701,7 @@
                                                 <rect key="frame" x="0.0" y="15" width="30" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Different bands:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dtl-rI-VjS" userLabel="Text">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Example of different bands:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dtl-rI-VjS" userLabel="Text">
                                                 <rect key="frame" x="29" y="8" width="209" height="20"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
@@ -1396,6 +1826,415 @@
             </objects>
             <point key="canvasLocation" x="681" y="288"/>
         </scene>
+        <!--Legal TextVC-->
+        <scene sceneID="zdK-og-ejE">
+            <objects>
+                <viewController id="3l3-R5-jyi" customClass="LegalTextVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UIg-Rx-wcf"/>
+                        <viewControllerLayoutGuide type="bottom" id="Nsv-uM-6D9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LFr-Ao-89I">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Rc-dl-tOI">
+                                <rect key="frame" x="538" y="562" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="Aqx-hm-QMu"/>
+                                    <constraint firstAttribute="height" constant="30" id="PGc-A9-g39"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissAbout:" destination="Nt5-wO-8nY" eventType="touchUpInside" id="3Iq-yk-KvG"/>
+                                    <action selector="dismissLegalText:" destination="3l3-R5-jyi" eventType="touchUpInside" id="Z6e-1z-dLS"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Suo-eg-xNA">
+                                <rect key="frame" x="16" y="28" width="568" height="526"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">LICENSE AGREEMENT AND PRIVACY POLICY
+</string>
+                                        <attributes>
+                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+Thank you for downloading this App. This License Agreement and Privacy Disclosure sets forth the terms for your use of this App and the information we collect and how it is used. By using or installing this app you agree to the terms of this License Agreement and Privacy Disclosure. If you disagree with these terms, don't use this app. This is a free version of the app.
+
+</string>
+                                        <attributes>
+                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Thin"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="LICENSE AGREEMENT">
+                                        <attributes>
+                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cgo
+</string>
+                                        <attributes>
+                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Thin"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="End User License Agreement">
+                                        <attributes>
+                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+The Festook publisher grants you a personal, non-exclusive, non-transferable, revocable limited License subject to the following:
+- Use of this App is solely for your own personal use.
+- You agree not to use this App while driving a car, flying an airplane, or any other use where the interaction with the app could create a hazard to you or others around you.
+- Use of the Licensed App is on any smartphone or tablet that you own or control as permitted by the Usage rules set forth in the App Store or Google Play Terms of Service.
+- You may not copy, distribute, modify, disassemble, or create derivative works based upon this App.
+- The Festook publisher owns and retains all right, title, and interest in and to the Software, including patents, trademarks and copyrights on Festook app.
+- The band and festival names are their sole property. Festook only uses them so readers using the application can identify them.
+- The contents about music festivals are managed by the publisher according information received from the organizations that manage and promote those festivals. The contents about artists can be provided by third-party organizations and its origin is properly indicated beneath the artist information displayed to users. The Festook publisher aggregates information from different sources and cannot be responsible for the accuracy of those contents. However, the publisher is continuously trying to supply accurate and real-time updated data on festivals and artists.
+
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE FESTOOK PUBLISHER DISCLAIMS ALL WARRANTIES, EITHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT WITH RESPECT TO THE SOFTWARE. THE FESTOOK PUBLISHER MAKES NO WARRANTY THAT THE SOFTWARE WILL BE ERROR FREE OR FREE FROM INTERRUPTION OR FAILURE.
+
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT WILL THE FESTOOK PUBLISHER BE LIABLE FOR ANY DAMAGES WHATSOEVER ARISING OUT OF THE USE OR INABILITY TO USE THE SOFTWARE.
+
+The Festook publisher reserves the right to modify this License at any time; check www.festook.com for updates. Your continued use of this App signifies your acceptance of the changes to this License.
+
+</string>
+                                        <attributes>
+                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Thin"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">Supplemental Terms For Apple and Android device Users
+</string>
+                                        <attributes>
+                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">You agree and acknowledge that this EULA is concluded between you and the Festook publisher, not Apple or Google or any Android store and that Festook publisher is solely responsible for the Licensed Application and the content thereof.
+You agree that Apple, Google or any Android store has no obligation whatsoever to furnish any maintenance and support services regarding the Licensed Application.
+Apple, Google or any Android store shall not be responsible for any claims by you or any third party relating to your possession and/or use of the Application, including but not limited to: (i) product liability claims; (ii) any claim that the Application fails to conform to any applicable legal or regulatory requirement; (iii) claims arising under consumer protection laws or similar legislation; and (iv) claims by any third party that the Application or your possession and use of the Application infringes on the intellectual property rights of the third party.
+
+====================
+
+</string>
+                                        <attributes>
+                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Thin"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">PRIVACY POLICY
+</string>
+                                        <attributes>
+                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+This privacy policy governs your use of the software application "Festook" (“Application”) for mobile devices that was created by "Eduard Bonada Cruells". The Application is a recommender of music festival concerts. The user provides information about the his/her favourite bands and the application provides a complete recommended schedule of concerts for all days of the festival.
+
+</string>
+                                        <attributes>
+                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Thin"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">What information does the Application obtain and how is it used?
+</string>
+                                        <attributes>
+                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Thin"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="User Provided Information">
+                                        <attributes>
+                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Italic"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue-Italic"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+The Application obtains the information you provide when you download the Application. Festook does not require user registration to be used. You only provide personal information in the case you enter your email address in the subscription field in the "About" page. We use this information to you from time to time in order to let you know about application updates and other further functionalities.
+
+Additionally, you also provide information about your musical tastes in the form of (1) concerts you do not want to miss and (2) concerts you discard. This information is used to personalize your festival schedule.
+
+</string>
+                                        <attributes>
+                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Thin"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Automatically Collected Information">
+                                        <attributes>
+                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Italic"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue-Italic"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content"> 
+In addition, the Application may collect certain information automatically, including, but not limited to, the type of mobile device you use, your mobile devices unique device ID, the IP address of your mobile device, your mobile operating system, the type of mobile Internet browsers you use, and information about the way you use the Application.
+
+</string>
+                                        <attributes>
+                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Thin"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">Does the Application collect precise real time location information of the device?
+</string>
+                                        <attributes>
+                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">This Application does not collect precise information about the location of your mobile device. 
+
+</string>
+                                        <attributes>
+                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Thin"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">Do third parties see and/or have access to information obtained by the Application?
+</string>
+                                        <attributes>
+                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">Only aggregated and anonymized data may be used to help us improve the Application and our service. Only aggregated and anonymized data may be used to perform studies about festival attendees characterization. These studies and their conclusions may be offered to festival organizers as part of our service.
+We will share your information with third parties only in the ways that are described in this privacy statement. We may disclose User Provided and Automatically Collected Information:
+- as required by law, such as to comply with a subpoena, or similar legal process;
+- when we believe in good faith that disclosure is necessary to protect our rights, protect your safety or the safety of others, investigate fraud, or respond to a government request;
+- with our trusted services providers who work on our behalf, do not have an independent use of the information we disclose to them, and have agreed to adhere to the rules set forth in this privacy statement.
+- if "Eduard Bonada Cruells" is involved in a merger, acquisition, or sale of all or a portion of its assets, you will be notified via email and/or a prominent notice on our Web site of any change in ownership or uses of this information, as well as any choices you may have regarding this information.
+
+</string>
+                                        <attributes>
+                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Thin"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">What are my opt-out rights?
+</string>
+                                        <attributes>
+                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">You can stop all collection of information by the Application easily by uninstalling the Application. You may use the standard uninstall processes as may be available as part of your mobile device or via the mobile application marketplace or network.
+ 
+</string>
+                                        <attributes>
+                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Thin"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">Data Retention Policy, Managing Your Information
+</string>
+                                        <attributes>
+                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">We will retain User Provided data and Automatically Collected information for as long as you use the Application and for a reasonable time thereafter. If you’d like us to delete User Provided Data that you have provided via the Application, please contact us at info@festook.com and we will respond in a reasonable time. Please note that some or all of the User Provided Data may be required in order for the Application to function properly.
+ 
+</string>
+                                        <attributes>
+                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Thin"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Children">
+                                        <attributes>
+                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+We do not use the Application to knowingly solicit data from or market to children under the age of 13. If a parent or guardian becomes aware that his or her child has provided us with information without their consent, he or she should contact us at info@festook.com. We will delete such information from our files within a reasonable time.
+ 
+</string>
+                                        <attributes>
+                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Thin"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Security">
+                                        <attributes>
+                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+We are concerned about safeguarding the confidentiality of your information. We provide physical, electronic, and procedural safeguards to protect information we process and maintain. For example, we limit access to this information to authorized employees and contractors who need to know that information in order to operate, develop or improve our Application. Please be aware that, although we endeavor provide reasonable security for information we process and maintain, no security system can prevent all potential security breaches.
+ 
+</string>
+                                        <attributes>
+                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Thin"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Changes">
+                                        <attributes>
+                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+This Privacy Policy may be updated from time to time for any reason. We will notify you of any changes to our Privacy Policy by posting the new Privacy Policy here and informing you via email or text message. You are advised to consult this Privacy Policy regularly for any changes, as continued use is deemed approval of all changes. You can check the history of this policy by clicking here.
+ 
+</string>
+                                        <attributes>
+                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Thin"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">Your Consent
+</string>
+                                        <attributes>
+                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">By using the Application, you are consenting to our processing of your information as set forth in this Privacy Policy now and as amended by us. "Processing,” means using cookies on a computer/hand held device or using or touching information in any way, including, but not limited to, collecting, storing, deleting, using, combining and disclosing information.
+ 
+</string>
+                                        <attributes>
+                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Thin"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">Contact us
+</string>
+                                        <attributes>
+                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">If you have any questions regarding privacy while using the Application, or have questions about our practices, please contact us via email at info@festook.com.</string>
+                                        <attributes>
+                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Thin"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7Rc-dl-tOI" firstAttribute="top" secondItem="Suo-eg-xNA" secondAttribute="bottom" constant="8" id="0xc-Q6-8Vr"/>
+                            <constraint firstItem="Suo-eg-xNA" firstAttribute="leading" secondItem="LFr-Ao-89I" secondAttribute="leading" constant="16" id="PXl-ZA-MFN"/>
+                            <constraint firstItem="Suo-eg-xNA" firstAttribute="top" secondItem="UIg-Rx-wcf" secondAttribute="bottom" constant="8" id="be2-sk-ya6"/>
+                            <constraint firstAttribute="trailing" secondItem="Suo-eg-xNA" secondAttribute="trailing" constant="16" id="dGX-RS-Sy5"/>
+                            <constraint firstAttribute="trailing" secondItem="7Rc-dl-tOI" secondAttribute="trailing" constant="16" id="xt8-SS-k3E"/>
+                            <constraint firstItem="Nsv-uM-6D9" firstAttribute="top" secondItem="7Rc-dl-tOI" secondAttribute="bottom" constant="8" id="xyl-8W-fJ8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="legalTextView" destination="Suo-eg-xNA" id="Nh0-w3-JK3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8w2-O4-5dX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-851" y="288"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="fMM-hX-syK">
             <objects>
@@ -1419,6 +2258,7 @@
     <resources>
         <image name="differentBandsIcon" width="128" height="128"/>
         <image name="facebookIcon" width="128" height="128"/>
+        <image name="festookLogo" width="500" height="250"/>
         <image name="heartIcon" width="128" height="128"/>
         <image name="menuIcon" width="28" height="20"/>
         <image name="menuIconAllFestivals" width="128" height="128"/>
@@ -1427,17 +2267,22 @@
         <image name="menuIconSchedule" width="128" height="128"/>
         <image name="numBandsIcon" width="128" height="128"/>
         <image name="numStagesIcon" width="128" height="128"/>
+        <image name="questionIcon" width="128" height="128"/>
         <image name="similarBandsIcon" width="128" height="128"/>
         <image name="similarDifferentBands" width="128" height="128"/>
         <image name="stageIcon" width="128" height="128"/>
+        <image name="starIcon" width="128" height="128"/>
         <image name="styleIcon" width="128" height="128"/>
+        <image name="subscribeIcon" width="128" height="128"/>
+        <image name="textIcon" width="128" height="128"/>
         <image name="timeIcon" width="128" height="128"/>
+        <image name="toolsIcon" width="128" height="128"/>
         <image name="twitterIcon" width="128" height="128"/>
         <image name="webIcon" width="128" height="128"/>
         <image name="youtubeIcon" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="PQ4-ku-Ycg"/>
+        <segue reference="QVt-RG-mAM"/>
         <segue reference="eWK-BZ-QWP"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -16,6 +16,7 @@
 
 #import "FestivalCollectionViewCell.h"
 #import "FestivalRevealVC.h"
+#import "AboutVC.h"
 
 #import "Flurry.h"
 
@@ -161,6 +162,16 @@
             }
         }
     }
+    else if ([segue.identifier isEqualToString:@"ShowAbout"]) {
+        if ([segue.destinationViewController isKindOfClass:[AboutVC class]]) {
+            
+            // configure destination VC
+            AboutVC *avc = segue.destinationViewController;
+            if ([avc isKindOfClass:[AboutVC class]]) {
+                avc.userID = self.userID;
+            }
+        }
+    }
     
 }
 
@@ -190,6 +201,9 @@
             [alert show];
             return NO;
         }
+    }
+    else if ([identifier isEqualToString:@"ShowAbout"]) {
+        return YES;
     }
     
     return NO;
