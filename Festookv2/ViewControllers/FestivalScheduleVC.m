@@ -45,6 +45,7 @@
 
 - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
     
     // set navigation bar title
@@ -84,7 +85,6 @@
 
 -(void) setup
 {
-    
     // create the FestivalSchedule object
     self.schedule = self.festival.schedule;
     if(!self.schedule){

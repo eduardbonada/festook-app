@@ -623,7 +623,7 @@ by ebc</string>
         <!--Festival ScheduleVC-->
         <scene sceneID="sqA-eA-ubI">
             <objects>
-                <viewController id="RgB-mr-c7u" customClass="FestivalScheduleVC" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="RgB-mr-c7u" customClass="FestivalScheduleVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TQO-Me-iOu"/>
                         <viewControllerLayoutGuide type="bottom" id="vfo-rw-DDs"/>
@@ -636,20 +636,30 @@ by ebc</string>
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="04D-Zz-4xY">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UDC-rZ-lLS" userLabel="Segmented Container View">
                                 <rect key="frame" x="16" y="71" width="568" height="29"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="04D-Zz-4xY">
+                                        <rect key="frame" x="0.0" y="0.0" width="568" height="29"/>
+                                        <segments>
+                                            <segment title="Day 1"/>
+                                            <segment title="Day 2"/>
+                                        </segments>
+                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="dayToAttendSegmentedControlPressed:" destination="RgB-mr-c7u" eventType="valueChanged" id="0n2-Hc-Mu4"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="t6R-Wu-h8C"/>
+                                    <constraint firstItem="04D-Zz-4xY" firstAttribute="top" secondItem="UDC-rZ-lLS" secondAttribute="top" id="FYD-Py-8uh"/>
+                                    <constraint firstAttribute="bottom" secondItem="04D-Zz-4xY" secondAttribute="bottom" constant="1" id="L8m-p6-0P3"/>
+                                    <constraint firstAttribute="height" constant="29" id="QG6-4a-Igg"/>
+                                    <constraint firstAttribute="trailing" secondItem="04D-Zz-4xY" secondAttribute="trailing" id="XfX-DR-ql0"/>
+                                    <constraint firstItem="04D-Zz-4xY" firstAttribute="leading" secondItem="UDC-rZ-lLS" secondAttribute="leading" id="v0h-J5-paV"/>
                                 </constraints>
-                                <segments>
-                                    <segment title="Day 1"/>
-                                    <segment title="Day 2"/>
-                                </segments>
-                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <action selector="dayToAttendSegmentedControlPressed:" destination="RgB-mr-c7u" eventType="valueChanged" id="0n2-Hc-Mu4"/>
-                                </connections>
-                            </segmentedControl>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="5dI-IO-Nl2">
                                 <rect key="frame" x="16" y="100" width="568" height="500"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -715,23 +725,22 @@ by ebc</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="Ddp-5n-Zxt" secondAttribute="centerX" id="2Ez-8O-N5e"/>
+                            <constraint firstAttribute="trailing" secondItem="UDC-rZ-lLS" secondAttribute="trailing" constant="16" id="5FH-jG-bUg"/>
                             <constraint firstItem="5dI-IO-Nl2" firstAttribute="top" secondItem="TQO-Me-iOu" secondAttribute="bottom" constant="36" id="6J7-yj-hQ8"/>
                             <constraint firstItem="vfo-rw-DDs" firstAttribute="top" secondItem="iq1-JD-e0j" secondAttribute="bottom" id="8uu-N8-pgU"/>
                             <constraint firstAttribute="trailing" secondItem="e09-xH-wGK" secondAttribute="trailing" id="AwF-In-eQZ"/>
                             <constraint firstAttribute="trailing" secondItem="5dI-IO-Nl2" secondAttribute="trailing" constant="16" id="FYY-zm-ClU"/>
                             <constraint firstItem="iq1-JD-e0j" firstAttribute="leading" secondItem="JJU-hk-tHe" secondAttribute="leading" id="Flo-92-MPp"/>
                             <constraint firstItem="e09-xH-wGK" firstAttribute="leading" secondItem="JJU-hk-tHe" secondAttribute="leading" id="Ggp-Da-PNL"/>
-                            <constraint firstItem="04D-Zz-4xY" firstAttribute="top" secondItem="JJU-hk-tHe" secondAttribute="topMargin" constant="71" id="Mfe-gc-Szc"/>
                             <constraint firstItem="5dI-IO-Nl2" firstAttribute="leading" secondItem="JJU-hk-tHe" secondAttribute="leading" constant="16" id="Mn2-WJ-mlp"/>
                             <constraint firstAttribute="trailing" secondItem="iq1-JD-e0j" secondAttribute="trailing" id="OOd-3n-pj6"/>
                             <constraint firstItem="Ddp-5n-Zxt" firstAttribute="top" secondItem="TQO-Me-iOu" secondAttribute="bottom" constant="44" id="R5W-qH-eCm"/>
+                            <constraint firstItem="UDC-rZ-lLS" firstAttribute="leading" secondItem="JJU-hk-tHe" secondAttribute="leading" constant="16" id="TJv-8S-dnR"/>
                             <constraint firstItem="e09-xH-wGK" firstAttribute="top" secondItem="JJU-hk-tHe" secondAttribute="top" id="Vgo-Jp-UfT"/>
                             <constraint firstItem="vfo-rw-DDs" firstAttribute="top" secondItem="5dI-IO-Nl2" secondAttribute="bottom" id="WJd-TG-HL0"/>
-                            <constraint firstAttribute="trailing" secondItem="04D-Zz-4xY" secondAttribute="trailing" constant="16" id="dJm-Rd-NFz"/>
-                            <constraint firstItem="04D-Zz-4xY" firstAttribute="leading" secondItem="JJU-hk-tHe" secondAttribute="leading" constant="16" id="iOc-aH-g3c"/>
+                            <constraint firstItem="UDC-rZ-lLS" firstAttribute="top" secondItem="TQO-Me-iOu" secondAttribute="bottom" constant="7" id="g1x-KI-jgQ"/>
                             <constraint firstItem="vfo-rw-DDs" firstAttribute="top" secondItem="e09-xH-wGK" secondAttribute="bottom" id="nTh-e1-M4I"/>
                             <constraint firstItem="iq1-JD-e0j" firstAttribute="top" secondItem="JJU-hk-tHe" secondAttribute="top" id="toO-Kg-goz"/>
-                            <constraint firstAttribute="centerX" secondItem="04D-Zz-4xY" secondAttribute="centerX" id="zar-ms-8nh"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="PYv-ic-7pY">
@@ -1824,7 +1833,7 @@ by ebc</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rwU-Ie-ub2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="681" y="288"/>
+            <point key="canvasLocation" x="749" y="288"/>
         </scene>
         <!--Legal TextVC-->
         <scene sceneID="zdK-og-ejE">
