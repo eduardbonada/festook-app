@@ -23,7 +23,7 @@
 #define SERVER @"52.28.21.228"
 #define FOLDER @"FestookAppFiles"
 
-@interface FestivalsBrowserVC () <UICollectionViewDataSource, UIAlertViewDelegate>
+@interface FestivalsBrowserVC () <UICollectionViewDataSource>
 
 @property (nonatomic,strong) NSMutableDictionary *festivals; // of @"lowercaseName":Festival
 
@@ -192,13 +192,14 @@
             return YES;
         }
         else{
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Missing Data"
-                                                            message:@"The festival data could not be downloaded."
-                                                           delegate:self
-                                                  cancelButtonTitle:@"Cancel"
-                                                  otherButtonTitles:nil];
+            UIAlertController *alertController = [UIAlertController
+                                                  alertControllerWithTitle:@"Missing Data"
+                                                  message:@"The festival data could not be downloaded."
+                                                  preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){}];
+            [alertController addAction:okAction];
+            [self presentViewController:alertController animated:YES completion:nil];
             
-            [alert show];
             return NO;
         }
     }
@@ -307,33 +308,31 @@
         });
     }
     else{
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Internet Connection"
-                                                        message:@"Festook is trying to update festivals data."
-                                                       delegate:self
-                                              cancelButtonTitle:@"Try again"
-                                              otherButtonTitles:@"Cancel",nil];
+        UIAlertController *alertController = [UIAlertController
+                                              alertControllerWithTitle:@"No Internet Connection"
+                                              message:@"Festook is trying to update festivals data."
+                                              preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *tryAgainAction = [UIAlertAction actionWithTitle:@"Try again"
+                                                                 style:UIAlertActionStyleDefault
+                                                               handler:^(UIAlertAction *action){
+                                                                   [self setup];
+                                                               }];
+        [alertController addAction:tryAgainAction];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
+                                                                 style:UIAlertActionStyleDefault
+                                                               handler:^(UIAlertAction *action){
+                                                                   // Continue with the current local list of festivals
+                                                                   if([self.festivals count] == 0){
+                                                                       self.emptyListText.hidden = NO;
+                                                                       self.emptyListTextBackground.hidden = NO;
+                                                                       self.emptyListText.text = @"No festivals found. Check your internet connection and restart the app.";
+                                                                   }
+                                                               }];
+        [alertController addAction:cancelAction];
         
-        [alert show];
+        [self presentViewController:alertController animated:YES completion:nil];
     }
     
-}
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if([alertView.message isEqualToString:@"Festook is trying to update festivals data."]){
-        // if 'Try Again' tapped
-        if(buttonIndex == 0){
-            [self setup];
-        }
-        else if(buttonIndex == 1){
-            // Continue with the current local list of festivals
-            if([self.festivals count] == 0){
-                self.emptyListText.hidden = NO;
-                self.emptyListTextBackground.hidden = NO;
-                self.emptyListText.text = @"No festivals found. Check your internet connection and restart the app.";
-            }
-        }
-    }
 }
 
 -(void) loadFestivalsData
