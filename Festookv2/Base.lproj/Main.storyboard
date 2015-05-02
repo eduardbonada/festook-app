@@ -744,8 +744,14 @@ by ebc</string>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="PYv-ic-7pY">
-                        <barButtonItem key="leftBarButtonItem" image="menuIcon" id="hiN-A4-ZEU">
+                        <barButtonItem key="leftBarButtonItem" image="menuIcon" id="hiN-A4-ZEU" userLabel="Menu button">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="D6w-9C-ded" userLabel="Share button">
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="shareSchedule:" destination="RgB-mr-c7u" id="3C8-2X-05Z"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>

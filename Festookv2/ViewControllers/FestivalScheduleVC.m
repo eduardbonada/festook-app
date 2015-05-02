@@ -469,6 +469,100 @@
 }
 
 
+#pragma mark - Sharing
+- (IBAction) shareSchedule:(UIBarButtonItem *)sender
+{
+    NSString *textToShare = [NSString stringWithFormat:@"My schedule for %@. Get yours with @festook app!",self.festival.uppercaseName];
+    
+    UIImage *imageToShare = [self generateScheduleImage];//[UIImage imageNamed:@"textIcon"];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:imageToShare];
+    imageView.frame = CGRectMake(10, 110, 300, 450);
+    [self.view addSubview:imageView];
+    
+    /*
+     NSArray *objectsToShare = @[textToShare, imageToShare];
+    
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:objectsToShare applicationActivities:nil];
+    
+    activityVC.excludedActivityTypes = @[UIActivityTypePostToWeibo,
+                                         UIActivityTypePrint,
+                                         UIActivityTypeAssignToContact,
+                                         UIActivityTypeAddToReadingList,
+                                         UIActivityTypePostToFlickr,
+                                         UIActivityTypePostToVimeo,
+                                         UIActivityTypePostToTencentWeibo,
+                                         UIActivityTypeAirDrop]; //UIActivityTypePostToFacebook, UIActivityTypePostToTwitter, UIActivityTypeMail, UIActivityTypeSaveToCameraRoll, UIActivityTypeCopyToPasteboard, UIActivityTypeMessage
+    
+    [self presentViewController:activityVC animated:YES completion:nil];
+     */
+}
+
+#define ConcertHeight 50.0
+#define ConcertWidth  200.0
+#define ConcertMargin 5.0
+
+-(UIImage*) generateScheduleImage
+{
+    NSUInteger maxConcertsPerDay = 0;
+    for(NSDictionary* day in self.daysToAttend){
+        NSUInteger concertsInDay = [[self.schedule bandsToAttendSortedByTimeBetween:[day objectForKey:@"start"] and:[day objectForKey:@"end"] withOptions:@"recommendedBands"] count];
+        if(maxConcertsPerDay<concertsInDay){
+            maxConcertsPerDay = concertsInDay;
+        }
+    }
+    CGFloat imageWidth  = ConcertMargin + (ConcertWidth+ConcertMargin)*(CGFloat)[self.daysToAttend count];
+    CGFloat imageHeight = ConcertMargin + (ConcertHeight+ConcertMargin)*(CGFloat)maxConcertsPerDay;
+    
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(imageWidth,imageHeight), NO, 0.0);
+
+    // background gradient
+    EbcEnhancedView* backgoundView = [[EbcEnhancedView alloc] init];
+    backgoundView.roundedRects = NO;
+    [backgoundView setBackgroundGradientFromColor:self.festival.colorA toColor:self.festival.colorB];
+    backgoundView.bounds = CGRectMake(0.0, 0.0, imageWidth, imageHeight);
+    [backgoundView.layer renderInContext:UIGraphicsGetCurrentContext()];
+
+    for(NSDictionary* day in self.daysToAttend){
+        NSString* dayString = [day objectForKey:@"day"];
+        NSArray* bandsToAttendInThisDay = [self.schedule bandsToAttendSortedByTimeBetween:[day objectForKey:@"start"] and:[day objectForKey:@"end"] withOptions:@"recommendedBands"];
+        
+        CGFloat horizontalOffset = ConcertMargin+(ConcertWidth+ConcertMargin)*(CGFloat)[self.daysToAttend indexOfObject:day];
+        
+        for(NSString* bandName in bandsToAttendInThisDay){
+            NSString* bandUppercaseName = ((Band*)[self.festival.bands objectForKey:bandName]).uppercaseName;
+            CGFloat verticalOffset = ConcertMargin+(ConcertHeight+ConcertMargin)*(CGFloat)[bandsToAttendInThisDay indexOfObject:bandName];
+            
+            EbcEnhancedView* bandConcertView = [[EbcEnhancedView alloc] init];
+            bandConcertView.bounds = CGRectMake(horizontalOffset, verticalOffset, ConcertWidth, ConcertHeight);
+
+            bandConcertView.roundedRects = YES;
+            bandConcertView.cornerRadius = @(10.0);
+            [bandConcertView setBackgroundPlain:[UIColor groupTableViewBackgroundColor] withAlpha:@(1.0)];
+            
+            NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+            paragraphStyle.alignment = NSTextAlignmentCenter;
+            NSDictionary* attributes = @{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Light" size:15], NSForegroundColorAttributeName : [UIColor darkGrayColor], NSParagraphStyleAttributeName : paragraphStyle};
+            bandConcertView.centeredText = [[NSAttributedString alloc] initWithString:bandUppercaseName attributes:attributes];
+            
+            
+            [bandConcertView.layer renderInContext:UIGraphicsGetCurrentContext()];
+            
+        }
+    }
+    
+    
+    //UIView* newView = [[UIView alloc] initWithFrame:CGRectMake(10.0,10.0,50.0,50.0)];
+    //[newView setBackgroundColor:[UIColor orangeColor]];
+    //[newView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    
+    UIImage *scheduleImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+
+    return scheduleImage;
+}
+
+
 
 #pragma mark - SWRevealViewController delegate
 
