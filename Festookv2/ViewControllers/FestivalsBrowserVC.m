@@ -67,17 +67,6 @@
         self.emptyListTextBackground.hidden = NO;
         self.emptyListText.text = @"Downloading festivals information...";
     }
-
-    /*
-     
-     !!!
-     
-     REVIEW FOR PRODUCTION
-     
-     !!!
-     
-     */
-    [self updateListFestivalsFromServer];
     
     // set background image
     self.backgroundView.roundedRects = NO;
@@ -108,7 +97,7 @@
     [self getUserID];
     
     [self setup];
-
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -116,7 +105,23 @@
     [super viewWillAppear:animated];
     
     [self.navigationController setNavigationBarHidden:YES animated:animated];
+    
 }
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    /*
+     
+     !!!
+     
+     REVIEW FOR PRODUCTION
+     
+     !!!
+     
+     */
+    [self updateListFestivalsFromServer]; // called here because we need a shown view to add the alert
+}
+
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -315,7 +320,7 @@
         UIAlertAction *tryAgainAction = [UIAlertAction actionWithTitle:@"Try again"
                                                                  style:UIAlertActionStyleDefault
                                                                handler:^(UIAlertAction *action){
-                                                                   [self setup];
+                                                                   [self updateListFestivalsFromServer];
                                                                }];
         [alertController addAction:tryAgainAction];
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
