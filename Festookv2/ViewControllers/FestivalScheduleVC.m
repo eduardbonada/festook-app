@@ -34,6 +34,9 @@
 @property (strong, nonatomic) NSMutableArray* daysToAttend; // of dictionaries {"day":"dd/mm/yyyy","start":NSDate,"end":NSDate}
 @property (strong, nonatomic) NSNumber* currentDayShown; // as the index of the segmentel control
 
+@property (weak, nonatomic) IBOutlet UIButton *settingsButton;
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *sharingButton;
 @property (weak, nonatomic) IBOutlet UIView *overlayView;
 
 @end
@@ -49,7 +52,7 @@
     [super viewDidLoad];
     
     // set navigation bar title
-    self.title = @"Personalized Schedule";
+    self.title = @"Schedule";
     [self.navigationController.navigationBar
      setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue-Light" size:16],
                               NSForegroundColorAttributeName:[UIColor darkGrayColor]
@@ -101,6 +104,7 @@
         // unhide table view and segmented control
         self.scheduleTableView.hidden = NO;
         self.daysSegmentedControl.hidden = NO;
+        self.settingsButton.hidden = NO;
         
         // configure day segmented control
         [self.daysSegmentedControl setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue" size:14.0],
@@ -118,6 +122,7 @@
         // hide table view and segmented control
         self.scheduleTableView.hidden = YES;
         self.daysSegmentedControl.hidden = YES;
+        self.settingsButton.hidden = YES;
         
         // show text and button
         self.emptyScheduleTextView.hidden = NO;
@@ -165,7 +170,7 @@
 {
     
     // compute the schedule
-    if(self.festival.changeInMustOrDiscarded){
+    if(self.festival.changeInMustOrDiscarded || self.festival.schedule.changeInAlgorithmMode){
         
         [self.festival updateBandSimilarityModel];
         
@@ -181,6 +186,8 @@
         [self updateTableViewForDay:[self.daysToAttend objectAtIndex:[self.currentDayShown integerValue]]];
         
         self.festival.changeInMustOrDiscarded = NO;
+        self.festival.schedule.changeInAlgorithmMode = NO;
+
     }
     
 }
@@ -469,8 +476,72 @@
 }
 
 
+#pragma mark - Selecting Algorithm
+- (IBAction)settingsPressed:(UIButton *)sender
+{
+    [self selectAlgorithm];
+}
+
+-(void) selectAlgorithm
+{
+    NSString *algorithmMode = [[NSUserDefaults standardUserDefaults] objectForKey:@"scheduleAlgorithmMode"];
+    
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:@"Choose the algorithm mode"
+                                          message:@"FULL CONCERT: ... \nLAST 30 MIN: ..."
+                                          preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *cancelAction = [UIAlertAction
+                                   actionWithTitle:@"Cancel"
+                                   style:UIAlertActionStyleCancel
+                                   handler:^(UIAlertAction *action)
+                                   {}
+                                   ];
+    UIAlertAction *fullConcert  = [UIAlertAction
+                                   actionWithTitle:@"Full Concert"
+                                   style:UIAlertActionStyleDefault
+                                   handler:^(UIAlertAction *action)
+                                   {
+                                       NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                                       [defaults setObject:@"FullConcert" forKey:@"scheduleAlgorithmMode"];
+                                       [defaults synchronize];
+                                       if(![algorithmMode isEqualToString:@"FullConcert"]){
+                                           self.festival.schedule.changeInAlgorithmMode = YES;
+                                           [self updateSchedule];
+                                           [self reloadScheduleTableDataWithAnimation: 0];
+                                       }
+                                   }
+                                   ];
+    UIAlertAction *last30min    = [UIAlertAction
+                                   actionWithTitle:@"Last 30 min"
+                                   style:UIAlertActionStyleDefault
+                                   handler:^(UIAlertAction *action)
+                                   {
+                                       NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                                       [defaults setObject:@"LastHalfHour" forKey:@"scheduleAlgorithmMode"];
+                                       [defaults synchronize];
+                                       if(![algorithmMode isEqualToString:@"LastHalfHour"]){
+                                           self.festival.schedule.changeInAlgorithmMode = YES;
+                                           [self updateSchedule];
+                                           [self reloadScheduleTableDataWithAnimation: 0];
+                                       }
+                                   }
+                                   ];
+    [alertController addAction:cancelAction];
+    [alertController addAction:fullConcert];
+    [alertController addAction:last30min];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+
 #pragma mark - Sharing
-- (IBAction) shareSchedule:(UIBarButtonItem *)sender
+- (IBAction)sharingPressed:(UIBarButtonItem *)sender
+{
+    [self shareSchedule];
+}
+
+- (void) shareSchedule
 {
     NSString *textToShare = [NSString stringWithFormat:@"My schedule for '%@'. Get yours with @festook app!",self.festival.uppercaseName];
     

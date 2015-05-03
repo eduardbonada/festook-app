@@ -14,7 +14,7 @@
 
 -(FestivalSchedule*) initWithFestival:(Festival*) fest;
 
-@property (nonatomic) BOOL recomputeSchedule; // flag to mark a schedule recomputation
+@property (nonatomic) BOOL changeInAlgorithmMode;
 
 -(void) computeSchedule;
 

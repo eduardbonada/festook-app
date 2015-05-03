@@ -721,6 +721,16 @@ by ebc</string>
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hCK-nU-aOF" userLabel="Settings Button">
+                                <rect key="frame" x="552" y="548" width="32" height="32"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="settingsIcon">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="settingsPressed:" destination="RgB-mr-c7u" eventType="touchUpInside" id="h4o-ih-Mf3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -732,6 +742,8 @@ by ebc</string>
                             <constraint firstAttribute="trailing" secondItem="5dI-IO-Nl2" secondAttribute="trailing" constant="16" id="FYY-zm-ClU"/>
                             <constraint firstItem="iq1-JD-e0j" firstAttribute="leading" secondItem="JJU-hk-tHe" secondAttribute="leading" id="Flo-92-MPp"/>
                             <constraint firstItem="e09-xH-wGK" firstAttribute="leading" secondItem="JJU-hk-tHe" secondAttribute="leading" id="Ggp-Da-PNL"/>
+                            <constraint firstAttribute="trailing" secondItem="hCK-nU-aOF" secondAttribute="trailing" constant="16" id="KJF-93-onU"/>
+                            <constraint firstItem="vfo-rw-DDs" firstAttribute="top" secondItem="hCK-nU-aOF" secondAttribute="bottom" constant="20" id="Mhy-kS-FaC"/>
                             <constraint firstItem="5dI-IO-Nl2" firstAttribute="leading" secondItem="JJU-hk-tHe" secondAttribute="leading" constant="16" id="Mn2-WJ-mlp"/>
                             <constraint firstAttribute="trailing" secondItem="iq1-JD-e0j" secondAttribute="trailing" id="OOd-3n-pj6"/>
                             <constraint firstItem="Ddp-5n-Zxt" firstAttribute="top" secondItem="TQO-Me-iOu" secondAttribute="bottom" constant="44" id="R5W-qH-eCm"/>
@@ -747,10 +759,9 @@ by ebc</string>
                         <barButtonItem key="leftBarButtonItem" image="menuIcon" id="hiN-A4-ZEU" userLabel="Menu button">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="D6w-9C-ded" userLabel="Share button">
-                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="5or-do-aYb" userLabel="Sharing Button">
                             <connections>
-                                <action selector="shareSchedule:" destination="RgB-mr-c7u" id="3C8-2X-05Z"/>
+                                <action selector="sharingPressed:" destination="RgB-mr-c7u" id="YK5-AR-qqL"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -760,6 +771,8 @@ by ebc</string>
                         <outlet property="emptyScheduleTextView" destination="SUx-lK-UdU" id="1Af-Fx-D4F"/>
                         <outlet property="overlayView" destination="e09-xH-wGK" id="NFb-Uo-YlA"/>
                         <outlet property="scheduleTableView" destination="5dI-IO-Nl2" id="8LN-KJ-jAI"/>
+                        <outlet property="settingsButton" destination="hCK-nU-aOF" id="w7M-wf-hhw"/>
+                        <outlet property="sharingButton" destination="5or-do-aYb" id="CXc-sd-RDZ"/>
                         <outlet property="sidebarButton" destination="hiN-A4-ZEU" id="6di-y1-UOQ"/>
                         <segue destination="2Bg-wU-Uh9" kind="show" identifier="ShowBandInfo" id="eWK-BZ-QWP"/>
                     </connections>
@@ -2283,6 +2296,7 @@ This Privacy Policy may be updated from time to time for any reason. We will not
         <image name="numBandsIcon" width="128" height="128"/>
         <image name="numStagesIcon" width="128" height="128"/>
         <image name="questionIcon" width="128" height="128"/>
+        <image name="settingsIcon" width="27" height="27"/>
         <image name="similarBandsIcon" width="128" height="128"/>
         <image name="similarDifferentBands" width="128" height="128"/>
         <image name="stageIcon" width="128" height="128"/>

@@ -50,8 +50,21 @@
 -(void) computeSchedule
 {
     [self resetFestival];
-    self.algorithmMode = @"LastHalfHour"; // FullConcert - SecondHalfConcert - LastHalfHour
-    [self generateScheduleWithSFFSwithOptions:@{@"mode":self.algorithmMode}];    
+    
+    // get algorithm mode from NSUserDefaults
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *algorithmMode = [defaults objectForKey:@"scheduleAlgorithmMode"];
+    if(!algorithmMode){
+        algorithmMode = @"FullConcert"; // FullConcert - SecondHalfConcert - LastHalfHour
+        [defaults setObject:algorithmMode forKey:@"scheduleAlgorithmMode"];
+        [defaults synchronize];
+    }
+
+    self.algorithmMode = algorithmMode;
+    
+    [self generateScheduleWithSFFSwithOptions:@{@"mode":self.algorithmMode}];
+    
+    self.changeInAlgorithmMode = NO;
 }
 
 -(NSAttributedString*) textRepresentationOfTheSchedule
