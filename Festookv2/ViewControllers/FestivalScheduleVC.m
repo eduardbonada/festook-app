@@ -472,15 +472,17 @@
 #pragma mark - Sharing
 - (IBAction) shareSchedule:(UIBarButtonItem *)sender
 {
-    NSString *textToShare = [NSString stringWithFormat:@"My schedule for %@. Get yours with @festook app!",self.festival.uppercaseName];
+    NSString *textToShare = [NSString stringWithFormat:@"My schedule for '%@'. Get yours with @festook app!",self.festival.uppercaseName];
     
-    UIImage *imageToShare = [self generateScheduleImage];//[UIImage imageNamed:@"textIcon"];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:imageToShare];
+    UIImage *imageToShare = [self generateScheduleImage];
+
+    /*
+     UIImageView *imageView = [[UIImageView alloc] initWithImage:imageToShare];
     imageView.frame = CGRectMake(10, 110, 300, 450);
     [self.view addSubview:imageView];
+    */
     
-    /*
-     NSArray *objectsToShare = @[textToShare, imageToShare];
+    NSArray *objectsToShare = @[textToShare, imageToShare];
     
     UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:objectsToShare applicationActivities:nil];
     
@@ -494,15 +496,43 @@
                                          UIActivityTypeAirDrop]; //UIActivityTypePostToFacebook, UIActivityTypePostToTwitter, UIActivityTypeMail, UIActivityTypeSaveToCameraRoll, UIActivityTypeCopyToPasteboard, UIActivityTypeMessage
     
     [self presentViewController:activityVC animated:YES completion:nil];
-     */
 }
 
-#define ConcertHeight 50.0
-#define ConcertWidth  200.0
-#define ConcertMargin 5.0
+#define TopBarHeight    50.0
+#define DayHeaderHeight 15.0
+#define ConcertHeight   25.0
+#define ConcertWidth    100.0
+#define CommonMargin    2.0
+#define BottomBarHeight 50.0
 
 -(UIImage*) generateScheduleImage
 {
+    // text attributes
+    NSMutableParagraphStyle *centeredStyle = [[NSMutableParagraphStyle alloc] init];
+    centeredStyle.alignment = NSTextAlignmentCenter;
+    NSMutableParagraphStyle *rightStyle = [[NSMutableParagraphStyle alloc] init];
+    rightStyle.alignment = NSTextAlignmentRight;
+    NSMutableParagraphStyle *leftStyle = [[NSMutableParagraphStyle alloc] init];
+    leftStyle.alignment = NSTextAlignmentLeft;
+    NSDictionary* textAttributesTopBar =    @{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Light" size:15],
+                                              NSForegroundColorAttributeName : [UIColor whiteColor],
+                                              NSParagraphStyleAttributeName : centeredStyle};
+    NSDictionary* textAttributesDayHeader = @{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Light" size:9],
+                                              NSForegroundColorAttributeName : [UIColor whiteColor],
+                                              NSParagraphStyleAttributeName : centeredStyle};
+    NSDictionary* textAttributesConcerts =  @{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Light" size:8],
+                                              NSForegroundColorAttributeName : [UIColor darkGrayColor],
+                                              NSParagraphStyleAttributeName : centeredStyle};
+    NSDictionary* textAttributesSocial  =   @{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Light" size:7],
+                                              NSForegroundColorAttributeName : [UIColor darkGrayColor],
+                                              NSParagraphStyleAttributeName : rightStyle};
+    NSDictionary* textAttributesLogoName =  @{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Thin" size:13],
+                                              NSForegroundColorAttributeName : [UIColor darkGrayColor],
+                                              NSParagraphStyleAttributeName : leftStyle};
+
+
+
+    // look for longest day
     NSUInteger maxConcertsPerDay = 0;
     for(NSDictionary* day in self.daysToAttend){
         NSUInteger concertsInDay = [[self.schedule bandsToAttendSortedByTimeBetween:[day objectForKey:@"start"] and:[day objectForKey:@"end"] withOptions:@"recommendedBands"] count];
@@ -510,9 +540,12 @@
             maxConcertsPerDay = concertsInDay;
         }
     }
-    CGFloat imageWidth  = ConcertMargin + (ConcertWidth+ConcertMargin)*(CGFloat)[self.daysToAttend count];
-    CGFloat imageHeight = ConcertMargin + (ConcertHeight+ConcertMargin)*(CGFloat)maxConcertsPerDay;
     
+    // set total image widht&height
+    CGFloat imageWidth  = CommonMargin + ((CGFloat)[self.daysToAttend count])*(ConcertWidth+CommonMargin);
+    CGFloat imageHeight = TopBarHeight + CommonMargin + DayHeaderHeight + CommonMargin + ((CGFloat)maxConcertsPerDay)*(ConcertHeight+CommonMargin) + BottomBarHeight;
+    
+    // begin context to draw the views
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(imageWidth,imageHeight), NO, 0.0);
 
     // background gradient
@@ -521,42 +554,85 @@
     [backgoundView setBackgroundGradientFromColor:self.festival.colorA toColor:self.festival.colorB];
     backgoundView.bounds = CGRectMake(0.0, 0.0, imageWidth, imageHeight);
     [backgoundView.layer renderInContext:UIGraphicsGetCurrentContext()];
-
+    
+    // draw top bar
+    EbcEnhancedView* tobBarView = [[EbcEnhancedView alloc] init];
+    tobBarView.bounds = CGRectMake(TopBarHeight*0.15, TopBarHeight*0.15, imageWidth-TopBarHeight*0.3, TopBarHeight-TopBarHeight*0.3);
+    tobBarView.roundedRects = YES;
+    tobBarView.cornerRadius = @(6.0);
+    [tobBarView setBackgroundColor:[UIColor clearColor]];
+    [tobBarView setBackgroundPlain:[UIColor clearColor] withAlpha:@(1.0)];
+    [tobBarView setBorderWithColor:self.festival.colorB andWidth:1.0f];
+    tobBarView.centeredText = [[NSAttributedString alloc] initWithString:self.festival.uppercaseName attributes:textAttributesTopBar];
+    [tobBarView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    
+    // draw concerts for each day
     for(NSDictionary* day in self.daysToAttend){
-        NSString* dayString = [day objectForKey:@"day"];
+        CGFloat horizontalOffset = CommonMargin+(ConcertWidth+CommonMargin)*(CGFloat)[self.daysToAttend indexOfObject:day];
+        
+        // draw day header
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        dateFormatter.dateFormat=@"EEEE dd";
+        EbcEnhancedView* dayHeaderView = [[EbcEnhancedView alloc] init];
+        dayHeaderView.bounds = CGRectMake(horizontalOffset, TopBarHeight+CommonMargin, ConcertWidth, DayHeaderHeight);
+        [dayHeaderView setBackgroundColor:[UIColor clearColor]];
+        [dayHeaderView setBackgroundPlain:[UIColor clearColor] withAlpha:@(1.0)];
+        dayHeaderView.centeredText = [[NSAttributedString alloc] initWithString:[dateFormatter stringFromDate:[day objectForKey:@"start"]] attributes:textAttributesDayHeader];
+        [dayHeaderView.layer renderInContext:UIGraphicsGetCurrentContext()];
+        
+        // draw concerts for 'day' in the right column
         NSArray* bandsToAttendInThisDay = [self.schedule bandsToAttendSortedByTimeBetween:[day objectForKey:@"start"] and:[day objectForKey:@"end"] withOptions:@"recommendedBands"];
-        
-        CGFloat horizontalOffset = ConcertMargin+(ConcertWidth+ConcertMargin)*(CGFloat)[self.daysToAttend indexOfObject:day];
-        
         for(NSString* bandName in bandsToAttendInThisDay){
-            NSString* bandUppercaseName = ((Band*)[self.festival.bands objectForKey:bandName]).uppercaseName;
-            CGFloat verticalOffset = ConcertMargin+(ConcertHeight+ConcertMargin)*(CGFloat)[bandsToAttendInThisDay indexOfObject:bandName];
+            CGFloat verticalOffset = TopBarHeight + CommonMargin + DayHeaderHeight + CommonMargin+((CGFloat)[bandsToAttendInThisDay indexOfObject:bandName])*(ConcertHeight+CommonMargin);
             
             EbcEnhancedView* bandConcertView = [[EbcEnhancedView alloc] init];
             bandConcertView.bounds = CGRectMake(horizontalOffset, verticalOffset, ConcertWidth, ConcertHeight);
-
             bandConcertView.roundedRects = YES;
-            bandConcertView.cornerRadius = @(10.0);
+            bandConcertView.cornerRadius = @(5.0);
             [bandConcertView setBackgroundPlain:[UIColor groupTableViewBackgroundColor] withAlpha:@(1.0)];
-            
-            NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-            paragraphStyle.alignment = NSTextAlignmentCenter;
-            NSDictionary* attributes = @{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Light" size:15], NSForegroundColorAttributeName : [UIColor darkGrayColor], NSParagraphStyleAttributeName : paragraphStyle};
-            bandConcertView.centeredText = [[NSAttributedString alloc] initWithString:bandUppercaseName attributes:attributes];
-            
-            
+            bandConcertView.centeredText = [[NSAttributedString alloc] initWithString:((Band*)[self.festival.bands objectForKey:bandName]).uppercaseName attributes:textAttributesConcerts];
             [bandConcertView.layer renderInContext:UIGraphicsGetCurrentContext()];
             
         }
     }
     
+    // draw bottom bar social text
+    EbcEnhancedView* bottomBarView = [[EbcEnhancedView alloc] init];
+    bottomBarView.bounds = CGRectMake(BottomBarHeight*0.15,
+                                      imageHeight-BottomBarHeight+BottomBarHeight*0.15,
+                                      imageWidth-BottomBarHeight*0.3,
+                                      BottomBarHeight-BottomBarHeight*0.3);
+    bottomBarView.roundedRects = YES;
+    bottomBarView.cornerRadius = @(6.0);
+    [bottomBarView setBackgroundColor:[UIColor clearColor]];
+    [bottomBarView setBackgroundPlain:[UIColor clearColor] withAlpha:@(1.0)];
+    [bottomBarView setBorderWithColor:self.festival.colorA andWidth:1.0f];
+    bottomBarView.rightJustifiedText = [[NSAttributedString alloc] initWithString:@"www.festook.com\ntwitter.com/festook\nfacebook.com/festook" attributes:textAttributesSocial];
+    [bottomBarView.layer renderInContext:UIGraphicsGetCurrentContext()];
+
+    // draw bottom festook logo
+    UIImageView *logoView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"roundedLogo"]];
+    logoView.bounds = CGRectMake(BottomBarHeight*0.20,
+                                 imageHeight-BottomBarHeight+BottomBarHeight*0.20,
+                                 BottomBarHeight-BottomBarHeight*0.4,
+                                 BottomBarHeight-BottomBarHeight*0.4);
+    [logoView.layer renderInContext:UIGraphicsGetCurrentContext()];
     
-    //UIView* newView = [[UIView alloc] initWithFrame:CGRectMake(10.0,10.0,50.0,50.0)];
-    //[newView setBackgroundColor:[UIColor orangeColor]];
-    //[newView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    // draw bottom festook name
+    EbcEnhancedView* nameView = [[EbcEnhancedView alloc] init];
+    nameView.bounds = CGRectMake(BottomBarHeight*0.20 + BottomBarHeight-BottomBarHeight*0.4,
+                                 imageHeight-BottomBarHeight,
+                                 200,
+                                 BottomBarHeight);
+    [nameView setBackgroundColor:[UIColor clearColor]];
+    [nameView setBackgroundPlain:[UIColor clearColor] withAlpha:@(1.0)];
+    nameView.leftJustifiedText = [[NSAttributedString alloc] initWithString:@"festook" attributes:textAttributesLogoName];
+    [nameView.layer renderInContext:UIGraphicsGetCurrentContext()];
     
+    // get final image
     UIImage *scheduleImage = UIGraphicsGetImageFromCurrentImageContext();
     
+    // end context
     UIGraphicsEndImageContext();
 
     return scheduleImage;

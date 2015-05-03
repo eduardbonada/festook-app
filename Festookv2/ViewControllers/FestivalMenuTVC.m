@@ -155,11 +155,8 @@ NSArray *menuItems;
                                          NSForegroundColorAttributeName : [UIColor whiteColor],
                                          NSParagraphStyleAttributeName  : paragraphStyle
                                          };
-            NSString* bandName = [
-                                  [festival.uppercaseName componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@" -/"]]
-                                  componentsJoinedByString:@"\n"
-                                  ];
-            cell.festivalView.centeredText = [[NSAttributedString alloc] initWithString:bandName
+            NSString* festivalName = [[festival.uppercaseName componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@" -/"]] componentsJoinedByString:@"\n"];
+            cell.festivalView.centeredText = [[NSAttributedString alloc] initWithString:festivalName
                                                                         attributes:attributes];
         }
         return cell;
