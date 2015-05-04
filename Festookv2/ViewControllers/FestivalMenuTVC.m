@@ -44,7 +44,7 @@ NSArray *menuItems;
     [super viewDidLoad];
     
     // SWRevealViewController: Configure the array of menu items
-    menuItems = @[@"festival", @"lineup", @"schedule", @"information", @"allFestivals"];
+    menuItems = @[@"festival", @"lineup", @"schedule", @"ratings", @"information", @"allFestivals"];
     
     // remove separators in last cells
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];

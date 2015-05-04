@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		232A17671AF7766A00489406 /* ConcertRatingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 232A17661AF7766A00489406 /* ConcertRatingsVC.m */; };
+		23381B3B1AF78316005F52C8 /* ConcertRatingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23381B3A1AF78316005F52C8 /* ConcertRatingTableViewCell.m */; };
 		236C5AAF1AF276E600D885E4 /* AboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 236C5AAE1AF276E600D885E4 /* AboutVC.m */; };
 		238070621AF4BE39009DE4B8 /* LegalTextVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 238070611AF4BE39009DE4B8 /* LegalTextVC.m */; };
 		23D1525F1AF0E91C00A00AC9 /* libFlurry_6.3.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 23D1525E1AF0E91C00A00AC9 /* libFlurry_6.3.0.a */; };
@@ -50,6 +52,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		232A17651AF7766A00489406 /* ConcertRatingsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConcertRatingsVC.h; sourceTree = "<group>"; };
+		232A17661AF7766A00489406 /* ConcertRatingsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConcertRatingsVC.m; sourceTree = "<group>"; };
+		23381B391AF78316005F52C8 /* ConcertRatingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConcertRatingTableViewCell.h; sourceTree = "<group>"; };
+		23381B3A1AF78316005F52C8 /* ConcertRatingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConcertRatingTableViewCell.m; sourceTree = "<group>"; };
 		236C5AAD1AF276E600D885E4 /* AboutVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutVC.h; sourceTree = "<group>"; };
 		236C5AAE1AF276E600D885E4 /* AboutVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutVC.m; sourceTree = "<group>"; };
 		238070601AF4BE39009DE4B8 /* LegalTextVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LegalTextVC.h; sourceTree = "<group>"; };
@@ -241,6 +247,8 @@
 				23EA65C91AEF961E00D3DD3C /* FestivalIconsMenuTableViewCell.m */,
 				23EA65CA1AEF961E00D3DD3C /* FestivalLogoMenuTableViewCell.h */,
 				23EA65CB1AEF961E00D3DD3C /* FestivalLogoMenuTableViewCell.m */,
+				23381B391AF78316005F52C8 /* ConcertRatingTableViewCell.h */,
+				23381B3A1AF78316005F52C8 /* ConcertRatingTableViewCell.m */,
 			);
 			path = ViewCells;
 			sourceTree = "<group>";
@@ -254,6 +262,8 @@
 				23EA65D21AEF961E00D3DD3C /* FestivalLineupVC.m */,
 				23EA65D91AEF961E00D3DD3C /* FestivalScheduleVC.h */,
 				23EA65DA1AEF961E00D3DD3C /* FestivalScheduleVC.m */,
+				232A17651AF7766A00489406 /* ConcertRatingsVC.h */,
+				232A17661AF7766A00489406 /* ConcertRatingsVC.m */,
 				23EA65CD1AEF961E00D3DD3C /* BandInfoVC.h */,
 				23EA65CE1AEF961E00D3DD3C /* BandInfoVC.m */,
 				23EA65CF1AEF961E00D3DD3C /* FestivalInfoVC.h */,
@@ -393,6 +403,7 @@
 			files = (
 				236C5AAF1AF276E600D885E4 /* AboutVC.m in Sources */,
 				23EA65E21AEF961E00D3DD3C /* Connectability.m in Sources */,
+				23381B3B1AF78316005F52C8 /* ConcertRatingTableViewCell.m in Sources */,
 				23EA65ED1AEF961E00D3DD3C /* FestivalRevealVC.m in Sources */,
 				23EA65EB1AEF961E00D3DD3C /* FestivalLineupVC.m in Sources */,
 				23EA65E51AEF961E00D3DD3C /* BandsInSectionsCollectionHeaderView.m in Sources */,
@@ -401,6 +412,7 @@
 				23EA65E91AEF961E00D3DD3C /* BandInfoVC.m in Sources */,
 				23EA65B81AEF961600D3DD3C /* Band.m in Sources */,
 				23EA65BB1AEF961600D3DD3C /* FestivalSchedule.m in Sources */,
+				232A17671AF7766A00489406 /* ConcertRatingsVC.m in Sources */,
 				23EA65EA1AEF961E00D3DD3C /* FestivalInfoVC.m in Sources */,
 				23EA65AE1AEF95FD00D3DD3C /* AppDelegate.m in Sources */,
 				23EA65E61AEF961E00D3DD3C /* FestivalCollectionViewCell.m in Sources */,

@@ -391,7 +391,7 @@ referenceSizeForHeaderInSection:(NSInteger)section
         }
         else if([self.festival.discardedBands objectForKey:bandInCell.lowercaseName]){
             // discarded band => redish
-            colorDependingOnMustAndDiscard = [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:0.7];
+            colorDependingOnMustAndDiscard = [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:0.6];
             fontDependingOnMustAndDiscard = [UIFont fontWithName:@"HelveticaNeue" size:fontSizeBandName];
         }
         else{

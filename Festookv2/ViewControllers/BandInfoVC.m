@@ -307,7 +307,7 @@
     }
     else if(segment == 2){
         // show it is as discardBand
-        self.mustDiscardedSegmentedControl.tintColor = [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:0.6];
+        self.mustDiscardedSegmentedControl.tintColor = [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:0.5];
     }
     else{
     }

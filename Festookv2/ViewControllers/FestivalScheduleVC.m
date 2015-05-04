@@ -25,7 +25,6 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *scheduleTableView;
 
-@property (weak, nonatomic) IBOutlet UIButton *emptyScheduleBandsButton;
 @property (weak, nonatomic) IBOutlet UITextView *emptyScheduleTextView;
 
 @property (strong, nonatomic) FestivalSchedule* schedule;
@@ -35,8 +34,8 @@
 @property (strong, nonatomic) NSNumber* currentDayShown; // as the index of the segmentel control
 
 @property (weak, nonatomic) IBOutlet UIButton *settingsButton;
-
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sharingButton;
+
 @property (weak, nonatomic) IBOutlet UIView *overlayView;
 
 @end
@@ -97,9 +96,8 @@
     // if there are mustBands selected
     if([self.festival.mustBands count] > 0){
         
-        // hide textView&Button for the case of no mustBands
+        // hide textView for the case of no mustBands
         self.emptyScheduleTextView.hidden = YES;
-        self.emptyScheduleBandsButton.hidden = YES;
         
         // unhide table view and segmented control
         self.scheduleTableView.hidden = NO;
@@ -124,12 +122,8 @@
         self.daysSegmentedControl.hidden = YES;
         self.settingsButton.hidden = YES;
         
-        // show text and button
+        // show text
         self.emptyScheduleTextView.hidden = NO;
-        self.emptyScheduleBandsButton.hidden = NO;
-        self.emptyScheduleBandsButton.layer.borderColor = [UIColor darkGrayColor].CGColor;
-        self.emptyScheduleBandsButton.layer.borderWidth = 1.0;
-        self.emptyScheduleBandsButton.layer.cornerRadius = 6;
         
         // clear bandsToAttend
         [self.bandsToAttend removeAllObjects];
@@ -734,7 +728,6 @@
 
     return scheduleImage;
 }
-
 
 
 #pragma mark - SWRevealViewController delegate
