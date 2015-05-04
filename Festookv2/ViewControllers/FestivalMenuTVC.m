@@ -151,7 +151,7 @@ NSArray *menuItems;
             cell.festivalView.cornerRadius = @(12.0);
             //[cell.festivalView setBackgroundPlain:[UIColor whiteColor] withAlpha:@(0.8)];
             //[cell.festivalView setBackgroundGradientFromColor:festival.colorA toColor:festival.colorB];
-            [cell.festivalView setBorderWithColor:festival.colorB andWidth:1.0f];
+            [cell.festivalView setBorderWithColor:festival.colorB andWidth:1.5f];
             
             // set the NSAttributedString in the title
             NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
@@ -232,7 +232,7 @@ NSArray *menuItems;
          REVIEW FOR PRODUCTION
          
          */
-        NSDate *currentTime = [dateFormatter dateFromString:@"29/05/2014 23:59"];
+        NSDate *currentTime = [NSDate date]; //[dateFormatter dateFromString:@"29/05/2014 23:59"];
         
         NSDate *bandEndingTime = ((Band*)[festival.bands objectForKey:bandName]).endTime;
         NSString* bandRating = [[[NSUserDefaults standardUserDefaults] objectForKey:@"concertRatings"] objectForKey:bandName];

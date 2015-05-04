@@ -58,10 +58,6 @@
     
     [self loadFestivalsData];
     
-    //self.emptyListTextBackground.roundedRects = YES;
-    //self.emptyListTextBackground.cornerRadius = @(12.0);
-    //[self.emptyListTextBackground setBackgroundGradientFromColor:[UIColor colorWithRed:160.0/255 green:200.0/255 blue:160.0/255 alpha:1.0] toColor:[UIColor colorWithRed:200.0/255 green:240.0/255 blue:200.0/255 alpha:1.0]];
-
     if([self.festivals count] == 0){
         self.emptyListText.hidden = NO;
         self.emptyListTextBackground.hidden = NO;
@@ -71,8 +67,8 @@
     // set background image
     self.backgroundView.roundedRects = NO;
     //[self.backgroundView setBackgroundGradientFromColor:[UIColor colorWithWhite:0.8 alpha:1.0] toColor:[UIColor colorWithWhite:1.0 alpha:1.0]];
-    [self.backgroundView setBackgroundGradientFromColor:[UIColor colorWithRed:168.0/255 green:223.0/255 blue:184.0/255 alpha:1.0] toColor:[UIColor colorWithRed:208.0/255 green:248.0/255 blue:219.0/255 alpha:1.0]]; // festuc gradient
-    //[self.backgroundView setBackgroundPlain:[UIColor colorWithRed:230.0/255 green:230.0/255 blue:230.0/255 alpha:1.0] withAlpha:@(1.0)]; // grey from Festook 1.0
+    //[self.backgroundView setBackgroundGradientFromColor:[UIColor colorWithRed:168.0/255 green:223.0/255 blue:184.0/255 alpha:1.0] toColor:[UIColor colorWithRed:208.0/255 green:248.0/255 blue:219.0/255 alpha:1.0]]; // festuc gradient
+    [self.backgroundView setBackgroundPlain:[UIColor colorWithRed:230.0/255 green:230.0/255 blue:230.0/255 alpha:1.0] withAlpha:@(1.0)]; // grey from Festook 1.0
     
     // set color of navigation bar items
     self.navigationController.navigationBar.tintColor = [UIColor darkGrayColor];
@@ -110,15 +106,6 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    /*
-     
-     !!!
-     
-     REVIEW FOR PRODUCTION
-     
-     !!!
-     
-     */
     [self updateListFestivalsFromServer]; // called here because we need a shown view to add the alert
 }
 
@@ -273,7 +260,6 @@
 
 -(void) updateListFestivalsFromServer
 {
-    
     // get 'Application Support' directory, and create one of it does not exist
     NSString *appSupportDir = [NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES) lastObject];
     if (![[NSFileManager defaultManager] fileExistsAtPath:appSupportDir isDirectory:NULL]){
@@ -292,10 +278,13 @@
             NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
             sessionConfig.timeoutIntervalForRequest = 10.0;
             sessionConfig.timeoutIntervalForResource = 10.0;
-            NSURLSessionDataTask *downloadTask = [[NSURLSession sharedSession]
+            sessionConfig.requestCachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
+            //NSLog(@"%@",[NSString stringWithFormat:@"http://%@/%@/listFestivals.txt",SERVER,FOLDER]);
+            NSURLSessionDataTask *downloadTask = [[NSURLSession sessionWithConfiguration:sessionConfig]
                                                   dataTaskWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@/%@/listFestivals.txt",SERVER,FOLDER]]
                                                   completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                                                       if(!error){
+                                                          //NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
                                                           NSArray  *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
                                                           NSString *appSupportDirectory = [paths objectAtIndex:0];
                                                           NSString *filePath = [NSString stringWithFormat:@"%@/%@", appSupportDirectory,@"listFestivals.txt"];
@@ -342,7 +331,6 @@
 
 -(void) loadFestivalsData
 {
-    
     // read file from application support directory and store its contents into an NSData object
     NSData *listFestivalsJsonData;
     NSString *path;
@@ -359,7 +347,6 @@
         NSDictionary* listFestivals = [self loadFestivalsListFromJson:listFestivalsJsonData];
         
         // fill festivals object
-        
         for(NSString* festivalString in [listFestivals allKeys]){
             
             // create the festival object
@@ -401,19 +388,8 @@
 
 -(void) updateFilesFromFestival:(Festival*) festival
 {
-    /*
-     
-     !!!
-     
-     UNCOMMENT FOR PRODUCTION
-     
-     !!!
-     
-     */
     [self updateFileFromServer:festival.listBandsFile];
     [self updateFileFromServer:festival.bandDistanceFile];
-    
-
 }
 
 -(void) updateFileFromServer:(NSDictionary*) file
@@ -523,12 +499,24 @@
                                      NSForegroundColorAttributeName : [UIColor whiteColor],
                                      NSParagraphStyleAttributeName  : paragraphStyle
                                      };
-        NSString* bandName = [
+        NSString* festivalName = [
                               [festival.uppercaseName componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@" -/"]]
                               componentsJoinedByString:@"\n"
                               ];
-        festivalView.centeredText = [[NSAttributedString alloc] initWithString:bandName
+        festivalView.centeredText = [[NSAttributedString alloc] initWithString:festivalName
                                                                     attributes:attributes];
+        
+        if([festival.state isEqualToString:@"inactive"]){
+            [cell.festivalView setBackgroundPlain:[UIColor whiteColor] withAlpha:@(0.5)]; // to add an effect of disabled
+            cell.inactiveLabel.transform = CGAffineTransformMakeRotation (-3.14/8);
+            cell.inactiveLabel.hidden = NO;
+            cell.userInteractionEnabled = NO;
+        }
+        else{
+            [cell.festivalView setBackgroundPlain:[UIColor clearColor] withAlpha:@(1.0)];
+            cell.inactiveLabel.hidden = YES;
+            cell.userInteractionEnabled = YES;
+        }
         
     }
     

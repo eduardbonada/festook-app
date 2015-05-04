@@ -13,5 +13,6 @@
 @interface FestivalCollectionViewCell : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet EbcEnhancedView *festivalView;
+@property (weak, nonatomic) IBOutlet UILabel *inactiveLabel;
 
 @end

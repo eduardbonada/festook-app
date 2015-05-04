@@ -23,7 +23,9 @@
 
 @property (weak, nonatomic) IBOutlet EbcEnhancedView *backgroundView;
 
-@property (weak, nonatomic) IBOutlet UITextView *emptyScheduleTextView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *subtitleLabel;
+@property (weak, nonatomic) IBOutlet UITextView *emptyListTextView;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -88,9 +90,11 @@
     [self.backgroundView setBackgroundGradientFromColor:self.festival.colorA
                                                 toColor:self.festival.colorB];
 
-    BOOL concertHasStarted = YES;
+    BOOL concertHasStarted = [[NSDate date] compare: self.festival.start] == NSOrderedDescending;
     if(concertHasStarted){
-        self.emptyScheduleTextView.hidden = YES;
+        self.titleLabel.hidden = NO;
+        self.subtitleLabel.hidden = NO;
+        self.emptyListTextView.hidden = YES;
         
         // get which bands have already played
         [self.festival.schedule computeSchedule];
@@ -102,7 +106,7 @@
              REVIEW FOR PRODUCTION
              
              */
-            NSDate *currentTime = [dateFormatter dateFromString:@"29/05/2014 23:59"];
+            NSDate *currentTime = [NSDate date]; //[dateFormatter dateFromString:@"29/05/2014 23:59"];
             
             NSDate *bandEndingTime = ((Band*)[self.festival.bands objectForKey:bandName]).endTime;
             if([currentTime compare:bandEndingTime] == NSOrderedDescending){
@@ -117,7 +121,9 @@
         self.allBandsThatAlreadyPlayed = [[allBandsThatAlreadyPlayed reverseObjectEnumerator] allObjects];
     }
     else{
-        self.emptyScheduleTextView.hidden = NO;
+        self.titleLabel.hidden = YES;
+        self.subtitleLabel.hidden = YES;
+        self.emptyListTextView.hidden = NO;
     }
 
     // set self as revealVC delegate
