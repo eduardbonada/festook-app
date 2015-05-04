@@ -185,13 +185,13 @@ NSArray *menuItems;
                 //configure badge font
                 UIFont* badgeFont;
                 if(badgeNumber < 10){
-                    badgeFont = [UIFont fontWithName:@"HelveticaNeue" size:16.0];
-                }
-                else if(badgeNumber < 100){
                     badgeFont = [UIFont fontWithName:@"HelveticaNeue" size:14.0];
                 }
+                else if(badgeNumber < 100){
+                    badgeFont = [UIFont fontWithName:@"HelveticaNeue" size:13.0];
+                }
                 else{
-                    badgeFont = [UIFont fontWithName:@"HelveticaNeue" size:12.0];
+                    badgeFont = [UIFont fontWithName:@"HelveticaNeue" size:10.0];
                 }
                 
                 // set the NSAttributedString in the title of the badge

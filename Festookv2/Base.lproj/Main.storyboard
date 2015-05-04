@@ -880,7 +880,7 @@ by ebc</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kbc-JW-HhX" userLabel="Badge" customClass="EbcEnhancedView">
-                                            <rect key="frame" x="136" y="8" width="25" height="25"/>
+                                            <rect key="frame" x="132" y="8" width="25" height="25"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </view>
                                     </subviews>
@@ -973,8 +973,15 @@ by ebc</string>
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="festookLogo" translatesAutoresizingMaskIntoConstraints="NO" id="qFN-fZ-BxB">
+                                <rect key="frame" x="225" y="80" width="150" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="aAH-ZV-mVq"/>
+                                    <constraint firstAttribute="height" constant="75" id="yLs-za-pcw"/>
+                                </constraints>
+                            </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wON-Nl-Hr1">
-                                <rect key="frame" x="16" y="72" width="568" height="520"/>
+                                <rect key="frame" x="16" y="175" width="568" height="425"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="f6N-Li-Otw">
                                     <size key="itemSize" width="135" height="135"/>
@@ -994,9 +1001,9 @@ by ebc</string>
                                                     <rect key="frame" x="0.0" y="0.0" width="135" height="135"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="available soon" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2MP-bx-LwT">
-                                                    <rect key="frame" x="51" y="88" width="90" height="45"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="available soon" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2MP-bx-LwT">
+                                                    <rect key="frame" x="55" y="86" width="90" height="45"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1021,7 +1028,7 @@ by ebc</string>
                                 </connections>
                             </collectionView>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P93-hu-iod" userLabel="Empty List Container View">
-                                <rect key="frame" x="232" y="60" width="136" height="136"/>
+                                <rect key="frame" x="232" y="175" width="136" height="136"/>
                                 <subviews>
                                     <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MVu-W3-D3v" customClass="EbcEnhancedView">
                                         <rect key="frame" x="0.0" y="0.0" width="136" height="136"/>
@@ -1065,18 +1072,20 @@ by ebc</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wON-Nl-Hr1" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="5Ro-CM-Fb3"/>
                             <constraint firstAttribute="trailing" secondItem="qrx-PN-NvP" secondAttribute="trailing" constant="8" id="6MW-HU-UFc"/>
                             <constraint firstItem="cfM-9N-z1T" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="8gY-Hc-7LZ"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="wON-Nl-Hr1" secondAttribute="bottom" constant="8" id="GS3-Eo-EDW"/>
+                            <constraint firstAttribute="centerX" secondItem="qFN-fZ-BxB" secondAttribute="centerX" id="QUi-Ns-KMp"/>
+                            <constraint firstItem="wON-Nl-Hr1" firstAttribute="top" secondItem="qFN-fZ-BxB" secondAttribute="bottom" constant="20" id="T1a-z5-szD"/>
+                            <constraint firstItem="wON-Nl-Hr1" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="Wj1-Tm-dRV"/>
                             <constraint firstItem="cfM-9N-z1T" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="Yj1-Ka-rDA"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="cfM-9N-z1T" secondAttribute="bottom" id="YwE-ql-J7e"/>
-                            <constraint firstAttribute="trailing" secondItem="wON-Nl-Hr1" secondAttribute="trailing" constant="16" id="ZKz-0b-gjq"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="qrx-PN-NvP" secondAttribute="bottom" constant="8" id="a1D-l3-TjS"/>
+                            <constraint firstItem="qFN-fZ-BxB" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="16" id="j5K-BJ-FIp"/>
                             <constraint firstAttribute="centerX" secondItem="P93-hu-iod" secondAttribute="centerX" id="oDI-WA-vag"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="wON-Nl-Hr1" secondAttribute="bottom" id="pRa-Fd-ZeB"/>
+                            <constraint firstItem="wON-Nl-Hr1" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="rlF-kR-zjf"/>
                             <constraint firstAttribute="trailing" secondItem="cfM-9N-z1T" secondAttribute="trailing" id="uKs-Je-RDC"/>
-                            <constraint firstItem="wON-Nl-Hr1" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="xaJ-bO-O9b"/>
-                            <constraint firstItem="P93-hu-iod" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="-4" id="zw9-fk-qir"/>
+                            <constraint firstItem="P93-hu-iod" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="111" id="zw9-fk-qir"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="04s-vd-iD6"/>

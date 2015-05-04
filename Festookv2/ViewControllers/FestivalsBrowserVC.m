@@ -488,7 +488,7 @@
         
         // set visual graphic configuration
         festivalView.roundedRects = YES;
-        festivalView.cornerRadius = @(15.0);
+        festivalView.cornerRadius = @(18.0);
         //[festivalView setBackgroundPlain:festival.colorA withAlpha:@(0.8)];
         [festivalView setBackgroundGradientFromColor:festival.colorA toColor:festival.colorB];
         
