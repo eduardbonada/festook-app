@@ -17,7 +17,7 @@
 @property (strong, nonatomic) NSMutableArray *freeSlots;            // array of dictionaries => [{"start":NSDate,"end":NSDate},...]
 @property (strong, nonatomic) NSMutableDictionary *bandsToAttend;   // lowercaseName:Band
 
-@property (strong, nonatomic) NSString *algorithmMode;   // "FullConcert" / "SecondHalfConcert"
+@property (strong, nonatomic) NSString *algorithmMode;   // "FullConcert" / "FullConcert" / "SecondHalfConcert" / "LastHalfHour"
 
 @end
 
@@ -55,7 +55,7 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *algorithmMode = [defaults objectForKey:@"scheduleAlgorithmMode"];
     if(!algorithmMode){
-        algorithmMode = @"FullConcert"; // FullConcert - SecondHalfConcert - LastHalfHour
+        algorithmMode = @"FullConcertWithFreeTime"; // FullConcertWithFreeTime - FullConcert - SecondHalfConcert - LastHalfHour
         [defaults setObject:algorithmMode forKey:@"scheduleAlgorithmMode"];
         [defaults synchronize];
     }
@@ -295,7 +295,10 @@
     [self.freeSlots removeObjectAtIndex:(NSUInteger)freeSlotIndex];
     
     // create new slot(s) after adding the band concert (both for "FullConcert" and "SecondHalfConcert")
-    if([self.algorithmMode isEqualToString:@"FullConcert"] || [self.algorithmMode isEqualToString:@"SecondHalfConcert"] || [self.algorithmMode isEqualToString:@"LastHalfHour"]){
+    if([self.algorithmMode isEqualToString:@"FullConcert"]
+       || [self.algorithmMode isEqualToString:@"FullConcertWithFreeTime"]
+       || [self.algorithmMode isEqualToString:@"SecondHalfConcert"]
+       || [self.algorithmMode isEqualToString:@"LastHalfHour"]){
         
         if( [freeSlotStart compare:band.startTime] == NSOrderedAscending && [freeSlotEnd compare:band.endTime] == NSOrderedDescending ){
             // the full band slot falls in the middle of the free slot => two new free slots are created
@@ -319,7 +322,7 @@
         
     }
     
-    // create new slot(s) after adding the band concert (only for "SecondHalfConcert")
+    // create new slot(s) after adding the band concert (only for "SecondHalfConcert" and "LastHalfHour")
     if( [self.algorithmMode isEqualToString:@"SecondHalfConcert"] || [self.algorithmMode isEqualToString:@"LastHalfHour"]){
         
         NSDate* intraConcertTime;
@@ -386,7 +389,7 @@
     /*
      SFFS: Simply Fill Free Slots
      Options: 
-        "mode" : "FullConcert" / "SecondHalfConcert" / "LastHalfHour"
+        "mode" : "FullConcert" / "FullConcertWithFreeTime" / "SecondHalfConcert" / "LastHalfHour"
      */
     
     // read options
@@ -411,10 +414,30 @@
             }
             
             /*
-             TODO: break is schedule is full
+             TODO: break if schedule is full
              */
         }
         
+    }
+    // mode FullConcertWithFreeTime: add band if there is a free slot for the full concert and free time around it
+    else if([mode isEqualToString:@"FullConcertWithFreeTime"]){
+        
+        for(NSString* bandString in bandsSortedBySimilarity){
+            Band* band = [self.festival.bands objectForKey:bandString];
+
+            // 10 minutes of free time
+            NSDate* startWithFreeTime = [band.startTime dateByAddingTimeInterval:-10*60];
+            NSDate* endWithFreetime = [band.endTime dateByAddingTimeInterval:+10*60];
+            
+            NSInteger freeSlotIndex = [self isThereAFreeSlotBetweenDate:startWithFreeTime andDate:endWithFreetime];
+            if(freeSlotIndex >= 0){
+                [self addBand:band inFreeSlotIndex:freeSlotIndex];
+            }
+            
+            /*
+             TODO: break if schedule is full
+             */
+        }
     }
     // mode SecondHalfConcert: add band if there is a free slot for the second half of the concert
     else if([mode isEqualToString:@"SecondHalfConcert"]){
@@ -429,7 +452,7 @@
             }
             
             /*
-             TODO: break is schedule is full
+             TODO: break if schedule is full
              */
         }
     }
@@ -446,10 +469,11 @@
             }
             
             /*
-             TODO: break is schedule is full
+             TODO: break if schedule is full
              */
         }
     }
+
 }
 
 -(void) generateScheduleWithBUBBLE

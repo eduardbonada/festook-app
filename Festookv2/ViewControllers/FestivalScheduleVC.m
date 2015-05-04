@@ -486,9 +486,11 @@
 {
     NSString *algorithmMode = [[NSUserDefaults standardUserDefaults] objectForKey:@"scheduleAlgorithmMode"];
     
+    NSString* message = [NSString stringWithFormat:@": No concert overlapping. \nLAST 30 MIN: Smart concert overlapping (enjoy)"];
+    
     UIAlertController *alertController = [UIAlertController
                                           alertControllerWithTitle:@"Choose the algorithm mode"
-                                          message:@"FULL CONCERT: ... \nLAST 30 MIN: ..."
+                                          message:message
                                           preferredStyle:UIAlertControllerStyleActionSheet];
     
     UIAlertAction *cancelAction = [UIAlertAction
@@ -497,10 +499,21 @@
                                    handler:^(UIAlertAction *action)
                                    {}
                                    ];
-    UIAlertAction *fullConcert  = [UIAlertAction
-                                   actionWithTitle:@"Full Concert"
-                                   style:UIAlertActionStyleDefault
-                                   handler:^(UIAlertAction *action)
+    UIAlertAction *freeTime     = [UIAlertAction actionWithTitle:@"Free Time" style:UIAlertActionStyleDefault
+                                                         handler:^(UIAlertAction *action)
+                                   {
+                                       NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                                       [defaults setObject:@"FullConcertWithFreeTime" forKey:@"scheduleAlgorithmMode"];
+                                       [defaults synchronize];
+                                       if(![algorithmMode isEqualToString:@"FullConcertWithFreeTime"]){
+                                           self.festival.schedule.changeInAlgorithmMode = YES;
+                                           [self updateSchedule];
+                                           [self reloadScheduleTableDataWithAnimation: 0];
+                                       }
+                                   }
+                                   ];
+    UIAlertAction *fullConcert  = [UIAlertAction actionWithTitle:@"Full Concert" style:UIAlertActionStyleDefault
+                                                         handler:^(UIAlertAction *action)
                                    {
                                        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
                                        [defaults setObject:@"FullConcert" forKey:@"scheduleAlgorithmMode"];
@@ -512,9 +525,7 @@
                                        }
                                    }
                                    ];
-    UIAlertAction *last30min    = [UIAlertAction
-                                   actionWithTitle:@"Last 30 min"
-                                   style:UIAlertActionStyleDefault
+    UIAlertAction *last30min    = [UIAlertAction actionWithTitle:@"Last 30 min" style:UIAlertActionStyleDefault
                                    handler:^(UIAlertAction *action)
                                    {
                                        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -528,6 +539,7 @@
                                    }
                                    ];
     [alertController addAction:cancelAction];
+    [alertController addAction:freeTime];
     [alertController addAction:fullConcert];
     [alertController addAction:last30min];
     
