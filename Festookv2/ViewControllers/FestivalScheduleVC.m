@@ -485,11 +485,25 @@
 -(void) selectAlgorithm
 {
     NSString *algorithmMode = [[NSUserDefaults standardUserDefaults] objectForKey:@"scheduleAlgorithmMode"];
+    NSString *currentModeString = @"";
+    if([algorithmMode isEqualToString:@"FullConcertWithFreeTime"]){
+        currentModeString = @"Your current mode is 'Relaxed'";
+    }
+    else if([algorithmMode isEqualToString:@"FullConcert"]){
+        currentModeString = @"Your current mode is 'Moderate'";
+    }
+    else if([algorithmMode isEqualToString:@"LastHalfHour"]){
+        currentModeString = @"Your current mode is 'Complete'";
+    }
     
-    NSString* message = [NSString stringWithFormat:@": No concert overlapping. \nLAST 30 MIN: Smart concert overlapping (enjoy)"];
+    NSString* message = [NSString stringWithFormat:@"RELAXED:\nWith free time between concerts.\n\n"
+                                                    "MODERATE:\nAs many concerts as possible, without overlapping.\n\n"
+                                                    "COMPLETE:\nWith smart overlapping optimized for enjoying as many concert endings as possible.\n"
+                                                    "\n%@",currentModeString];
+    
     
     UIAlertController *alertController = [UIAlertController
-                                          alertControllerWithTitle:@"Choose the algorithm mode"
+                                          alertControllerWithTitle:@"Select your type of festival experience"
                                           message:message
                                           preferredStyle:UIAlertControllerStyleActionSheet];
     
@@ -499,7 +513,7 @@
                                    handler:^(UIAlertAction *action)
                                    {}
                                    ];
-    UIAlertAction *freeTime     = [UIAlertAction actionWithTitle:@"Free Time" style:UIAlertActionStyleDefault
+    UIAlertAction *freeTime     = [UIAlertAction actionWithTitle:@"Relaxed" style:UIAlertActionStyleDefault
                                                          handler:^(UIAlertAction *action)
                                    {
                                        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -512,7 +526,7 @@
                                        }
                                    }
                                    ];
-    UIAlertAction *fullConcert  = [UIAlertAction actionWithTitle:@"Full Concert" style:UIAlertActionStyleDefault
+    UIAlertAction *fullConcert  = [UIAlertAction actionWithTitle:@"Moderate" style:UIAlertActionStyleDefault
                                                          handler:^(UIAlertAction *action)
                                    {
                                        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -525,7 +539,7 @@
                                        }
                                    }
                                    ];
-    UIAlertAction *last30min    = [UIAlertAction actionWithTitle:@"Last 30 min" style:UIAlertActionStyleDefault
+    UIAlertAction *last30min    = [UIAlertAction actionWithTitle:@"Complete" style:UIAlertActionStyleDefault
                                    handler:^(UIAlertAction *action)
                                    {
                                        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
