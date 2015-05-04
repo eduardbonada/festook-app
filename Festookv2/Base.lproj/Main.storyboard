@@ -879,11 +879,16 @@ by ebc</string>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kbc-JW-HhX" userLabel="Badge" customClass="EbcEnhancedView">
+                                            <rect key="frame" x="136" y="8" width="25" height="25"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <connections>
+                                    <outlet property="badge" destination="Kbc-JW-HhX" id="09d-1h-K5Q"/>
                                     <outlet property="iconImageView" destination="hCa-Jd-3Xe" id="YU2-RU-2EK"/>
                                     <outlet property="label" destination="1Js-06-60p" id="g4p-EN-SS9"/>
                                     <segue destination="71U-25-GpG" kind="custom" identifier="ShowRatings" customClass="SWRevealViewControllerSeguePushController" id="x6w-sP-tAK"/>
@@ -950,7 +955,7 @@ by ebc</string>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-39" y="-513"/>
+            <point key="canvasLocation" x="-39" y="-520"/>
         </scene>
         <!--Festivals BrowserVC-->
         <scene sceneID="ufC-wZ-h7g">

@@ -16,4 +16,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *label;
 
+@property (weak, nonatomic) IBOutlet EbcEnhancedView *badge;
+
 @end

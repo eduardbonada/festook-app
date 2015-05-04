@@ -143,7 +143,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return [self.allBandsThatAlreadyPlayed count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -177,7 +177,7 @@
     NSString* bandRating = [concertRatings objectForKey:bandToShow.lowercaseName];
     
     // obtain the index to select
-    NSUInteger selectedSegment = 1;
+    NSUInteger selectedSegment = -1;
     if([bandRating isEqualToString:[cell.bandRating titleForSegmentAtIndex:0]]){
         selectedSegment = 0;
     }
@@ -237,6 +237,7 @@
         segmentedControl.tintColor = [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:0.5];
     }
     else{
+        segmentedControl.tintColor = [UIColor lightGrayColor];
     }
     
     segmentedControl.selectedSegmentIndex = segment;

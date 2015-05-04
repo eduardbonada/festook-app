@@ -13,7 +13,10 @@
 #import "FestivalRevealVC.h"
 #import "FestivalLogoMenuTableViewCell.h"
 #import "FestivalIconsMenuTableViewCell.h"
+
 #import "Festival.h"
+#import "Band.h"
+#import "FestivalSchedule.h"
 
 #import "Flurry.h"
 
@@ -49,8 +52,6 @@ NSArray *menuItems;
     // remove separators in last cells
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
-    [self logPresenceEventInFlurry];
-        
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -60,6 +61,10 @@ NSArray *menuItems;
     [self addBackgroundView];
     
     self.clearsSelectionOnViewWillAppear = YES;
+
+    [self.tableView reloadData];
+    
+    [self logPresenceEventInFlurry];
 
 }
 
@@ -166,13 +171,77 @@ NSArray *menuItems;
         
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         
-        // change background color of selected cell
-        //UIView *bgColorView = [[UIView alloc] init];
-        //[bgColorView setBackgroundColor:[UIColor clearColor]];
-        //[cell setSelectedBackgroundView:bgColorView];
+        if([cellIdentifier isEqualToString:@"ratings"]){
+            NSInteger badgeNumber = [self numberOfBandsWithPendingRating];
+            
+            if(badgeNumber > 0){
+                cell.badge.hidden = NO;
 
+                // configure badge background
+                cell.badge.roundedRects = YES;
+                cell.badge.cornerRadius = @(cell.badge.frame.size.height/2);
+                [cell.badge setBackgroundPlain:[UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:0.6] withAlpha:@(1.0)];
+                
+                //configure badge font
+                UIFont* badgeFont;
+                if(badgeNumber < 10){
+                    badgeFont = [UIFont fontWithName:@"HelveticaNeue" size:16.0];
+                }
+                else if(badgeNumber < 100){
+                    badgeFont = [UIFont fontWithName:@"HelveticaNeue" size:14.0];
+                }
+                else{
+                    badgeFont = [UIFont fontWithName:@"HelveticaNeue" size:12.0];
+                }
+                
+                // set the NSAttributedString in the title of the badge
+                NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+                paragraphStyle.alignment = NSTextAlignmentCenter;
+                NSDictionary* attributes = @{NSFontAttributeName            : badgeFont,
+                                             NSForegroundColorAttributeName : [UIColor whiteColor],
+                                             NSParagraphStyleAttributeName  : paragraphStyle
+                                             };
+                cell.badge.centeredText = [[NSAttributedString alloc] initWithString: [NSString stringWithFormat:@"%d",badgeNumber]
+                                                                          attributes:attributes];
+            }
+            else{
+                cell.badge.hidden = YES;
+            }
+        }
+        
         return cell;
     }
+    
+}
+
+-(NSInteger) numberOfBandsWithPendingRating
+{
+    Festival *festival = ((FestivalRevealVC*)self.revealViewController).festival;
+    
+    // temporary dat formatter
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat=@"dd/MM/yyyy HH:mm";
+
+    // get which bands have already played
+    [festival.schedule computeSchedule];
+    NSArray *allRecommendedBands = [festival.schedule bandsToAttendSortedByTimeBetween:festival.start and:festival.end withOptions:@"recommendedBands"];
+    NSMutableArray *bandsPendingToRate = [[NSMutableArray alloc] init];
+    for(NSString* bandName in allRecommendedBands){
+        /*
+         
+         REVIEW FOR PRODUCTION
+         
+         */
+        NSDate *currentTime = [dateFormatter dateFromString:@"29/05/2014 23:59"];
+        
+        NSDate *bandEndingTime = ((Band*)[festival.bands objectForKey:bandName]).endTime;
+        NSString* bandRating = [[[NSUserDefaults standardUserDefaults] objectForKey:@"concertRatings"] objectForKey:bandName];
+        if(([currentTime compare:bandEndingTime] == NSOrderedDescending) && !bandRating){
+            [bandsPendingToRate addObject:bandName];
+        }
+    }
+    
+    return [bandsPendingToRate count];
     
 }
 
