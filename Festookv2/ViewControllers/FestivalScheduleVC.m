@@ -246,32 +246,6 @@
     }
 }
 
-/*
-- (IBAction)swipeRightInCollectionView:(UISwipeGestureRecognizer *)sender
-{
-    
-    if(self.daysSegmentedControl.selectedSegmentIndex > 0){
-        self.daysSegmentedControl.selectedSegmentIndex--;
-        self.currentDayShown = @(self.daysSegmentedControl.selectedSegmentIndex);
-        [self updateTableViewForDay:[self.daysToAttend objectAtIndex:self.daysSegmentedControl.selectedSegmentIndex]];
-        [self reloadScheduleTableDataWithAnimation: UITableViewRowAnimationRight];
-        [self.scheduleTableView setContentOffset:CGPointMake(0.0, -10.0) animated:YES]; // scroll to the top
-    }
-    
-}
-
-- (IBAction)swipeLeftInCollectionView:(UISwipeGestureRecognizer *)sender
-{
-    
-    if(self.daysSegmentedControl.selectedSegmentIndex < self.daysSegmentedControl.numberOfSegments - 1){
-        self.daysSegmentedControl.selectedSegmentIndex++;
-        self.currentDayShown = @(self.daysSegmentedControl.selectedSegmentIndex);
-        [self updateTableViewForDay:[self.daysToAttend objectAtIndex:self.daysSegmentedControl.selectedSegmentIndex]];
-        [self reloadScheduleTableDataWithAnimation: UITableViewRowAnimationLeft];
-        [self.scheduleTableView setContentOffset:CGPointMake(0.0, -10.0) animated:YES]; // scroll to the top
-    }
-}
-*/
 
 #pragma mark - day to attend views configuration
 
