@@ -246,7 +246,7 @@
     [self highlightSegmentedControl:bandRatingSegmentedControl AtSegment:bandRatingSegmentedControl.selectedSegmentIndex];
 
     // update band rating in NSUserDefaults
-    //NSLog(@"%@", [[NSUserDefaults standardUserDefaults] dictionaryRepresentation]);
+    NSLog(@"%@", [[NSUserDefaults standardUserDefaults] dictionaryRepresentation]);
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSMutableDictionary *concertRatings = [[defaults objectForKey:@"concertRatings"] mutableCopy];
     if(!concertRatings){
@@ -257,9 +257,10 @@
         // create the festival ratings if it does not exist
         [concertRatings setObject:[[NSMutableDictionary alloc] init] forKey:self.festival.lowercaseName];
     }
-    NSMutableDictionary* festivalRatings = [concertRatings objectForKey:self.festival.lowercaseName];
+    NSMutableDictionary* festivalRatings = [[concertRatings objectForKey:self.festival.lowercaseName] mutableCopy];
     [festivalRatings setObject:[bandRatingSegmentedControl titleForSegmentAtIndex:bandRatingSegmentedControl.selectedSegmentIndex]
                        forKey:bandRated.lowercaseName];
+    [concertRatings setObject:festivalRatings forKey:self.festival.lowercaseName];
     [defaults setObject:concertRatings forKey:@"concertRatings"];
     [defaults synchronize];
 

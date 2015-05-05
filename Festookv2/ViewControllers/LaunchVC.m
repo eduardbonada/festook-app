@@ -35,7 +35,7 @@
     [self.view layoutIfNeeded];
     
     [UIView animateWithDuration:0.75
-                          delay:0.25
+                          delay:0.50
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^(void){
                          self.logoTopConstraint.constant = 28;
