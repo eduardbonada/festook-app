@@ -39,6 +39,7 @@
 		23EA65F11AEF961E00D3DD3C /* EbcEnhancedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EA65DF1AEF961E00D3DD3C /* EbcEnhancedView.m */; };
 		23EA65F21AEF961E00D3DD3C /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EA65E11AEF961E00D3DD3C /* UIImage+ImageEffects.m */; };
 		23EA65F41AEF96D800D3DD3C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23EA65F31AEF96D800D3DD3C /* Images.xcassets */; };
+		23EF6B0E1AF8FC110019118C /* LaunchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EF6B0D1AF8FC110019118C /* LaunchVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +116,8 @@
 		23EA65E01AEF961E00D3DD3C /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		23EA65E11AEF961E00D3DD3C /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		23EA65F31AEF96D800D3DD3C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		23EF6B0C1AF8FC110019118C /* LaunchVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchVC.h; sourceTree = "<group>"; };
+		23EF6B0D1AF8FC110019118C /* LaunchVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,6 +259,8 @@
 		23EA65CC1AEF961E00D3DD3C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				23EF6B0C1AF8FC110019118C /* LaunchVC.h */,
+				23EF6B0D1AF8FC110019118C /* LaunchVC.m */,
 				23EA65D71AEF961E00D3DD3C /* FestivalsBrowserVC.h */,
 				23EA65D81AEF961E00D3DD3C /* FestivalsBrowserVC.m */,
 				23EA65D11AEF961E00D3DD3C /* FestivalLineupVC.h */,
@@ -418,6 +423,7 @@
 				23EA65E61AEF961E00D3DD3C /* FestivalCollectionViewCell.m in Sources */,
 				238070621AF4BE39009DE4B8 /* LegalTextVC.m in Sources */,
 				23EA65EC1AEF961E00D3DD3C /* FestivalMenuTVC.m in Sources */,
+				23EF6B0E1AF8FC110019118C /* LaunchVC.m in Sources */,
 				23EA65F11AEF961E00D3DD3C /* EbcEnhancedView.m in Sources */,
 				23EA65E41AEF961E00D3DD3C /* BandCollectionViewCell.m in Sources */,
 				23EA65F21AEF961E00D3DD3C /* UIImage+ImageEffects.m in Sources */,

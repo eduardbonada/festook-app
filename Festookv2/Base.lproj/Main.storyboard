@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13F1066" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="OgS-4C-Mzx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13F1066" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rZb-2z-JL7">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -973,15 +973,8 @@ by ebc</string>
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="festookLogo" translatesAutoresizingMaskIntoConstraints="NO" id="qFN-fZ-BxB">
-                                <rect key="frame" x="225" y="80" width="150" height="75"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="aAH-ZV-mVq"/>
-                                    <constraint firstAttribute="height" constant="75" id="yLs-za-pcw"/>
-                                </constraints>
-                            </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wON-Nl-Hr1">
-                                <rect key="frame" x="16" y="175" width="568" height="425"/>
+                                <rect key="frame" x="16" y="136" width="568" height="426"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="f6N-Li-Otw">
                                     <size key="itemSize" width="135" height="135"/>
@@ -1056,7 +1049,7 @@ by ebc</string>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qrx-PN-NvP">
-                                <rect key="frame" x="570" y="570" width="22" height="22"/>
+                                <rect key="frame" x="562" y="570" width="22" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="Ie8-Rw-iAF"/>
                                     <constraint firstAttribute="width" constant="22" id="Ntn-ER-WfP"/>
@@ -1069,21 +1062,28 @@ by ebc</string>
                                     <segue destination="Nt5-wO-8nY" kind="presentation" identifier="ShowAbout" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="eHD-EZ-NFB"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="festookLogo" translatesAutoresizingMaskIntoConstraints="NO" id="jpr-vP-O3r">
+                                <rect key="frame" x="200" y="28" width="200" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="BNy-7V-xE4"/>
+                                    <constraint firstAttribute="width" constant="200" id="tgM-V3-VnZ"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="qrx-PN-NvP" secondAttribute="trailing" constant="8" id="6MW-HU-UFc"/>
+                            <constraint firstItem="wON-Nl-Hr1" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="2SH-az-DfB"/>
+                            <constraint firstAttribute="trailing" secondItem="qrx-PN-NvP" secondAttribute="trailing" constant="16" id="6MW-HU-UFc"/>
+                            <constraint firstItem="jpr-vP-O3r" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" constant="28" id="6hZ-xi-QRZ"/>
+                            <constraint firstItem="wON-Nl-Hr1" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" constant="136" id="79Z-Va-Khn"/>
                             <constraint firstItem="cfM-9N-z1T" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="8gY-Hc-7LZ"/>
-                            <constraint firstAttribute="centerX" secondItem="qFN-fZ-BxB" secondAttribute="centerX" id="QUi-Ns-KMp"/>
-                            <constraint firstItem="wON-Nl-Hr1" firstAttribute="top" secondItem="qFN-fZ-BxB" secondAttribute="bottom" constant="20" id="T1a-z5-szD"/>
-                            <constraint firstItem="wON-Nl-Hr1" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="Wj1-Tm-dRV"/>
+                            <constraint firstItem="wON-Nl-Hr1" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="9IY-XU-dIp"/>
+                            <constraint firstItem="qrx-PN-NvP" firstAttribute="top" secondItem="wON-Nl-Hr1" secondAttribute="bottom" constant="8" id="Bq7-hy-rY6"/>
                             <constraint firstItem="cfM-9N-z1T" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="Yj1-Ka-rDA"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="cfM-9N-z1T" secondAttribute="bottom" id="YwE-ql-J7e"/>
+                            <constraint firstAttribute="centerX" secondItem="jpr-vP-O3r" secondAttribute="centerX" id="ZaS-eO-suB"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="qrx-PN-NvP" secondAttribute="bottom" constant="8" id="a1D-l3-TjS"/>
-                            <constraint firstItem="qFN-fZ-BxB" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="16" id="j5K-BJ-FIp"/>
                             <constraint firstAttribute="centerX" secondItem="P93-hu-iod" secondAttribute="centerX" id="oDI-WA-vag"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="wON-Nl-Hr1" secondAttribute="bottom" id="pRa-Fd-ZeB"/>
-                            <constraint firstItem="wON-Nl-Hr1" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="rlF-kR-zjf"/>
                             <constraint firstAttribute="trailing" secondItem="cfM-9N-z1T" secondAttribute="trailing" id="uKs-Je-RDC"/>
                             <constraint firstItem="P93-hu-iod" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="111" id="zw9-fk-qir"/>
                         </constraints>
@@ -1099,6 +1099,42 @@ by ebc</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1558" y="-513"/>
+        </scene>
+        <!--LaunchVC-->
+        <scene sceneID="s5D-vn-eOo">
+            <objects>
+                <viewController id="rZb-2z-JL7" customClass="LaunchVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pGB-oj-f0F"/>
+                        <viewControllerLayoutGuide type="bottom" id="46h-Kz-K7v"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Xvu-GR-hPK">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="festookLogo" translatesAutoresizingMaskIntoConstraints="NO" id="LtD-Ja-oz0">
+                                <rect key="frame" x="200" y="192" width="200" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="EFU-7Y-cDT"/>
+                                    <constraint firstAttribute="height" constant="100" id="QKb-i9-bpf"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="LtD-Ja-oz0" secondAttribute="centerX" id="JVT-MQ-0cG"/>
+                            <constraint firstItem="LtD-Ja-oz0" firstAttribute="top" secondItem="Xvu-GR-hPK" secondAttribute="topMargin" constant="192" id="tIW-nY-7aM"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="logoImageView" destination="LtD-Ja-oz0" id="WTL-gD-BnR"/>
+                        <outlet property="logoTopConstraint" destination="tIW-nY-7aM" id="q0O-4F-Wjz"/>
+                        <segue destination="OgS-4C-Mzx" kind="presentation" identifier="ShowFestivalBrowser" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" animates="NO" id="QxJ-R2-Zzb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7i5-PA-IaJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3009" y="-513"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7Jm-7C-Dgj">

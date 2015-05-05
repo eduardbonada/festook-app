@@ -32,7 +32,6 @@
 @property (nonatomic,weak) IBOutlet UICollectionView *festivalsCollectionView;
 @property (nonatomic,strong) NSArray *festivalsAsInCollectionView; // of @"lowercaseName"
 
-
 @property (weak, nonatomic) IBOutlet EbcEnhancedView *emptyListTextBackground;
 @property (weak, nonatomic) IBOutlet UILabel *emptyListText;
 
@@ -64,25 +63,6 @@
         self.emptyListText.text = @"Downloading festivals information...";
     }
     
-    // set background image
-    self.backgroundView.roundedRects = NO;
-    //[self.backgroundView setBackgroundGradientFromColor:[UIColor colorWithRed:168.0/255 green:223.0/255 blue:184.0/255 alpha:1.0] toColor:[UIColor colorWithRed:208.0/255 green:248.0/255 blue:219.0/255 alpha:1.0]]; // festuc gradient
-    [self.backgroundView setBackgroundGradientFromColor:[UIColor colorWithRed:230.0/255 green:230.0/255 blue:230.0/255 alpha:1.0] toColor:[UIColor colorWithRed:250.0/255 green:250.0/255 blue:250.0/255 alpha:1.0]]; // grey gradient
-    //[self.backgroundView setBackgroundPlain:[UIColor colorWithRed:230.0/255 green:230.0/255 blue:230.0/255 alpha:1.0] withAlpha:@(1.0)]; // grey from Festook 1.0
-    
-    // set color of navigation bar items
-    self.navigationController.navigationBar.tintColor = [UIColor darkGrayColor];
-    
-    // change default text attributes for back button
-    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil]
-        setTitleTextAttributes:
-            @{NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue-Light" size:18.0],
-              NSForegroundColorAttributeName: [UIColor darkGrayColor]
-              }
-        forState:UIControlStateNormal];
-    
-    // avoid views going below the navigation bar
-    self.edgesForExtendedLayout = UIRectEdgeNone;
     
 }
 
@@ -93,6 +73,26 @@
     [self getUserID];
     
     [self logPresenceEventInFlurry];
+    
+    // set background image
+    self.backgroundView.roundedRects = NO;
+    //[self.backgroundView setBackgroundGradientFromColor:[UIColor colorWithRed:168.0/255 green:223.0/255 blue:184.0/255 alpha:1.0] toColor:[UIColor colorWithRed:208.0/255 green:248.0/255 blue:219.0/255 alpha:1.0]]; // festuc gradient
+    //[self.backgroundView setBackgroundGradientFromColor:[UIColor colorWithRed:230.0/255 green:230.0/255 blue:230.0/255 alpha:1.0] toColor:[UIColor colorWithRed:250.0/255 green:250.0/255 blue:250.0/255 alpha:1.0]]; // grey gradient
+    [self.backgroundView setBackgroundPlain:[UIColor colorWithRed:230.0/255 green:230.0/255 blue:230.0/255 alpha:1.0] withAlpha:@(1.0)]; // grey from Festook 1.0
+    
+    // set color of navigation bar items
+    self.navigationController.navigationBar.tintColor = [UIColor darkGrayColor];
+    
+    // change default text attributes for back button
+    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil]
+     setTitleTextAttributes:
+     @{NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue-Light" size:18.0],
+       NSForegroundColorAttributeName: [UIColor darkGrayColor]
+       }
+     forState:UIControlStateNormal];
+    
+    // avoid views going below the navigation bar
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     
 }
 
@@ -108,6 +108,8 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
+    
     [self updateListFestivalsFromServer]; // called here because we need a shown view to add the alert
 }
 
