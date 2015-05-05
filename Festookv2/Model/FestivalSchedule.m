@@ -427,9 +427,10 @@
         for(NSString* bandString in bandsSortedBySimilarity){
             Band* band = [self.festival.bands objectForKey:bandString];
 
-            // 10 minutes of free time
-            NSDate* startWithFreeTime = [band.startTime dateByAddingTimeInterval:-10*60];
-            NSDate* endWithFreetime = [band.endTime dateByAddingTimeInterval:+10*60];
+            // 15 minutes of free time
+            CGFloat minutes = 15.0;
+            NSDate* startWithFreeTime = [band.startTime dateByAddingTimeInterval:-minutes*60];
+            NSDate* endWithFreetime = [band.endTime dateByAddingTimeInterval:+minutes*60];
             
             NSInteger freeSlotIndex = [self isThereAFreeSlotBetweenDate:startWithFreeTime andDate:endWithFreetime];
             if(freeSlotIndex >= 0){
