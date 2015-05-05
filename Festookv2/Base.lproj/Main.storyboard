@@ -1559,7 +1559,7 @@ by ebc</string>
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hhv-Rf-5FO" userLabel="Not Started View">
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hhv-Rf-5FO" userLabel="Empty List View">
                                 <rect key="frame" x="191" y="108" width="219" height="126"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" text="There are no concerts to rate because the festival has not started yet." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NNO-ej-MFz">

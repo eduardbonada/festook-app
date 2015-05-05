@@ -25,6 +25,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *subtitleLabel;
+
 @property (weak, nonatomic) IBOutlet UITextView *emptyListTextView;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -92,38 +93,69 @@
 
     BOOL concertHasStarted = [[NSDate date] compare: self.festival.start] == NSOrderedDescending;
     if(concertHasStarted){
-        self.titleLabel.hidden = NO;
-        self.subtitleLabel.hidden = NO;
-        self.emptyListTextView.hidden = YES;
         
-        // get which bands have already played
-        [self.festival.schedule computeSchedule];
-        NSArray *allRecommendedBands = [self.festival.schedule bandsToAttendSortedByTimeBetween:self.festival.start and:self.festival.end withOptions:@"recommendedBands"];
-        NSMutableArray *allBandsThatAlreadyPlayed = [[NSMutableArray alloc] init];
-        for(NSString* bandName in allRecommendedBands){
-            /*
-             
-             REVIEW FOR PRODUCTION
-             
-             */
-            NSDate *currentTime = [NSDate date]; //[dateFormatter dateFromString:@"29/05/2014 23:59"];
+        if([self.festival.mustBands count] > 0){
+            self.titleLabel.hidden = NO;
+            self.subtitleLabel.hidden = NO;
+            self.emptyListTextView.hidden = YES;
             
-            NSDate *bandEndingTime = ((Band*)[self.festival.bands objectForKey:bandName]).endTime;
-            if([currentTime compare:bandEndingTime] == NSOrderedDescending){
-                [allBandsThatAlreadyPlayed addObject:bandName];
+            // get which bands have already played
+            [self.festival.schedule computeSchedule];
+            NSArray *allRecommendedBands = [self.festival.schedule bandsToAttendSortedByTimeBetween:self.festival.start and:self.festival.end withOptions:@"recommendedBands"];
+            NSMutableArray *allBandsThatAlreadyPlayed = [[NSMutableArray alloc] init];
+            for(NSString* bandName in allRecommendedBands){
+                /*
+                 
+                 REVIEW FOR PRODUCTION
+                 
+                 */
+                NSDate *currentTime = [NSDate date]; //[dateFormatter dateFromString:@"29/05/2014 23:59"];
+                
+                NSDate *bandEndingTime = ((Band*)[self.festival.bands objectForKey:bandName]).endTime;
+                if([currentTime compare:bandEndingTime] == NSOrderedDescending){
+                    [allBandsThatAlreadyPlayed addObject:bandName];
+                }
+                else{
+                    break;
+                }
             }
-            else{
-                break;
-            }
+            
+            // inverse list of bands so the latest is on top
+            self.allBandsThatAlreadyPlayed = [[allBandsThatAlreadyPlayed reverseObjectEnumerator] allObjects];
+            
+        }
+        else{
+            // No must bands
+
+            self.titleLabel.hidden = YES;
+            self.subtitleLabel.hidden = YES;
+            self.emptyListTextView.hidden = NO;
+            
+            NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+            paragraphStyle.alignment = NSTextAlignmentCenter;
+            self.emptyListTextView.attributedText = [[NSAttributedString alloc] initWithString:@"There are no concerts to rate because your schedule is still empty."
+                                                                                    attributes:@{NSParagraphStyleAttributeName:paragraphStyle,
+                                                                                                 NSForegroundColorAttributeName:[UIColor whiteColor],
+                                                                                                 NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue-Light" size:16]}
+                                                     ];
+
         }
         
-        // inverse list of bands so the latest is on top
-        self.allBandsThatAlreadyPlayed = [[allBandsThatAlreadyPlayed reverseObjectEnumerator] allObjects];
     }
     else{
+        // Festival has not started yet
+        
         self.titleLabel.hidden = YES;
         self.subtitleLabel.hidden = YES;
         self.emptyListTextView.hidden = NO;
+        
+        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+        paragraphStyle.alignment = NSTextAlignmentCenter;
+        self.emptyListTextView.attributedText = [[NSAttributedString alloc] initWithString:@"There are no concerts to rate because the festival has not started yet."
+                                                                                attributes:@{NSParagraphStyleAttributeName:paragraphStyle,
+                                                                                             NSForegroundColorAttributeName:[UIColor whiteColor],
+                                                                                             NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue-Light" size:16]}
+                                                 ];
     }
 
     // set self as revealVC delegate

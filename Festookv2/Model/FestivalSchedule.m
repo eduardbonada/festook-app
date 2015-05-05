@@ -62,10 +62,12 @@
     }
 
     self.algorithmMode = algorithmMode;
-    
-    [self generateScheduleWithSFFSwithOptions:@{@"mode":self.algorithmMode}];
-    
     self.changeInAlgorithmMode = NO;
+    
+    if([self.festival.mustBands count] > 0){
+        [self generateScheduleWithSFFSwithOptions:@{@"mode":self.algorithmMode}];
+    }
+    
 }
 
 -(NSAttributedString*) textRepresentationOfTheSchedule
@@ -232,7 +234,6 @@
     /*
       Returns an array of "lowercaseName" with the bands in the indicated time period (between startDate and endDate)
         and sorted by band.endTime
-     If there are no bandsToAttend selected (for example when no Must bands are still chosen), it assumes attendance to all bands
     */
     
     NSDictionary* bandsToLoop;
