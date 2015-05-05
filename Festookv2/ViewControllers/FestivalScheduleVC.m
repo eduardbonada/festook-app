@@ -478,6 +478,7 @@
 
 -(void) selectAlgorithm
 {
+    //NSLog(@"%@", [[NSUserDefaults standardUserDefaults] dictionaryRepresentation]);
     NSString *algorithmMode = [[NSUserDefaults standardUserDefaults] objectForKey:@"scheduleAlgorithmMode"];
     NSString *currentModeString = @"";
     if([algorithmMode isEqualToString:@"FullConcertWithFreeTime"]){
@@ -510,6 +511,7 @@
     UIAlertAction *freeTime     = [UIAlertAction actionWithTitle:@"Relaxed" style:UIAlertActionStyleDefault
                                                          handler:^(UIAlertAction *action)
                                    {
+                                       //NSLog(@"%@", [[NSUserDefaults standardUserDefaults] dictionaryRepresentation]);
                                        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
                                        [defaults setObject:@"FullConcertWithFreeTime" forKey:@"scheduleAlgorithmMode"];
                                        [defaults synchronize];
@@ -523,6 +525,7 @@
     UIAlertAction *fullConcert  = [UIAlertAction actionWithTitle:@"Moderate" style:UIAlertActionStyleDefault
                                                          handler:^(UIAlertAction *action)
                                    {
+                                       //NSLog(@"%@", [[NSUserDefaults standardUserDefaults] dictionaryRepresentation]);
                                        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
                                        [defaults setObject:@"FullConcert" forKey:@"scheduleAlgorithmMode"];
                                        [defaults synchronize];
@@ -536,6 +539,7 @@
     UIAlertAction *last30min    = [UIAlertAction actionWithTitle:@"Complete" style:UIAlertActionStyleDefault
                                    handler:^(UIAlertAction *action)
                                    {
+                                       //NSLog(@"%@", [[NSUserDefaults standardUserDefaults] dictionaryRepresentation]);
                                        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
                                        [defaults setObject:@"LastHalfHour" forKey:@"scheduleAlgorithmMode"];
                                        [defaults synchronize];

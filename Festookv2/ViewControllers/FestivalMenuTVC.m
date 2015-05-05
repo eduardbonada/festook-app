@@ -227,15 +227,11 @@ NSArray *menuItems;
     NSArray *allRecommendedBands = [festival.schedule bandsToAttendSortedByTimeBetween:festival.start and:festival.end withOptions:@"recommendedBands"];
     NSMutableArray *bandsPendingToRate = [[NSMutableArray alloc] init];
     for(NSString* bandName in allRecommendedBands){
-        /*
-         
-         REVIEW FOR PRODUCTION
-         
-         */
         NSDate *currentTime = [NSDate date]; //[dateFormatter dateFromString:@"29/05/2014 23:59"];
         
         NSDate *bandEndingTime = ((Band*)[festival.bands objectForKey:bandName]).endTime;
-        NSString* bandRating = [[[NSUserDefaults standardUserDefaults] objectForKey:@"concertRatings"] objectForKey:bandName];
+        //NSLog(@"%@", [[NSUserDefaults standardUserDefaults] dictionaryRepresentation]);
+        NSString* bandRating = [[[NSUserDefaults standardUserDefaults] valueForKeyPath:[NSString stringWithFormat:@"concertRatings.%@",festival.lowercaseName]] objectForKey:bandName];
         if(([currentTime compare:bandEndingTime] == NSOrderedDescending) && !bandRating){
             [bandsPendingToRate addObject:bandName];
         }

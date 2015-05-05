@@ -189,7 +189,7 @@
 
 -(void) storeMustBandsInNSUserDefaults
 {
-    
+    //NSLog(@"%@", [[NSUserDefaults standardUserDefaults] dictionaryRepresentation]);
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     // get actual mustBands stored in NSUserDefaults, or create it if it is the first time
@@ -212,7 +212,7 @@
 }
 -(NSMutableDictionary*) getMustBandsFromNSUserDefaults
 {
-    
+    //NSLog(@"%@", [[NSUserDefaults standardUserDefaults] dictionaryRepresentation]);
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     // get actual mustBands stored in NSUserDefaults
@@ -232,7 +232,7 @@
 }
 -(void) storeDiscardedBandsInNSUserDefaults
 {
-    
+    //NSLog(@"%@", [[NSUserDefaults standardUserDefaults] dictionaryRepresentation]);
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     // get actual discardedBands stored in NSUserDefaults, or create it if it is the first time
@@ -255,7 +255,7 @@
 }
 -(NSMutableDictionary*) getDiscardedBandsFromNSUserDefaults
 {
-    
+    //NSLog(@"%@", [[NSUserDefaults standardUserDefaults] dictionaryRepresentation]);
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     // get actual discardedBands stored in NSUserDefaults

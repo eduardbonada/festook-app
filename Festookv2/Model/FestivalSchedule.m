@@ -52,6 +52,7 @@
     [self resetFestival];
     
     // get algorithm mode from NSUserDefaults
+    //NSLog(@"%@", [[NSUserDefaults standardUserDefaults] dictionaryRepresentation]);
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *algorithmMode = [defaults objectForKey:@"scheduleAlgorithmMode"];
     if(!algorithmMode){

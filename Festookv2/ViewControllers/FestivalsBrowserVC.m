@@ -208,6 +208,7 @@
 -(void) getUserID
 {
     // get userID stored in NSUserDefaults, or ask for one to the server
+    //NSLog(@"%@", [[NSUserDefaults standardUserDefaults] dictionaryRepresentation]);
     NSString *userID = [[NSUserDefaults standardUserDefaults] objectForKey:@"userID"];
     if(!userID){
         [self getUserIDfromServer]; // run asynchronously
@@ -238,6 +239,7 @@
                                                       NSLog(@"ERROR FestivalsBrowserVC::getUserIDFromServer => %@",error);
                                                   }
                                                   else{
+                                                      //NSLog(@"%@", [[NSUserDefaults standardUserDefaults] dictionaryRepresentation]);
                                                       NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
                                                       [defaults setObject:[dict objectForKey:@"userID"] forKey:@"userID"];
                                                       [defaults synchronize];

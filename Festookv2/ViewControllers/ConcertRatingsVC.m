@@ -179,7 +179,8 @@
     cell.bandRating.tag = indexPath.item; // the tag stores the row index
     
     // get the selectedIndex from the NSUserDefaults
-    NSMutableDictionary *concertRatings = [[[NSUserDefaults standardUserDefaults] objectForKey:@"concertRatings"] mutableCopy];
+    //NSLog(@"%@", [[NSUserDefaults standardUserDefaults] dictionaryRepresentation]);
+    NSMutableDictionary *concertRatings = [[[NSUserDefaults standardUserDefaults] valueForKeyPath:[NSString stringWithFormat:@"concertRatings.%@",self.festival.lowercaseName]] mutableCopy];
     NSString* bandRating = [concertRatings objectForKey:bandToShow.lowercaseName];
     
     // obtain the index to select
@@ -213,12 +214,19 @@
     [self highlightSegmentedControl:bandRatingSegmentedControl AtSegment:bandRatingSegmentedControl.selectedSegmentIndex];
 
     // update band rating in NSUserDefaults
+    //NSLog(@"%@", [[NSUserDefaults standardUserDefaults] dictionaryRepresentation]);
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSMutableDictionary *concertRatings = [[defaults objectForKey:@"concertRatings"] mutableCopy];
     if(!concertRatings){
+        // create the concertRatings if it does not exist
         concertRatings = [[NSMutableDictionary alloc] init];
     }
-    [concertRatings setObject:[bandRatingSegmentedControl titleForSegmentAtIndex:bandRatingSegmentedControl.selectedSegmentIndex]
+    if(![concertRatings objectForKey:self.festival.lowercaseName]){
+        // create the festival ratings if it does not exist
+        [concertRatings setObject:[[NSMutableDictionary alloc] init] forKey:self.festival.lowercaseName];
+    }
+    NSMutableDictionary* festivalRatings = [concertRatings objectForKey:self.festival.lowercaseName];
+    [festivalRatings setObject:[bandRatingSegmentedControl titleForSegmentAtIndex:bandRatingSegmentedControl.selectedSegmentIndex]
                        forKey:bandRated.lowercaseName];
     [defaults setObject:concertRatings forKey:@"concertRatings"];
     [defaults synchronize];
