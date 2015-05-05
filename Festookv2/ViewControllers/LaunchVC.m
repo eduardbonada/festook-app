@@ -12,8 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *logoTopConstraint;
-
 @end
 
 @implementation LaunchVC
@@ -38,7 +36,10 @@
                           delay:0.50
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^(void){
-                         self.logoTopConstraint.constant = 28;
+                         self.logoImageView.frame = CGRectMake(self.logoImageView.frame.origin.x,
+                                                               28.0,
+                                                               self.logoImageView.frame.size.width,
+                                                               self.logoImageView.frame.size.height);
                          [self.view layoutIfNeeded];
                      }
                      completion:^(BOOL finished){

@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		231CC2711AF9714500AFEE0D /* LaunchFestook.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 231CC2701AF9714500AFEE0D /* LaunchFestook.storyboard */; };
 		232A17671AF7766A00489406 /* ConcertRatingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 232A17661AF7766A00489406 /* ConcertRatingsVC.m */; };
 		23381B3B1AF78316005F52C8 /* ConcertRatingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23381B3A1AF78316005F52C8 /* ConcertRatingTableViewCell.m */; };
 		236C5AAF1AF276E600D885E4 /* AboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 236C5AAE1AF276E600D885E4 /* AboutVC.m */; };
 		238070621AF4BE39009DE4B8 /* LegalTextVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 238070611AF4BE39009DE4B8 /* LegalTextVC.m */; };
 		23D1525F1AF0E91C00A00AC9 /* libFlurry_6.3.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 23D1525E1AF0E91C00A00AC9 /* libFlurry_6.3.0.a */; };
 		23EA65861AEF94CA00D3DD3C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EA65851AEF94CA00D3DD3C /* main.m */; };
-		23EA65941AEF94CA00D3DD3C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23EA65921AEF94CA00D3DD3C /* LaunchScreen.xib */; };
 		23EA65A01AEF94CA00D3DD3C /* Festookv2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EA659F1AEF94CA00D3DD3C /* Festookv2Tests.m */; };
 		23EA65AB1AEF95E100D3DD3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23EA65A91AEF95E100D3DD3C /* Main.storyboard */; };
 		23EA65AE1AEF95FD00D3DD3C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EA65AD1AEF95FD00D3DD3C /* AppDelegate.m */; };
@@ -53,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		231CC2701AF9714500AFEE0D /* LaunchFestook.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchFestook.storyboard; sourceTree = "<group>"; };
 		232A17651AF7766A00489406 /* ConcertRatingsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConcertRatingsVC.h; sourceTree = "<group>"; };
 		232A17661AF7766A00489406 /* ConcertRatingsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConcertRatingsVC.m; sourceTree = "<group>"; };
 		23381B391AF78316005F52C8 /* ConcertRatingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConcertRatingTableViewCell.h; sourceTree = "<group>"; };
@@ -66,7 +67,6 @@
 		23EA65801AEF94CA00D3DD3C /* Festookv2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Festookv2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23EA65841AEF94CA00D3DD3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		23EA65851AEF94CA00D3DD3C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		23EA65931AEF94CA00D3DD3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		23EA65991AEF94CA00D3DD3C /* Festookv2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Festookv2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		23EA659E1AEF94CA00D3DD3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		23EA659F1AEF94CA00D3DD3C /* Festookv2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Festookv2Tests.m; sourceTree = "<group>"; };
@@ -171,7 +171,7 @@
 			children = (
 				23EA65A91AEF95E100D3DD3C /* Main.storyboard */,
 				23EA65F31AEF96D800D3DD3C /* Images.xcassets */,
-				23EA65921AEF94CA00D3DD3C /* LaunchScreen.xib */,
+				231CC2701AF9714500AFEE0D /* LaunchFestook.storyboard */,
 				23EA65CC1AEF961E00D3DD3C /* ViewControllers */,
 				23EA65DD1AEF961E00D3DD3C /* Views */,
 				23EA65AF1AEF961600D3DD3C /* Model */,
@@ -387,7 +387,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				23EA65F41AEF96D800D3DD3C /* Images.xcassets in Resources */,
-				23EA65941AEF94CA00D3DD3C /* LaunchScreen.xib in Resources */,
+				231CC2711AF9714500AFEE0D /* LaunchFestook.storyboard in Resources */,
 				23EA65AB1AEF95E100D3DD3C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -456,14 +456,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		23EA65921AEF94CA00D3DD3C /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				23EA65931AEF94CA00D3DD3C /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
 		23EA65A91AEF95E100D3DD3C /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

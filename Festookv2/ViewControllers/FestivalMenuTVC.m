@@ -201,7 +201,7 @@ NSArray *menuItems;
                                              NSForegroundColorAttributeName : [UIColor whiteColor],
                                              NSParagraphStyleAttributeName  : paragraphStyle
                                              };
-                cell.badge.centeredText = [[NSAttributedString alloc] initWithString: [NSString stringWithFormat:@"%d",badgeNumber]
+                cell.badge.centeredText = [[NSAttributedString alloc] initWithString: [NSString stringWithFormat:@"%ld",(long)badgeNumber]
                                                                           attributes:attributes];
             }
             else{
