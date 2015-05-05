@@ -8,8 +8,6 @@
 
 #import "Festival.h"
 
-#import "Flurry.h"
-
 #import "Band.h"
 #import "FestivalSchedule.h"
 #import "BandSimilarityCalculator.h"

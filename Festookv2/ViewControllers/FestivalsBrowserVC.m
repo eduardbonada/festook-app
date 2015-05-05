@@ -92,6 +92,8 @@
     
     [self getUserID];
     
+    [self logPresenceEventInFlurry];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -215,7 +217,6 @@
     }
     else{
         self.userID = userID;
-        [self logPresenceEventInFlurry];
     }
 }
 
@@ -244,7 +245,6 @@
                                                       [defaults setObject:[dict objectForKey:@"userID"] forKey:@"userID"];
                                                       [defaults synchronize];
                                                       self.userID = [dict objectForKey:@"userID"];
-                                                      [self logPresenceEventInFlurry];
                                                   }
                                               }
                                               [[UIApplication sharedApplication] hideNetworkActivityIndicator];

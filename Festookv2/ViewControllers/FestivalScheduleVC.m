@@ -193,7 +193,14 @@
 {
     [Flurry logEvent:@"Schedule_Shown" withParameters:@{@"userID":self.userID,@"festival":[self.festival lowercaseName]}];
 }
-
+-(void)logScheduleAlgorithmInFlurry:(NSString*) algorithmMode
+{
+    [Flurry logEvent:@"Schedule_Algorithm" withParameters:@{@"userID":self.userID,@"festival":[self.festival lowercaseName],@"algorithm":algorithmMode}];
+}
+-(void)logScheduleSharingInFlurry
+{
+    [Flurry logEvent:@"Schedule_Sharing" withParameters:@{@"userID":self.userID,@"festival":[self.festival lowercaseName]}];
+}
 
 
 #pragma mark - Segues
@@ -491,6 +498,8 @@
         currentModeString = @"Your current mode is 'Complete'";
     }
     
+    [self logScheduleAlgorithmInFlurry:@""];
+    
     NSString* message = [NSString stringWithFormat:@"RELAXED:\nWith free time between concerts.\n\n"
                                                     "MODERATE:\nAs many concerts as possible, without overlapping.\n\n"
                                                     "COMPLETE:\nWith smart overlapping optimized for enjoying as many concert endings as possible.\n"
@@ -519,6 +528,7 @@
                                            self.festival.schedule.changeInAlgorithmMode = YES;
                                            [self updateSchedule];
                                            [self reloadScheduleTableDataWithAnimation: 0];
+                                           [self logScheduleAlgorithmInFlurry:@"Relaxed"];
                                        }
                                    }
                                    ];
@@ -533,6 +543,7 @@
                                            self.festival.schedule.changeInAlgorithmMode = YES;
                                            [self updateSchedule];
                                            [self reloadScheduleTableDataWithAnimation: 0];
+                                           [self logScheduleAlgorithmInFlurry:@"Moderate"];
                                        }
                                    }
                                    ];
@@ -547,6 +558,7 @@
                                            self.festival.schedule.changeInAlgorithmMode = YES;
                                            [self updateSchedule];
                                            [self reloadScheduleTableDataWithAnimation: 0];
+                                           [self logScheduleAlgorithmInFlurry:@"Complete"];
                                        }
                                    }
                                    ];
@@ -563,6 +575,8 @@
 - (IBAction)sharingPressed:(UIBarButtonItem *)sender
 {
     [self shareSchedule];
+    
+    [self logScheduleSharingInFlurry];
 }
 
 - (void) shareSchedule
