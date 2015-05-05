@@ -42,7 +42,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *numDaysLabel;
 @property (weak, nonatomic) IBOutlet UILabel *numHoursLabel;
 @property (weak, nonatomic) IBOutlet UILabel *similarBandsLabel;
-@property (weak, nonatomic) IBOutlet UILabel *differentBandsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *anotherSimilarBandsLabel;
 
 @end
 
@@ -194,12 +194,16 @@
     NSString* bandB = [((Band*)[self.festival.bands objectForKey:[pairOfSimilarBands objectForKey:@"bandB"]]) uppercaseName];
     self.similarBandsLabel.text = [NSString stringWithFormat:@"%@ - %@", bandA, bandB];
     
-    
-    // label of different bands
-    NSDictionary* pairOfDifferentBands = [self.festival.bandSimilarityCalculator pairOfDifferentBandNames];
-    bandA = [((Band*)[self.festival.bands objectForKey:[pairOfDifferentBands objectForKey:@"bandA"]]) uppercaseName];
-    bandB = [((Band*)[self.festival.bands objectForKey:[pairOfDifferentBands objectForKey:@"bandB"]]) uppercaseName];
-    self.self.differentBandsLabel.text = [NSString stringWithFormat:@"%@ - %@", bandA, bandB];
+    // label of another similar bands
+    NSDictionary* anotherPairOfSimilarBands;
+    BOOL samePair = YES;
+    do {
+        anotherPairOfSimilarBands = [self.festival.bandSimilarityCalculator pairOfDifferentBandNames];
+        samePair = [NSSet setWithArray:[[pairOfSimilarBands allKeys] arrayByAddingObjectsFromArray:[anotherPairOfSimilarBands allKeys]]].count == 2 ? YES : NO ;
+    } while (samePair);
+    NSString* bandX = [((Band*)[self.festival.bands objectForKey:[anotherPairOfSimilarBands objectForKey:@"bandA"]]) uppercaseName];
+    NSString* bandY = [((Band*)[self.festival.bands objectForKey:[anotherPairOfSimilarBands objectForKey:@"bandB"]]) uppercaseName];
+    self.anotherSimilarBandsLabel.text = [NSString stringWithFormat:@"%@ - %@", bandX, bandY];
     
 }
 
