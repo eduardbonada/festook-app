@@ -72,8 +72,6 @@
     
     [self getUserID];
     
-    [self logPresenceEventInFlurry];
-    
     // set background image
     self.backgroundView.roundedRects = NO;
     //[self.backgroundView setBackgroundGradientFromColor:[UIColor colorWithRed:168.0/255 green:223.0/255 blue:184.0/255 alpha:1.0] toColor:[UIColor colorWithRed:208.0/255 green:248.0/255 blue:219.0/255 alpha:1.0]]; // festuc gradient
@@ -219,6 +217,7 @@
     }
     else{
         self.userID = userID;
+        [self logPresenceEventInFlurry];
     }
 }
 
@@ -247,6 +246,7 @@
                                                       [defaults setObject:[dict objectForKey:@"userID"] forKey:@"userID"];
                                                       [defaults synchronize];
                                                       self.userID = [dict objectForKey:@"userID"];
+                                                      [self logPresenceEventInFlurry];
                                                   }
                                               }
                                               [[UIApplication sharedApplication] hideNetworkActivityIndicator];
