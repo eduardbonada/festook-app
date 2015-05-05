@@ -66,9 +66,9 @@
     
     // set background image
     self.backgroundView.roundedRects = NO;
-    //[self.backgroundView setBackgroundGradientFromColor:[UIColor colorWithWhite:0.8 alpha:1.0] toColor:[UIColor colorWithWhite:1.0 alpha:1.0]];
     //[self.backgroundView setBackgroundGradientFromColor:[UIColor colorWithRed:168.0/255 green:223.0/255 blue:184.0/255 alpha:1.0] toColor:[UIColor colorWithRed:208.0/255 green:248.0/255 blue:219.0/255 alpha:1.0]]; // festuc gradient
-    [self.backgroundView setBackgroundPlain:[UIColor colorWithRed:230.0/255 green:230.0/255 blue:230.0/255 alpha:1.0] withAlpha:@(1.0)]; // grey from Festook 1.0
+    [self.backgroundView setBackgroundGradientFromColor:[UIColor colorWithRed:230.0/255 green:230.0/255 blue:230.0/255 alpha:1.0] toColor:[UIColor colorWithRed:250.0/255 green:250.0/255 blue:250.0/255 alpha:1.0]]; // grey gradient
+    //[self.backgroundView setBackgroundPlain:[UIColor colorWithRed:230.0/255 green:230.0/255 blue:230.0/255 alpha:1.0] withAlpha:@(1.0)]; // grey from Festook 1.0
     
     // set color of navigation bar items
     self.navigationController.navigationBar.tintColor = [UIColor darkGrayColor];
@@ -92,8 +92,6 @@
     
     [self getUserID];
     
-    [self setup];
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -102,6 +100,8 @@
     
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     
+    [self setup];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -226,6 +226,7 @@
     NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
     sessionConfig.timeoutIntervalForRequest = 10.0;
     sessionConfig.timeoutIntervalForResource = 10.0;
+    sessionConfig.requestCachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
     NSURLSessionDataTask *downloadTask = [[NSURLSession sharedSession]
                                           dataTaskWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@/%@/%@",SERVER,FOLDER,@"getUserID.php"]]
                                           completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
@@ -360,8 +361,8 @@
                                         ^NSComparisonResult(NSString* festStringA, NSString* festStringB) {
                                             Festival *festivalA = [self.festivals objectForKey:festStringA];
                                             Festival *festivalB = [self.festivals objectForKey:festStringB];
-                                            return festivalA == festivalB;
-                                            //return [festivalA.festivalId integerValue] < [festivalB.festivalId integerValue];
+                                            //return festivalA == festivalB;
+                                            return [festivalA.festivalId integerValue] > [festivalB.festivalId integerValue];
                                         }];
         
         /*
@@ -434,6 +435,7 @@
         NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
         sessionConfig.timeoutIntervalForRequest = 10.0;
         sessionConfig.timeoutIntervalForResource = 10.0;
+        sessionConfig.requestCachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
         NSURLSessionDataTask *downloadTask = [[NSURLSession sharedSession]
                                               dataTaskWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@/%@/%@",SERVER,FOLDER,[file objectForKey:@"filename"]]]
                                               completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {

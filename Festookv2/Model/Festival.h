@@ -28,6 +28,7 @@
 @property (nonatomic, strong) NSString      *youtube;
 @property (nonatomic, strong) NSDictionary  *listBandsFile;
 @property (nonatomic, strong) NSDictionary  *bandDistanceFile;
+@property (nonatomic, strong) NSString      *festivalId;
 @property (nonatomic, strong) NSString      *state;
 
 /* time-limits */

@@ -259,10 +259,10 @@
 {
     NSString* twitterUrl = @"";
     if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"twitter://"]]){
-        twitterUrl = [[NSString alloc] initWithFormat:@"twitter://user?screen_name=%@",@"primavera_sound"];
+        twitterUrl = [[NSString alloc] initWithFormat:@"twitter://user?screen_name=%@",self.festival.twitter];
     }
     else{
-        twitterUrl = [[NSString alloc] initWithFormat:@"http://www.twitter.com/%@",@"primavera_sound"];
+        twitterUrl = [[NSString alloc] initWithFormat:@"http://www.twitter.com/%@",self.festival.twitter];
     }
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:twitterUrl]];
 
@@ -272,10 +272,10 @@
 {
     NSString* facebookUrl = @"";
     if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"fb://"]]){
-        facebookUrl = [[NSString alloc] initWithFormat:@"fb://profile/%@",@"156656398155"];
+        facebookUrl = [[NSString alloc] initWithFormat:@"fb://profile/%@",self.festival.facebook];
     }
     else{
-        facebookUrl = [[NSString alloc] initWithFormat:@"https://www.facebook.com/profile.php?id=%@",@"156656398155"];
+        facebookUrl = [[NSString alloc] initWithFormat:@"https://www.facebook.com/profile.php?id=%@",self.festival.facebook];
     }
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:facebookUrl]];
     
@@ -285,7 +285,7 @@
 - (IBAction)youtubeButtonPressed:(UIButton *)sender
 {
     NSString* youtubeUrl = @"";
-    youtubeUrl = [[NSString alloc] initWithFormat:@"http://www.youtube.com/%@",@"primavera_sound"];
+    youtubeUrl = [[NSString alloc] initWithFormat:@"http://www.youtube.com/%@",self.festival.youtube];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:youtubeUrl]];
     
     [self logSocialClickEventInFlurry:@"youtube"];
