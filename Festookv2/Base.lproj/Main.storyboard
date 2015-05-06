@@ -1891,6 +1891,10 @@ by ebc</string>
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view alpha="0.49999999999999961" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SpF-TL-61A" userLabel="Overlay View">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8H7-te-xEd" userLabel="Background View" customClass="EbcEnhancedView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2039,10 +2043,10 @@ by ebc</string>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BGe-IH-Xd5" userLabel="Data Container View">
-                                <rect key="frame" x="16" y="280" width="568" height="300"/>
+                                <rect key="frame" x="16" y="280" width="568" height="235"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QIB-kH-qqH" customClass="EbcEnhancedView">
-                                        <rect key="frame" x="0.0" y="0.0" width="568" height="300"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="568" height="235"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vJ0-wM-jwb" userLabel="Bands-Stages View">
@@ -2118,7 +2122,7 @@ by ebc</string>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dGb-p5-npe" userLabel="Similar Bands View">
-                                        <rect key="frame" x="161" y="108" width="246" height="184"/>
+                                        <rect key="frame" x="161" y="108" width="246" height="127"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" alpha="0.40000000596046448" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="similarDifferentBands" translatesAutoresizingMaskIntoConstraints="NO" id="x60-Wx-Ihe" userLabel="Similar Bands Image View">
                                                 <rect key="frame" x="4" y="13" width="35" height="35"/>
@@ -2157,7 +2161,7 @@ by ebc</string>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="246" id="aFh-5J-Vsx"/>
-                                            <constraint firstAttribute="height" constant="184" id="mUT-lY-GWu"/>
+                                            <constraint firstAttribute="height" constant="127" id="mUT-lY-GWu"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -2167,19 +2171,22 @@ by ebc</string>
                                     <constraint firstItem="vJ0-wM-jwb" firstAttribute="top" secondItem="BGe-IH-Xd5" secondAttribute="top" constant="8" id="3tr-rt-Hjd"/>
                                     <constraint firstAttribute="centerX" secondItem="vJ0-wM-jwb" secondAttribute="centerX" id="4uL-ER-kZN"/>
                                     <constraint firstItem="dGb-p5-npe" firstAttribute="top" secondItem="VvZ-tf-OyB" secondAttribute="bottom" constant="3" id="5AQ-zL-22b"/>
+                                    <constraint firstAttribute="height" constant="235" id="8b4-Ye-j84"/>
+                                    <constraint firstAttribute="bottom" secondItem="QIB-kH-qqH" secondAttribute="bottom" id="C5o-Ie-eCt"/>
                                     <constraint firstItem="QIB-kH-qqH" firstAttribute="leading" secondItem="BGe-IH-Xd5" secondAttribute="leading" id="N2G-EO-aVi"/>
                                     <constraint firstAttribute="trailing" secondItem="QIB-kH-qqH" secondAttribute="trailing" id="ON2-cd-0qg"/>
                                     <constraint firstAttribute="centerX" secondItem="l3m-Gd-Iip" secondAttribute="centerX" id="TPG-LI-z49"/>
                                     <constraint firstItem="VvZ-tf-OyB" firstAttribute="top" secondItem="l3m-Gd-Iip" secondAttribute="bottom" constant="4" id="aoL-XV-yzC"/>
                                     <constraint firstAttribute="centerX" secondItem="dGb-p5-npe" secondAttribute="centerX" id="b2T-hW-D2T"/>
-                                    <constraint firstAttribute="bottom" secondItem="QIB-kH-qqH" secondAttribute="bottom" id="dIC-SV-dl9"/>
+                                    <constraint firstAttribute="bottom" secondItem="QIB-kH-qqH" secondAttribute="bottom" constant="-65" id="dIC-SV-dl9"/>
                                     <constraint firstItem="l3m-Gd-Iip" firstAttribute="top" secondItem="vJ0-wM-jwb" secondAttribute="bottom" id="geo-Wx-WqU"/>
                                     <constraint firstAttribute="centerX" secondItem="VvZ-tf-OyB" secondAttribute="centerX" id="liR-1z-Ig2"/>
                                 </constraints>
-                            </view>
-                            <view alpha="0.49999999999999961" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SpF-TL-61A" userLabel="Overlay View">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="dIC-SV-dl9"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2195,7 +2202,6 @@ by ebc</string>
                             <constraint firstItem="8H7-te-xEd" firstAttribute="leading" secondItem="LJT-Yf-rjj" secondAttribute="leading" id="KJj-eW-NL5"/>
                             <constraint firstItem="Awi-Qe-Qmy" firstAttribute="trailing" secondItem="LJT-Yf-rjj" secondAttribute="trailingMargin" id="OkH-QI-bhI"/>
                             <constraint firstAttribute="trailing" secondItem="SpF-TL-61A" secondAttribute="trailing" id="U1b-zs-yX8"/>
-                            <constraint firstItem="Esv-4v-FFY" firstAttribute="top" secondItem="BGe-IH-Xd5" secondAttribute="bottom" constant="20" id="Uka-k0-71O"/>
                             <constraint firstItem="Awi-Qe-Qmy" firstAttribute="top" secondItem="tQB-bm-JVm" secondAttribute="bottom" constant="8" id="Wfe-Bd-yvn"/>
                             <constraint firstItem="BGe-IH-Xd5" firstAttribute="top" secondItem="Awi-Qe-Qmy" secondAttribute="bottom" constant="7" id="Ykp-gq-R5B"/>
                             <constraint firstItem="BGe-IH-Xd5" firstAttribute="leading" secondItem="LJT-Yf-rjj" secondAttribute="leading" constant="16" id="hRd-Xp-ZHf"/>
