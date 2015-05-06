@@ -45,10 +45,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CgT-lF-Ju9" userLabel="Logo Container View">
-                                <rect key="frame" x="16" y="28" width="568" height="322"/>
+                                <rect key="frame" x="16" y="28" width="568" height="290"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iMF-96-Unz" customClass="EbcEnhancedView">
-                                        <rect key="frame" x="0.0" y="0.0" width="568" height="322"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="568" height="290"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="festookLogo" translatesAutoresizingMaskIntoConstraints="NO" id="K8V-AC-ik3">
@@ -80,18 +80,21 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9py-Sc-mjQ">
-                                        <rect key="frame" x="18" y="158" width="532" height="126"/>
+                                        <rect key="frame" x="18" y="158" width="532" height="85"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="85" id="hyh-IN-TQD"/>
+                                        </constraints>
                                         <string key="text">Festook is your personal expert and will help you plan your schedule. Tell him what bands you like most and it will recommend you the list of concerts that better fits your tastes.</string>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AI5-Np-bno">
-                                        <rect key="frame" x="238" y="284" width="90" height="30"/>
+                                        <rect key="frame" x="239" y="251" width="90" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="eIr-vp-Tkl"/>
-                                            <constraint firstAttribute="width" constant="90" id="lel-OL-Gfn"/>
+                                            <constraint firstAttribute="width" constant="90" id="08M-ch-iwu"/>
+                                            <constraint firstAttribute="height" constant="30" id="uGi-ci-Hp1"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -106,27 +109,33 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="centerX" secondItem="AI5-Np-bno" secondAttribute="centerX" constant="1" id="34d-QX-kAw"/>
                                     <constraint firstItem="iMF-96-Unz" firstAttribute="leading" secondItem="CgT-lF-Ju9" secondAttribute="leading" id="4sC-Mj-XrE"/>
                                     <constraint firstAttribute="trailing" secondItem="iMF-96-Unz" secondAttribute="trailing" id="CWG-Df-Z1R"/>
                                     <constraint firstItem="K8V-AC-ik3" firstAttribute="top" secondItem="CgT-lF-Ju9" secondAttribute="top" constant="18" id="DgJ-d3-smD"/>
+                                    <constraint firstAttribute="trailing" secondItem="9py-Sc-mjQ" secondAttribute="trailing" constant="18" id="M5J-KR-g0q"/>
+                                    <constraint firstAttribute="height" constant="290" id="SjG-D9-B9E"/>
                                     <constraint firstAttribute="centerX" secondItem="B2e-BO-U8r" secondAttribute="centerX" id="UmI-W5-v0P"/>
                                     <constraint firstItem="bBM-Sp-BvE" firstAttribute="leading" secondItem="CgT-lF-Ju9" secondAttribute="leading" constant="8" id="VHM-fm-VZU"/>
-                                    <constraint firstItem="9py-Sc-mjQ" firstAttribute="leading" secondItem="CgT-lF-Ju9" secondAttribute="leading" constant="18" id="a3g-3e-Jgm"/>
                                     <constraint firstItem="iMF-96-Unz" firstAttribute="top" secondItem="CgT-lF-Ju9" secondAttribute="top" id="a7C-Is-vvW"/>
-                                    <constraint firstItem="9py-Sc-mjQ" firstAttribute="top" secondItem="bBM-Sp-BvE" secondAttribute="bottom" id="cjg-Mk-OiP"/>
-                                    <constraint firstAttribute="bottom" secondItem="AI5-Np-bno" secondAttribute="bottom" constant="8" id="edq-4c-Ql9"/>
-                                    <constraint firstAttribute="trailing" secondItem="9py-Sc-mjQ" secondAttribute="trailing" constant="18" id="jmC-5d-dkG"/>
+                                    <constraint firstItem="9py-Sc-mjQ" firstAttribute="leading" secondItem="CgT-lF-Ju9" secondAttribute="leading" constant="18" id="ihB-SA-oBM"/>
                                     <constraint firstItem="bBM-Sp-BvE" firstAttribute="top" secondItem="B2e-BO-U8r" secondAttribute="bottom" constant="5" id="lUb-yH-kng"/>
+                                    <constraint firstItem="9py-Sc-mjQ" firstAttribute="top" secondItem="bBM-Sp-BvE" secondAttribute="bottom" id="mOw-Ah-Jxp"/>
                                     <constraint firstAttribute="centerX" secondItem="K8V-AC-ik3" secondAttribute="centerX" id="mlz-rM-wmQ"/>
+                                    <constraint firstItem="AI5-Np-bno" firstAttribute="top" secondItem="9py-Sc-mjQ" secondAttribute="bottom" constant="8" id="nva-Yr-zzi"/>
                                     <constraint firstAttribute="bottom" secondItem="iMF-96-Unz" secondAttribute="bottom" id="p7V-NB-Nuo"/>
-                                    <constraint firstItem="AI5-Np-bno" firstAttribute="top" secondItem="9py-Sc-mjQ" secondAttribute="bottom" id="tnU-Hu-1P4"/>
+                                    <constraint firstItem="AI5-Np-bno" firstAttribute="top" secondItem="9py-Sc-mjQ" secondAttribute="bottom" constant="8" id="pKg-z7-8lt"/>
+                                    <constraint firstAttribute="centerX" secondItem="AI5-Np-bno" secondAttribute="centerX" id="wlF-3K-Cgg"/>
                                     <constraint firstItem="B2e-BO-U8r" firstAttribute="top" secondItem="K8V-AC-ik3" secondAttribute="bottom" id="xtR-yw-OHP"/>
                                     <constraint firstAttribute="trailing" secondItem="bBM-Sp-BvE" secondAttribute="trailing" constant="8" id="zjo-zF-Em4"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="nva-Yr-zzi"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5h0-0z-2P2" userLabel="Email Container View">
-                                <rect key="frame" x="16" y="358" width="568" height="60"/>
+                                <rect key="frame" x="16" y="326" width="568" height="60"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W0b-CY-761" customClass="EbcEnhancedView">
                                         <rect key="frame" x="0.0" y="0.0" width="568" height="60"/>
@@ -182,7 +191,7 @@ Leave your email so we can contact you to discuss further updates. </string>
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XMC-1Z-3Ah" userLabel="Rate-Support Container View">
-                                <rect key="frame" x="16" y="426" width="568" height="60"/>
+                                <rect key="frame" x="16" y="394" width="568" height="60"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jCQ-QY-B6T" userLabel="Rate View">
                                         <rect key="frame" x="0.0" y="0.0" width="279" height="60"/>
@@ -289,7 +298,7 @@ Leave your email so we can contact you to discuss further updates. </string>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wSh-4N-EUM" userLabel="Dev-Legal Container View">
-                                <rect key="frame" x="16" y="494" width="568" height="60"/>
+                                <rect key="frame" x="16" y="462" width="568" height="60"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kNm-XQ-wrz" userLabel="Legal View">
                                         <rect key="frame" x="0.0" y="0.0" width="279" height="60"/>
@@ -418,24 +427,23 @@ by ebc</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="XMC-1Z-3Ah" firstAttribute="top" secondItem="5h0-0z-2P2" secondAttribute="bottom" constant="8" id="213-eg-PjF"/>
                             <constraint firstAttribute="trailing" secondItem="1Df-au-O7r" secondAttribute="trailing" id="3tf-tZ-hTK"/>
                             <constraint firstAttribute="trailing" secondItem="3FB-Qq-6qE" secondAttribute="trailing" constant="16" id="4ls-pc-P1J"/>
+                            <constraint firstItem="5h0-0z-2P2" firstAttribute="top" secondItem="CgT-lF-Ju9" secondAttribute="bottom" constant="8" id="6DF-Pt-CVU"/>
                             <constraint firstAttribute="trailing" secondItem="XMC-1Z-3Ah" secondAttribute="trailing" constant="16" id="6yI-Wr-dGY"/>
                             <constraint firstItem="1Df-au-O7r" firstAttribute="top" secondItem="Olh-Za-nwu" secondAttribute="top" id="8YR-Eu-197"/>
                             <constraint firstItem="5h0-0z-2P2" firstAttribute="leading" secondItem="Olh-Za-nwu" secondAttribute="leading" constant="16" id="9YY-Ex-FKR"/>
                             <constraint firstItem="XMC-1Z-3Ah" firstAttribute="leading" secondItem="Olh-Za-nwu" secondAttribute="leading" constant="16" id="Bi7-2Y-xd5"/>
-                            <constraint firstItem="XMC-1Z-3Ah" firstAttribute="top" secondItem="5h0-0z-2P2" secondAttribute="bottom" constant="8" id="ElJ-Fk-ZbD"/>
                             <constraint firstItem="wSh-4N-EUM" firstAttribute="leading" secondItem="Olh-Za-nwu" secondAttribute="leading" constant="16" id="Hc6-1V-hR9"/>
                             <constraint firstItem="msA-aB-zwN" firstAttribute="top" secondItem="1Df-au-O7r" secondAttribute="bottom" id="LCy-n5-qVh"/>
-                            <constraint firstItem="wSh-4N-EUM" firstAttribute="top" secondItem="XMC-1Z-3Ah" secondAttribute="bottom" constant="8" id="Nsp-Nj-SxJ"/>
                             <constraint firstAttribute="trailing" secondItem="CgT-lF-Ju9" secondAttribute="trailing" constant="16" id="Qa8-1I-hCl"/>
+                            <constraint firstItem="wSh-4N-EUM" firstAttribute="top" secondItem="XMC-1Z-3Ah" secondAttribute="bottom" constant="8" id="UQA-j9-CGg"/>
                             <constraint firstItem="CgT-lF-Ju9" firstAttribute="leading" secondItem="Olh-Za-nwu" secondAttribute="leading" constant="16" id="X39-3l-ozQ"/>
                             <constraint firstAttribute="trailing" secondItem="5h0-0z-2P2" secondAttribute="trailing" constant="16" id="d0y-VR-Fgp"/>
-                            <constraint firstItem="5h0-0z-2P2" firstAttribute="top" secondItem="CgT-lF-Ju9" secondAttribute="bottom" constant="8" id="ecO-4l-PFb"/>
                             <constraint firstAttribute="trailing" secondItem="wSh-4N-EUM" secondAttribute="trailing" constant="16" id="iDA-EZ-pR5"/>
                             <constraint firstItem="msA-aB-zwN" firstAttribute="top" secondItem="3FB-Qq-6qE" secondAttribute="bottom" constant="8" id="m7v-FQ-qhb"/>
                             <constraint firstItem="1Df-au-O7r" firstAttribute="leading" secondItem="Olh-Za-nwu" secondAttribute="leading" id="qAH-uc-7Uh"/>
-                            <constraint firstItem="3FB-Qq-6qE" firstAttribute="top" secondItem="wSh-4N-EUM" secondAttribute="bottom" constant="8" id="rHU-dI-C0X"/>
                             <constraint firstItem="CgT-lF-Ju9" firstAttribute="top" secondItem="0qZ-E6-HOY" secondAttribute="bottom" constant="8" id="vDX-P9-f7J"/>
                         </constraints>
                     </view>
