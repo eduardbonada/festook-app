@@ -48,52 +48,6 @@
 
 #pragma mark - View Controller Lifecycle
 
--(void) setup
-{
-    if(self.festival){
-        
-        [self updateBandSimilarityModel];
-        
-        // set background image
-        self.backgroundView.roundedRects = NO;
-        [self.backgroundView setBackgroundGradientFromColor:self.festival.colorA toColor:self.festival.colorB];
-        
-        // configure day segmented control
-        [self.sortCollectionControl setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue" size:16.0]}
-                                                  forState:UIControlStateNormal];
-        
-        // setting sorting to show
-        if(!self.sortSegmentedControlSelected){
-            if([self.festival.mustBands count] > 0){
-                self.sortCollectionControl.selectedSegmentIndex = 1;
-            }
-            else{
-                self.sortCollectionControl.selectedSegmentIndex = 0;
-            }
-        }
-        else{
-            self.sortCollectionControl.selectedSegmentIndex = [self.sortSegmentedControlSelected integerValue];
-            self.sortSegmentedControlSelected = nil;
-        }
-        [self applyChangeInSortingOfCollectionWithScrollToTop:FALSE];
-        
-        // clear helper array itemsInSection
-        self.itemsAtSection = [[NSMutableArray alloc] init];
-        
-    }
-    
-    // set self as revealVC delegate
-    self.revealViewController.delegate = self;
-    
-    // hide the overlay view
-    if(self.revealViewController.frontViewPosition != FrontViewPositionLeft){
-        self.overlayView.hidden = NO;
-    }
-    else{
-        self.overlayView.hidden = YES;
-    }
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -134,6 +88,67 @@
 -(void)viewWillDisappear:(BOOL)animated
 {
     self.sortSegmentedControlSelected = @(self.sortCollectionControl.selectedSegmentIndex);
+}
+
+-(void) setup
+{
+    if(self.festival){
+        
+        [self updateBandSimilarityModel];
+        
+        // set background image
+        self.backgroundView.roundedRects = NO;
+        [self.backgroundView setBackgroundGradientFromColor:self.festival.colorA toColor:self.festival.colorB];
+        
+        // configure day segmented control
+        [self.sortCollectionControl setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue" size:16.0]}
+                                                  forState:UIControlStateNormal];
+        
+        // setting sorting to show
+        if(!self.sortSegmentedControlSelected){
+            if([self.festival.mustBands count] > 0){
+                self.sortCollectionControl.selectedSegmentIndex = 1;
+            }
+            else{
+                self.sortCollectionControl.selectedSegmentIndex = 0;
+            }
+        }
+        else{
+            self.sortCollectionControl.selectedSegmentIndex = [self.sortSegmentedControlSelected integerValue];
+            self.sortSegmentedControlSelected = nil;
+        }
+        [self applyChangeInSortingOfCollectionWithScrollToTop:FALSE];
+        
+        // clear helper array itemsInSection
+        self.itemsAtSection = [[NSMutableArray alloc] init];
+        
+    }
+    
+    // set self as revealVC delegate
+    self.revealViewController.delegate = self;
+    
+    // compute size of collection view cells
+    CGFloat cellsPerRow = 3.0;
+    CGFloat leftRightMargin = 20.0;
+    UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout*)self.bandsCollectionView.collectionViewLayout;
+    CGFloat availableWidthForCells = (self.view.frame.size.width-2*leftRightMargin) - flowLayout.sectionInset.left - flowLayout.sectionInset.right - flowLayout.minimumInteritemSpacing * (cellsPerRow - 1);
+    CGFloat cellWidth = availableWidthForCells / cellsPerRow;
+    /*NSLog(@"self.festivalsCollectionView.frame: %@", NSStringFromCGRect(self.bandsCollectionView.frame));
+    NSLog(@"self.view.frame: %@", NSStringFromCGRect(self.view.frame));
+    NSLog(@"flowLayout.sectionInset.left: %f",flowLayout.sectionInset.left);
+    NSLog(@"flowLayout.sectionInset.right: %f",flowLayout.sectionInset.left);
+    NSLog(@"flowLayout.minimumInteritemSpacing: %f",flowLayout.minimumInteritemSpacing);
+    NSLog(@"availableWidthForCells: %f",availableWidthForCells);
+    NSLog(@"cellWidth: %f",cellWidth);*/
+    flowLayout.itemSize = CGSizeMake(cellWidth, cellWidth*0.80); //flowLayout.itemSize.height);
+    
+    // hide the overlay view
+    if(self.revealViewController.frontViewPosition != FrontViewPositionLeft){
+        self.overlayView.hidden = NO;
+    }
+    else{
+        self.overlayView.hidden = YES;
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

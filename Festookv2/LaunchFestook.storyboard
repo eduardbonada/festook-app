@@ -24,7 +24,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="festook" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhC-wF-4D6">
-                                <rect key="frame" x="200" y="358" width="200" height="40"/>
+                                <rect key="frame" x="200" y="202" width="200" height="40"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="fIo-Im-cN5"/>
@@ -37,7 +37,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="bhC-wF-4D6" firstAttribute="top" secondItem="5HR-Uz-Yb4" secondAttribute="bottom" constant="8" id="RSf-kP-uIN"/>
+                            <constraint firstItem="bhC-wF-4D6" firstAttribute="top" secondItem="5HR-Uz-Yb4" secondAttribute="bottom" constant="-148" id="RSf-kP-uIN"/>
                             <constraint firstAttribute="centerX" secondItem="bhC-wF-4D6" secondAttribute="centerX" id="SR7-uU-1CK"/>
                             <constraint firstAttribute="centerY" secondItem="5HR-Uz-Yb4" secondAttribute="centerY" id="vPE-xv-3Nc"/>
                             <constraint firstAttribute="centerX" secondItem="5HR-Uz-Yb4" secondAttribute="centerX" id="yCa-cO-VeL"/>

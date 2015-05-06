@@ -52,19 +52,6 @@
 
 #pragma mark - View Controller Lifecycle
 
--(void) setup
-{
-    
-    [self loadFestivalsData];
-    
-    if([self.festivals count] == 0){
-        self.emptyListText.hidden = NO;
-        self.emptyListTextBackground.hidden = NO;
-        self.emptyListText.text = @"Downloading festivals information...";
-    }
-    
-    
-}
 
 - (void)viewDidLoad
 {
@@ -110,6 +97,35 @@
     
     [self updateListFestivalsFromServer]; // called here because we need a shown view to add the alert
 }
+
+-(void) setup
+{
+    
+    [self loadFestivalsData];
+    
+    if([self.festivals count] == 0){
+        self.emptyListText.hidden = NO;
+        self.emptyListTextBackground.hidden = NO;
+        self.emptyListText.text = @"Downloading festivals information...";
+    }
+    
+    // compute size of collection view cells
+    CGFloat cellsPerRow = 2.0;
+    CGFloat leftRightMargin = 16.0;
+    UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout*)self.festivalsCollectionView.collectionViewLayout;
+    CGFloat availableWidthForCells = (self.view.frame.size.width-2*leftRightMargin) - flowLayout.sectionInset.left - flowLayout.sectionInset.right - flowLayout.minimumInteritemSpacing * (cellsPerRow - 1);
+    CGFloat cellWidth = availableWidthForCells / cellsPerRow;
+    /*NSLog(@"self.festivalsCollectionView.frame: %@", NSStringFromCGRect(self.festivalsCollectionView.frame));
+    NSLog(@"self.view.frame: %@", NSStringFromCGRect(self.view.frame));
+    NSLog(@"flowLayout.sectionInset.left: %f",flowLayout.sectionInset.left);
+    NSLog(@"flowLayout.sectionInset.right: %f",flowLayout.sectionInset.left);
+    NSLog(@"flowLayout.minimumInteritemSpacing: %f",flowLayout.minimumInteritemSpacing);
+    NSLog(@"availableWidthForCells: %f",availableWidthForCells);
+    NSLog(@"cellWidth: %f",cellWidth);*/
+    flowLayout.itemSize = CGSizeMake(cellWidth, cellWidth); //flowLayout.itemSize.height);
+    
+}
+
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

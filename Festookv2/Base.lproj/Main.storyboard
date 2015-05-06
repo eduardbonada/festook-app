@@ -79,7 +79,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9py-Sc-mjQ">
-                                        <rect key="frame" x="8" y="158" width="552" height="156"/>
+                                        <rect key="frame" x="28" y="158" width="512" height="156"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <string key="text">Festook is your personal expert and will help you plan your schedule. Tell him what bands you like most and it will recommend you the list of concerts that better fits your tastes.</string>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -97,11 +97,11 @@
                                     <constraint firstAttribute="centerX" secondItem="B2e-BO-U8r" secondAttribute="centerX" id="UmI-W5-v0P"/>
                                     <constraint firstItem="bBM-Sp-BvE" firstAttribute="leading" secondItem="CgT-lF-Ju9" secondAttribute="leading" constant="8" id="VHM-fm-VZU"/>
                                     <constraint firstItem="iMF-96-Unz" firstAttribute="top" secondItem="CgT-lF-Ju9" secondAttribute="top" id="a7C-Is-vvW"/>
-                                    <constraint firstItem="9py-Sc-mjQ" firstAttribute="leading" secondItem="CgT-lF-Ju9" secondAttribute="leading" constant="8" id="eSl-uL-wVS"/>
+                                    <constraint firstItem="9py-Sc-mjQ" firstAttribute="leading" secondItem="CgT-lF-Ju9" secondAttribute="leading" constant="28" id="eSl-uL-wVS"/>
                                     <constraint firstItem="bBM-Sp-BvE" firstAttribute="top" secondItem="B2e-BO-U8r" secondAttribute="bottom" constant="5" id="lUb-yH-kng"/>
                                     <constraint firstAttribute="centerX" secondItem="K8V-AC-ik3" secondAttribute="centerX" id="mlz-rM-wmQ"/>
                                     <constraint firstAttribute="bottom" secondItem="iMF-96-Unz" secondAttribute="bottom" id="p7V-NB-Nuo"/>
-                                    <constraint firstAttribute="trailing" secondItem="9py-Sc-mjQ" secondAttribute="trailing" constant="8" id="qnv-G4-G2X"/>
+                                    <constraint firstAttribute="trailing" secondItem="9py-Sc-mjQ" secondAttribute="trailing" constant="28" id="qnv-G4-G2X"/>
                                     <constraint firstItem="B2e-BO-U8r" firstAttribute="top" secondItem="K8V-AC-ik3" secondAttribute="bottom" id="xtR-yw-OHP"/>
                                     <constraint firstAttribute="trailing" secondItem="bBM-Sp-BvE" secondAttribute="trailing" constant="8" id="zjo-zF-Em4"/>
                                 </constraints>
@@ -344,7 +344,7 @@ Privacy</string>
                                                 </constraints>
                                                 <string key="text">Developed
 by ebc</string>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -995,8 +995,8 @@ by ebc</string>
                                                     <rect key="frame" x="0.0" y="0.0" width="135" height="135"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="available soon" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2MP-bx-LwT">
-                                                    <rect key="frame" x="55" y="86" width="90" height="45"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="coming soon" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2MP-bx-LwT">
+                                                    <rect key="frame" x="-8" y="4" width="80" height="45"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -2559,6 +2559,6 @@ This Privacy Policy may be updated from time to time for any reason. We will not
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="QVt-RG-mAM"/>
-        <segue reference="eWK-BZ-QWP"/>
+        <segue reference="G8I-Yk-9Mf"/>
     </inferredMetricsTieBreakers>
 </document>
