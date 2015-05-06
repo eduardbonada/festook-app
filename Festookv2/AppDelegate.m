@@ -17,11 +17,18 @@
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
     // Override point for customization after application launch.
     
     [Flurry setLogLevel:FlurryLogLevelNone];
     [Flurry startSession:@"PVBDRP4HVJGR8VKMKZBN"];
+    
+    // configuration of the page control appearance
+    UIPageControl *pageControl = [UIPageControl appearance];
+    pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
+    pageControl.currentPageIndicatorTintColor = [UIColor darkGrayColor];
+    pageControl.backgroundColor = [UIColor clearColor];
     
     return YES;
 }

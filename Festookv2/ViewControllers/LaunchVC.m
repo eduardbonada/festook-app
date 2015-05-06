@@ -11,6 +11,7 @@
 @interface LaunchVC ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
+@property (weak, nonatomic) IBOutlet UILabel *textLabel;
 
 @end
 
@@ -19,16 +20,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.textLabel.alpha = 0.0;
 }
 
 -(void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     
-    [self animateLogo];
+    [self animateLogoAndText];
 }
 
--(void) animateLogo
+-(void) animateLogoAndText
 {
     [self.view layoutIfNeeded];
     
@@ -43,7 +46,18 @@
                          [self.view layoutIfNeeded];
                      }
                      completion:^(BOOL finished){
-                         [self performSegueWithIdentifier:@"ShowFestivalBrowser" sender:self];
+                         if(finished){
+                             [UIView animateWithDuration:0.5
+                                                   delay:0.0
+                                                 options:UIViewAnimationOptionCurveEaseInOut
+                                              animations:^(void){
+                                                  self.textLabel.alpha = 0.8;
+                                                  [self.view layoutIfNeeded];
+                                              }
+                                              completion:^(BOOL finished){
+                                                  [self performSegueWithIdentifier:@"ShowFestivalBrowser" sender:self];
+                                              }];
+                         }
                      }];
 }
 

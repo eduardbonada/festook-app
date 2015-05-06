@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet EbcEnhancedView *backgroundView;
 
 @property (weak, nonatomic) IBOutlet EbcEnhancedView *logoContainerBackgroundView;
+@property (weak, nonatomic) IBOutlet UIButton *walkthroughButton;
 
 @property (weak, nonatomic) IBOutlet EbcEnhancedView *askMailContainerBackgroundView;
 
@@ -48,6 +49,12 @@
     [self.backgroundView setBackgroundGradientFromColor:[UIColor colorWithRed:160.0/255 green:215.0/255 blue:178.0/255 alpha:1.0]
                                                 toColor:[UIColor colorWithRed:200.0/255 green:240.0/255 blue:210.0/255 alpha:1.0]]; // dark festuc gradient
     
+    // set border of 'walkthrough' button
+    self.walkthroughButton.layer.cornerRadius = 5;
+    self.walkthroughButton.clipsToBounds = YES;
+    [self.walkthroughButton.layer setBorderWidth:1.0];
+    [self.walkthroughButton.layer setBorderColor:[[UIColor lightGrayColor] CGColor]];
+
     [self configureLogoContainer];
     
     [self configureAskMailContainer];

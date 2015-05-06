@@ -104,11 +104,6 @@
             NSArray *allRecommendedBands = [self.festival.schedule bandsToAttendSortedByTimeBetween:self.festival.start and:self.festival.end withOptions:@"recommendedBands"];
             NSMutableArray *allBandsThatAlreadyPlayed = [[NSMutableArray alloc] init];
             for(NSString* bandName in allRecommendedBands){
-                /*
-                 
-                 REVIEW FOR PRODUCTION
-                 
-                 */
                 NSDate *currentTime = [NSDate date]; //[dateFormatter dateFromString:@"29/05/2014 23:59"];
                 
                 NSDate *bandEndingTime = ((Band*)[self.festival.bands objectForKey:bandName]).endTime;
