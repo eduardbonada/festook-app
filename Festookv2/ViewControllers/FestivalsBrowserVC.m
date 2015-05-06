@@ -57,8 +57,6 @@
 {
     [super viewDidLoad];
     
-    [self getUserID];
-    
     // set background image
     self.backgroundView.roundedRects = NO;
     //[self.backgroundView setBackgroundGradientFromColor:[UIColor colorWithRed:168.0/255 green:223.0/255 blue:184.0/255 alpha:1.0] toColor:[UIColor colorWithRed:208.0/255 green:248.0/255 blue:219.0/255 alpha:1.0]]; // festuc gradient
@@ -86,6 +84,8 @@
     [super viewWillAppear:animated];
     
     [self.navigationController setNavigationBarHidden:YES animated:animated];
+    
+    [self getUserID];
     
     [self setup];
 
