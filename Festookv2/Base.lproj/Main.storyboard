@@ -42,7 +42,23 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Df-au-O7r" customClass="EbcEnhancedView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Festook version 2.0.1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eui-vB-Wc1">
+                                        <rect key="frame" x="8" y="571" width="172" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="172" id="Bo6-42-J9R"/>
+                                            <constraint firstAttribute="height" constant="21" id="YIg-R7-1a3"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="eui-vB-Wc1" firstAttribute="leading" secondItem="1Df-au-O7r" secondAttribute="leading" constant="8" id="N0h-GC-BaQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="eui-vB-Wc1" secondAttribute="bottom" constant="8" id="rcW-54-EHc"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CgT-lF-Ju9" userLabel="Logo Container View">
                                 <rect key="frame" x="16" y="28" width="568" height="290"/>
@@ -100,7 +116,6 @@
                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="walkthrough">
                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <segue destination="C6I-p6-jIf" kind="presentation" identifier="ShowWalkthrough" id="Sd4-Y3-Qtg"/>
