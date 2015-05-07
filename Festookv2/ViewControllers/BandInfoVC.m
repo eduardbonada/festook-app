@@ -225,6 +225,7 @@
     else{
         self.infoText.text = @"";
     }
+    [self.infoText scrollRangeToVisible:NSMakeRange(0, 0)];
     
 }
 

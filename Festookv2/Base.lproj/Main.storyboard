@@ -1323,7 +1323,7 @@ by ebc</string>
         <!--Band InfoVC-->
         <scene sceneID="E6z-pd-oyU">
             <objects>
-                <viewController id="2Bg-wU-Uh9" customClass="BandInfoVC" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="2Bg-wU-Uh9" customClass="BandInfoVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5cW-4b-Yf3"/>
                         <viewControllerLayoutGuide type="bottom" id="jEa-fV-s5l"/>
@@ -1530,8 +1530,8 @@ by ebc</string>
                                                     <constraint firstAttribute="height" constant="24" id="zDX-cQ-bfq"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5hH-jJ-SOc">
-                                                <rect key="frame" x="56" y="8" width="499" height="34"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5hH-jJ-SOc">
+                                                <rect key="frame" x="48" y="8" width="507" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -1539,7 +1539,7 @@ by ebc</string>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="5hH-jJ-SOc" firstAttribute="leading" secondItem="Ivc-ik-U3D" secondAttribute="trailing" constant="16" id="D3q-kO-vbS"/>
+                                            <constraint firstItem="5hH-jJ-SOc" firstAttribute="leading" secondItem="Ivc-ik-U3D" secondAttribute="trailing" constant="8" id="D3q-kO-vbS"/>
                                             <constraint firstAttribute="trailing" secondItem="5hH-jJ-SOc" secondAttribute="trailing" constant="13" id="Nvy-C0-6Cw"/>
                                             <constraint firstItem="5hH-jJ-SOc" firstAttribute="top" secondItem="Nl7-jc-X32" secondAttribute="top" constant="8" id="P73-dh-MKq"/>
                                             <constraint firstItem="Ivc-ik-U3D" firstAttribute="leading" secondItem="Nl7-jc-X32" secondAttribute="leading" constant="16" id="VKu-ap-WjI"/>
@@ -1569,7 +1569,7 @@ by ebc</string>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ukz-Hw-IQV">
-                                        <rect key="frame" x="8" y="8" width="552" height="220"/>
+                                        <rect key="frame" x="16" y="16" width="536" height="203"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1579,12 +1579,12 @@ by ebc</string>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="SC3-Hn-Aj9" secondAttribute="trailing" id="3Th-UY-41W"/>
-                                    <constraint firstAttribute="bottom" secondItem="Ukz-Hw-IQV" secondAttribute="bottom" constant="8" id="6QB-Rl-Rs5"/>
-                                    <constraint firstItem="Ukz-Hw-IQV" firstAttribute="top" secondItem="8G6-SO-6ZY" secondAttribute="top" constant="8" id="9JO-PP-OlS"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ukz-Hw-IQV" secondAttribute="bottom" constant="17" id="6QB-Rl-Rs5"/>
+                                    <constraint firstItem="Ukz-Hw-IQV" firstAttribute="top" secondItem="8G6-SO-6ZY" secondAttribute="top" constant="16" id="9JO-PP-OlS"/>
                                     <constraint firstItem="SC3-Hn-Aj9" firstAttribute="leading" secondItem="8G6-SO-6ZY" secondAttribute="leading" id="P7h-eo-15p"/>
                                     <constraint firstItem="SC3-Hn-Aj9" firstAttribute="top" secondItem="8G6-SO-6ZY" secondAttribute="top" id="RC7-TP-6pw"/>
-                                    <constraint firstAttribute="trailing" secondItem="Ukz-Hw-IQV" secondAttribute="trailing" constant="8" id="RDG-Kr-e2J"/>
-                                    <constraint firstItem="Ukz-Hw-IQV" firstAttribute="leading" secondItem="8G6-SO-6ZY" secondAttribute="leading" constant="8" id="S0H-bT-laq"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ukz-Hw-IQV" secondAttribute="trailing" constant="16" id="RDG-Kr-e2J"/>
+                                    <constraint firstItem="Ukz-Hw-IQV" firstAttribute="leading" secondItem="8G6-SO-6ZY" secondAttribute="leading" constant="16" id="S0H-bT-laq"/>
                                     <constraint firstAttribute="bottom" secondItem="SC3-Hn-Aj9" secondAttribute="bottom" id="bLR-M7-Fem"/>
                                 </constraints>
                             </view>
