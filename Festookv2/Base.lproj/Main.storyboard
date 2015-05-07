@@ -1216,7 +1216,7 @@ by ebc</string>
                                     <constraint firstAttribute="height" constant="40" id="8oj-FU-b3H"/>
                                     <constraint firstAttribute="width" constant="200" id="HUk-UO-dZj"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="35"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="37"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1279,7 +1279,7 @@ by ebc</string>
                                     <constraint firstAttribute="width" constant="200" id="L9c-rQ-fKd"/>
                                     <constraint firstAttribute="height" constant="40" id="ns8-OC-0Ga"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="35"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="37"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
