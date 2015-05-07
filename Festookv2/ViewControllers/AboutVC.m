@@ -9,6 +9,7 @@
 #import "AboutVC.h"
 
 #import "LegalTextVC.h"
+#import "WalkthroughRootVC.h"
 
 #import "EbcEnhancedView.h"
 
@@ -87,6 +88,11 @@
     if ([segue.identifier isEqualToString:@"ShowLegalText"]) {
         if ([segue.destinationViewController isKindOfClass:[LegalTextVC class]]) {
             [self logActionClickEventInFlurry:@"legalText"];
+        }
+    }
+    else if ([segue.identifier isEqualToString:@"ShowWalkthrough"]) {
+        if ([segue.destinationViewController isKindOfClass:[WalkthroughRootVC class]]) {
+            [self logActionClickEventInFlurry:@"walkthrough"];
         }
     }
     

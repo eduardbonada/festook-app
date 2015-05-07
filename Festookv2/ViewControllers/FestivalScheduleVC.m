@@ -524,7 +524,7 @@
                                      }
                                      ];
     UIAlertAction *noReminders = [UIAlertAction
-                                  actionWithTitle:@"No reminders"
+                                  actionWithTitle:@"None"
                                   style:UIAlertActionStyleDefault
                                   handler:^(UIAlertAction *action)
                                   {

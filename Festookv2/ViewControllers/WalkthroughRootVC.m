@@ -33,8 +33,16 @@
 {
     
     // initialize pages to show
-    self.walkthroughPageTitles = @[@"1. Choose a festival.", @"2. Browse the Line-up.", @"3. Mark the 'want-to-go' concerts.",@"4. Check the recommended schedule.", @"4- Refine the schedule.\nMark the concerts you don't want to see."];
-    self.walkthroughPageImages = @[@"questionIcon", @"starIcon", @"subscribeIcon", @"textIcon",@"toolsIcon"];
+    self.walkthroughPageTitles = @[@"1. Choose a festival.",
+                                   @"2. Browse the Line-up.",
+                                   @"3. Mark a few concerts\nyou don't want to miss.",
+                                   @"4. Check the recommended schedule.",
+                                   @"5- Refine the schedule\nmarking the concerts you don't need to see."];
+    self.walkthroughPageImages = @[@"walkthoughFestivals",
+                                   @"walkthoughLineup",
+                                   @"walkthoughBandInfoYes",
+                                   @"walkthoughSchedule",
+                                   @"walkthoughBandInfoNo"];
     //self.walkthroughPageImages = @[@"walkthroughFestivals", @"walkthroughLineup", @"walkthroughWantToGo", @"walkthroughSchedule",@"walkthroughWantToAvoid"];
     
     // Create page view controller

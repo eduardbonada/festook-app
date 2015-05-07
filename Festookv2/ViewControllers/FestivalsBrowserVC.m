@@ -448,8 +448,8 @@
     // check if the local file is older and must be updated
     NSDate* serverDate = [dateFormatter dateFromString:[file objectForKey:@"lastUpdate"]];
     
-    NSLog(@"Local Date: %@", [localDate description]);
-    NSLog(@"Server Date: %@", [serverDate description]);
+    //NSLog(@"Local Date: %@", [localDate description]);
+    //NSLog(@"Server Date: %@", [serverDate description]);
     
     // update file from server, if the serverDate is newer
     if([serverDate compare:localDate] == NSOrderedDescending){

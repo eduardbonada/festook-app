@@ -561,19 +561,19 @@ by ebc</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WgY-IH-ePb">
-                                <rect key="frame" x="175" y="84" width="250" height="400"/>
+                                <rect key="frame" x="161" y="84" width="279" height="496"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="WgY-IH-ePb" secondAttribute="height" multiplier="5:8" id="vZn-Oj-EM3"/>
+                                    <constraint firstAttribute="width" secondItem="WgY-IH-ePb" secondAttribute="height" multiplier="260:463" id="qBF-z1-J2f"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="WgY-IH-ePb" secondAttribute="centerX" id="1sD-O9-arx"/>
                             <constraint firstAttribute="trailing" secondItem="A7N-fu-NPZ" secondAttribute="trailing" constant="16" id="4JD-xf-OOC"/>
-                            <constraint firstItem="tuS-6U-umg" firstAttribute="top" secondItem="WgY-IH-ePb" secondAttribute="bottom" constant="116" id="Bx6-pJ-u9R"/>
+                            <constraint firstAttribute="centerX" secondItem="WgY-IH-ePb" secondAttribute="centerX" id="AvZ-1y-OEC"/>
+                            <constraint firstItem="tuS-6U-umg" firstAttribute="top" secondItem="WgY-IH-ePb" secondAttribute="bottom" constant="20" id="NVP-h4-yJh"/>
                             <constraint firstItem="A7N-fu-NPZ" firstAttribute="leading" secondItem="iX4-Ym-by9" secondAttribute="leading" constant="16" id="ZjW-68-hrZ"/>
-                            <constraint firstItem="WgY-IH-ePb" firstAttribute="top" secondItem="A7N-fu-NPZ" secondAttribute="bottom" constant="8" id="f5P-xj-7Kn"/>
+                            <constraint firstItem="WgY-IH-ePb" firstAttribute="top" secondItem="A7N-fu-NPZ" secondAttribute="bottom" constant="8" id="vAU-kM-LV4"/>
                             <constraint firstItem="A7N-fu-NPZ" firstAttribute="top" secondItem="iX4-Ym-by9" secondAttribute="top" constant="28" id="vKq-qQ-kGt"/>
                         </constraints>
                     </view>
@@ -858,7 +858,7 @@ by ebc</string>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hCK-nU-aOF" userLabel="Settings Button">
-                                <rect key="frame" x="552" y="552" width="40" height="40"/>
+                                <rect key="frame" x="556" y="556" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="LKk-O2-6bS"/>
                                     <constraint firstAttribute="width" constant="40" id="QFB-st-Jfk"/>
@@ -882,7 +882,7 @@ by ebc</string>
                             <constraint firstAttribute="trailing" secondItem="5dI-IO-Nl2" secondAttribute="trailing" constant="16" id="FYY-zm-ClU"/>
                             <constraint firstItem="iq1-JD-e0j" firstAttribute="leading" secondItem="JJU-hk-tHe" secondAttribute="leading" id="Flo-92-MPp"/>
                             <constraint firstItem="e09-xH-wGK" firstAttribute="leading" secondItem="JJU-hk-tHe" secondAttribute="leading" id="Ggp-Da-PNL"/>
-                            <constraint firstItem="vfo-rw-DDs" firstAttribute="top" secondItem="hCK-nU-aOF" secondAttribute="bottom" constant="8" id="ISJ-Hf-jOU"/>
+                            <constraint firstItem="vfo-rw-DDs" firstAttribute="top" secondItem="hCK-nU-aOF" secondAttribute="bottom" constant="4" id="ISJ-Hf-jOU"/>
                             <constraint firstItem="5dI-IO-Nl2" firstAttribute="leading" secondItem="JJU-hk-tHe" secondAttribute="leading" constant="16" id="Mn2-WJ-mlp"/>
                             <constraint firstAttribute="trailing" secondItem="iq1-JD-e0j" secondAttribute="trailing" id="OOd-3n-pj6"/>
                             <constraint firstItem="Ddp-5n-Zxt" firstAttribute="top" secondItem="TQO-Me-iOu" secondAttribute="bottom" constant="44" id="R5W-qH-eCm"/>
@@ -891,7 +891,7 @@ by ebc</string>
                             <constraint firstItem="vfo-rw-DDs" firstAttribute="top" secondItem="5dI-IO-Nl2" secondAttribute="bottom" id="WJd-TG-HL0"/>
                             <constraint firstItem="UDC-rZ-lLS" firstAttribute="top" secondItem="TQO-Me-iOu" secondAttribute="bottom" constant="7" id="g1x-KI-jgQ"/>
                             <constraint firstItem="vfo-rw-DDs" firstAttribute="top" secondItem="e09-xH-wGK" secondAttribute="bottom" id="nTh-e1-M4I"/>
-                            <constraint firstAttribute="trailing" secondItem="hCK-nU-aOF" secondAttribute="trailing" constant="8" id="nqR-Ne-NCX"/>
+                            <constraint firstAttribute="trailing" secondItem="hCK-nU-aOF" secondAttribute="trailing" constant="4" id="nqR-Ne-NCX"/>
                             <constraint firstItem="iq1-JD-e0j" firstAttribute="top" secondItem="JJU-hk-tHe" secondAttribute="top" id="toO-Kg-goz"/>
                         </constraints>
                     </view>
