@@ -241,7 +241,7 @@
     [self highlightSegmentedControl:bandRatingSegmentedControl AtSegment:bandRatingSegmentedControl.selectedSegmentIndex];
 
     // update band rating in NSUserDefaults
-    NSLog(@"%@", [[NSUserDefaults standardUserDefaults] dictionaryRepresentation]);
+    //NSLog(@"%@", [[NSUserDefaults standardUserDefaults] dictionaryRepresentation]);
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSMutableDictionary *concertRatings = [[defaults objectForKey:@"concertRatings"] mutableCopy];
     if(!concertRatings){

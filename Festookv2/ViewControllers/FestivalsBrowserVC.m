@@ -124,6 +124,12 @@
     NSLog(@"cellWidth: %f",cellWidth);*/
     flowLayout.itemSize = CGSizeMake(cellWidth, cellWidth); //flowLayout.itemSize.height);
     
+    // Local notifications setup
+    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
+        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeSound categories:nil]];
+    }
+
+    
 }
 
 

@@ -14,8 +14,6 @@
 
 -(FestivalSchedule*) initWithFestival:(Festival*) fest;
 
-@property (nonatomic) BOOL changeInAlgorithmMode;
-
 -(void) computeSchedule;
 
 -(NSArray*) daysToAttendWithOptions:(NSString*) options;

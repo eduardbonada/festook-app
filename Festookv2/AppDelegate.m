@@ -19,8 +19,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    
+    // Flurry setup
     [Flurry setLogLevel:FlurryLogLevelNone];
     [Flurry startSession:@"PVBDRP4HVJGR8VKMKZBN"];
     
@@ -29,8 +28,33 @@
     pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
     pageControl.currentPageIndicatorTintColor = [UIColor darkGrayColor];
     pageControl.backgroundColor = [UIColor clearColor];
-    
+        
     return YES;
+}
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    // Manages a received notification while the app is open
+    
+    /*
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:@"Notification Received"
+                                          message:notification.alertBody
+                                          preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction *action){}];
+    [alertController addAction:okAction];
+    [self.window.rootViewController presentViewController:alertController animated:YES completion:nil];
+    */
+    
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Festook"
+                                                       message:notification.alertBody
+                                                      delegate:nil
+                                             cancelButtonTitle:@"OK"
+                                             otherButtonTitles:nil, nil];
+    [alertView show];
+
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

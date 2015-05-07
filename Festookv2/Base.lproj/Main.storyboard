@@ -42,23 +42,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Df-au-O7r" customClass="EbcEnhancedView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Festook version 2.0.1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eui-vB-Wc1">
-                                        <rect key="frame" x="8" y="571" width="172" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="172" id="Bo6-42-J9R"/>
-                                            <constraint firstAttribute="height" constant="21" id="YIg-R7-1a3"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="eui-vB-Wc1" firstAttribute="leading" secondItem="1Df-au-O7r" secondAttribute="leading" constant="8" id="N0h-GC-BaQ"/>
-                                    <constraint firstAttribute="bottom" secondItem="eui-vB-Wc1" secondAttribute="bottom" constant="8" id="rcW-54-EHc"/>
-                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CgT-lF-Ju9" userLabel="Logo Container View">
                                 <rect key="frame" x="16" y="28" width="568" height="290"/>
@@ -439,6 +423,16 @@ by ebc</string>
                                     <action selector="dismissAbout:" destination="Nt5-wO-8nY" eventType="touchUpInside" id="3rp-4s-n50"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Festook version 2.0.1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eui-vB-Wc1">
+                                <rect key="frame" x="16" y="571" width="172" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="BCu-uU-xxx"/>
+                                    <constraint firstAttribute="width" constant="172" id="LOn-yW-3gY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -457,9 +451,11 @@ by ebc</string>
                             <constraint firstItem="CgT-lF-Ju9" firstAttribute="leading" secondItem="Olh-Za-nwu" secondAttribute="leading" constant="16" id="X39-3l-ozQ"/>
                             <constraint firstAttribute="trailing" secondItem="5h0-0z-2P2" secondAttribute="trailing" constant="16" id="d0y-VR-Fgp"/>
                             <constraint firstAttribute="trailing" secondItem="wSh-4N-EUM" secondAttribute="trailing" constant="16" id="iDA-EZ-pR5"/>
+                            <constraint firstItem="msA-aB-zwN" firstAttribute="top" secondItem="eui-vB-Wc1" secondAttribute="bottom" constant="8" id="ivL-bq-2jZ"/>
                             <constraint firstItem="msA-aB-zwN" firstAttribute="top" secondItem="3FB-Qq-6qE" secondAttribute="bottom" constant="8" id="m7v-FQ-qhb"/>
                             <constraint firstItem="1Df-au-O7r" firstAttribute="leading" secondItem="Olh-Za-nwu" secondAttribute="leading" id="qAH-uc-7Uh"/>
                             <constraint firstItem="CgT-lF-Ju9" firstAttribute="top" secondItem="0qZ-E6-HOY" secondAttribute="bottom" constant="8" id="vDX-P9-f7J"/>
+                            <constraint firstItem="eui-vB-Wc1" firstAttribute="leading" secondItem="Olh-Za-nwu" secondAttribute="leading" constant="16" id="wxF-Zp-APc"/>
                         </constraints>
                     </view>
                     <connections>
@@ -862,7 +858,11 @@ by ebc</string>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hCK-nU-aOF" userLabel="Settings Button">
-                                <rect key="frame" x="557" y="553" width="27" height="27"/>
+                                <rect key="frame" x="552" y="552" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="LKk-O2-6bS"/>
+                                    <constraint firstAttribute="width" constant="40" id="QFB-st-Jfk"/>
+                                </constraints>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="settingsIcon">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -882,8 +882,7 @@ by ebc</string>
                             <constraint firstAttribute="trailing" secondItem="5dI-IO-Nl2" secondAttribute="trailing" constant="16" id="FYY-zm-ClU"/>
                             <constraint firstItem="iq1-JD-e0j" firstAttribute="leading" secondItem="JJU-hk-tHe" secondAttribute="leading" id="Flo-92-MPp"/>
                             <constraint firstItem="e09-xH-wGK" firstAttribute="leading" secondItem="JJU-hk-tHe" secondAttribute="leading" id="Ggp-Da-PNL"/>
-                            <constraint firstAttribute="trailing" secondItem="hCK-nU-aOF" secondAttribute="trailing" constant="16" id="KJF-93-onU"/>
-                            <constraint firstItem="vfo-rw-DDs" firstAttribute="top" secondItem="hCK-nU-aOF" secondAttribute="bottom" constant="20" id="Mhy-kS-FaC"/>
+                            <constraint firstItem="vfo-rw-DDs" firstAttribute="top" secondItem="hCK-nU-aOF" secondAttribute="bottom" constant="8" id="ISJ-Hf-jOU"/>
                             <constraint firstItem="5dI-IO-Nl2" firstAttribute="leading" secondItem="JJU-hk-tHe" secondAttribute="leading" constant="16" id="Mn2-WJ-mlp"/>
                             <constraint firstAttribute="trailing" secondItem="iq1-JD-e0j" secondAttribute="trailing" id="OOd-3n-pj6"/>
                             <constraint firstItem="Ddp-5n-Zxt" firstAttribute="top" secondItem="TQO-Me-iOu" secondAttribute="bottom" constant="44" id="R5W-qH-eCm"/>
@@ -892,6 +891,7 @@ by ebc</string>
                             <constraint firstItem="vfo-rw-DDs" firstAttribute="top" secondItem="5dI-IO-Nl2" secondAttribute="bottom" id="WJd-TG-HL0"/>
                             <constraint firstItem="UDC-rZ-lLS" firstAttribute="top" secondItem="TQO-Me-iOu" secondAttribute="bottom" constant="7" id="g1x-KI-jgQ"/>
                             <constraint firstItem="vfo-rw-DDs" firstAttribute="top" secondItem="e09-xH-wGK" secondAttribute="bottom" id="nTh-e1-M4I"/>
+                            <constraint firstAttribute="trailing" secondItem="hCK-nU-aOF" secondAttribute="trailing" constant="8" id="nqR-Ne-NCX"/>
                             <constraint firstItem="iq1-JD-e0j" firstAttribute="top" secondItem="JJU-hk-tHe" secondAttribute="top" id="toO-Kg-goz"/>
                         </constraints>
                     </view>
@@ -1906,10 +1906,6 @@ by ebc</string>
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view alpha="0.49999999999999961" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SpF-TL-61A" userLabel="Overlay View">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8H7-te-xEd" userLabel="Background View" customClass="EbcEnhancedView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2202,6 +2198,10 @@ by ebc</string>
                                         <exclude reference="dIC-SV-dl9"/>
                                     </mask>
                                 </variation>
+                            </view>
+                            <view alpha="0.49999999999999961" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SpF-TL-61A" userLabel="Overlay View">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2757,7 +2757,7 @@ This Privacy Policy may be updated from time to time for any reason. We will not
         <image name="youtubeIcon" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="eWK-BZ-QWP"/>
         <segue reference="QVt-RG-mAM"/>
-        <segue reference="G8I-Yk-9Mf"/>
     </inferredMetricsTieBreakers>
 </document>

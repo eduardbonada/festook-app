@@ -39,11 +39,13 @@
 @property (nonatomic, strong) NSDictionary        *bands;           // of lowercaseName:Band
 @property (nonatomic, strong) NSMutableDictionary *mustBands;       // of lowercaseName:Band
 @property (nonatomic, strong) NSMutableDictionary *discardedBands;  // of lowercaseName:Band
-@property (nonatomic)         BOOL changeInMustOrDiscarded;         // flag if there has been a change in must/discarded bands (to recompute schedule)
 
 /* band similarity */
 @property (nonatomic, strong) BandSimilarityCalculator* bandSimilarityCalculator;
 @property (nonatomic, strong) FestivalSchedule* schedule;
+
+@property (nonatomic)         BOOL recomputeSchedule;               // flag to recompute schedule
+@property (nonatomic)         BOOL updateReminders;                 // flag to update reminders
 
 /* Initializer */
 -(Festival*) initWithDictionary:(NSDictionary*) dict;

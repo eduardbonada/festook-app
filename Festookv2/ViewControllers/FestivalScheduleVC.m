@@ -38,6 +38,8 @@
 
 @property (weak, nonatomic) IBOutlet UIView *overlayView;
 
+@property (assign) BOOL markedToUpdateReminders;
+
 @end
 
 @implementation FestivalScheduleVC
@@ -70,7 +72,7 @@
     self.festival = ((FestivalRevealVC*)self.revealViewController).festival;
     self.userID = ((FestivalRevealVC*)self.revealViewController).userID;
 
-    self.festival.changeInMustOrDiscarded = YES; // mark to perform schedule computations
+    self.festival.recomputeSchedule = YES; // mark to perform initial schedule computations
     
     [self logPresenceEventInFlurry];
 
@@ -164,11 +166,16 @@
 {
     
     // compute the schedule
-    if(self.festival.changeInMustOrDiscarded || self.festival.schedule.changeInAlgorithmMode){
+    if(self.festival.recomputeSchedule){
         
         [self.festival updateBandSimilarityModel];
         
         [self.schedule computeSchedule];
+        
+        if(self.festival.updateReminders){
+            [self updateAllConcertReminders];
+            self.festival.updateReminders = NO;
+        }
         
         // get the days to attend and update segmented control (only of days have changed)
         if([self.daysToAttend count] != [[self.schedule daysToAttendWithOptions:@"recommendedBands"] count]){
@@ -179,8 +186,7 @@
         // get the bands to attend
         [self updateTableViewForDay:[self.daysToAttend objectAtIndex:[self.currentDayShown integerValue]]];
         
-        self.festival.changeInMustOrDiscarded = NO;
-        self.festival.schedule.changeInAlgorithmMode = NO;
+        self.festival.recomputeSchedule = NO;
 
     }
     
@@ -207,26 +213,6 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    /*
-     if ([segue.identifier isEqualToString:@"ShowFestivalBands"]) {
-        if ([segue.destinationViewController isKindOfClass:[FestivalBandsBrowserVC class]]) {
-            
-            // set title of 'back' button
-            self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Horari" style:UIBarButtonItemStylePlain target:nil action:nil];
-            
-            // Configure destination VC
-            FestivalBandsBrowserVC *fbbvc = segue.destinationViewController;
-            if ([fbbvc isKindOfClass:[FestivalBandsBrowserVC class]]) {
-                //[fbbvc setTitle:self.festival.uppercaseName];
-                fbbvc.festival = self.festival;
-            }
-            
-        }
-    }
-    else
-     */
-    
-     
     if ([segue.identifier isEqualToString:@"ShowBandInfo"]) {
         
         if ([segue.destinationViewController isKindOfClass:[BandInfoVC class]]) {
@@ -336,24 +322,6 @@
         // set text to show in row
         bandConcertView.centeredText = [self attributedStringForRow:indexPath.row];
         
-        // set 'heart' text in must bands
-        /*
-         Band* band = [self.festival.bands objectForKey:[self.bandsToAttend objectAtIndex:indexPath.row]];
-         if([self.festival.mustBands objectForKey:band.lowercaseName]){
-         NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-         paragraphStyle.alignment = NSTextAlignmentRight;
-         NSDictionary* attributes = @{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue" size:16.0],
-         NSForegroundColorAttributeName : [UIColor colorWithRed:140.0/255 green:180.0/255 blue:15.0/255 alpha:1.0],
-         NSParagraphStyleAttributeName : paragraphStyle};
-         bandConcertView.rightJustifiedText = [[NSAttributedString alloc] initWithString:[[NSString alloc] initWithFormat:@"♡"]
-         attributes:attributes
-         ];
-         }
-         else{
-         bandConcertView.rightJustifiedText = [[NSAttributedString alloc] initWithString:@""];
-         }
-         */
-        
     }
     
     return cell;
@@ -454,10 +422,165 @@
 #pragma mark - Selecting Algorithm
 - (IBAction)settingsPressed:(UIButton *)sender
 {
-    [self selectAlgorithm];
+    
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:nil
+                                          message:nil
+                                          preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *cancelAction = [UIAlertAction
+                                   actionWithTitle:@"Cancel"
+                                   style:UIAlertActionStyleCancel
+                                   handler:^(UIAlertAction *action){}
+                                   ];
+    UIAlertAction *algorithm  = [UIAlertAction actionWithTitle:@"Edit schedule mode" style:UIAlertActionStyleDefault
+                                                       handler:^(UIAlertAction *action)
+                                 {
+                                     [self showAlgorithmActionSheet];
+                                 }
+                                 ];
+    UIAlertAction *notifications = [UIAlertAction actionWithTitle:@"Edit reminders" style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction *action)
+                                    {
+                                        [self showRemindersActionSheet];
+                                    }
+                                    ];
+    [alertController addAction:algorithm];
+    [alertController addAction:notifications];
+    [alertController addAction:cancelAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
--(void) selectAlgorithm
+-(void) showRemindersActionSheet
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    //NSLog(@"%@", [[NSUserDefaults standardUserDefaults] dictionaryRepresentation]);
+    NSString *reminderTime = [defaults objectForKey:@"reminderBeforeConcert"];
+    if(!reminderTime){
+        reminderTime = @"15"; // Minutes before concert
+        [defaults setObject:reminderTime forKey:@"reminderBeforeConcert"];
+        [defaults synchronize];
+    }
+    NSString* minutesString;
+    if([reminderTime isEqualToString:@"None"]){
+        minutesString = @"None";
+    }
+    else{
+        minutesString = [NSString stringWithFormat:@"%@ minutes",reminderTime];
+    }
+    
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:@"Reminders before a concert starts"
+                                          message:[NSString stringWithFormat:@"Currently set to '%@'",minutesString]
+                                          preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *cancelAction = [UIAlertAction
+                                   actionWithTitle:@"Cancel"
+                                   style:UIAlertActionStyleCancel
+                                   handler:^(UIAlertAction *action){
+                                   }
+                                   ];
+    UIAlertAction *fiveMinutes = [UIAlertAction
+                                  actionWithTitle:@"5 minutes"
+                                  style:UIAlertActionStyleDefault
+                                  handler:^(UIAlertAction *action)
+                                  {
+                                      NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                                      [defaults setObject:@"5" forKey:@"reminderBeforeConcert"];
+                                      [defaults synchronize];
+                                      [self updateAllConcertReminders];
+                                  }
+                                  ];
+    UIAlertAction *tenMinutes = [UIAlertAction
+                                 actionWithTitle:@"10 minutes"
+                                 style:UIAlertActionStyleDefault
+                                handler:^(UIAlertAction *action)
+                                 {
+                                     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                                     [defaults setObject:@"10" forKey:@"reminderBeforeConcert"];
+                                     [defaults synchronize];
+                                     [self updateAllConcertReminders];
+                                 }
+                                 ];
+    UIAlertAction *fifteenMinutes = [UIAlertAction
+                                     actionWithTitle:@"15 minutes"
+                                     style:UIAlertActionStyleDefault
+                                     handler:^(UIAlertAction *action)
+                                     {
+                                         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                                         [defaults setObject:@"15" forKey:@"reminderBeforeConcert"];
+                                         [defaults synchronize];
+                                         [self updateAllConcertReminders];
+                                     }
+                                     ];
+    UIAlertAction *noReminders = [UIAlertAction
+                                  actionWithTitle:@"No reminders"
+                                  style:UIAlertActionStyleDefault
+                                  handler:^(UIAlertAction *action)
+                                  {
+                                      NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                                      [defaults setObject:@"None" forKey:@"reminderBeforeConcert"];
+                                      [defaults synchronize];
+                                      [self updateAllConcertReminders];
+                                  }
+                                  ];
+    [alertController addAction:cancelAction];
+    [alertController addAction:fiveMinutes];
+    [alertController addAction:tenMinutes];
+    [alertController addAction:fifteenMinutes];
+    [alertController addAction:noReminders];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+    
+}
+
+-(void) updateAllConcertReminders
+{
+    
+    //[[[UIApplication sharedApplication] scheduledLocalNotifications] enumerateObjectsUsingBlock:^(UILocalNotification *notification, NSUInteger idx, BOOL *stop) { NSLog(@"Notification %lu: %@ %@",(unsigned long)idx, notification.fireDate, notification.alertBody); }];
+    
+    // clear all notifications because the schdedule has changed
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    
+    // get the notification time from NSUSerDefaults
+    //NSLog(@"%@", [[NSUserDefaults standardUserDefaults] dictionaryRepresentation]);
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *reminderTime = [defaults objectForKey:@"reminderBeforeConcert"];
+    if(!reminderTime){
+        reminderTime = @"15"; // Minutes before concert
+        [defaults setObject:reminderTime forKey:@"reminderBeforeConcert"];
+        [defaults synchronize];
+    }
+    
+    // Add one notification per concert in the schedule
+    if(![reminderTime isEqualToString:@"None"]){
+        NSArray* bandsToAttend = [self.schedule bandsToAttendSortedByTimeBetween:self.festival.start
+                                                                             and:self.festival.end
+                                                                     withOptions:@"recommendedBands"
+                                  ];
+        for(NSString* bandName in bandsToAttend){
+            Band* band = [self.festival.bands objectForKey:bandName];
+            UILocalNotification *notification = [[UILocalNotification alloc] init];
+            notification.timeZone = [NSTimeZone defaultTimeZone];
+            notification.soundName = UILocalNotificationDefaultSoundName;
+            notification.alertBody = [NSString stringWithFormat:@"%@ will start playing at %@ in %@ minutes",band.uppercaseName,band.stage,reminderTime];
+            notification.fireDate = [band.startTime dateByAddingTimeInterval:-60*([reminderTime integerValue])]; // notificationTime minutes before the concert starts
+            //NSLog(@"notification.fireDate: %@",notification.fireDate);
+            //NSLog(@"[NSDate date]: %@",[NSDate date]);
+            //NSLog(@"condition: %d",[notification.fireDate compare:[NSDate date]] != NSOrderedAscending);
+            if([notification.fireDate compare:[NSDate date]] != NSOrderedAscending){
+                // only add the notification if it is set in the future
+                [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+            }
+        }
+    }
+    
+    //[[[UIApplication sharedApplication] scheduledLocalNotifications] enumerateObjectsUsingBlock:^(UILocalNotification *notification, NSUInteger idx, BOOL *stop) { NSLog(@"Notification %lu: %@ %@",(unsigned long)idx, notification.fireDate, notification.alertBody); }];
+
+}
+
+-(void) showAlgorithmActionSheet
 {
     //NSLog(@"%@", [[NSUserDefaults standardUserDefaults] dictionaryRepresentation]);
     NSString *algorithmMode = [[NSUserDefaults standardUserDefaults] objectForKey:@"scheduleAlgorithmMode"];
@@ -475,8 +598,8 @@
     [self logScheduleAlgorithmInFlurry:@""];
     
     NSString* message = [NSString stringWithFormat:@"RELAXED:\nWith free time between concerts.\n\n"
-                                                    "MODERATE:\nAs many concerts as possible, without overlapping.\n\n"
-                                                    "COMPLETE:\nWith smart overlapping optimized for enjoying as many concert endings as possible.\n"
+                                                    "MODERATE:\nAs many concerts as possible,\n but without overlapping.\n\n"
+                                                    "COMPLETE:\nSmart overlapping optimized for enjoying as many concert endings as possible.\n"
                                                     "\n%@",currentModeString];
     
     
@@ -488,8 +611,7 @@
     UIAlertAction *cancelAction = [UIAlertAction
                                    actionWithTitle:@"Cancel"
                                    style:UIAlertActionStyleCancel
-                                   handler:^(UIAlertAction *action)
-                                   {}
+                                   handler:^(UIAlertAction *action){}
                                    ];
     UIAlertAction *freeTime     = [UIAlertAction actionWithTitle:@"Relaxed" style:UIAlertActionStyleDefault
                                                          handler:^(UIAlertAction *action)
@@ -499,7 +621,8 @@
                                        [defaults setObject:@"FullConcertWithFreeTime" forKey:@"scheduleAlgorithmMode"];
                                        [defaults synchronize];
                                        if(![algorithmMode isEqualToString:@"FullConcertWithFreeTime"]){
-                                           self.festival.schedule.changeInAlgorithmMode = YES;
+                                           self.festival.recomputeSchedule = YES;
+                                           self.festival.updateReminders = YES;
                                            [self updateSchedule];
                                            [self reloadScheduleTableDataWithAnimation: 0];
                                            [self logScheduleAlgorithmInFlurry:@"Relaxed"];
@@ -514,7 +637,8 @@
                                        [defaults setObject:@"FullConcert" forKey:@"scheduleAlgorithmMode"];
                                        [defaults synchronize];
                                        if(![algorithmMode isEqualToString:@"FullConcert"]){
-                                           self.festival.schedule.changeInAlgorithmMode = YES;
+                                           self.festival.recomputeSchedule = YES;
+                                           self.festival.updateReminders = YES;
                                            [self updateSchedule];
                                            [self reloadScheduleTableDataWithAnimation: 0];
                                            [self logScheduleAlgorithmInFlurry:@"Moderate"];
@@ -529,7 +653,8 @@
                                        [defaults setObject:@"LastHalfHour" forKey:@"scheduleAlgorithmMode"];
                                        [defaults synchronize];
                                        if(![algorithmMode isEqualToString:@"LastHalfHour"]){
-                                           self.festival.schedule.changeInAlgorithmMode = YES;
+                                           self.festival.recomputeSchedule = YES;
+                                           self.festival.updateReminders = YES;
                                            [self updateSchedule];
                                            [self reloadScheduleTableDataWithAnimation: 0];
                                            [self logScheduleAlgorithmInFlurry:@"Complete"];

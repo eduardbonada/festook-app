@@ -62,7 +62,6 @@
     }
 
     self.algorithmMode = algorithmMode;
-    self.changeInAlgorithmMode = NO;
     
     if([self.festival.mustBands count] > 0){
         [self generateScheduleWithSFFSwithOptions:@{@"mode":self.algorithmMode}];
@@ -427,10 +426,10 @@
         for(NSString* bandString in bandsSortedBySimilarity){
             Band* band = [self.festival.bands objectForKey:bandString];
 
-            // 15 minutes of free time
+            // 15 minutes of free time (avoid if it is the first or last concert of the festival)
             CGFloat minutes = 15.0;
-            NSDate* startWithFreeTime = [band.startTime dateByAddingTimeInterval:-minutes*60];
-            NSDate* endWithFreetime = [band.endTime dateByAddingTimeInterval:+minutes*60];
+            NSDate* startWithFreeTime = ([band.startTime compare:self.festival.start]==NSOrderedSame) ? band.startTime : [band.startTime dateByAddingTimeInterval:-minutes*60];
+            NSDate* endWithFreetime = ([band.endTime compare:self.festival.end]==NSOrderedSame) ? band.endTime : [band.endTime dateByAddingTimeInterval:+minutes*60];
             
             NSInteger freeSlotIndex = [self isThereAFreeSlotBetweenDate:startWithFreeTime andDate:endWithFreetime];
             if(freeSlotIndex >= 0){

@@ -69,6 +69,16 @@
     
     [self logPresenceEventInFlurry];
     
+    // testing notification
+    /*
+    UILocalNotification *notification = [[UILocalNotification alloc] init];
+    notification.fireDate = [[NSDate date] dateByAddingTimeInterval:5];
+    notification.timeZone = [NSTimeZone defaultTimeZone];
+    notification.soundName = UILocalNotificationDefaultSoundName;
+    notification.alertBody = [NSString stringWithFormat:@"5 seconds passed..."];
+    [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+     */
+    
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

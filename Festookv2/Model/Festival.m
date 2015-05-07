@@ -45,7 +45,8 @@
         // initialize festival state that refers to must/discarded bands
         self.mustBands      = [[NSMutableDictionary alloc] init];
         self.discardedBands = [[NSMutableDictionary alloc] init];
-        self.changeInMustOrDiscarded = YES; // first time initialization
+        
+        self.recomputeSchedule = YES; // first time initialization
         
     }
     return self;
@@ -205,7 +206,8 @@
     [defaults setObject:allFestivalsMustBands forKey:@"allFestivalsMustBands"];
     [defaults synchronize];
     
-    self.changeInMustOrDiscarded = YES;
+    self.recomputeSchedule = YES;
+    self.updateReminders = YES;
     
 }
 -(NSMutableDictionary*) getMustBandsFromNSUserDefaults
@@ -223,7 +225,7 @@
         [self.mustBands setObject:[self.bands objectForKey:bandName] forKey:bandName];
     }
     
-    self.changeInMustOrDiscarded = YES;
+    self.recomputeSchedule = YES;
     
     return self.mustBands;
     
@@ -248,8 +250,9 @@
     [defaults setObject:allFestivalsDiscardedBands forKey:@"allFestivalsDiscardedBands"];
     [defaults synchronize];
     
-    self.changeInMustOrDiscarded = YES;
-        
+    self.recomputeSchedule = YES;
+    self.updateReminders = YES;
+    
 }
 -(NSMutableDictionary*) getDiscardedBandsFromNSUserDefaults
 {
@@ -266,7 +269,7 @@
         [self.discardedBands setObject:[self.bands objectForKey:bandName] forKey:bandName];
     }
     
-    self.changeInMustOrDiscarded = YES;
+    self.recomputeSchedule = YES;
 
     return self.discardedBands;
     
