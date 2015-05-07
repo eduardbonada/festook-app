@@ -137,7 +137,7 @@
 {
     // configure artist container
     self.backgroundGreyBoxArtistView.roundedRects = YES;
-    self.backgroundGreyBoxArtistView.cornerRadius = @(13.0);
+    self.backgroundGreyBoxArtistView.cornerRadius = @(10.0);
     [self.backgroundGreyBoxArtistView setBackgroundPlain:[UIColor groupTableViewBackgroundColor] withAlpha:@(1.0)];
     self.bandName.text = self.band.uppercaseName;
     
@@ -173,7 +173,7 @@
     dayFormatter.dateFormat=@"dd";
 
     self.backgroundGreyBoxTimeView.roundedRects = YES;
-    self.backgroundGreyBoxTimeView.cornerRadius = @(13.0);
+    self.backgroundGreyBoxTimeView.cornerRadius = @(10.0);
     [self.backgroundGreyBoxTimeView setBackgroundPlain:[UIColor groupTableViewBackgroundColor] withAlpha:@(1.0)];
     self.time.text = [[NSString alloc] initWithFormat:@"%@ %@\n%@",
                       [self.band weekdayOfConcert],
@@ -192,7 +192,7 @@
 -(void) configureStageContainer
 {
     self.backgroundGreyBoxStageView.roundedRects = YES;
-    self.backgroundGreyBoxStageView.cornerRadius = @(13.0);
+    self.backgroundGreyBoxStageView.cornerRadius = @(10.0);
     [self.backgroundGreyBoxStageView setBackgroundPlain:[UIColor groupTableViewBackgroundColor] withAlpha:@(1.0)];
     self.stage.text = self.band.stage;
 }
@@ -200,7 +200,7 @@
 -(void) configureStyleContainer
 {
     self.backgroundGreyBoxStyleView.roundedRects = YES;
-    self.backgroundGreyBoxStyleView.cornerRadius = @(13.0);
+    self.backgroundGreyBoxStyleView.cornerRadius = @(10.0);
     [self.backgroundGreyBoxStyleView setBackgroundPlain:[UIColor groupTableViewBackgroundColor] withAlpha:@(1.0)];
     self.style.text = self.band.style;
 }
@@ -209,7 +209,7 @@
 {
 
     self.backgroundGreyBoxInfoTextView.roundedRects = YES;
-    self.backgroundGreyBoxInfoTextView.cornerRadius = @(13.0);
+    self.backgroundGreyBoxInfoTextView.cornerRadius = @(10.0);
     [self.backgroundGreyBoxInfoTextView setBackgroundPlain:[UIColor groupTableViewBackgroundColor] withAlpha:@(1.0)];
 
     // configure text
@@ -234,7 +234,7 @@
 
     // background
     self.backgroundGreyBoxSimilarView.roundedRects = YES;
-    self.backgroundGreyBoxSimilarView.cornerRadius = @(13.0);
+    self.backgroundGreyBoxSimilarView.cornerRadius = @(10.0);
     [self.backgroundGreyBoxSimilarView setBackgroundPlain:[UIColor groupTableViewBackgroundColor] withAlpha:@(1.0)];
     
     // configure text

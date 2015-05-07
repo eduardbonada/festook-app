@@ -774,15 +774,15 @@
     [backgoundView.layer renderInContext:UIGraphicsGetCurrentContext()];
     
     // draw top bar
-    EbcEnhancedView* tobBarView = [[EbcEnhancedView alloc] init];
-    tobBarView.bounds = CGRectMake(TopBarHeight*0.15, TopBarHeight*0.15, imageWidth-TopBarHeight*0.3, TopBarHeight-TopBarHeight*0.3);
-    tobBarView.roundedRects = YES;
-    tobBarView.cornerRadius = @(6.0);
-    [tobBarView setBackgroundColor:[UIColor clearColor]];
-    [tobBarView setBackgroundPlain:[UIColor clearColor] withAlpha:@(1.0)];
-    [tobBarView setBorderWithColor:self.festival.colorB andWidth:1.0f];
-    tobBarView.centeredText = [[NSAttributedString alloc] initWithString:self.festival.uppercaseName attributes:textAttributesTopBar];
-    [tobBarView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    EbcEnhancedView* topBarView = [[EbcEnhancedView alloc] init];
+    topBarView.bounds = CGRectMake(TopBarHeight*0.15, TopBarHeight*0.15, imageWidth-TopBarHeight*0.3, TopBarHeight-TopBarHeight*0.3);
+    topBarView.roundedRects = YES;
+    topBarView.cornerRadius = @(6.0);
+    [topBarView setBackgroundColor:[UIColor clearColor]];
+    [topBarView setBackgroundPlain:[UIColor clearColor] withAlpha:@(1.0)];
+    [topBarView setBorderWithColor:self.festival.colorB andWidth:1.0f];
+    topBarView.centeredText = [[NSAttributedString alloc] initWithString:self.festival.uppercaseName attributes:textAttributesTopBar];
+    [topBarView.layer renderInContext:UIGraphicsGetCurrentContext()];
     
     // draw concerts for each day
     for(NSDictionary* day in self.daysToAttend){

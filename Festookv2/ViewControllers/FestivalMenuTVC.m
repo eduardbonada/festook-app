@@ -148,7 +148,7 @@ NSArray *menuItems;
             Festival* festival = ((FestivalRevealVC*) self.revealViewController).festival;
             // set visual graphic configuration
             cell.festivalView.roundedRects = YES;
-            cell.festivalView.cornerRadius = @(12.0);
+            //cell.festivalView.cornerRadius = @(12.0);
             //[cell.festivalView setBackgroundPlain:[UIColor whiteColor] withAlpha:@(0.8)];
             //[cell.festivalView setBackgroundGradientFromColor:festival.colorA toColor:festival.colorB];
             [cell.festivalView setBorderWithColor:festival.colorB andWidth:1.5f];

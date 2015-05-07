@@ -120,37 +120,37 @@
 -(void) configureLogoContainer
 {
     self.logoContainerBackgroundView.roundedRects = YES;
-    self.logoContainerBackgroundView.cornerRadius = @(13.0);
+    self.logoContainerBackgroundView.cornerRadius = @(10.0);
     [self.logoContainerBackgroundView setBackgroundPlain:[UIColor groupTableViewBackgroundColor] withAlpha:@(1.0)];
 }
 -(void) configureAskMailContainer
 {
     self.askMailContainerBackgroundView.roundedRects = YES;
-    self.askMailContainerBackgroundView.cornerRadius = @(13.0);
+    self.askMailContainerBackgroundView.cornerRadius = @(10.0);
     [self.askMailContainerBackgroundView setBackgroundPlain:[UIColor groupTableViewBackgroundColor] withAlpha:@(1.0)];
 }
 -(void) configureRateContainer
 {
     self.rateBackgroundView.roundedRects = YES;
-    self.rateBackgroundView.cornerRadius = @(13.0);
+    self.rateBackgroundView.cornerRadius = @(10.0);
     [self.rateBackgroundView setBackgroundPlain:[UIColor groupTableViewBackgroundColor] withAlpha:@(1.0)];
 }
 -(void) configureSupportContainer
 {
     self.supportBackgroundView.roundedRects = YES;
-    self.supportBackgroundView.cornerRadius = @(13.0);
+    self.supportBackgroundView.cornerRadius = @(10.0);
     [self.supportBackgroundView setBackgroundPlain:[UIColor groupTableViewBackgroundColor] withAlpha:@(1.0)];
 }
 -(void) configureLegalContainer
 {
     self.legalBackgroundView.roundedRects = YES;
-    self.legalBackgroundView.cornerRadius = @(13.0);
+    self.legalBackgroundView.cornerRadius = @(10.0);
     [self.legalBackgroundView setBackgroundPlain:[UIColor groupTableViewBackgroundColor] withAlpha:@(1.0)];
 }
 -(void) configureDevContainer
 {
     self.devBackgroundView.roundedRects = YES;
-    self.devBackgroundView.cornerRadius = @(13.0);
+    self.devBackgroundView.cornerRadius = @(10.0);
     [self.devBackgroundView setBackgroundPlain:[UIColor groupTableViewBackgroundColor] withAlpha:@(1.0)];
 }
 

@@ -115,7 +115,7 @@
 -(void) configureNameContainer
 {
     self.nameContainerBackground.roundedRects = YES;
-    self.nameContainerBackground.cornerRadius = @(13.0);
+    self.nameContainerBackground.cornerRadius = @(10.0);
     [self.nameContainerBackground setBackgroundPlain:[UIColor groupTableViewBackgroundColor] withAlpha:@(1.0)];
     
     self.nameLabel.text = self.festival.uppercaseName;
@@ -127,7 +127,7 @@
 {
     // background
     self.socialContainerBackground.roundedRects = YES;
-    self.socialContainerBackground.cornerRadius = @(13.0);
+    self.socialContainerBackground.cornerRadius = @(10.0);
     [self.socialContainerBackground setBackgroundPlain:[UIColor groupTableViewBackgroundColor] withAlpha:@(1.0)];
     
     // social links - web
@@ -176,7 +176,7 @@
 {
     // background
     self.dataContainerBackground.roundedRects = YES;
-    self.dataContainerBackground.cornerRadius = @(13.0);
+    self.dataContainerBackground.cornerRadius = @(10.0);
     [self.dataContainerBackground setBackgroundPlain:[UIColor groupTableViewBackgroundColor] withAlpha:@(1.0)];
     
     // labels with numerical data

@@ -388,7 +388,7 @@ referenceSizeForHeaderInSection:(NSInteger)section
         
         // set visual graphic configuration
         bandView.roundedRects = YES;
-        bandView.cornerRadius = @(8);
+        bandView.cornerRadius = @(10);
         
         [bandView setBackgroundPlain:[UIColor groupTableViewBackgroundColor] withAlpha:@(0.6)];
         
