@@ -114,7 +114,7 @@
     CGFloat leftRightMargin = 16.0;
     UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout*)self.festivalsCollectionView.collectionViewLayout;
     CGFloat availableWidthForCells = (self.view.frame.size.width-2*leftRightMargin) - flowLayout.sectionInset.left - flowLayout.sectionInset.right - flowLayout.minimumInteritemSpacing * (cellsPerRow - 1);
-    CGFloat cellWidth = availableWidthForCells / cellsPerRow;
+    CGFloat cellWidth = [self.festivals count]>2 ? availableWidthForCells/cellsPerRow : 1.2*availableWidthForCells/cellsPerRow;
     /*NSLog(@"self.festivalsCollectionView.frame: %@", NSStringFromCGRect(self.festivalsCollectionView.frame));
     NSLog(@"self.view.frame: %@", NSStringFromCGRect(self.view.frame));
     NSLog(@"flowLayout.sectionInset.left: %f",flowLayout.sectionInset.left);
