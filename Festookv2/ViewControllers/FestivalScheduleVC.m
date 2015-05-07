@@ -203,6 +203,10 @@
 {
     [Flurry logEvent:@"Schedule_Algorithm" withParameters:@{@"userID":self.userID,@"festival":[self.festival lowercaseName],@"algorithm":algorithmMode}];
 }
+-(void)logRemindersInFlurry:(NSString*) reminderTime
+{
+    [Flurry logEvent:@"Schedule_Reminders" withParameters:@{@"userID":self.userID,@"festival":[self.festival lowercaseName],@"reminders":reminderTime}];
+}
 -(void)logScheduleSharingInFlurry
 {
     [Flurry logEvent:@"Schedule_Sharing" withParameters:@{@"userID":self.userID,@"festival":[self.festival lowercaseName]}];
@@ -470,6 +474,8 @@
         minutesString = [NSString stringWithFormat:@"%@ minutes",reminderTime];
     }
     
+    [self logRemindersInFlurry:@""];
+    
     UIAlertController *alertController = [UIAlertController
                                           alertControllerWithTitle:@"Reminders before a concert starts"
                                           message:[NSString stringWithFormat:@"Currently set to '%@'",minutesString]
@@ -490,6 +496,7 @@
                                       [defaults setObject:@"5" forKey:@"reminderBeforeConcert"];
                                       [defaults synchronize];
                                       [self updateAllConcertReminders];
+                                      [self logRemindersInFlurry:@"5"];
                                   }
                                   ];
     UIAlertAction *tenMinutes = [UIAlertAction
@@ -501,6 +508,7 @@
                                      [defaults setObject:@"10" forKey:@"reminderBeforeConcert"];
                                      [defaults synchronize];
                                      [self updateAllConcertReminders];
+                                     [self logRemindersInFlurry:@"10"];
                                  }
                                  ];
     UIAlertAction *fifteenMinutes = [UIAlertAction
@@ -512,6 +520,7 @@
                                          [defaults setObject:@"15" forKey:@"reminderBeforeConcert"];
                                          [defaults synchronize];
                                          [self updateAllConcertReminders];
+                                         [self logRemindersInFlurry:@"15"];
                                      }
                                      ];
     UIAlertAction *noReminders = [UIAlertAction
@@ -523,6 +532,7 @@
                                       [defaults setObject:@"None" forKey:@"reminderBeforeConcert"];
                                       [defaults synchronize];
                                       [self updateAllConcertReminders];
+                                      [self logRemindersInFlurry:@"None"];
                                   }
                                   ];
     [alertController addAction:cancelAction];
@@ -541,7 +551,7 @@
     //[[[UIApplication sharedApplication] scheduledLocalNotifications] enumerateObjectsUsingBlock:^(UILocalNotification *notification, NSUInteger idx, BOOL *stop) { NSLog(@"Notification %lu: %@ %@",(unsigned long)idx, notification.fireDate, notification.alertBody); }];
     
     // clear all notifications because the schdedule has changed
-    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    //[[UIApplication sharedApplication] cancelAllLocalNotifications];
     
     // get the notification time from NSUSerDefaults
     //NSLog(@"%@", [[NSUserDefaults standardUserDefaults] dictionaryRepresentation]);
