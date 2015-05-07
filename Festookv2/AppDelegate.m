@@ -35,26 +35,30 @@
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
     // Manages a received notification while the app is open
+    UIApplicationState state = [application applicationState];
+    if (state == UIApplicationStateInactive) {
+        // Application was in the background when notification was delivered.
+    } else {
+        /*
+         UIAlertController *alertController = [UIAlertController
+         alertControllerWithTitle:@"Notification Received"
+         message:notification.alertBody
+         preferredStyle:UIAlertControllerStyleAlert];
+         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
+         style:UIAlertActionStyleDefault
+         handler:^(UIAlertAction *action){}];
+         [alertController addAction:okAction];
+         [self.window.rootViewController presentViewController:alertController animated:YES completion:nil];
+         */
+        
+        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Festook"
+                                                           message:notification.alertBody
+                                                          delegate:nil
+                                                 cancelButtonTitle:@"OK"
+                                                 otherButtonTitles:nil, nil];
+        [alertView show];
+    }
     
-    /*
-    UIAlertController *alertController = [UIAlertController
-                                          alertControllerWithTitle:@"Notification Received"
-                                          message:notification.alertBody
-                                          preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
-                                                       style:UIAlertActionStyleDefault
-                                                     handler:^(UIAlertAction *action){}];
-    [alertController addAction:okAction];
-    [self.window.rootViewController presentViewController:alertController animated:YES completion:nil];
-    */
-    
-    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Festook"
-                                                       message:notification.alertBody
-                                                      delegate:nil
-                                             cancelButtonTitle:@"OK"
-                                             otherButtonTitles:nil, nil];
-    [alertView show];
-
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

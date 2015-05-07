@@ -71,7 +71,7 @@
     
     // testing notification
     /*
-    UILocalNotification *notification = [[UILocalNotification alloc] init];
+     UILocalNotification *notification = [[UILocalNotification alloc] init];
     notification.fireDate = [[NSDate date] dateByAddingTimeInterval:5];
     notification.timeZone = [NSTimeZone defaultTimeZone];
     notification.soundName = UILocalNotificationDefaultSoundName;
