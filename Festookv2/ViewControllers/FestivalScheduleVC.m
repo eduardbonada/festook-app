@@ -574,7 +574,7 @@
             UILocalNotification *notification = [[UILocalNotification alloc] init];
             notification.timeZone = [NSTimeZone defaultTimeZone];
             notification.soundName = UILocalNotificationDefaultSoundName;
-            notification.alertBody = [NSString stringWithFormat:@"%@ will start playing at %@ in %@ minutes",band.uppercaseName,band.stage,reminderTime];
+            notification.alertBody = [NSString stringWithFormat:@"%@ will start playing at %@ stage in %@ minutes",band.uppercaseName,band.stage,reminderTime];
             notification.fireDate = [band.startTime dateByAddingTimeInterval:-60*([reminderTime integerValue])]; // notificationTime minutes before the concert starts
             //NSLog(@"notification.fireDate: %@",notification.fireDate);
             //NSLog(@"[NSDate date]: %@",[NSDate date]);
