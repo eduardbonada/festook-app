@@ -95,7 +95,10 @@
 {
     [super viewDidAppear:animated];
     
-    [self updateListFestivalsFromServer]; // called here because we need a shown view to add the alert
+    static dispatch_once_t once;
+    dispatch_once(&once, ^{
+        [self updateListFestivalsFromServer]; // called here because we need a shown view to add the alert
+    });
 }
 
 -(void) setup
@@ -115,13 +118,6 @@
     UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout*)self.festivalsCollectionView.collectionViewLayout;
     CGFloat availableWidthForCells = (self.view.frame.size.width-2*leftRightMargin) - flowLayout.sectionInset.left - flowLayout.sectionInset.right - flowLayout.minimumInteritemSpacing * (cellsPerRow - 1);
     CGFloat cellWidth = [self.festivals count]>2 ? availableWidthForCells/cellsPerRow : 1.2*availableWidthForCells/cellsPerRow;
-    /*NSLog(@"self.festivalsCollectionView.frame: %@", NSStringFromCGRect(self.festivalsCollectionView.frame));
-    NSLog(@"self.view.frame: %@", NSStringFromCGRect(self.view.frame));
-    NSLog(@"flowLayout.sectionInset.left: %f",flowLayout.sectionInset.left);
-    NSLog(@"flowLayout.sectionInset.right: %f",flowLayout.sectionInset.left);
-    NSLog(@"flowLayout.minimumInteritemSpacing: %f",flowLayout.minimumInteritemSpacing);
-    NSLog(@"availableWidthForCells: %f",availableWidthForCells);
-    NSLog(@"cellWidth: %f",cellWidth);*/
     flowLayout.itemSize = CGSizeMake(cellWidth, cellWidth); //flowLayout.itemSize.height);
     
     // Local notifications setup
@@ -210,6 +206,7 @@
                                                   alertControllerWithTitle:@"Missing Data"
                                                   message:@"The festival data could not be downloaded."
                                                   preferredStyle:UIAlertControllerStyleAlert];
+            [alertController.view setTintColor:[UIColor darkGrayColor]];
             UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){}];
             [alertController addAction:okAction];
             [self presentViewController:alertController animated:YES completion:nil];
@@ -232,7 +229,7 @@
     // get userID stored in NSUserDefaults, or ask for one to the server
     //NSLog(@"%@", [[NSUserDefaults standardUserDefaults] dictionaryRepresentation]);
     NSString *userID = [[NSUserDefaults standardUserDefaults] objectForKey:@"userID"];
-    if(!userID){
+    if(!userID || [userID isEqualToString:@""]){
         [self getUserIDfromServer]; // run asynchronously
     }
     else{
@@ -259,6 +256,7 @@
                                                                                                                         error:&error];
                                                   if(error){
                                                       NSLog(@"ERROR FestivalsBrowserVC::getUserIDFromServer => %@",error);
+                                                      self.userID = @"";
                                                   }
                                                   else{
                                                       //NSLog(@"%@", [[NSUserDefaults standardUserDefaults] dictionaryRepresentation]);
@@ -266,9 +264,12 @@
                                                       [defaults setObject:[dict objectForKey:@"userID"] forKey:@"userID"];
                                                       [defaults synchronize];
                                                       self.userID = [dict objectForKey:@"userID"];
-                                                      [self logPresenceEventInFlurry];
                                                   }
                                               }
+                                              else{
+                                                  self.userID = @"";
+                                              }
+                                              [self logPresenceEventInFlurry];
                                               [[UIApplication sharedApplication] hideNetworkActivityIndicator];
                                           }];
     [downloadTask resume];
@@ -331,6 +332,7 @@
                                               alertControllerWithTitle:@"No Internet Connection"
                                               message:@"Festook is trying to update festivals data."
                                               preferredStyle:UIAlertControllerStyleAlert];
+        [alertController.view setTintColor:[UIColor darkGrayColor]];
         UIAlertAction *tryAgainAction = [UIAlertAction actionWithTitle:@"Try again"
                                                                  style:UIAlertActionStyleDefault
                                                                handler:^(UIAlertAction *action){

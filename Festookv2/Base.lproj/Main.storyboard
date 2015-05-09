@@ -681,13 +681,13 @@ by ebc</string>
                                 </connections>
                             </collectionView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vsq-ft-hTg">
-                                <rect key="frame" x="198" y="200" width="203" height="128"/>
+                                <rect key="frame" x="200" y="200" width="200" height="170"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="203" id="aKC-0R-Bet"/>
-                                    <constraint firstAttribute="height" constant="128" id="uSw-oT-5yz"/>
+                                    <constraint firstAttribute="width" constant="200" id="aKC-0R-Bet"/>
+                                    <constraint firstAttribute="height" constant="170" id="uSw-oT-5yz"/>
                                 </constraints>
-                                <string key="text">You still have not marked any concert as 'want-to-go'. Do it and you will see the artist list sorted from more to less recommended.</string>
+                                <string key="text">You still have not marked which concerts you don't want to miss. Do it and you will see this list sorted from more to less recommended.</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -723,7 +723,7 @@ by ebc</string>
                             <constraint firstItem="dxS-Ni-mgf" firstAttribute="top" secondItem="WBT-n4-gh3" secondAttribute="bottom" constant="8" id="VoI-yE-ysm"/>
                             <constraint firstItem="2DZ-eg-dUr" firstAttribute="top" secondItem="b4e-c1-Zvk" secondAttribute="top" id="Ydv-f9-VW1"/>
                             <constraint firstAttribute="centerX" secondItem="Vsq-ft-hTg" secondAttribute="centerX" id="bU9-Lq-kdY"/>
-                            <constraint firstAttribute="centerY" secondItem="Vsq-ft-hTg" secondAttribute="centerY" constant="36" id="bfL-GV-fxu"/>
+                            <constraint firstAttribute="centerY" secondItem="Vsq-ft-hTg" secondAttribute="centerY" constant="15" id="bfL-GV-fxu"/>
                             <constraint firstItem="2DZ-eg-dUr" firstAttribute="leading" secondItem="b4e-c1-Zvk" secondAttribute="leading" id="e4m-uj-PGK"/>
                             <constraint firstAttribute="trailing" secondItem="2DZ-eg-dUr" secondAttribute="trailing" id="ei8-vm-LyB"/>
                             <constraint firstItem="eYh-dt-Qlc" firstAttribute="top" secondItem="2DZ-eg-dUr" secondAttribute="bottom" id="fEo-Ax-due"/>
@@ -831,14 +831,15 @@ by ebc</string>
                                 </connections>
                             </tableView>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ddp-5n-Zxt">
-                                <rect key="frame" x="191" y="108" width="219" height="126"/>
+                                <rect key="frame" x="191" y="108" width="219" height="186"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" text="You still have not marked any concert as 'want-to-go'. Do it in the Line-up tab and Festook will recommend you a schedule." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SUx-lK-UdU">
-                                        <rect key="frame" x="8" y="8" width="203" height="110"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SUx-lK-UdU">
+                                        <rect key="frame" x="8" y="8" width="203" height="170"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="110" id="XvF-D4-Kw9"/>
+                                            <constraint firstAttribute="height" constant="170" id="XvF-D4-Kw9"/>
                                         </constraints>
+                                        <string key="text">You still have not marked which concerts you don't want to miss. Do it in the Line-up tab and Festook will recommend you a schedule.</string>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -849,7 +850,7 @@ by ebc</string>
                                     <constraint firstAttribute="trailing" secondItem="SUx-lK-UdU" secondAttribute="trailing" constant="8" id="A4y-zx-WKh"/>
                                     <constraint firstItem="SUx-lK-UdU" firstAttribute="top" secondItem="Ddp-5n-Zxt" secondAttribute="top" constant="8" id="B2M-ah-4S5"/>
                                     <constraint firstAttribute="width" constant="219" id="bze-qL-609"/>
-                                    <constraint firstAttribute="height" constant="126" id="xrW-do-ab0"/>
+                                    <constraint firstAttribute="height" constant="186" id="xrW-do-ab0"/>
                                     <constraint firstItem="SUx-lK-UdU" firstAttribute="leading" secondItem="Ddp-5n-Zxt" secondAttribute="leading" constant="8" id="y6f-rt-umF"/>
                                 </constraints>
                             </view>
@@ -1135,7 +1136,7 @@ by ebc</string>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="coming soon" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2MP-bx-LwT">
-                                                    <rect key="frame" x="-8" y="4" width="80" height="45"/>
+                                                    <rect key="frame" x="-6" y="6" width="80" height="45"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -1161,7 +1162,7 @@ by ebc</string>
                                 </connections>
                             </collectionView>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P93-hu-iod" userLabel="Empty List Container View">
-                                <rect key="frame" x="232" y="175" width="136" height="136"/>
+                                <rect key="frame" x="232" y="200" width="136" height="136"/>
                                 <subviews>
                                     <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MVu-W3-D3v" customClass="EbcEnhancedView">
                                         <rect key="frame" x="0.0" y="0.0" width="136" height="136"/>
@@ -1238,7 +1239,7 @@ by ebc</string>
                             <constraint firstAttribute="trailing" secondItem="cfM-9N-z1T" secondAttribute="trailing" id="uKs-Je-RDC"/>
                             <constraint firstAttribute="centerX" secondItem="Twk-DU-4Ul" secondAttribute="centerX" id="wMn-9d-udF"/>
                             <constraint firstItem="Twk-DU-4Ul" firstAttribute="top" secondItem="jpr-vP-O3r" secondAttribute="bottom" id="xD7-JB-tgO"/>
-                            <constraint firstItem="P93-hu-iod" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="111" id="zw9-fk-qir"/>
+                            <constraint firstItem="P93-hu-iod" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="136" id="zw9-fk-qir"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="04s-vd-iD6"/>
@@ -1392,7 +1393,7 @@ by ebc</string>
                                             <constraint firstAttribute="centerY" secondItem="Lvo-Qd-jhz" secondAttribute="centerY" id="teR-De-48r"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rU9-V4-QGy">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="15" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rU9-V4-QGy">
                                         <rect key="frame" x="8" y="8" width="552" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Rw4-nM-KhX"/>
@@ -1433,7 +1434,7 @@ by ebc</string>
                                                     <constraint firstAttribute="height" constant="24" id="VP1-j7-Wfu"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gvp-mU-q4C">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gvp-mU-q4C">
                                                 <rect key="frame" x="56" y="8" width="210" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -1476,7 +1477,7 @@ by ebc</string>
                                                     <constraint firstAttribute="height" constant="24" id="Q8g-aY-nPo"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bfU-Pn-EDo">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bfU-Pn-EDo">
                                                 <rect key="frame" x="56" y="8" width="210" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -1530,7 +1531,7 @@ by ebc</string>
                                                     <constraint firstAttribute="height" constant="24" id="zDX-cQ-bfq"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5hH-jJ-SOc">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5hH-jJ-SOc">
                                                 <rect key="frame" x="48" y="8" width="507" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -2133,14 +2134,14 @@ by ebc</string>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dGb-p5-npe" userLabel="Similar Bands View">
-                                        <rect key="frame" x="161" y="108" width="246" height="127"/>
+                                        <rect key="frame" x="151" y="108" width="266" height="127"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" alpha="0.40000000596046448" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="similarDifferentBands" translatesAutoresizingMaskIntoConstraints="NO" id="x60-Wx-Ihe" userLabel="Similar Bands Image View">
                                                 <rect key="frame" x="4" y="13" width="35" height="35"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uEo-eo-gcb" userLabel="Explanation">
-                                                <rect key="frame" x="47" y="4" width="191" height="61"/>
+                                                <rect key="frame" x="47" y="4" width="211" height="61"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <attributedString key="attributedText">
                                                     <fragment>
@@ -2155,14 +2156,14 @@ by ebc</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This is an example of two similar artists:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wnE-Wc-wdD" userLabel="Explanation">
-                                                <rect key="frame" x="8" y="73" width="230" height="22"/>
+                                                <rect key="frame" x="8" y="73" width="250" height="22"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Arcade Fire - The National" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wMK-Rf-ZRP" userLabel="Band 1 - Band 2">
-                                                <rect key="frame" x="8" y="94" width="230" height="25"/>
+                                                <rect key="frame" x="8" y="94" width="250" height="25"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -2171,7 +2172,7 @@ by ebc</string>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="246" id="aFh-5J-Vsx"/>
+                                            <constraint firstAttribute="width" constant="266" id="aFh-5J-Vsx"/>
                                             <constraint firstAttribute="height" constant="127" id="mUT-lY-GWu"/>
                                         </constraints>
                                     </view>
@@ -2757,7 +2758,7 @@ This Privacy Policy may be updated from time to time for any reason. We will not
         <image name="youtubeIcon" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eWK-BZ-QWP"/>
         <segue reference="QVt-RG-mAM"/>
+        <segue reference="eWK-BZ-QWP"/>
     </inferredMetricsTieBreakers>
 </document>

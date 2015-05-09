@@ -431,6 +431,7 @@
                                           alertControllerWithTitle:nil
                                           message:nil
                                           preferredStyle:UIAlertControllerStyleActionSheet];
+    [alertController.view setTintColor:[UIColor darkGrayColor]];
     
     UIAlertAction *cancelAction = [UIAlertAction
                                    actionWithTitle:@"Cancel"
@@ -480,6 +481,7 @@
                                           alertControllerWithTitle:@"Reminders before a concert starts"
                                           message:[NSString stringWithFormat:@"Currently set to '%@'",minutesString]
                                           preferredStyle:UIAlertControllerStyleActionSheet];
+    [alertController.view setTintColor:[UIColor darkGrayColor]];
     
     UIAlertAction *cancelAction = [UIAlertAction
                                    actionWithTitle:@"Cancel"
@@ -617,6 +619,7 @@
                                           alertControllerWithTitle:@"Select your type of festival experience"
                                           message:message
                                           preferredStyle:UIAlertControllerStyleActionSheet];
+    [alertController.view setTintColor:[UIColor darkGrayColor]];
     
     UIAlertAction *cancelAction = [UIAlertAction
                                    actionWithTitle:@"Cancel"
@@ -703,6 +706,8 @@
     NSArray *objectsToShare = @[textToShare, imageToShare];
     
     UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:objectsToShare applicationActivities:nil];
+    
+    [activityVC.view setTintColor:[UIColor darkGrayColor]];
     
     activityVC.excludedActivityTypes = @[UIActivityTypePostToWeibo,
                                          UIActivityTypePrint,

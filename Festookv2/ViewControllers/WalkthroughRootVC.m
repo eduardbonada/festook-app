@@ -37,7 +37,7 @@
                                    @"2. Browse the Line-up.",
                                    @"3. Mark a few concerts\nyou don't want to miss.",
                                    @"4. Check the recommended schedule.",
-                                   @"5- Refine the schedule\nmarking the concerts you don't need to see."];
+                                   @"5- Refine the schedule\nmarking the concerts you don't like."];
     self.walkthroughPageImages = @[@"walkthoughFestivals",
                                    @"walkthoughLineup",
                                    @"walkthoughBandInfoYes",

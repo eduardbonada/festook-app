@@ -28,7 +28,21 @@
     pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
     pageControl.currentPageIndicatorTintColor = [UIColor darkGrayColor];
     pageControl.backgroundColor = [UIColor clearColor];
-        
+    
+    // copy initial files to application support directory
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSError *error;
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
+    NSString *applicationSupportDirectory = [paths objectAtIndex:0];
+    NSArray* fileNames = @[@"listFestivals.txt",@"ps2015_echonestDB10_bandDistance.txt",@"ps2015_listBands.txt"];
+    for(NSString* fileName in fileNames){
+        NSString *appSupportFilePath = [applicationSupportDirectory stringByAppendingPathComponent:fileName];
+        if ([fileManager fileExistsAtPath:appSupportFilePath] == NO) {
+            NSString *initialFilePath = [[NSBundle mainBundle] pathForResource:[fileName componentsSeparatedByString:@"."][0]  ofType:@"txt"];
+            [fileManager copyItemAtPath:initialFilePath toPath:appSupportFilePath error:&error];
+        }
+    }
+    
     return YES;
 }
 

@@ -117,7 +117,7 @@
     NSArray* sortedArray = [self.allPairs sortedArrayUsingDescriptors:sortDescriptors];
     
     // select one position of the top 5%
-    NSUInteger randomPosition = arc4random_uniform( [@([self.allPairs count]*0.05) doubleValue] );
+    NSUInteger randomPosition = arc4random_uniform( [@([self.allPairs count]*0.01) doubleValue] );
     
     return [sortedArray objectAtIndex:randomPosition];
     
@@ -169,11 +169,13 @@
         NSLog(@"ERROR BandSimilarityCalculator::loadDistanceBetweenBandsInFestival => File does not exist");
     }
     
+    //NSLog(@"%@",[[NSString alloc] initWithData:bandDistanceJsonData encoding:NSUTF8StringEncoding]);
+    
     // get list of bands as dictionary of dictionaries
     NSError *error = nil;
     self.distanceBetweenBands       = [NSJSONSerialization JSONObjectWithData:bandDistanceJsonData
                                                                       options:NSJSONReadingMutableContainers
-                                                                        error:nil];
+                                                                        error:&error];
     if(error){
         NSLog(@"ERROR BandSimilarityCalculator::loadDistanceBetweenBandsInFestival => %@",error);
     }

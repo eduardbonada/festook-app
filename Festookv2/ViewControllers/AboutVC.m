@@ -165,6 +165,7 @@
                                           alertControllerWithTitle:@"Subscribe"
                                           message:@"Leave us your email so we can come back to you with further updates."
                                           preferredStyle:UIAlertControllerStyleAlert];
+    [alertController.view setTintColor:[UIColor darkGrayColor]];
     
     [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField)
      {
@@ -217,6 +218,7 @@
                                                                                                             alertControllerWithTitle:@"Subscription Error"
                                                                                                             message:[NSString stringWithFormat:@"An error occurred in the process of saving the email:\n%@",[error localizedDescription]]
                                                                                                             preferredStyle:UIAlertControllerStyleAlert];
+                                                                      [alertController.view setTintColor:[UIColor darkGrayColor]];
                                                                       UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){}];
                                                                       [alertController addAction:okAction];
                                                                       [self presentViewController:alertController animated:YES completion:nil];
@@ -232,6 +234,7 @@
                                                                                                                 alertControllerWithTitle:@"Subscription Success "
                                                                                                                 message:[NSString stringWithFormat:@"The email '%@' has been succesfully subscribed.",email]
                                                                                                                 preferredStyle:UIAlertControllerStyleAlert];
+                                                                          [alertController.view setTintColor:[UIColor darkGrayColor]];
                                                                           UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){}];
                                                                           [alertController addAction:okAction];
                                                                           [self presentViewController:alertController animated:YES completion:nil];
@@ -241,6 +244,7 @@
                                                                                                                 alertControllerWithTitle:@"Subscription Error"
                                                                                                                 message:[NSString stringWithFormat:@"An error occurred in the process of saving the email. Please try again later."]
                                                                                                                 preferredStyle:UIAlertControllerStyleAlert];
+                                                                          [alertController.view setTintColor:[UIColor darkGrayColor]];
                                                                           UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){}];
                                                                           [alertController addAction:okAction];
                                                                           [self presentViewController:alertController animated:YES completion:nil];
@@ -313,6 +317,7 @@
                                                   alertControllerWithTitle:@"Festook Contact Support"
                                                   message:@"Thank you for contacting us. We'll come back to you as soon as possible."
                                                   preferredStyle:UIAlertControllerStyleAlert];
+            [alertController.view setTintColor:[UIColor darkGrayColor]];
             
             UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){}];
             [alertController addAction:okAction];
@@ -328,6 +333,7 @@
                                                   alertControllerWithTitle:@"Festook Contact Support"
                                                   message:[NSString stringWithFormat:@"An error occurred in the process of sending the email:\n%@",[error localizedDescription]]
                                                   preferredStyle:UIAlertControllerStyleAlert];
+            [alertController.view setTintColor:[UIColor darkGrayColor]];
             
             UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){}];
             [alertController addAction:okAction];

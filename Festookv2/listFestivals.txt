@@ -1,0 +1,36 @@
+{
+	"ps2015" : 
+		{
+			"festivalId" : "1",
+			"state" : "active",
+			"lowercaseName" : "ps2015",
+			"uppercaseName" : "Primavera Sound 2015",
+			"when" : "May 25-31, 2015",
+			"where" : "Barcelona",
+			"formattedDate" : "2015-05-25T00:00:00+2",
+			"colorA":{"R":"60","G":"190","B":"211"},
+			"colorB":{"R":"250","G":"186","B":"6"},	
+			"web":"http://www.primaverasound.com",
+			"twitter":"primavera_sound",
+			"facebook":"156656398155",
+			"youtube":"primavera_sound",
+			"listBandsFile" : { "filename" : "ps2015_listBands.txt" , "lastUpdate" : "2015-05-09T10:00:00+2" },
+			"bandDistanceFile" : { "filename" : "ps2015_echonestDB10_bandDistance.txt" , "lastUpdate" : "2015-05-09T17:00:00+2" }
+		},
+	"sonar2015" : 
+		{
+			"festivalId" : "3",
+			"state" : "inactive",
+			"lowercaseName" : "sonar2015",
+			"uppercaseName" : "Sónar 2015",
+			"when" : "June 18-20, 2015",
+			"where" : "Barcelona",
+			"formattedDate" : "2015-06-18T00:00:00+2",
+			"colorA":{"R":"215","G":"85","B":"85"},
+			"colorB":{"R":"255","G":"225","B":"225"},
+			"web":"http://sonar.es/en/2015/",
+			"twitter":"sonarfestival",
+			"facebook":"19482509044",
+			"youtube":"sonarfestival",
+		}
+}
