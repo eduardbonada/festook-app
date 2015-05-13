@@ -134,9 +134,6 @@
         // hide 'Groups' button in the nav bar
         self.navigationItem.rightBarButtonItem = nil;
         
-        // unhide 'Help' button in the nav bar
-        // [self.navigationItem setRightBarButtonItems:@[self.helpButtonNavigationBar] animated:TRUE];
-        
     }
     
     // set tableView top offset to add distance to segm. control
@@ -178,9 +175,10 @@
             self.festival.updateReminders = NO;
         }
         
-        // get the days to attend and update segmented control (only of days have changed)
-        if([self.daysToAttend count] != [[self.schedule daysToAttendWithOptions:@"recommendedBands"] count]){
-            self.daysToAttend = [[self.schedule daysToAttendWithOptions:@"recommendedBands"] mutableCopy];
+        // get the days to attend and update segmented control (only if days have changed)
+        NSArray* days = [self.schedule daysToAttendWithOptions:@"recommendedBands"];
+        if([self.daysToAttend count] != [days count]){
+            self.daysToAttend = [days mutableCopy];
             [self setupDaysSegmentedControlForDays: self.daysToAttend];
         }
         
@@ -270,8 +268,28 @@
         segmentCounter++;
     }
     
+    // temporary date cretion
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat=@"dd/MM/yyyy HH:mm";
+    NSDate* date = [dateFormatter dateFromString:@"29/04/2015 22:05"];
+
     if(originalNumberOfSegments != self.daysSegmentedControl.numberOfSegments){
-        self.currentDayShown = 0;
+        if( ([self.festival.start compare:date] == NSOrderedAscending) && ([date compare:self.festival.end] == NSOrderedAscending) ){
+            // if date is during the festival, select the right day
+
+            NSDateFormatter *dayFormatter = [[NSDateFormatter alloc] init];
+            dayFormatter.dateFormat=@"dd";
+            NSString* dayNumber = [dayFormatter stringFromDate:date];
+        
+            for(NSInteger index=0 ; index<self.daysSegmentedControl.numberOfSegments ; index++){
+                if( [[self.daysSegmentedControl titleForSegmentAtIndex:index] isEqualToString:dayNumber] ){
+                    self.currentDayShown = @(index);
+                }
+            }
+        }
+        else{
+            self.currentDayShown = 0;
+        }
     }
     self.daysSegmentedControl.selectedSegmentIndex = [self.currentDayShown integerValue];
     

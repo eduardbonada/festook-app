@@ -191,7 +191,7 @@
     
     
     for (Band* band in [self.bands allValues]){
-        if( ([band.startTime compare:date] == NSOrderedAscending) && ([date compare:band.endTime] == NSOrderedAscending)){
+        if( ([band.startTime compare:date] == NSOrderedAscending) && ([date compare:band.endTime] == NSOrderedAscending) ){
             [playingBands addObject:band.lowercaseName];
         }
     }
