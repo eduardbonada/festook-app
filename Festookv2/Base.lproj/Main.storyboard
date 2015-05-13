@@ -1689,7 +1689,7 @@ by ebc</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Ru-uS-Wo1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2206" y="-876"/>
+            <point key="canvasLocation" x="3136" y="-874"/>
         </scene>
         <!--Now PlayingVC-->
         <scene sceneID="1gv-kI-H0d">
@@ -1768,6 +1768,7 @@ by ebc</string>
                                             <outlet property="bandName" destination="3xt-fc-Ws5" id="gaI-Se-uu7"/>
                                             <outlet property="stage" destination="CPy-Qm-9EQ" id="J90-W9-DiB"/>
                                             <outlet property="startEndTime" destination="6zI-YE-OSr" id="o18-9z-uVt"/>
+                                            <segue destination="2Bg-wU-Uh9" kind="show" identifier="ShowBandInfo" id="Bk1-aG-QO8"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1819,7 +1820,7 @@ right now.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bLZ-rP-AaK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2881" y="-513"/>
+            <point key="canvasLocation" x="2355" y="-239"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="x47-DS-521">
@@ -2904,6 +2905,6 @@ This Privacy Policy may be updated from time to time for any reason. We will not
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="QVt-RG-mAM"/>
-        <segue reference="eWK-BZ-QWP"/>
+        <segue reference="Bk1-aG-QO8"/>
     </inferredMetricsTieBreakers>
 </document>

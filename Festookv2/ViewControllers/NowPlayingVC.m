@@ -12,6 +12,7 @@
 
 #import "Band.h"
 #import "NowPlayingTableViewCell.h"
+#import "BandInfoVC.h"
 
 @interface NowPlayingVC ()
 
@@ -29,11 +30,14 @@
 
 - (void)viewDidLoad
 {
-
     [super viewDidLoad];
+}
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     
     [self setup];
-    
 }
 
 -(void) setup
@@ -62,6 +66,29 @@
     
     [self.nowPlayingTableView setContentInset:UIEdgeInsetsMake(5,0,0,0)];
     
+    [self.nowPlayingTableView reloadData];
+    
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"ShowBandInfo"]) {
+        
+        if ([segue.destinationViewController isKindOfClass:[BandInfoVC class]]) {
+            
+            // set title of 'back' button
+            self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Now Playing" style:UIBarButtonItemStylePlain target:nil action:nil];
+            
+            // Configure destination VC
+            BandInfoVC *bivc = segue.destinationViewController;
+            if ([bivc isKindOfClass:[BandInfoVC class]]) {
+                //[bivc setTitle:self.festival.uppercaseName];
+                NSIndexPath* indexPath = [self.nowPlayingTableView indexPathForSelectedRow];
+                bivc.band = [self.festival.bands objectForKey:[self.nowPlayingBands objectAtIndex:indexPath.row]];
+                bivc.userID = self.userID;
+            }
+        }
+    }
 }
 
 #pragma mark - Table view data source
@@ -90,9 +117,27 @@
     cell.background.roundedRects = YES;
     cell.background.cornerRadius = @(10.0);
     [cell.background setBackgroundPlain:[UIColor groupTableViewBackgroundColor] withAlpha:@(1.0)];
-    
+
+    // set attributes of band name
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.alignment = NSTextAlignmentLeft;
+    UIColor* bandColorDependingOnMustDiscard;
+    if([self.festival.mustBands objectForKey:bandToShow.lowercaseName]){
+        bandColorDependingOnMustDiscard = [UIColor colorWithRed:140.0/255 green:180.0/255 blue:15.0/255 alpha:1.0];
+    }
+    else if([self.festival.discardedBands objectForKey:bandToShow.lowercaseName]){
+        bandColorDependingOnMustDiscard = [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:0.6];
+    }
+    else{
+        bandColorDependingOnMustDiscard = [UIColor darkGrayColor];
+    }
+    NSDictionary* attributes = @{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Light" size:15],
+                                 NSForegroundColorAttributeName : bandColorDependingOnMustDiscard,
+                                 NSParagraphStyleAttributeName : paragraphStyle};
+
+
     // set labels
-    cell.bandName.text = bandToShow.uppercaseName;
+    cell.bandName.attributedText = [[NSAttributedString alloc] initWithString:bandToShow.uppercaseName attributes:attributes];
     cell.stage.text = bandToShow.stage;
     cell.startEndTime.text = [NSString stringWithFormat:@"%@-%@",[hourFormatter stringFromDate:bandToShow.startTime],[hourFormatter stringFromDate:bandToShow.endTime]];
     
