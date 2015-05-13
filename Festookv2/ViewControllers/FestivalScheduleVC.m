@@ -34,8 +34,9 @@
 @property (strong, nonatomic) NSMutableArray* daysToAttend; // of dictionaries {"day":"dd/mm/yyyy","start":NSDate,"end":NSDate}
 @property (strong, nonatomic) NSNumber* currentDayShown; // as the index of the segmentel control
 
-@property (weak, nonatomic) IBOutlet UIButton *settingsButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sharingButton;
+@property (weak, nonatomic) IBOutlet UIButton *nowPlayingButton;
+@property (weak, nonatomic) IBOutlet UIButton *settingsButton;
 
 @property (weak, nonatomic) IBOutlet UIView *overlayView;
 
@@ -106,6 +107,7 @@
         self.scheduleTableView.hidden = NO;
         self.daysSegmentedControl.hidden = NO;
         self.settingsButton.hidden = NO;
+        self.nowPlayingButton.hidden = NO;
         
         // configure day segmented control
         [self.daysSegmentedControl setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue" size:14.0],
@@ -124,6 +126,7 @@
         self.scheduleTableView.hidden = YES;
         self.daysSegmentedControl.hidden = YES;
         self.settingsButton.hidden = YES;
+        self.nowPlayingButton.hidden = YES;
         
         // show text
         self.emptyScheduleTextView.hidden = NO;
@@ -592,7 +595,7 @@
     //[[[UIApplication sharedApplication] scheduledLocalNotifications] enumerateObjectsUsingBlock:^(UILocalNotification *notification, NSUInteger idx, BOOL *stop) { NSLog(@"Notification %lu: %@ %@",(unsigned long)idx, notification.fireDate, notification.alertBody); }];
     
     // clear all notifications because the schdedule has changed
-    //[[UIApplication sharedApplication] cancelAllLocalNotifications];
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
     
     // get the notification time from NSUSerDefaults
     //NSLog(@"%@", [[NSUserDefaults standardUserDefaults] dictionaryRepresentation]);
@@ -723,15 +726,22 @@
 
 
 #pragma mark - Sharing
+- (void) showNowPlaying
+{
+    [self performSegueWithIdentifier:@"ShowNowPlaying" sender:self];
+}
+
+
+#pragma mark - Sharing
 - (IBAction)sharingPressed:(UIBarButtonItem *)sender
 {
     [self shareSchedule];
-    
-    [self logScheduleSharingInFlurry];
 }
 
 - (void) shareSchedule
 {
+    [self logScheduleSharingInFlurry];
+
     NSString *textToShare = [NSString stringWithFormat:@"My schedule for '%@'. Get yours with @festook app!",self.festival.uppercaseName];
     
     UIImage *imageToShare = [self generateScheduleImage];
@@ -919,11 +929,15 @@
     if(position == FrontViewPositionLeft) {
         self.scheduleTableView.userInteractionEnabled = YES;
         self.daysSegmentedControl.userInteractionEnabled = YES;
+        self.settingsButton.userInteractionEnabled = YES;
+        self.nowPlayingButton.userInteractionEnabled = YES;
         self.overlayView.hidden = YES;
         
     } else {
         self.scheduleTableView.userInteractionEnabled = NO;
         self.daysSegmentedControl.userInteractionEnabled = NO;
+        self.settingsButton.userInteractionEnabled = NO;
+        self.nowPlayingButton.userInteractionEnabled = NO;
         self.overlayView.hidden = NO;
     }
 }

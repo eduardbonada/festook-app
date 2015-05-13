@@ -858,11 +858,11 @@ by ebc</string>
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" alpha="0.49999999999999961" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XjO-qc-W5t" userLabel="Now Playing Button">
-                                <rect key="frame" x="556" y="124" width="40" height="40"/>
+                            <button opaque="NO" alpha="0.39999999999999963" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XjO-qc-W5t" userLabel="Now Playing Button">
+                                <rect key="frame" x="556" y="556" width="40" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="FiC-TI-ioW"/>
-                                    <constraint firstAttribute="height" constant="40" id="TYw-cH-qJq"/>
+                                    <constraint firstAttribute="width" constant="40" id="UjN-rH-s1p"/>
+                                    <constraint firstAttribute="height" constant="40" id="vBy-uY-zgI"/>
                                 </constraints>
                                 <state key="normal" image="nowPlaying">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -872,10 +872,10 @@ by ebc</string>
                                 </connections>
                             </button>
                             <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hCK-nU-aOF" userLabel="Settings Button">
-                                <rect key="frame" x="556" y="556" width="40" height="40"/>
+                                <rect key="frame" x="4" y="556" width="40" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="LKk-O2-6bS"/>
-                                    <constraint firstAttribute="width" constant="40" id="QFB-st-Jfk"/>
+                                    <constraint firstAttribute="height" constant="40" id="ZPq-Xk-mUC"/>
+                                    <constraint firstAttribute="width" constant="40" id="sRA-Sv-gvE"/>
                                 </constraints>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="settingsIcon">
@@ -890,25 +890,25 @@ by ebc</string>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="Ddp-5n-Zxt" secondAttribute="centerX" id="2Ez-8O-N5e"/>
                             <constraint firstAttribute="trailing" secondItem="UDC-rZ-lLS" secondAttribute="trailing" constant="16" id="5FH-jG-bUg"/>
+                            <constraint firstItem="vfo-rw-DDs" firstAttribute="top" secondItem="XjO-qc-W5t" secondAttribute="bottom" constant="4" id="5gK-OU-hiX"/>
                             <constraint firstItem="5dI-IO-Nl2" firstAttribute="top" secondItem="TQO-Me-iOu" secondAttribute="bottom" constant="36" id="6J7-yj-hQ8"/>
                             <constraint firstItem="vfo-rw-DDs" firstAttribute="top" secondItem="iq1-JD-e0j" secondAttribute="bottom" id="8uu-N8-pgU"/>
-                            <constraint firstItem="XjO-qc-W5t" firstAttribute="top" secondItem="UDC-rZ-lLS" secondAttribute="bottom" constant="24" id="AU0-Tv-K0c"/>
                             <constraint firstAttribute="trailing" secondItem="e09-xH-wGK" secondAttribute="trailing" id="AwF-In-eQZ"/>
                             <constraint firstAttribute="trailing" secondItem="5dI-IO-Nl2" secondAttribute="trailing" constant="16" id="FYY-zm-ClU"/>
                             <constraint firstItem="iq1-JD-e0j" firstAttribute="leading" secondItem="JJU-hk-tHe" secondAttribute="leading" id="Flo-92-MPp"/>
+                            <constraint firstItem="vfo-rw-DDs" firstAttribute="top" secondItem="hCK-nU-aOF" secondAttribute="bottom" constant="4" id="Gek-Dc-7tq"/>
                             <constraint firstItem="e09-xH-wGK" firstAttribute="leading" secondItem="JJU-hk-tHe" secondAttribute="leading" id="Ggp-Da-PNL"/>
-                            <constraint firstItem="vfo-rw-DDs" firstAttribute="top" secondItem="hCK-nU-aOF" secondAttribute="bottom" constant="4" id="ISJ-Hf-jOU"/>
-                            <constraint firstAttribute="trailing" secondItem="XjO-qc-W5t" secondAttribute="trailing" constant="4" id="J4W-TK-qKk"/>
                             <constraint firstItem="5dI-IO-Nl2" firstAttribute="leading" secondItem="JJU-hk-tHe" secondAttribute="leading" constant="16" id="Mn2-WJ-mlp"/>
                             <constraint firstAttribute="trailing" secondItem="iq1-JD-e0j" secondAttribute="trailing" id="OOd-3n-pj6"/>
+                            <constraint firstItem="hCK-nU-aOF" firstAttribute="leading" secondItem="JJU-hk-tHe" secondAttribute="leading" constant="4" id="Pwb-kP-RZb"/>
                             <constraint firstItem="Ddp-5n-Zxt" firstAttribute="top" secondItem="TQO-Me-iOu" secondAttribute="bottom" constant="44" id="R5W-qH-eCm"/>
                             <constraint firstItem="UDC-rZ-lLS" firstAttribute="leading" secondItem="JJU-hk-tHe" secondAttribute="leading" constant="16" id="TJv-8S-dnR"/>
                             <constraint firstItem="e09-xH-wGK" firstAttribute="top" secondItem="JJU-hk-tHe" secondAttribute="top" id="Vgo-Jp-UfT"/>
                             <constraint firstItem="vfo-rw-DDs" firstAttribute="top" secondItem="5dI-IO-Nl2" secondAttribute="bottom" id="WJd-TG-HL0"/>
                             <constraint firstItem="UDC-rZ-lLS" firstAttribute="top" secondItem="TQO-Me-iOu" secondAttribute="bottom" constant="7" id="g1x-KI-jgQ"/>
                             <constraint firstItem="vfo-rw-DDs" firstAttribute="top" secondItem="e09-xH-wGK" secondAttribute="bottom" id="nTh-e1-M4I"/>
-                            <constraint firstAttribute="trailing" secondItem="hCK-nU-aOF" secondAttribute="trailing" constant="4" id="nqR-Ne-NCX"/>
                             <constraint firstItem="iq1-JD-e0j" firstAttribute="top" secondItem="JJU-hk-tHe" secondAttribute="top" id="toO-Kg-goz"/>
+                            <constraint firstAttribute="trailing" secondItem="XjO-qc-W5t" secondAttribute="trailing" constant="4" id="vCT-on-toB"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="PYv-ic-7pY">
@@ -925,6 +925,7 @@ by ebc</string>
                         <outlet property="backgroundView" destination="iq1-JD-e0j" id="Rp9-Cx-ZDA"/>
                         <outlet property="daysSegmentedControl" destination="04D-Zz-4xY" id="lkE-nL-WuP"/>
                         <outlet property="emptyScheduleTextView" destination="SUx-lK-UdU" id="1Af-Fx-D4F"/>
+                        <outlet property="nowPlayingButton" destination="XjO-qc-W5t" id="GMr-OZ-yf2"/>
                         <outlet property="overlayView" destination="e09-xH-wGK" id="NFb-Uo-YlA"/>
                         <outlet property="scheduleTableView" destination="5dI-IO-Nl2" id="8LN-KJ-jAI"/>
                         <outlet property="settingsButton" destination="hCK-nU-aOF" id="w7M-wf-hhw"/>
