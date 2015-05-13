@@ -183,6 +183,20 @@
     return [[self.bandSimilarityCalculator.distanceBetweenBands objectForKey:bandNameA] objectForKey:bandNameB];
 }
 
+-(NSArray*) bandsPlayingAtDate:(NSDate*) date
+{
+    // returns and array of bandnames with that bands playing right now
+
+    NSMutableArray* playingBands = [[NSMutableArray alloc] init];
+    
+    
+    for (Band* band in [self.bands allValues]){
+        if( ([band.startTime compare:date] == NSOrderedAscending) && ([date compare:band.endTime] == NSOrderedAscending)){
+            [playingBands addObject:band.lowercaseName];
+        }
+    }
+    return playingBands;
+}
 
 #pragma mark - Update from NSUserDefaults
 

@@ -17,6 +17,7 @@
 #import "FestivalSchedule.h"
 #import "Band.h"
 #import "BandInfoVC.h"
+#import "NowPlayingVC.h"
 
 @interface FestivalScheduleVC () <SWRevealViewControllerDelegate>
 
@@ -232,6 +233,23 @@
                 bivc.band = [self.festival.bands objectForKey:[self.bandsToAttend objectAtIndex:indexPath.row]];
                 bivc.userID = self.userID;
             }
+        }
+    }
+    else if ([segue.identifier isEqualToString:@"ShowNowPlaying"]) {
+        
+        if ([segue.destinationViewController isKindOfClass:[NowPlayingVC class]]) {
+            
+            // set title of 'back' button
+            self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+
+            // Configure destination VC
+            NowPlayingVC *npvc = segue.destinationViewController;
+            if ([npvc isKindOfClass:[NowPlayingVC class]]) {
+                npvc.title = @"Now Playing";
+                npvc.festival = self.festival;
+                npvc.userID = self.userID;
+            }
+            
         }
     }
 }

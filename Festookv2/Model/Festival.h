@@ -57,6 +57,8 @@
 -(NSArray*) stageNames;
 -(NSNumber*) hoursOfMusic;
 -(NSNumber*) distanceBetweenBands:(NSString*) bandNameA and:(NSString*) bandNameB;
+-(NSArray*) bandsPlayingAtDate:(NSDate*) date;
+
 
 /* Interface with NSUserDefaults */
 -(void) storeMustBandsInNSUserDefaults;

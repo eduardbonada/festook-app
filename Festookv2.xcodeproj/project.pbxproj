@@ -11,6 +11,8 @@
 		232A17671AF7766A00489406 /* ConcertRatingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 232A17661AF7766A00489406 /* ConcertRatingsVC.m */; };
 		23381B3B1AF78316005F52C8 /* ConcertRatingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23381B3A1AF78316005F52C8 /* ConcertRatingTableViewCell.m */; };
 		235955221B03642B004B4125 /* libFlurry_6.4.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 235955211B03642B004B4125 /* libFlurry_6.4.0.a */; };
+		235955251B036978004B4125 /* NowPlayingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 235955241B036978004B4125 /* NowPlayingVC.m */; };
+		235955281B038023004B4125 /* NowPlayingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 235955271B038023004B4125 /* NowPlayingTableViewCell.m */; };
 		236C5AAF1AF276E600D885E4 /* AboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 236C5AAE1AF276E600D885E4 /* AboutVC.m */; };
 		238070621AF4BE39009DE4B8 /* LegalTextVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 238070611AF4BE39009DE4B8 /* LegalTextVC.m */; };
 		23B4A0331AFA1E6B00CAA651 /* WalkthroughRootVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B4A0321AFA1E6B00CAA651 /* WalkthroughRootVC.m */; };
@@ -65,6 +67,10 @@
 		23381B3A1AF78316005F52C8 /* ConcertRatingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConcertRatingTableViewCell.m; sourceTree = "<group>"; };
 		235955201B03642B004B4125 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
 		235955211B03642B004B4125 /* libFlurry_6.4.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_6.4.0.a; sourceTree = "<group>"; };
+		235955231B036978004B4125 /* NowPlayingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NowPlayingVC.h; sourceTree = "<group>"; };
+		235955241B036978004B4125 /* NowPlayingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NowPlayingVC.m; sourceTree = "<group>"; };
+		235955261B038023004B4125 /* NowPlayingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NowPlayingTableViewCell.h; sourceTree = "<group>"; };
+		235955271B038023004B4125 /* NowPlayingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NowPlayingTableViewCell.m; sourceTree = "<group>"; };
 		236C5AAD1AF276E600D885E4 /* AboutVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutVC.h; sourceTree = "<group>"; };
 		236C5AAE1AF276E600D885E4 /* AboutVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutVC.m; sourceTree = "<group>"; };
 		238070601AF4BE39009DE4B8 /* LegalTextVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LegalTextVC.h; sourceTree = "<group>"; };
@@ -290,6 +296,8 @@
 				23EA65CB1AEF961E00D3DD3C /* FestivalLogoMenuTableViewCell.m */,
 				23381B391AF78316005F52C8 /* ConcertRatingTableViewCell.h */,
 				23381B3A1AF78316005F52C8 /* ConcertRatingTableViewCell.m */,
+				235955261B038023004B4125 /* NowPlayingTableViewCell.h */,
+				235955271B038023004B4125 /* NowPlayingTableViewCell.m */,
 			);
 			path = ViewCells;
 			sourceTree = "<group>";
@@ -305,6 +313,8 @@
 				23EA65D21AEF961E00D3DD3C /* FestivalLineupVC.m */,
 				23EA65D91AEF961E00D3DD3C /* FestivalScheduleVC.h */,
 				23EA65DA1AEF961E00D3DD3C /* FestivalScheduleVC.m */,
+				235955231B036978004B4125 /* NowPlayingVC.h */,
+				235955241B036978004B4125 /* NowPlayingVC.m */,
 				232A17651AF7766A00489406 /* ConcertRatingsVC.h */,
 				232A17661AF7766A00489406 /* ConcertRatingsVC.m */,
 				23EA65CD1AEF961E00D3DD3C /* BandInfoVC.h */,
@@ -455,6 +465,7 @@
 				23EA65BA1AEF961600D3DD3C /* Festival.m in Sources */,
 				23EA65EE1AEF961E00D3DD3C /* FestivalsBrowserVC.m in Sources */,
 				23EA65E91AEF961E00D3DD3C /* BandInfoVC.m in Sources */,
+				235955251B036978004B4125 /* NowPlayingVC.m in Sources */,
 				23EA65B81AEF961600D3DD3C /* Band.m in Sources */,
 				23EA65BB1AEF961600D3DD3C /* FestivalSchedule.m in Sources */,
 				232A17671AF7766A00489406 /* ConcertRatingsVC.m in Sources */,
@@ -475,6 +486,7 @@
 				23EA65E71AEF961E00D3DD3C /* FestivalIconsMenuTableViewCell.m in Sources */,
 				23EA65B91AEF961600D3DD3C /* BandSimilarityCalculator.m in Sources */,
 				23EA65E81AEF961E00D3DD3C /* FestivalLogoMenuTableViewCell.m in Sources */,
+				235955281B038023004B4125 /* NowPlayingTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
