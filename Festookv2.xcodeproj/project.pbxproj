@@ -10,11 +10,11 @@
 		231CC2711AF9714500AFEE0D /* LaunchFestook.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 231CC2701AF9714500AFEE0D /* LaunchFestook.storyboard */; };
 		232A17671AF7766A00489406 /* ConcertRatingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 232A17661AF7766A00489406 /* ConcertRatingsVC.m */; };
 		23381B3B1AF78316005F52C8 /* ConcertRatingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23381B3A1AF78316005F52C8 /* ConcertRatingTableViewCell.m */; };
+		235955221B03642B004B4125 /* libFlurry_6.4.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 235955211B03642B004B4125 /* libFlurry_6.4.0.a */; };
 		236C5AAF1AF276E600D885E4 /* AboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 236C5AAE1AF276E600D885E4 /* AboutVC.m */; };
 		238070621AF4BE39009DE4B8 /* LegalTextVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 238070611AF4BE39009DE4B8 /* LegalTextVC.m */; };
 		23B4A0331AFA1E6B00CAA651 /* WalkthroughRootVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B4A0321AFA1E6B00CAA651 /* WalkthroughRootVC.m */; };
 		23B4A0361AFA1E9400CAA651 /* WalkthroughPageContentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B4A0351AFA1E9400CAA651 /* WalkthroughPageContentVC.m */; };
-		23D1525F1AF0E91C00A00AC9 /* libFlurry_6.3.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 23D1525E1AF0E91C00A00AC9 /* libFlurry_6.3.0.a */; };
 		23DECDE21AFE59BB0047A710 /* listFestivals.txt in Resources */ = {isa = PBXBuildFile; fileRef = 23DECDDF1AFE59BB0047A710 /* listFestivals.txt */; };
 		23DECDE31AFE59BB0047A710 /* ps2015_echonestDB10_bandDistance.txt in Resources */ = {isa = PBXBuildFile; fileRef = 23DECDE01AFE59BB0047A710 /* ps2015_echonestDB10_bandDistance.txt */; };
 		23DECDE61AFE5E9A0047A710 /* ps2015_listBands.txt in Resources */ = {isa = PBXBuildFile; fileRef = 23DECDE51AFE5E9A0047A710 /* ps2015_listBands.txt */; };
@@ -63,6 +63,8 @@
 		232A17661AF7766A00489406 /* ConcertRatingsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConcertRatingsVC.m; sourceTree = "<group>"; };
 		23381B391AF78316005F52C8 /* ConcertRatingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConcertRatingTableViewCell.h; sourceTree = "<group>"; };
 		23381B3A1AF78316005F52C8 /* ConcertRatingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConcertRatingTableViewCell.m; sourceTree = "<group>"; };
+		235955201B03642B004B4125 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
+		235955211B03642B004B4125 /* libFlurry_6.4.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_6.4.0.a; sourceTree = "<group>"; };
 		236C5AAD1AF276E600D885E4 /* AboutVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutVC.h; sourceTree = "<group>"; };
 		236C5AAE1AF276E600D885E4 /* AboutVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutVC.m; sourceTree = "<group>"; };
 		238070601AF4BE39009DE4B8 /* LegalTextVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LegalTextVC.h; sourceTree = "<group>"; };
@@ -71,15 +73,13 @@
 		23B4A0321AFA1E6B00CAA651 /* WalkthroughRootVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalkthroughRootVC.m; sourceTree = "<group>"; };
 		23B4A0341AFA1E9400CAA651 /* WalkthroughPageContentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalkthroughPageContentVC.h; sourceTree = "<group>"; };
 		23B4A0351AFA1E9400CAA651 /* WalkthroughPageContentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalkthroughPageContentVC.m; sourceTree = "<group>"; };
-		23D1525D1AF0E91C00A00AC9 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
-		23D1525E1AF0E91C00A00AC9 /* libFlurry_6.3.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_6.3.0.a; sourceTree = "<group>"; };
 		23DECDDF1AFE59BB0047A710 /* listFestivals.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = listFestivals.txt; sourceTree = "<group>"; };
 		23DECDE01AFE59BB0047A710 /* ps2015_echonestDB10_bandDistance.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ps2015_echonestDB10_bandDistance.txt; sourceTree = "<group>"; };
 		23DECDE51AFE5E9A0047A710 /* ps2015_listBands.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ps2015_listBands.txt; sourceTree = "<group>"; };
-		23EA65801AEF94CA00D3DD3C /* Festookv2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Festookv2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		23EA65801AEF94CA00D3DD3C /* Festook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Festook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23EA65841AEF94CA00D3DD3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		23EA65851AEF94CA00D3DD3C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		23EA65991AEF94CA00D3DD3C /* Festookv2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Festookv2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		23EA65991AEF94CA00D3DD3C /* FestookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FestookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		23EA659E1AEF94CA00D3DD3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		23EA659F1AEF94CA00D3DD3C /* Festookv2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Festookv2Tests.m; sourceTree = "<group>"; };
 		23EA65AA1AEF95E100D3DD3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -137,7 +137,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23D1525F1AF0E91C00A00AC9 /* libFlurry_6.3.0.a in Frameworks */,
+				235955221B03642B004B4125 /* libFlurry_6.4.0.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,8 +169,8 @@
 		23D1525C1AF0E91C00A00AC9 /* Flurry */ = {
 			isa = PBXGroup;
 			children = (
-				23D1525D1AF0E91C00A00AC9 /* Flurry.h */,
-				23D1525E1AF0E91C00A00AC9 /* libFlurry_6.3.0.a */,
+				235955201B03642B004B4125 /* Flurry.h */,
+				235955211B03642B004B4125 /* libFlurry_6.4.0.a */,
 			);
 			path = Flurry;
 			sourceTree = "<group>";
@@ -197,8 +197,8 @@
 		23EA65811AEF94CA00D3DD3C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				23EA65801AEF94CA00D3DD3C /* Festookv2.app */,
-				23EA65991AEF94CA00D3DD3C /* Festookv2Tests.xctest */,
+				23EA65801AEF94CA00D3DD3C /* Festook.app */,
+				23EA65991AEF94CA00D3DD3C /* FestookTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -344,9 +344,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		23EA657F1AEF94CA00D3DD3C /* Festookv2 */ = {
+		23EA657F1AEF94CA00D3DD3C /* Festook */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 23EA65A31AEF94CA00D3DD3C /* Build configuration list for PBXNativeTarget "Festookv2" */;
+			buildConfigurationList = 23EA65A31AEF94CA00D3DD3C /* Build configuration list for PBXNativeTarget "Festook" */;
 			buildPhases = (
 				23EA657C1AEF94CA00D3DD3C /* Sources */,
 				23EA657D1AEF94CA00D3DD3C /* Frameworks */,
@@ -356,14 +356,14 @@
 			);
 			dependencies = (
 			);
-			name = Festookv2;
+			name = Festook;
 			productName = Festookv2;
-			productReference = 23EA65801AEF94CA00D3DD3C /* Festookv2.app */;
+			productReference = 23EA65801AEF94CA00D3DD3C /* Festook.app */;
 			productType = "com.apple.product-type.application";
 		};
-		23EA65981AEF94CA00D3DD3C /* Festookv2Tests */ = {
+		23EA65981AEF94CA00D3DD3C /* FestookTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 23EA65A61AEF94CA00D3DD3C /* Build configuration list for PBXNativeTarget "Festookv2Tests" */;
+			buildConfigurationList = 23EA65A61AEF94CA00D3DD3C /* Build configuration list for PBXNativeTarget "FestookTests" */;
 			buildPhases = (
 				23EA65951AEF94CA00D3DD3C /* Sources */,
 				23EA65961AEF94CA00D3DD3C /* Frameworks */,
@@ -374,9 +374,9 @@
 			dependencies = (
 				23EA659B1AEF94CA00D3DD3C /* PBXTargetDependency */,
 			);
-			name = Festookv2Tests;
+			name = FestookTests;
 			productName = Festookv2Tests;
-			productReference = 23EA65991AEF94CA00D3DD3C /* Festookv2Tests.xctest */;
+			productReference = 23EA65991AEF94CA00D3DD3C /* FestookTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -390,6 +390,7 @@
 				TargetAttributes = {
 					23EA657F1AEF94CA00D3DD3C = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = P6PMRSV96S;
 					};
 					23EA65981AEF94CA00D3DD3C = {
 						CreatedOnToolsVersion = 6.2;
@@ -410,8 +411,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				23EA657F1AEF94CA00D3DD3C /* Festookv2 */,
-				23EA65981AEF94CA00D3DD3C /* Festookv2Tests */,
+				23EA657F1AEF94CA00D3DD3C /* Festook */,
+				23EA65981AEF94CA00D3DD3C /* FestookTests */,
 			);
 		};
 /* End PBXProject section */
@@ -490,7 +491,7 @@
 /* Begin PBXTargetDependency section */
 		23EA659B1AEF94CA00D3DD3C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 23EA657F1AEF94CA00D3DD3C /* Festookv2 */;
+			target = 23EA657F1AEF94CA00D3DD3C /* Festook */;
 			targetProxy = 23EA659A1AEF94CA00D3DD3C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -587,6 +588,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Eduard Bonada Cruells (H5EY9L82MX)";
 				INFOPLIST_FILE = Festookv2/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -602,6 +604,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Eduard Bonada Cruells (H5EY9L82MX)";
 				INFOPLIST_FILE = Festookv2/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -628,7 +631,7 @@
 				INFOPLIST_FILE = Festookv2Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Festookv2.app/Festookv2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Festook.app/Festook";
 			};
 			name = Debug;
 		};
@@ -643,7 +646,7 @@
 				INFOPLIST_FILE = Festookv2Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Festookv2.app/Festookv2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Festook.app/Festook";
 			};
 			name = Release;
 		};
@@ -659,7 +662,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		23EA65A31AEF94CA00D3DD3C /* Build configuration list for PBXNativeTarget "Festookv2" */ = {
+		23EA65A31AEF94CA00D3DD3C /* Build configuration list for PBXNativeTarget "Festook" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				23EA65A41AEF94CA00D3DD3C /* Debug */,
@@ -668,7 +671,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		23EA65A61AEF94CA00D3DD3C /* Build configuration list for PBXNativeTarget "Festookv2Tests" */ = {
+		23EA65A61AEF94CA00D3DD3C /* Build configuration list for PBXNativeTarget "FestookTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				23EA65A71AEF94CA00D3DD3C /* Debug */,

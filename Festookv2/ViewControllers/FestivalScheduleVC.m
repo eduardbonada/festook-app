@@ -463,7 +463,7 @@
     //NSLog(@"%@", [[NSUserDefaults standardUserDefaults] dictionaryRepresentation]);
     NSString *reminderTime = [defaults objectForKey:@"reminderBeforeConcert"];
     if(!reminderTime){
-        reminderTime = @"15"; // Minutes before concert
+        reminderTime = @"None"; // Minutes before concert
         [defaults setObject:reminderTime forKey:@"reminderBeforeConcert"];
         [defaults synchronize];
     }
@@ -560,7 +560,7 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *reminderTime = [defaults objectForKey:@"reminderBeforeConcert"];
     if(!reminderTime){
-        reminderTime = @"15"; // Minutes before concert
+        reminderTime = @"None"; // Minutes before concert
         [defaults setObject:reminderTime forKey:@"reminderBeforeConcert"];
         [defaults synchronize];
     }
