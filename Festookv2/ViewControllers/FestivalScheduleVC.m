@@ -269,9 +269,12 @@
     }
     
     // temporary date cretion
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    /*
+     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat=@"dd/MM/yyyy HH:mm";
-    NSDate* date = [dateFormatter dateFromString:@"29/04/2015 22:05"];
+    NSDate* date = [dateFormatter dateFromString:@"29/05/2015 20:05"];
+     */
+    NSDate* date = [NSDate date];
 
     if(originalNumberOfSegments != self.daysSegmentedControl.numberOfSegments){
         if( ([self.festival.start compare:date] == NSOrderedAscending) && ([date compare:self.festival.end] == NSOrderedAscending) ){

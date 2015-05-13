@@ -858,6 +858,19 @@ by ebc</string>
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" alpha="0.49999999999999961" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XjO-qc-W5t" userLabel="Now Playing Button">
+                                <rect key="frame" x="556" y="124" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="FiC-TI-ioW"/>
+                                    <constraint firstAttribute="height" constant="40" id="TYw-cH-qJq"/>
+                                </constraints>
+                                <state key="normal" image="nowPlaying">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="sND-2P-3FD" kind="show" identifier="ShowNowPlaying" id="6eu-f1-Tb5"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hCK-nU-aOF" userLabel="Settings Button">
                                 <rect key="frame" x="556" y="556" width="40" height="40"/>
                                 <constraints>
@@ -872,19 +885,6 @@ by ebc</string>
                                     <action selector="settingsPressed:" destination="RgB-mr-c7u" eventType="touchUpInside" id="h4o-ih-Mf3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XjO-qc-W5t" userLabel="Now Playing Button">
-                                <rect key="frame" x="556" y="508" width="40" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="cel-Nb-gtK"/>
-                                    <constraint firstAttribute="width" constant="40" id="xyx-g7-4cM"/>
-                                </constraints>
-                                <state key="normal" title="Now">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="sND-2P-3FD" kind="show" identifier="ShowNowPlaying" id="6eu-f1-Tb5"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -892,13 +892,13 @@ by ebc</string>
                             <constraint firstAttribute="trailing" secondItem="UDC-rZ-lLS" secondAttribute="trailing" constant="16" id="5FH-jG-bUg"/>
                             <constraint firstItem="5dI-IO-Nl2" firstAttribute="top" secondItem="TQO-Me-iOu" secondAttribute="bottom" constant="36" id="6J7-yj-hQ8"/>
                             <constraint firstItem="vfo-rw-DDs" firstAttribute="top" secondItem="iq1-JD-e0j" secondAttribute="bottom" id="8uu-N8-pgU"/>
+                            <constraint firstItem="XjO-qc-W5t" firstAttribute="top" secondItem="UDC-rZ-lLS" secondAttribute="bottom" constant="24" id="AU0-Tv-K0c"/>
                             <constraint firstAttribute="trailing" secondItem="e09-xH-wGK" secondAttribute="trailing" id="AwF-In-eQZ"/>
-                            <constraint firstItem="hCK-nU-aOF" firstAttribute="top" secondItem="XjO-qc-W5t" secondAttribute="bottom" constant="8" id="Axr-8N-fuI"/>
                             <constraint firstAttribute="trailing" secondItem="5dI-IO-Nl2" secondAttribute="trailing" constant="16" id="FYY-zm-ClU"/>
                             <constraint firstItem="iq1-JD-e0j" firstAttribute="leading" secondItem="JJU-hk-tHe" secondAttribute="leading" id="Flo-92-MPp"/>
                             <constraint firstItem="e09-xH-wGK" firstAttribute="leading" secondItem="JJU-hk-tHe" secondAttribute="leading" id="Ggp-Da-PNL"/>
-                            <constraint firstAttribute="trailing" secondItem="XjO-qc-W5t" secondAttribute="trailing" constant="4" id="Hz1-FY-mYc"/>
                             <constraint firstItem="vfo-rw-DDs" firstAttribute="top" secondItem="hCK-nU-aOF" secondAttribute="bottom" constant="4" id="ISJ-Hf-jOU"/>
+                            <constraint firstAttribute="trailing" secondItem="XjO-qc-W5t" secondAttribute="trailing" constant="4" id="J4W-TK-qKk"/>
                             <constraint firstItem="5dI-IO-Nl2" firstAttribute="leading" secondItem="JJU-hk-tHe" secondAttribute="leading" constant="16" id="Mn2-WJ-mlp"/>
                             <constraint firstAttribute="trailing" secondItem="iq1-JD-e0j" secondAttribute="trailing" id="OOd-3n-pj6"/>
                             <constraint firstItem="Ddp-5n-Zxt" firstAttribute="top" secondItem="TQO-Me-iOu" secondAttribute="bottom" constant="44" id="R5W-qH-eCm"/>
@@ -2887,6 +2887,7 @@ This Privacy Policy may be updated from time to time for any reason. We will not
         <image name="menuIconLineup" width="128" height="128"/>
         <image name="menuIconRatings" width="128" height="128"/>
         <image name="menuIconSchedule" width="128" height="128"/>
+        <image name="nowPlaying" width="27" height="27"/>
         <image name="numBandsIcon" width="128" height="128"/>
         <image name="numStagesIcon" width="128" height="128"/>
         <image name="questionIcon" width="128" height="128"/>
@@ -2905,6 +2906,6 @@ This Privacy Policy may be updated from time to time for any reason. We will not
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="QVt-RG-mAM"/>
-        <segue reference="Bk1-aG-QO8"/>
+        <segue reference="eWK-BZ-QWP"/>
     </inferredMetricsTieBreakers>
 </document>
