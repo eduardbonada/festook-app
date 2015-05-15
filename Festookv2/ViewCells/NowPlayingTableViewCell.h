@@ -17,5 +17,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *bandName;
 @property (weak, nonatomic) IBOutlet UILabel *stage;
 @property (weak, nonatomic) IBOutlet UILabel *startEndTime;
+@property (weak, nonatomic) IBOutlet UIProgressView *concertProgressView;
 
 @end

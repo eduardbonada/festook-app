@@ -53,7 +53,7 @@
     dateFormatter.dateFormat=@"dd/MM/yyyy HH:mm";
 
     // get the bands playing right now
-    self.nowPlayingBands = [self.festival bandsPlayingAtDate:[dateFormatter dateFromString:@"29/05/2015 22:05"]]; //@[@"belleandsebastian",@"derpanther",@"damienrice",@"altj"];
+    self.nowPlayingBands = [self.festival bandsPlayingAtDate:[dateFormatter dateFromString:@"29/05/2015 22:05"] withSorting:@"progress"]; //@[@"belleandsebastian",@"derpanther",@"damienrice",@"altj"];
     
     if([self.nowPlayingBands count] > 0){
         // there are bands playing right now
@@ -140,7 +140,14 @@
     cell.bandName.attributedText = [[NSAttributedString alloc] initWithString:bandToShow.uppercaseName attributes:attributes];
     cell.stage.text = bandToShow.stage;
     cell.startEndTime.text = [NSString stringWithFormat:@"%@-%@",[hourFormatter stringFromDate:bandToShow.startTime],[hourFormatter stringFromDate:bandToShow.endTime]];
-    
+
+    // set progress view
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat=@"dd/MM/yyyy HH:mm";
+    cell.concertProgressView.tintColor = [UIColor grayColor];
+    CGFloat progress = [bandToShow.startTime timeIntervalSinceDate: [dateFormatter dateFromString:@"29/05/2015 22:05"]] / [bandToShow.startTime timeIntervalSinceDate:bandToShow.endTime];
+    cell.concertProgressView.progress = progress;
+
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
     return cell;

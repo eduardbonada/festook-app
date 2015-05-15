@@ -183,7 +183,7 @@
     return [[self.bandSimilarityCalculator.distanceBetweenBands objectForKey:bandNameA] objectForKey:bandNameB];
 }
 
--(NSArray*) bandsPlayingAtDate:(NSDate*) date
+-(NSArray*) bandsPlayingAtDate:(NSDate*) date withSorting:(NSString*) sorting
 {
     // returns and array of bandnames with that bands playing right now
 
@@ -192,10 +192,29 @@
     
     for (Band* band in [self.bands allValues]){
         if( ([band.startTime compare:date] == NSOrderedAscending) && ([date compare:band.endTime] == NSOrderedAscending) ){
-            [playingBands addObject:band.lowercaseName];
+            NSNumber *sortValue = @(0);
+            if([sorting isEqualToString:@"progress"]){
+                CGFloat progress = [band.startTime timeIntervalSinceDate:date] / [band.startTime timeIntervalSinceDate:band.endTime];
+                sortValue = @(progress);
+            }
+            else{
+                NSLog(@"ERROR in Festival:bandsPlayingAtDate => Wrong sorting option");
+            }
+            [playingBands addObject:@{@"bandname":band.lowercaseName,@"sortValue":sortValue}];
         }
     }
-    return playingBands;
+    
+    // sort array by sortValue
+    NSSortDescriptor *sortBySortValue = [NSSortDescriptor sortDescriptorWithKey:@"sortValue" ascending:NO];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortBySortValue];
+    NSArray *sortedPlayingBands = [playingBands sortedArrayUsingDescriptors:sortDescriptors];
+    
+    NSMutableArray* sortedPlayingBandsnames = [[NSMutableArray alloc] init];
+    for(NSDictionary* band in sortedPlayingBands){
+        [sortedPlayingBandsnames addObject:band[@"bandname"]];
+    }
+    
+    return sortedPlayingBandsnames;
 }
 
 #pragma mark - Update from NSUserDefaults

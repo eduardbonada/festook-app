@@ -1721,6 +1721,9 @@ by ebc</string>
                                                     <rect key="frame" x="4" y="4" width="560" height="62"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
+                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rnI-eI-7eF">
+                                                    <rect key="frame" x="16" y="60" width="536" height="2"/>
+                                                </progressView>
                                                 <imageView userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nowPlaying" translatesAutoresizingMaskIntoConstraints="NO" id="crJ-q5-egl">
                                                     <rect key="frame" x="8" y="23" width="24" height="24"/>
                                                     <constraints>
@@ -1762,20 +1765,25 @@ by ebc</string>
                                                 <constraint firstItem="3xt-fc-Ws5" firstAttribute="leading" secondItem="crJ-q5-egl" secondAttribute="trailing" constant="12" id="8BU-4y-9jT"/>
                                                 <constraint firstAttribute="trailing" secondItem="OzS-GJ-QiC" secondAttribute="trailing" constant="4" id="AiH-M4-A9D"/>
                                                 <constraint firstItem="crJ-q5-egl" firstAttribute="top" secondItem="3Xd-jM-dYO" secondAttribute="topMargin" constant="15" id="Fjc-av-owf"/>
+                                                <constraint firstAttribute="bottom" secondItem="rnI-eI-7eF" secondAttribute="bottom" constant="8" id="GyS-jW-9Hb"/>
                                                 <constraint firstAttribute="bottom" secondItem="CPy-Qm-9EQ" secondAttribute="bottom" constant="12" id="In7-xx-OXB"/>
+                                                <constraint firstItem="rnI-eI-7eF" firstAttribute="top" secondItem="CPy-Qm-9EQ" secondAttribute="bottom" constant="2" id="Rgx-zV-Yl8"/>
                                                 <constraint firstItem="3xt-fc-Ws5" firstAttribute="top" secondItem="3Xd-jM-dYO" secondAttribute="top" constant="8" id="ard-5h-hFL"/>
                                                 <constraint firstItem="OzS-GJ-QiC" firstAttribute="leading" secondItem="3Xd-jM-dYO" secondAttribute="leading" constant="4" id="ckR-El-3cq"/>
                                                 <constraint firstAttribute="bottom" secondItem="OzS-GJ-QiC" secondAttribute="bottom" constant="4" id="cx7-Aw-BAo"/>
                                                 <constraint firstItem="OzS-GJ-QiC" firstAttribute="top" secondItem="3Xd-jM-dYO" secondAttribute="top" constant="4" id="hbD-qe-z5v"/>
                                                 <constraint firstAttribute="trailing" secondItem="6zI-YE-OSr" secondAttribute="trailing" constant="16" id="iLX-XS-VUI"/>
+                                                <constraint firstAttribute="trailing" secondItem="rnI-eI-7eF" secondAttribute="trailing" constant="16" id="miU-BW-6uu"/>
                                                 <constraint firstAttribute="trailing" secondItem="CPy-Qm-9EQ" secondAttribute="trailing" constant="16" id="rGF-vz-OY6"/>
                                                 <constraint firstAttribute="bottom" secondItem="3xt-fc-Ws5" secondAttribute="bottom" constant="8" id="uDY-U4-7lV"/>
+                                                <constraint firstItem="rnI-eI-7eF" firstAttribute="leading" secondItem="3Xd-jM-dYO" secondAttribute="leading" constant="16" id="vFH-Om-GhM"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="background" destination="OzS-GJ-QiC" id="RBo-Xk-fP2"/>
                                             <outlet property="bandName" destination="3xt-fc-Ws5" id="gaI-Se-uu7"/>
+                                            <outlet property="concertProgressView" destination="rnI-eI-7eF" id="P7F-wW-WDZ"/>
                                             <outlet property="stage" destination="CPy-Qm-9EQ" id="J90-W9-DiB"/>
                                             <outlet property="startEndTime" destination="6zI-YE-OSr" id="o18-9z-uVt"/>
                                             <segue destination="2Bg-wU-Uh9" kind="show" identifier="ShowBandInfo" id="Bk1-aG-QO8"/>

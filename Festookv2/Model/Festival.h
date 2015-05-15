@@ -57,7 +57,7 @@
 -(NSArray*) stageNames;
 -(NSNumber*) hoursOfMusic;
 -(NSNumber*) distanceBetweenBands:(NSString*) bandNameA and:(NSString*) bandNameB;
--(NSArray*) bandsPlayingAtDate:(NSDate*) date;
+-(NSArray*) bandsPlayingAtDate:(NSDate*) date withSorting:(NSString*) sorting;
 
 
 /* Interface with NSUserDefaults */
