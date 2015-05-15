@@ -131,7 +131,7 @@
     else{
         bandColorDependingOnMustDiscard = [UIColor darkGrayColor];
     }
-    NSDictionary* attributes = @{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Light" size:15],
+    NSDictionary* attributes = @{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Light" size:17],
                                  NSForegroundColorAttributeName : bandColorDependingOnMustDiscard,
                                  NSParagraphStyleAttributeName : paragraphStyle};
 

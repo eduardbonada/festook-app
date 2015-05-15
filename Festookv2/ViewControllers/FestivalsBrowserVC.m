@@ -244,8 +244,8 @@
     [[UIApplication sharedApplication] showNetworkActivityIndicator];
     
     NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
-    sessionConfig.timeoutIntervalForRequest = 10.0;
-    sessionConfig.timeoutIntervalForResource = 10.0;
+    sessionConfig.timeoutIntervalForRequest = 30.0;
+    sessionConfig.timeoutIntervalForResource = 30.0;
     sessionConfig.requestCachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
     NSURLSessionDataTask *downloadTask = [[NSURLSession sessionWithConfiguration:sessionConfig]
                                           dataTaskWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@/%@/%@",SERVER,FOLDER,@"getUserID.php"]]
@@ -302,8 +302,8 @@
             dispatch_async(dispatch_get_main_queue(), ^{ [[UIApplication sharedApplication] showNetworkActivityIndicator]; });
             
             NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
-            sessionConfig.timeoutIntervalForRequest = 10.0;
-            sessionConfig.timeoutIntervalForResource = 10.0;
+            sessionConfig.timeoutIntervalForRequest = 30.0;
+            sessionConfig.timeoutIntervalForResource = 30.0;
             sessionConfig.requestCachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
             //NSLog(@"%@",[NSString stringWithFormat:@"http://%@/%@/listFestivals.txt",SERVER,FOLDER]);
             NSURLSessionDataTask *downloadTask = [[NSURLSession sessionWithConfiguration:sessionConfig]
@@ -459,8 +459,8 @@
         [[UIApplication sharedApplication] showNetworkActivityIndicator];
 
         NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
-        sessionConfig.timeoutIntervalForRequest = 10.0;
-        sessionConfig.timeoutIntervalForResource = 10.0;
+        sessionConfig.timeoutIntervalForRequest = 30.0;
+        sessionConfig.timeoutIntervalForResource = 30.0;
         sessionConfig.requestCachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
         NSURLSessionDataTask *downloadTask = [[NSURLSession sessionWithConfiguration:sessionConfig]
                                               dataTaskWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@/%@/%@",SERVER,FOLDER,[file objectForKey:@"filename"]]]
