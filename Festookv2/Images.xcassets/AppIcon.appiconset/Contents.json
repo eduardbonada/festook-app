@@ -3,37 +3,37 @@
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "festook_icon_58.png",
+      "filename" : "festook_icon_sat_58.png",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "festook_icon_87.png",
+      "filename" : "festook_icon_sat_87.png",
       "scale" : "3x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "festook_icon_80.png",
+      "filename" : "festook_icon_sat_80.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "festook_icon_120.png",
+      "filename" : "festook_icon_sat_120.png",
       "scale" : "3x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "festook_icon_120-1.png",
+      "filename" : "festook_icon_sat_120-1.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "festook_icon_180.png",
+      "filename" : "festook_icon_sat_180.png",
       "scale" : "3x"
     }
   ],

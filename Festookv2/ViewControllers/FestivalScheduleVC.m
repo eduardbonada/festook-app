@@ -271,22 +271,26 @@
         segmentCounter++;
     }
     
-    // temporary date cretion
-    /*
-     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    // now date creation
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat=@"dd/MM/yyyy HH:mm";
-    NSDate* date = [dateFormatter dateFromString:@"29/05/2015 20:05"];
-     */
-    NSDate* date = [NSDate date];
-
+    NSDate* now = [NSDate date]; // [dateFormatter dateFromString:@"29/05/2015 20:05"];
+    
     if(originalNumberOfSegments != self.daysSegmentedControl.numberOfSegments){
-        if( ([self.festival.start compare:date] == NSOrderedAscending) && ([date compare:self.festival.end] == NSOrderedAscending) ){
+        if( ([self.festival.start compare:now] == NSOrderedAscending) && ([now compare:self.festival.end] == NSOrderedAscending) ){
             // if date is during the festival, select the right day
 
             NSDateFormatter *dayFormatter = [[NSDateFormatter alloc] init];
             dayFormatter.dateFormat=@"dd";
-            NSString* dayNumber = [dayFormatter stringFromDate:date];
-        
+            NSString* dayNumber = [dayFormatter stringFromDate:now];
+            
+            NSDateFormatter *hourFormatter = [[NSDateFormatter alloc] init];
+            hourFormatter.dateFormat=@"HH";
+            NSInteger hour = [[hourFormatter stringFromDate: now] integerValue];
+            if(hour < 9){
+                dayNumber = @([dayNumber integerValue] - 1).stringValue;
+            }
+
             for(NSInteger index=0 ; index<self.daysSegmentedControl.numberOfSegments ; index++){
                 if( [[self.daysSegmentedControl titleForSegmentAtIndex:index] isEqualToString:dayNumber] ){
                     self.currentDayShown = @(index);
@@ -776,7 +780,6 @@
 #define ConcertWidth    100.0
 #define CommonMargin    2.0
 #define BottomBarHeight 50.0
-
 -(UIImage*) generateScheduleImage
 {
     // text attributes
