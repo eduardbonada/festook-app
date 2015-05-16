@@ -423,7 +423,7 @@ by ebc</string>
                                     <action selector="dismissAbout:" destination="Nt5-wO-8nY" eventType="touchUpInside" id="3rp-4s-n50"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Festook version 2.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eui-vB-Wc1">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Festook version 2.1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eui-vB-Wc1">
                                 <rect key="frame" x="16" y="571" width="172" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="BCu-uU-xxx"/>
@@ -1721,7 +1721,7 @@ by ebc</string>
                                                     <rect key="frame" x="4" y="4" width="560" height="62"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
-                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rnI-eI-7eF">
+                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rnI-eI-7eF">
                                                     <rect key="frame" x="16" y="60" width="536" height="2"/>
                                                 </progressView>
                                                 <imageView userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nowPlaying" translatesAutoresizingMaskIntoConstraints="NO" id="crJ-q5-egl">

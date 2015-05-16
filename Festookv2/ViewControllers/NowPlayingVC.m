@@ -14,6 +14,8 @@
 #import "NowPlayingTableViewCell.h"
 #import "BandInfoVC.h"
 
+#import "Flurry.h"
+
 @interface NowPlayingVC ()
 
 @property (weak, nonatomic) IBOutlet EbcEnhancedView *backgroundView;
@@ -31,6 +33,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self logPresenceEventInFlurry];
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -53,7 +57,8 @@
     dateFormatter.dateFormat=@"dd/MM/yyyy HH:mm";
 
     // get the bands playing right now
-    self.nowPlayingBands = [self.festival bandsPlayingAtDate:[dateFormatter dateFromString:@"29/05/2015 22:05"] withSorting:@"progress"]; //@[@"belleandsebastian",@"derpanther",@"damienrice",@"altj"];
+    NSDate *now = [NSDate date]; //[dateFormatter dateFromString:@"29/05/2015 22:05"]
+    self.nowPlayingBands = [self.festival bandsPlayingAtDate:now withSorting:@"progress"]; //@[@"belleandsebastian",@"derpanther",@"damienrice",@"altj"];
     
     if([self.nowPlayingBands count] > 0){
         // there are bands playing right now
@@ -89,6 +94,11 @@
             }
         }
     }
+}
+
+-(void)logPresenceEventInFlurry
+{
+    [Flurry logEvent:@"Now_Playing_Shown" withParameters:@{@"userID":self.userID,@"festival":self.festival.lowercaseName}];
 }
 
 #pragma mark - Table view data source
@@ -144,9 +154,18 @@
     // set progress view
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat=@"dd/MM/yyyy HH:mm";
-    cell.concertProgressView.tintColor = [UIColor grayColor];
-    CGFloat progress = [bandToShow.startTime timeIntervalSinceDate: [dateFormatter dateFromString:@"29/05/2015 22:05"]] / [bandToShow.startTime timeIntervalSinceDate:bandToShow.endTime];
-    cell.concertProgressView.progress = progress;
+    NSDate* now = [NSDate date]; //[dateFormatter dateFromString:@"29/05/2015 22:05"]
+    cell.concertProgressView.trackTintColor = [UIColor colorWithWhite:0.8 alpha:1.0];
+    cell.concertProgressView.progressTintColor = [UIColor colorWithWhite:0.6 alpha:1.0];
+    CGFloat progress = [bandToShow.startTime timeIntervalSinceDate: now] / [bandToShow.startTime timeIntervalSinceDate:bandToShow.endTime];
+    
+    // present progress view
+    double delayInSeconds = 0.5;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [cell.concertProgressView setProgress:progress animated:YES];
+    });
+    
 
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     

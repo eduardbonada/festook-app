@@ -206,7 +206,7 @@
                                                   alertControllerWithTitle:@"Missing Data"
                                                   message:@"The festival data could not be downloaded."
                                                   preferredStyle:UIAlertControllerStyleAlert];
-            [alertController.view setTintColor:[UIColor darkGrayColor]];
+            [alertController.view setTintColor:[UIColor grayColor]];
             UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){}];
             [alertController addAction:okAction];
             [self presentViewController:alertController animated:YES completion:nil];
@@ -332,7 +332,7 @@
                                               alertControllerWithTitle:@"No Internet Connection"
                                               message:@"Festook is trying to update festivals data."
                                               preferredStyle:UIAlertControllerStyleAlert];
-        [alertController.view setTintColor:[UIColor darkGrayColor]];
+        [alertController.view setTintColor:[UIColor grayColor]];
         UIAlertAction *tryAgainAction = [UIAlertAction actionWithTitle:@"Try again"
                                                                  style:UIAlertActionStyleDefault
                                                                handler:^(UIAlertAction *action){
