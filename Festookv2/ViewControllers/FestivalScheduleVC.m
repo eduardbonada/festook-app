@@ -746,7 +746,7 @@
 {
     [self logScheduleSharingInFlurry];
 
-    NSString *textToShare = [NSString stringWithFormat:@"My schedule for '%@'. Get yours with @festook app!",self.festival.uppercaseName];
+    NSString *textToShare = [NSString stringWithFormat:@"My schedule for #%@. Get yours at @festook! #%@",self.festival.hashtagOfficial, self.festival.hashtagFestook];
     
     UIImage *imageToShare = [self generateScheduleImage];
 

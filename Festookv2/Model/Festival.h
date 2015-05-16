@@ -30,6 +30,8 @@
 @property (nonatomic, strong) NSDictionary  *bandDistanceFile;
 @property (nonatomic, strong) NSString      *festivalId;
 @property (nonatomic, strong) NSString      *state;
+@property (nonatomic, strong) NSString      *hashtagFestook;
+@property (nonatomic, strong) NSString      *hashtagOfficial;
 
 /* time-limits */
 @property (nonatomic, strong) NSDate *start;

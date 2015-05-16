@@ -41,6 +41,8 @@
         self.bandDistanceFile = [dict objectForKey:@"bandDistanceFile"];
         self.state = [dict objectForKey:@"state"];
         self.festivalId = [dict objectForKey:@"festivalId"];
+        self.hashtagFestook = [dict objectForKey:@"hashtagFestook"];
+        self.hashtagOfficial = [dict objectForKey:@"hashtagOfficial"];
 
         // initialize festival state that refers to must/discarded bands
         self.mustBands      = [[NSMutableDictionary alloc] init];
