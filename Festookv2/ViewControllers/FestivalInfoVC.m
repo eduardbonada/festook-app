@@ -282,7 +282,12 @@
 - (IBAction)youtubeButtonPressed:(UIButton *)sender
 {
     NSString* youtubeUrl = @"";
-    youtubeUrl = [[NSString alloc] initWithFormat:@"http://www.youtube.com/%@",self.festival.youtube];
+    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"youtube://"]]){
+        youtubeUrl = [[NSString alloc] initWithFormat:@"youtube://www.youtube.com/c/%@",self.festival.youtube];
+    }
+    else{
+        youtubeUrl = [[NSString alloc] initWithFormat:@"http://www.youtube.com/%@",self.festival.youtube];
+    }
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:youtubeUrl]];
     
     [self logSocialClickEventInFlurry:@"youtube"];
