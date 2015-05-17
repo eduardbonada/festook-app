@@ -295,37 +295,55 @@
         }
     }
     
+    // check if 'listFestivals.txt' has been downloaded during the last hour
+    NSString *path;
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
+    path = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"listFestivals.txt"];
+    NSDictionary* pathAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:path error:nil];
+    NSDate *localDate;
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ssZ";
+    if (pathAttributes != nil) {
+        localDate = (NSDate*)[pathAttributes objectForKey: NSFileModificationDate];
+    }
+    else{
+        localDate = [dateFormatter dateFromString:@"2000-01-01T00:00:00Z"];
+    }
+    BOOL downloadListFestivals = ([[localDate dateByAddingTimeInterval:3600] compare:[NSDate date]] == NSOrderedAscending) ? YES : NO ;
+    
     // update 'listFestivals.txt' file from server
-    if( [[Connectability reachabilityForInternetConnection] currentReachabilityStatus] != NotReachable){
-        dispatch_queue_t gettingListFestivalsQ = dispatch_queue_create("gettingListFestivalsQ", NULL);
-        dispatch_async(gettingListFestivalsQ, ^{
-            dispatch_async(dispatch_get_main_queue(), ^{ [[UIApplication sharedApplication] showNetworkActivityIndicator]; });
-            
-            NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
-            sessionConfig.timeoutIntervalForRequest = 30.0;
-            sessionConfig.timeoutIntervalForResource = 30.0;
-            sessionConfig.requestCachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
-            //NSLog(@"%@",[NSString stringWithFormat:@"http://%@/%@/listFestivals.txt",SERVER,FOLDER]);
-            NSURLSessionDataTask *downloadTask = [[NSURLSession sessionWithConfiguration:sessionConfig]
-                                                  dataTaskWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@/%@/listFestivals.txt",SERVER,FOLDER]]
-                                                  completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                                      if(!error){
-                                                          //NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
-                                                          NSArray  *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
-                                                          NSString *appSupportDirectory = [paths objectAtIndex:0];
-                                                          NSString *filePath = [NSString stringWithFormat:@"%@/%@", appSupportDirectory,@"listFestivals.txt"];
-                                                          [data writeToFile:filePath atomically:YES];
-                                                      }
-                                                      dispatch_async(dispatch_get_main_queue(), ^{
-                                                          [[UIApplication sharedApplication] hideNetworkActivityIndicator];
-                                                          [self loadFestivalsData];
-                                                          self.emptyListText.hidden = YES;
-                                                          self.emptyListTextBackground.hidden = YES;
-                                                      });
-                                                  }];
-            [downloadTask resume];
-            
-        });
+    if([[Connectability reachabilityForInternetConnection] currentReachabilityStatus] != NotReachable){
+        if(downloadListFestivals){
+            dispatch_queue_t gettingListFestivalsQ = dispatch_queue_create("gettingListFestivalsQ", NULL);
+            dispatch_async(gettingListFestivalsQ, ^{
+                dispatch_async(dispatch_get_main_queue(), ^{ [[UIApplication sharedApplication] showNetworkActivityIndicator]; });
+                
+                NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
+                sessionConfig.timeoutIntervalForRequest = 30.0;
+                sessionConfig.timeoutIntervalForResource = 30.0;
+                sessionConfig.requestCachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
+                //NSLog(@"%@",[NSString stringWithFormat:@"http://%@/%@/listFestivals.txt",SERVER,FOLDER]);
+                NSURLSessionDataTask *downloadTask = [[NSURLSession sessionWithConfiguration:sessionConfig]
+                                                      dataTaskWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@/%@/listFestivals.txt",SERVER,FOLDER]]
+                                                      completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                          if(!error){
+                                                              //NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+                                                              NSArray  *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
+                                                              NSString *appSupportDirectory = [paths objectAtIndex:0];
+                                                              NSString *filePath = [NSString stringWithFormat:@"%@/%@", appSupportDirectory,@"listFestivals.txt"];
+                                                              [data writeToFile:filePath atomically:YES];
+                                                          }
+                                                          dispatch_async(dispatch_get_main_queue(), ^{
+                                                              [[UIApplication sharedApplication] hideNetworkActivityIndicator];
+                                                              [self loadFestivalsData];
+                                                              self.emptyListText.hidden = YES;
+                                                              self.emptyListTextBackground.hidden = YES;
+                                                          });
+                                                      }];
+                [downloadTask resume];
+                
+            });
+        }
     }
     else{
         UIAlertController *alertController = [UIAlertController
@@ -453,8 +471,11 @@
     //NSLog(@"Local Date: %@", [localDate description]);
     //NSLog(@"Server Date: %@", [serverDate description]);
     
+    // check if file has been downloaded during the last hour
+    BOOL downloadFile = ([[localDate dateByAddingTimeInterval:3600] compare:[NSDate date]] == NSOrderedAscending) ? YES : NO ;
+    
     // update file from server, if the serverDate is newer
-    if([serverDate compare:localDate] == NSOrderedDescending){
+    if(downloadFile && [serverDate compare:localDate] == NSOrderedDescending){
         
         [[UIApplication sharedApplication] showNetworkActivityIndicator];
 

@@ -14,12 +14,14 @@
 			"twitter":"primavera_sound",
 			"facebook":"156656398155",
 			"youtube":"primavera_sound",
-			"listBandsFile" : { "filename" : "ps2015_listBands.txt" , "lastUpdate" : "2015-05-09T10:00:00+2" },
-			"bandDistanceFile" : { "filename" : "ps2015_echonestDB10_bandDistance.txt" , "lastUpdate" : "2015-05-09T17:00:00+2" }
+			"hashtagFestook":"FestookAtPS2015",
+			"hashtagOfficial":"PS2015",
+			"listBandsFile" : { "filename" : "ps2015_listBands.txt" , "lastUpdate" : "2015-05-17T18:00:00+2" },
+			"bandDistanceFile" : { "filename" : "ps2015_echonestDB12-lastfmDB12_bandDistance.txt" , "lastUpdate" : "2015-05-17T18:00:00+2" }
 		},
 	"sonar2015" : 
 		{
-			"festivalId" : "3",
+			"festivalId" : "2",
 			"state" : "inactive",
 			"lowercaseName" : "sonar2015",
 			"uppercaseName" : "Sónar 2015",
