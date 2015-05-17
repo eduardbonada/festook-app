@@ -348,7 +348,7 @@
     else{
         UIAlertController *alertController = [UIAlertController
                                               alertControllerWithTitle:@"No Internet Connection"
-                                              message:@"Festook is trying to update festivals data."
+                                              message:@"Festook is trying to update festivals information.\nYou can still use the app with the data you already have."
                                               preferredStyle:UIAlertControllerStyleAlert];
         [alertController.view setTintColor:[UIColor grayColor]];
         UIAlertAction *tryAgainAction = [UIAlertAction actionWithTitle:@"Try again"
@@ -358,7 +358,7 @@
                                                                }];
         [alertController addAction:tryAgainAction];
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
-                                                                 style:UIAlertActionStyleDefault
+                                                                 style:UIAlertActionStyleCancel
                                                                handler:^(UIAlertAction *action){
                                                                    // Continue with the current local list of festivals
                                                                    if([self.festivals count] == 0){
