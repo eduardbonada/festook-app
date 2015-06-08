@@ -34,7 +34,11 @@
     NSError *error;
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
     NSString *applicationSupportDirectory = [paths objectAtIndex:0];
-    NSArray* fileNames = @[@"listFestivals.txt",@"ps2015_echonestDB12-lastfmDB12_bandDistance.txt",@"ps2015_listBands.txt"];
+    NSArray* fileNames = @[@"listFestivals.txt",
+                           @"ps2015_listBands.txt",
+                           @"ps2015_echonestDB12-lastfmDB12_bandDistance.txt",
+                           @"sonar2015_listBands.txt",
+                           @"sonar2015_echonestDB15-lastfmDB15_bandDistance.txt"];
     for(NSString* fileName in fileNames){
         NSString *appSupportFilePath = [applicationSupportDirectory stringByAppendingPathComponent:fileName];
         if ([fileManager fileExistsAtPath:appSupportFilePath] == NO) {

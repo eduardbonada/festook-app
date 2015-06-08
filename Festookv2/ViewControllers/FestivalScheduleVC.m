@@ -735,8 +735,6 @@
     [self performSegueWithIdentifier:@"ShowNowPlaying" sender:self];
 }
 
-
-#pragma mark - Sharing
 - (IBAction)sharingPressed:(UIBarButtonItem *)sender
 {
     [self shareSchedule];
@@ -746,7 +744,7 @@
 {
     [self logScheduleSharingInFlurry];
 
-    NSString *textToShare = [NSString stringWithFormat:@"My schedule for #%@. Get yours at @festook! #%@",self.festival.hashtagOfficial, self.festival.hashtagFestook];
+    NSString *textToShare = [NSString stringWithFormat:@"My schedule for #%@. Get yours with @festook!",self.festival.hashtagOfficial];
     
     UIImage *imageToShare = [self generateScheduleImage];
 

@@ -277,11 +277,14 @@
 -(void) addBand:(Band*) band inFreeSlotIndex:(NSInteger) freeSlotIndex
 {
     
-    // add band to array of attending bands
-    [self.bandsToAttend setObject:[self.festival.bands objectForKey:band.lowercaseName] forKey:band.lowercaseName];
-    
-    // update the free slot that now is filled with the band
-    [self updateFreeSlot:freeSlotIndex afterAddingBand:band];
+    if(freeSlotIndex >= 0){
+        [self.bandsToAttend setObject:[self.festival.bands objectForKey:band.lowercaseName] forKey:band.lowercaseName];
+        [self updateFreeSlot:freeSlotIndex afterAddingBand:band];
+    }
+    else if([band.bandSimilarityToMustBands  isEqual: @(1.0)]){
+        // force adding the band if it is a mustBand => !!! should also update the corresponding free slot
+        [self.bandsToAttend setObject:[self.festival.bands objectForKey:band.lowercaseName] forKey:band.lowercaseName];
+    }
 
 }
 
@@ -295,7 +298,7 @@
     // remove old free slot
     [self.freeSlots removeObjectAtIndex:(NSUInteger)freeSlotIndex];
     
-    // create new slot(s) after adding the band concert (both for "FullConcert" and "SecondHalfConcert")
+    // create new slot(s) after adding the band concert (for all algorithm modes)
     if([self.algorithmMode isEqualToString:@"FullConcert"]
        || [self.algorithmMode isEqualToString:@"FullConcertWithFreeTime"]
        || [self.algorithmMode isEqualToString:@"SecondHalfConcert"]
@@ -353,13 +356,6 @@
 
 }
 
--(void) removeBandFromSchedule:(Band*) band
-{
-    /*
-     should update bandSlots, freeSlots, bandsToAttend,...
-     */
-}
-
 
 #pragma mark - Schedule calculation
 
@@ -409,10 +405,9 @@
         
         for(NSString* bandString in bandsSortedBySimilarity){
             Band* band = [self.festival.bands objectForKey:bandString];
+            
             NSInteger freeSlotIndex = [self isThereAFreeSlotBetweenDate: band.startTime andDate:band.endTime];
-            if(freeSlotIndex >= 0){
-                [self addBand:band inFreeSlotIndex:freeSlotIndex];
-            }
+            [self addBand:band inFreeSlotIndex:freeSlotIndex];
             
             /*
              TODO: break if schedule is full
@@ -432,9 +427,7 @@
             NSDate* endWithFreetime = ([band.endTime compare:self.festival.end]==NSOrderedSame) ? band.endTime : [band.endTime dateByAddingTimeInterval:+minutes*60];
             
             NSInteger freeSlotIndex = [self isThereAFreeSlotBetweenDate:startWithFreeTime andDate:endWithFreetime];
-            if(freeSlotIndex >= 0){
-                [self addBand:band inFreeSlotIndex:freeSlotIndex];
-            }
+            [self addBand:band inFreeSlotIndex:freeSlotIndex];
             
             /*
              TODO: break if schedule is full
@@ -448,11 +441,10 @@
             Band* band = [self.festival.bands objectForKey:bandString];
             
             NSDate* halfConcert = [band.startTime dateByAddingTimeInterval:[band.endTime timeIntervalSinceDate:band.startTime]/2];
-            NSInteger freeSlotIndex = [self isThereAFreeSlotBetweenDate: halfConcert andDate:band.endTime];
-            if(freeSlotIndex >= 0){
-                [self addBand:band inFreeSlotIndex:freeSlotIndex];
-            }
             
+            NSInteger freeSlotIndex = [self isThereAFreeSlotBetweenDate: halfConcert andDate:band.endTime];
+            [self addBand:band inFreeSlotIndex:freeSlotIndex];
+
             /*
              TODO: break if schedule is full
              */
@@ -465,10 +457,10 @@
             Band* band = [self.festival.bands objectForKey:bandString];
             
             NSDate* lastHalfHour = [band.endTime dateByAddingTimeInterval:-30*60];
+            
             NSInteger freeSlotIndex = [self isThereAFreeSlotBetweenDate: lastHalfHour andDate:band.endTime];
-            if(freeSlotIndex >= 0){
-                [self addBand:band inFreeSlotIndex:freeSlotIndex];
-            }
+            [self addBand:band inFreeSlotIndex:freeSlotIndex];
+            
             
             /*
              TODO: break if schedule is full

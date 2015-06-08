@@ -10,6 +10,11 @@
 		231CC2711AF9714500AFEE0D /* LaunchFestook.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 231CC2701AF9714500AFEE0D /* LaunchFestook.storyboard */; };
 		232A17671AF7766A00489406 /* ConcertRatingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 232A17661AF7766A00489406 /* ConcertRatingsVC.m */; };
 		23381B3B1AF78316005F52C8 /* ConcertRatingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23381B3A1AF78316005F52C8 /* ConcertRatingTableViewCell.m */; };
+		2344130A1B260743009E9E1E /* sonar2015_echonestDB15-lastfmDB15_bandDistance.txt in Resources */ = {isa = PBXBuildFile; fileRef = 234413081B260743009E9E1E /* sonar2015_echonestDB15-lastfmDB15_bandDistance.txt */; };
+		2344130E1B260758009E9E1E /* ps2015_echonestDB12-lastfmDB12_bandDistance.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2344130C1B260758009E9E1E /* ps2015_echonestDB12-lastfmDB12_bandDistance.txt */; };
+		234413131B260AE5009E9E1E /* listFestivals.txt in Resources */ = {isa = PBXBuildFile; fileRef = 234413121B260AE5009E9E1E /* listFestivals.txt */; };
+		234413171B260BCB009E9E1E /* ps2015_listBands.txt in Resources */ = {isa = PBXBuildFile; fileRef = 234413161B260BCB009E9E1E /* ps2015_listBands.txt */; };
+		234413191B260BD1009E9E1E /* sonar2015_listBands.txt in Resources */ = {isa = PBXBuildFile; fileRef = 234413181B260BD1009E9E1E /* sonar2015_listBands.txt */; };
 		235955221B03642B004B4125 /* libFlurry_6.4.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 235955211B03642B004B4125 /* libFlurry_6.4.0.a */; };
 		235955251B036978004B4125 /* NowPlayingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 235955241B036978004B4125 /* NowPlayingVC.m */; };
 		235955281B038023004B4125 /* NowPlayingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 235955271B038023004B4125 /* NowPlayingTableViewCell.m */; };
@@ -17,9 +22,6 @@
 		238070621AF4BE39009DE4B8 /* LegalTextVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 238070611AF4BE39009DE4B8 /* LegalTextVC.m */; };
 		23B4A0331AFA1E6B00CAA651 /* WalkthroughRootVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B4A0321AFA1E6B00CAA651 /* WalkthroughRootVC.m */; };
 		23B4A0361AFA1E9400CAA651 /* WalkthroughPageContentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B4A0351AFA1E9400CAA651 /* WalkthroughPageContentVC.m */; };
-		23E5A4121B08E90B00B3FE1C /* ps2015_echonestDB12-lastfmDB12_bandDistance.txt in Resources */ = {isa = PBXBuildFile; fileRef = 23E5A40F1B08E90B00B3FE1C /* ps2015_echonestDB12-lastfmDB12_bandDistance.txt */; };
-		23E5A4131B08E90B00B3FE1C /* ps2015_listBands.txt in Resources */ = {isa = PBXBuildFile; fileRef = 23E5A4101B08E90B00B3FE1C /* ps2015_listBands.txt */; };
-		23E5A4151B08EA5C00B3FE1C /* listFestivals.txt in Resources */ = {isa = PBXBuildFile; fileRef = 23E5A4141B08EA5C00B3FE1C /* listFestivals.txt */; };
 		23EA65861AEF94CA00D3DD3C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EA65851AEF94CA00D3DD3C /* main.m */; };
 		23EA65A01AEF94CA00D3DD3C /* Festookv2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EA659F1AEF94CA00D3DD3C /* Festookv2Tests.m */; };
 		23EA65AB1AEF95E100D3DD3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23EA65A91AEF95E100D3DD3C /* Main.storyboard */; };
@@ -65,6 +67,11 @@
 		232A17661AF7766A00489406 /* ConcertRatingsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConcertRatingsVC.m; sourceTree = "<group>"; };
 		23381B391AF78316005F52C8 /* ConcertRatingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConcertRatingTableViewCell.h; sourceTree = "<group>"; };
 		23381B3A1AF78316005F52C8 /* ConcertRatingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConcertRatingTableViewCell.m; sourceTree = "<group>"; };
+		234413081B260743009E9E1E /* sonar2015_echonestDB15-lastfmDB15_bandDistance.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "sonar2015_echonestDB15-lastfmDB15_bandDistance.txt"; sourceTree = "<group>"; };
+		2344130C1B260758009E9E1E /* ps2015_echonestDB12-lastfmDB12_bandDistance.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "ps2015_echonestDB12-lastfmDB12_bandDistance.txt"; sourceTree = "<group>"; };
+		234413121B260AE5009E9E1E /* listFestivals.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = listFestivals.txt; sourceTree = "<group>"; };
+		234413161B260BCB009E9E1E /* ps2015_listBands.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ps2015_listBands.txt; sourceTree = "<group>"; };
+		234413181B260BD1009E9E1E /* sonar2015_listBands.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sonar2015_listBands.txt; sourceTree = "<group>"; };
 		235955201B03642B004B4125 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
 		235955211B03642B004B4125 /* libFlurry_6.4.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_6.4.0.a; sourceTree = "<group>"; };
 		235955231B036978004B4125 /* NowPlayingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NowPlayingVC.h; sourceTree = "<group>"; };
@@ -79,9 +86,6 @@
 		23B4A0321AFA1E6B00CAA651 /* WalkthroughRootVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalkthroughRootVC.m; sourceTree = "<group>"; };
 		23B4A0341AFA1E9400CAA651 /* WalkthroughPageContentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalkthroughPageContentVC.h; sourceTree = "<group>"; };
 		23B4A0351AFA1E9400CAA651 /* WalkthroughPageContentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalkthroughPageContentVC.m; sourceTree = "<group>"; };
-		23E5A40F1B08E90B00B3FE1C /* ps2015_echonestDB12-lastfmDB12_bandDistance.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "ps2015_echonestDB12-lastfmDB12_bandDistance.txt"; sourceTree = "<group>"; };
-		23E5A4101B08E90B00B3FE1C /* ps2015_listBands.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ps2015_listBands.txt; sourceTree = "<group>"; };
-		23E5A4141B08EA5C00B3FE1C /* listFestivals.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = listFestivals.txt; sourceTree = "<group>"; };
 		23EA65801AEF94CA00D3DD3C /* Festook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Festook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23EA65841AEF94CA00D3DD3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		23EA65851AEF94CA00D3DD3C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -184,9 +188,11 @@
 		23DECDDE1AFE590A0047A710 /* Initial Festival Files */ = {
 			isa = PBXGroup;
 			children = (
-				23E5A4141B08EA5C00B3FE1C /* listFestivals.txt */,
-				23E5A40F1B08E90B00B3FE1C /* ps2015_echonestDB12-lastfmDB12_bandDistance.txt */,
-				23E5A4101B08E90B00B3FE1C /* ps2015_listBands.txt */,
+				234413121B260AE5009E9E1E /* listFestivals.txt */,
+				234413161B260BCB009E9E1E /* ps2015_listBands.txt */,
+				2344130C1B260758009E9E1E /* ps2015_echonestDB12-lastfmDB12_bandDistance.txt */,
+				234413181B260BD1009E9E1E /* sonar2015_listBands.txt */,
+				234413081B260743009E9E1E /* sonar2015_echonestDB15-lastfmDB15_bandDistance.txt */,
 			);
 			name = "Initial Festival Files";
 			sourceTree = "<group>";
@@ -432,12 +438,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23E5A4151B08EA5C00B3FE1C /* listFestivals.txt in Resources */,
 				23EA65F41AEF96D800D3DD3C /* Images.xcassets in Resources */,
-				23E5A4121B08E90B00B3FE1C /* ps2015_echonestDB12-lastfmDB12_bandDistance.txt in Resources */,
+				234413171B260BCB009E9E1E /* ps2015_listBands.txt in Resources */,
+				2344130E1B260758009E9E1E /* ps2015_echonestDB12-lastfmDB12_bandDistance.txt in Resources */,
+				234413191B260BD1009E9E1E /* sonar2015_listBands.txt in Resources */,
+				234413131B260AE5009E9E1E /* listFestivals.txt in Resources */,
 				231CC2711AF9714500AFEE0D /* LaunchFestook.storyboard in Resources */,
 				23EA65AB1AEF95E100D3DD3C /* Main.storyboard in Resources */,
-				23E5A4131B08E90B00B3FE1C /* ps2015_listBands.txt in Resources */,
+				2344130A1B260743009E9E1E /* sonar2015_echonestDB15-lastfmDB15_bandDistance.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -600,7 +608,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Eduard Bonada Cruells (H5EY9L82MX)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Festookv2/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -616,7 +624,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Eduard Bonada Cruells (H5EY9L82MX)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Festookv2/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
