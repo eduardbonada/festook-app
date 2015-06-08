@@ -85,7 +85,7 @@
 
         // set labels font
         self.bandName.font          = [UIFont fontWithName:@"HelveticaNeue-Light" size:21.0];
-        self.labelAskingToGo.font   = [UIFont fontWithName:@"HelveticaNeue-Light" size:15.0];
+        self.labelAskingToGo.font   = [UIFont fontWithName:@"HelveticaNeue-Light" size:17.0];
         self.time.font              = [UIFont fontWithName:@"HelveticaNeue-Light" size:14];
         self.stage.font             = [UIFont fontWithName:@"HelveticaNeue-Light" size:14];
         self.style.font             = [UIFont fontWithName:@"HelveticaNeue-Light" size:14];
