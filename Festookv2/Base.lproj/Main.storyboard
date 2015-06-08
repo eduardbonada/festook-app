@@ -1363,15 +1363,8 @@ by ebc</string>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nl7-jc-X32">
                                         <rect key="frame" x="8" y="60" width="552" height="38"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" alpha="0.39999999999999963" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="styleIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Ivc-ik-U3D">
-                                                <rect key="frame" x="8" y="7" width="24" height="24"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="24" id="RL9-E0-Tu8"/>
-                                                    <constraint firstAttribute="height" constant="24" id="q8r-Hm-Zr1"/>
-                                                </constraints>
-                                            </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5hH-jJ-SOc">
-                                                <rect key="frame" x="40" y="2" width="507" height="34"/>
+                                                <rect key="frame" x="8" y="2" width="536" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -1379,12 +1372,10 @@ by ebc</string>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="Ivc-ik-U3D" firstAttribute="top" secondItem="Nl7-jc-X32" secondAttribute="top" constant="7" id="5Ui-sT-vPH"/>
-                                            <constraint firstItem="Ivc-ik-U3D" firstAttribute="leading" secondItem="Nl7-jc-X32" secondAttribute="leading" constant="8" id="5bn-CW-ohd"/>
-                                            <constraint firstItem="5hH-jJ-SOc" firstAttribute="top" secondItem="Nl7-jc-X32" secondAttribute="top" constant="2" id="NDq-zn-jyA"/>
-                                            <constraint firstAttribute="bottom" secondItem="5hH-jJ-SOc" secondAttribute="bottom" constant="2" id="Y02-l7-QSx"/>
-                                            <constraint firstItem="5hH-jJ-SOc" firstAttribute="leading" secondItem="Ivc-ik-U3D" secondAttribute="trailing" constant="8" id="aAx-nj-kUK"/>
-                                            <constraint firstAttribute="trailing" secondItem="5hH-jJ-SOc" secondAttribute="trailing" constant="5" id="oXv-Hz-4VK"/>
+                                            <constraint firstItem="5hH-jJ-SOc" firstAttribute="top" secondItem="Nl7-jc-X32" secondAttribute="top" constant="2" id="DfK-EM-ehb"/>
+                                            <constraint firstAttribute="bottom" secondItem="5hH-jJ-SOc" secondAttribute="bottom" constant="2" id="T2G-V7-VVM"/>
+                                            <constraint firstAttribute="trailing" secondItem="5hH-jJ-SOc" secondAttribute="trailing" constant="8" id="hhA-VN-4sQ"/>
+                                            <constraint firstItem="5hH-jJ-SOc" firstAttribute="leading" secondItem="Nl7-jc-X32" secondAttribute="leading" constant="8" id="sMy-Cr-zgR"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="15" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rU9-V4-QGy">
@@ -2914,7 +2905,6 @@ This Privacy Policy may be updated from time to time for any reason. We will not
         <image name="similarDifferentBands" width="128" height="128"/>
         <image name="stageIcon" width="128" height="128"/>
         <image name="starIcon" width="128" height="128"/>
-        <image name="styleIcon" width="128" height="128"/>
         <image name="subscribeIcon" width="128" height="128"/>
         <image name="textIcon" width="128" height="128"/>
         <image name="timeIcon" width="128" height="128"/>
