@@ -423,7 +423,7 @@ by ebc</string>
                                     <action selector="dismissAbout:" destination="Nt5-wO-8nY" eventType="touchUpInside" id="3rp-4s-n50"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Festook version 2.1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eui-vB-Wc1">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Festook version 2.1.1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eui-vB-Wc1">
                                 <rect key="frame" x="16" y="571" width="172" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="BCu-uU-xxx"/>
@@ -687,7 +687,7 @@ by ebc</string>
                                     <constraint firstAttribute="width" constant="200" id="aKC-0R-Bet"/>
                                     <constraint firstAttribute="height" constant="170" id="uSw-oT-5yz"/>
                                 </constraints>
-                                <string key="text">You still have not marked which concerts you don't want to miss. Do it and you will see this list sorted from more to less recommended.</string>
+                                <string key="text">You have no favorite concerts marked yet. Choose the concerts you don't want to miss and you will see this list sorted by most recommended for you.</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -839,7 +839,7 @@ by ebc</string>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="170" id="XvF-D4-Kw9"/>
                                         </constraints>
-                                        <string key="text">You still have not marked which concerts you don't want to miss. Do it in the Line-up tab and Festook will recommend you a schedule.</string>
+                                        <string key="text">You have no favorite concerts marked yet. Choose the concerts you don't want to miss in the Line-up tab and Festook will create a recommended schedule for you.</string>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1178,14 +1178,14 @@ by ebc</string>
                                 </connections>
                             </collectionView>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P93-hu-iod" userLabel="Empty List Container View">
-                                <rect key="frame" x="232" y="200" width="136" height="136"/>
+                                <rect key="frame" x="222" y="250" width="156" height="156"/>
                                 <subviews>
                                     <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MVu-W3-D3v" customClass="EbcEnhancedView">
-                                        <rect key="frame" x="0.0" y="0.0" width="136" height="136"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="156" height="156"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The list of festivals is empty. Check your internet connection and restart the app." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OTu-Nk-luF" userLabel="Empty List Text">
-                                        <rect key="frame" x="8" y="8" width="120" height="120"/>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oops, something went wrong... Check your internet connection and restart the app to load the list of festivals." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OTu-Nk-luF" userLabel="Empty List Text">
+                                        <rect key="frame" x="8" y="8" width="140" height="140"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -1194,11 +1194,11 @@ by ebc</string>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="OTu-Nk-luF" firstAttribute="top" secondItem="P93-hu-iod" secondAttribute="top" constant="8" id="01u-hT-nqR"/>
-                                    <constraint firstAttribute="width" constant="136" id="85E-YX-dyy"/>
+                                    <constraint firstAttribute="width" constant="156" id="85E-YX-dyy"/>
                                     <constraint firstItem="MVu-W3-D3v" firstAttribute="top" secondItem="P93-hu-iod" secondAttribute="top" id="I9w-hK-hbZ"/>
                                     <constraint firstAttribute="trailing" secondItem="MVu-W3-D3v" secondAttribute="trailing" id="KP7-gd-RkR"/>
                                     <constraint firstItem="MVu-W3-D3v" firstAttribute="leading" secondItem="P93-hu-iod" secondAttribute="leading" id="LDN-nE-fx2"/>
-                                    <constraint firstAttribute="height" constant="136" id="YSI-8t-sNW"/>
+                                    <constraint firstAttribute="height" constant="156" id="YSI-8t-sNW"/>
                                     <constraint firstAttribute="trailing" secondItem="OTu-Nk-luF" secondAttribute="trailing" constant="8" id="YsW-bJ-Vyw"/>
                                     <constraint firstAttribute="bottom" secondItem="OTu-Nk-luF" secondAttribute="bottom" constant="8" id="dB1-QY-g2z"/>
                                     <constraint firstItem="OTu-Nk-luF" firstAttribute="leading" secondItem="P93-hu-iod" secondAttribute="leading" constant="8" id="dIn-Kp-bK7"/>
@@ -1255,7 +1255,7 @@ by ebc</string>
                             <constraint firstAttribute="trailing" secondItem="cfM-9N-z1T" secondAttribute="trailing" id="uKs-Je-RDC"/>
                             <constraint firstAttribute="centerX" secondItem="Twk-DU-4Ul" secondAttribute="centerX" id="wMn-9d-udF"/>
                             <constraint firstItem="Twk-DU-4Ul" firstAttribute="top" secondItem="jpr-vP-O3r" secondAttribute="bottom" id="xD7-JB-tgO"/>
-                            <constraint firstItem="P93-hu-iod" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="136" id="zw9-fk-qir"/>
+                            <constraint firstItem="P93-hu-iod" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="186" id="zw9-fk-qir"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="04s-vd-iD6"/>
@@ -1790,12 +1790,9 @@ by ebc</string>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bJ9-9p-vSN" userLabel="Empty List View">
                                 <rect key="frame" x="190" y="117" width="219" height="126"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YPy-Kz-mG9">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="No one is playing right now, so take a break and go have a beer." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YPy-Kz-mG9">
                                         <rect key="frame" x="8" y="8" width="203" height="110"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <string key="text">Relax, 
-no one is playing
-right now.</string>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -2915,6 +2912,6 @@ This Privacy Policy may be updated from time to time for any reason. We will not
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="QVt-RG-mAM"/>
-        <segue reference="eWK-BZ-QWP"/>
+        <segue reference="Bk1-aG-QO8"/>
     </inferredMetricsTieBreakers>
 </document>
