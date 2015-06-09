@@ -192,7 +192,7 @@
     BOOL sameBand = YES;
     do {
         pairOfSimilarBands = [self.festival.bandSimilarityCalculator pairOfSimilarBandNames];
-        sameBand = [NSSet setWithArray:[pairOfSimilarBands allKeys]].count == 1 ? YES : NO ;
+        sameBand = [NSSet setWithArray:[pairOfSimilarBands allValues]].count == 2 ? YES : NO ;
     } while (sameBand);
     NSString* bandA = [((Band*)[self.festival.bands objectForKey:[pairOfSimilarBands objectForKey:@"bandA"]]) uppercaseName];
     NSString* bandB = [((Band*)[self.festival.bands objectForKey:[pairOfSimilarBands objectForKey:@"bandB"]]) uppercaseName];

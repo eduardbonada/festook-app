@@ -116,7 +116,7 @@
     NSArray* sortDescriptors = [NSArray arrayWithObject:[[NSSortDescriptor alloc] initWithKey:@"distance" ascending:YES]];
     NSArray* sortedArray = [self.allPairs sortedArrayUsingDescriptors:sortDescriptors];
     
-    // select one position of the top 5%
+    // select one position of the top 1%
     NSUInteger randomPosition = arc4random_uniform( [@([self.allPairs count]*0.01) doubleValue] );
     
     return [sortedArray objectAtIndex:randomPosition];

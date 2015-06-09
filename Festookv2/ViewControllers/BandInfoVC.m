@@ -18,18 +18,20 @@
 
 @property (weak, nonatomic) IBOutlet EbcEnhancedView *backgroundGreyBoxArtistView;
 @property (weak, nonatomic) IBOutlet UILabel *bandName;
+
+@property (weak, nonatomic) IBOutlet EbcEnhancedView *backgroundGreyBoxStyleView;
+@property (weak, nonatomic) IBOutlet UILabel *style;
+
+@property (weak, nonatomic) IBOutlet EbcEnhancedView *backgroundGreyBoxWanttogoView;
 @property (weak, nonatomic) IBOutlet UILabel *labelAskingToGo;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *mustDiscardedSegmentedControl;
 
 @property (weak, nonatomic) IBOutlet EbcEnhancedView *backgroundGreyBoxTimeView;
 @property (weak, nonatomic) IBOutlet UILabel *time;
-
-
 @property (weak, nonatomic) IBOutlet EbcEnhancedView *backgroundGreyBoxStageView;
 @property (weak, nonatomic) IBOutlet UILabel *stage;
 
-@property (weak, nonatomic) IBOutlet EbcEnhancedView *backgroundGreyBoxStyleView;
-@property (weak, nonatomic) IBOutlet UILabel *style;
+
 
 @property (weak, nonatomic) IBOutlet UIView *infoTextContainer;
 @property (weak, nonatomic) IBOutlet EbcEnhancedView *backgroundGreyBoxInfoTextView;
@@ -94,11 +96,13 @@
 
         [self configureArtistContainer];
 
+        [self configureStyleContainer];
+
+        [self configureWanttogoContainer];
+        
         [self configureTimeContainer];
         
         [self configureStageContainer];
-
-        [self configureStyleContainer];
 
         [self configureTextInfoContainer];
 
@@ -141,6 +145,14 @@
     [self.backgroundGreyBoxArtistView setBackgroundPlain:[UIColor groupTableViewBackgroundColor] withAlpha:@(1.0)];
     self.bandName.text = self.band.uppercaseName;
     
+}
+
+-(void) configureWanttogoContainer
+{
+    self.backgroundGreyBoxWanttogoView.roundedRects = YES;
+    self.backgroundGreyBoxWanttogoView.cornerRadius = @(10.0);
+    [self.backgroundGreyBoxWanttogoView setBackgroundPlain:[UIColor groupTableViewBackgroundColor] withAlpha:@(1.0)];
+    
     // configure segmented control
     [self.mustDiscardedSegmentedControl setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue-Light" size:14.0]}
                                                       forState:UIControlStateNormal];
@@ -162,6 +174,14 @@
         // it is nothing
         [self highlightMustDiscardedControlAtSegment:1];
     }
+}
+
+-(void) configureStyleContainer
+{
+    self.backgroundGreyBoxStyleView.roundedRects = YES;
+    self.backgroundGreyBoxStyleView.cornerRadius = @(10.0);
+    [self.backgroundGreyBoxStyleView setBackgroundPlain:[UIColor groupTableViewBackgroundColor] withAlpha:@(1.0)];
+    self.style.text = self.band.style;
 }
 
 -(void) configureTimeContainer
@@ -197,13 +217,7 @@
     self.stage.text = self.band.stage;
 }
 
--(void) configureStyleContainer
-{
-    self.backgroundGreyBoxStyleView.roundedRects = YES;
-    self.backgroundGreyBoxStyleView.cornerRadius = @(10.0);
-    [self.backgroundGreyBoxStyleView setBackgroundPlain:[UIColor groupTableViewBackgroundColor] withAlpha:@(1.0)];
-    self.style.text = self.band.style;
-}
+
 
 -(void) configureTextInfoContainer
 {
