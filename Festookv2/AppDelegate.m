@@ -21,7 +21,7 @@
 {
     // Flurry setup
     [Flurry setLogLevel:FlurryLogLevelNone];
-    [Flurry startSession:@"PVBDRP4HVJGR8VKMKZBN"]; // Production: PXZZJYSHB4K6TJ236SW5 - Testing: PVBDRP4HVJGR8VKMKZBN
+    [Flurry startSession:@"PXZZJYSHB4K6TJ236SW5"]; // Production: PXZZJYSHB4K6TJ236SW5 - Testing: PVBDRP4HVJGR8VKMKZBN
     
     // configuration of the page control appearance
     UIPageControl *pageControl = [UIPageControl appearance];
